@@ -16,15 +16,37 @@
 #include "can_sent.h"
 #include "dm_motor.h"
 
-void can_sent()
+void DM_CAN_SENT()
 {
     while (1)
     {
+        dm_1_4_can1_cmd(DM8009P_01_LEFT_FRONT.give_tor,
+                        DM8009P_02_RIGHT_FRONT.give_tor,
+                        DM8009P_03_RIGHT_BEHIND.give_tor,
+                        DM8009P_04_LEFT_BEHIND.give_tor);//妈妈生的，一拖四真好用，沟槽f4can资源真少
 
-        Dm_Can_Send(DM8009P_01_RIGHT_FRONT);
-        Dm_Can_Send(DM8009P_02_RIGHT_FRONT);
-        Dm_Can_Send(DM8009P_03_RIGHT_FRONT);
-        Dm_Can_Send(DM8009P_04_RIGHT_FRONT);
+        CAN1_cmd_chassis_shoot(0,0,0,0);
+
+        osDelay(1);
+    }
+
+}
+
+
+void DJI_CAN_SENT()
+{
+    while (1)
+    {
+////        首先尝试直接发送
+//        if(CAN1_cmd_chassis_shoot(0,0,0,0) == HAL_OK)
+//        {
+//
+//        } else
+//        {
+//            //存入队列
+//
+//        }
+
         osDelay(1);
     }
 

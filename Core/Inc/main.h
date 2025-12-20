@@ -32,6 +32,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "remote_control.h"
+#include "cmsis_os.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -65,6 +66,10 @@ extern int16_t mouse_vx ;
 extern int16_t mouse_vy ;
 extern int16_t mouse_press_l ;
 extern int16_t mouse_press_r ;
+
+extern osMessageQId can_DM_queneHandle;
+
+extern uint32_t can_tx_count ;
 
 /* USER CODE END ET */
 

@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "dm_motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,20 +51,21 @@ osThreadId defaultTaskHandle;
 osThreadId board_LED_taskHandle;
 osThreadId uart_sent_testHandle;
 osThreadId get_rc_taskHandle;
-osThreadId can_sent_taskHandle;
+osThreadId dm_sent_taskHandle;
 osThreadId chassisHandle;
+osThreadId dji_can_sentHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
 void board_LED(void const * argument);
 void uart_sent_debug(void const * argument);
 void get_rc(void const * argument);
-void can_sent(void const * argument);
+void DM_CAN_SENT(void const * argument);
 void CHASSIS_TASK(void const * argument);
+void DJI_CAN_SENT(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -108,6 +109,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -127,13 +129,17 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(get_rc_task, get_rc, osPriorityIdle, 0, 128);
   get_rc_taskHandle = osThreadCreate(osThread(get_rc_task), NULL);
 
-  /* definition and creation of can_sent_task */
-  osThreadDef(can_sent_task, can_sent, osPriorityIdle, 0, 128);
-  can_sent_taskHandle = osThreadCreate(osThread(can_sent_task), NULL);
+  /* definition and creation of dm_sent_task */
+  osThreadDef(dm_sent_task, DM_CAN_SENT, osPriorityIdle, 0, 128);
+  dm_sent_taskHandle = osThreadCreate(osThread(dm_sent_task), NULL);
 
   /* definition and creation of chassis */
   osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 128);
   chassisHandle = osThreadCreate(osThread(chassis), NULL);
+
+  /* definition and creation of dji_can_sent */
+  osThreadDef(dji_can_sent, DJI_CAN_SENT, osPriorityIdle, 0, 128);
+  dji_can_sentHandle = osThreadCreate(osThread(dji_can_sent), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -213,22 +219,22 @@ __weak void get_rc(void const * argument)
   /* USER CODE END get_rc */
 }
 
-/* USER CODE BEGIN Header_can_sent */
+/* USER CODE BEGIN Header_DM_CAN_SENT */
 /**
-* @brief Function implementing the can_sent_task thread.
+* @brief Function implementing the dm_sent_task thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_can_sent */
-__weak void can_sent(void const * argument)
+/* USER CODE END Header_DM_CAN_SENT */
+__weak void DM_CAN_SENT(void const * argument)
 {
-  /* USER CODE BEGIN can_sent */
+  /* USER CODE BEGIN DM_CAN_SENT */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END can_sent */
+  /* USER CODE END DM_CAN_SENT */
 }
 
 /* USER CODE BEGIN Header_CHASSIS_TASK */
@@ -247,6 +253,24 @@ __weak void CHASSIS_TASK(void const * argument)
     osDelay(1);
   }
   /* USER CODE END CHASSIS_TASK */
+}
+
+/* USER CODE BEGIN Header_DJI_CAN_SENT */
+/**
+* @brief Function implementing the dji_can_sent thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DJI_CAN_SENT */
+__weak void DJI_CAN_SENT(void const * argument)
+{
+  /* USER CODE BEGIN DJI_CAN_SENT */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END DJI_CAN_SENT */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -65,6 +65,8 @@ int16_t mouse_vx ;
 int16_t mouse_vy ;
 int16_t mouse_press_l ;
 int16_t mouse_press_r ;
+
+uint32_t can_tx_count ;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
