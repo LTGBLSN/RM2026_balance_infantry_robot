@@ -67,9 +67,14 @@ extern int16_t mouse_vy ;
 extern int16_t mouse_press_l ;
 extern int16_t mouse_press_r ;
 
-extern osMessageQId can_DM_queneHandle;
+extern uint32_t rc_receive_time  ;
 
-extern uint32_t can_tx_count ;
+extern int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
+
+extern int16_t chassis_right_3508_id1_given_current ;
+extern int16_t chassis_left_3508_id2_given_current ;
+
+
 
 /* USER CODE END ET */
 

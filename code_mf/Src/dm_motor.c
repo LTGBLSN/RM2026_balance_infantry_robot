@@ -19,25 +19,25 @@ void dm_motor_init()
 
     //第一个电机
     DM8009P_01_LEFT_FRONT.motor_type = DM8009P ;
-    DM8009P_01_LEFT_FRONT.motor_firmware = DM8009P_1_4_FIRMWARE ;
+    DM8009P_01_LEFT_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
     DM8009P_01_LEFT_FRONT.can_id = 0x01 ;
     DM8009P_01_LEFT_FRONT.can_master_id = 0x11 ;
     DM8009P_01_LEFT_FRONT.can_channel = can1 ;
     //第一个电机
     DM8009P_02_RIGHT_FRONT.motor_type = DM8009P ;
-    DM8009P_02_RIGHT_FRONT.motor_firmware = DM8009P_1_4_FIRMWARE ;
+    DM8009P_02_RIGHT_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
     DM8009P_02_RIGHT_FRONT.can_id = 0x02 ;
     DM8009P_02_RIGHT_FRONT.can_master_id = 0x12 ;
     DM8009P_02_RIGHT_FRONT.can_channel = can1 ;
     //第一个电机
     DM8009P_03_RIGHT_BEHIND.motor_type = DM8009P ;
-    DM8009P_03_RIGHT_BEHIND.motor_firmware = DM8009P_1_4_FIRMWARE ;
+    DM8009P_03_RIGHT_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
     DM8009P_03_RIGHT_BEHIND.can_id = 0x03 ;
     DM8009P_03_RIGHT_BEHIND.can_master_id = 0x13 ;
     DM8009P_03_RIGHT_BEHIND.can_channel = can1 ;
     //第一个电机
     DM8009P_04_LEFT_BEHIND.motor_type = DM8009P ;
-    DM8009P_04_LEFT_BEHIND.motor_firmware = DM8009P_1_4_FIRMWARE ;
+    DM8009P_04_LEFT_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
     DM8009P_04_LEFT_BEHIND.can_id = 0x04 ;
     DM8009P_04_LEFT_BEHIND.can_master_id = 0x14 ;
     DM8009P_04_LEFT_BEHIND.can_channel = can1 ;

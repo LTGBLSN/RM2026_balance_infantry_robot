@@ -94,7 +94,7 @@ struct dm_motor {
     //¿ØÖÆÏà¹Ø
     float give_angle;
     float give_speed;
-    int16_t give_tor;
+    float give_tor;
 };
 
 void dm_motor_init();

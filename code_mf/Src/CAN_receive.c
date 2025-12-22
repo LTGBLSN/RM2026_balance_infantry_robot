@@ -84,76 +84,91 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 get_motor_measure(&motor_can1_data[i], can1_data);
                 break;
             }
-            case 0x301:
+
+            case (0x11):
             {
-                DM8009P_01_LEFT_FRONT.last_angle = DM8009P_01_LEFT_FRONT.return_angle ;
+                int p_int;
+                int v_int;
+                int t_int;
 
-                uint16_t position = ((uint16_t)can1_data[0] << 8) | can1_data[1] ;
-                DM8009P_01_LEFT_FRONT.return_angle = (float )(((float)position / DM8009P_1_4_FIRMWARE_MAX_RETURN_ANGLE) * M_PI) ;
-
-                int16_t raw_speed = (int16_t)(((int16_t)can1_data[2] << 8) | can1_data[3]);
-                DM8009P_01_LEFT_FRONT.return_speed_rpm = (float )raw_speed / 100.0f;
-
-                DM8009P_01_LEFT_FRONT.return_tor = (int16_t)(((int16_t)can1_data[4] << 8) | can1_data[5]);
-
-                DM8009P_01_LEFT_FRONT.Tcoil = can1_data[6] ;
-                DM8009P_01_LEFT_FRONT.state = can1_data[7] ;
-
-
-
-
-            }
-            case 0x302:
-            {
-                DM8009P_02_RIGHT_FRONT.last_angle = DM8009P_02_RIGHT_FRONT.return_angle ;
-
-                uint16_t position = ((uint16_t)can1_data[0] << 8) | can1_data[1] ;
-                DM8009P_02_RIGHT_FRONT.return_angle = (float )(((float)position/DM8009P_1_4_FIRMWARE_MAX_RETURN_ANGLE)*M_PI) ;
-
-                int16_t raw_speed = (int16_t)(((int16_t)can1_data[2] << 8) | can1_data[3]);
-                DM8009P_02_RIGHT_FRONT.return_speed_rpm = (float )raw_speed / 100.0f;
-
-                DM8009P_02_RIGHT_FRONT.return_tor = (int16_t)(((int16_t)can1_data[4] << 8) | can1_data[5]);
-
-                DM8009P_02_RIGHT_FRONT.Tcoil = can1_data[6] ;
-                DM8009P_02_RIGHT_FRONT.state = can1_data[7] ;
-
+                DM8009P_01_LEFT_FRONT.state = (can1_data[0])>>4;
+                p_int = (can1_data[1] << 8) | can1_data[2];
+                v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
+                t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
+                DM8009P_01_LEFT_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_01_LEFT_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_01_LEFT_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_01_LEFT_FRONT.Tmos = (float )(can1_data[6]);
+                DM8009P_01_LEFT_FRONT.Tcoil = (float )(can1_data[7]);
                 break;
             }
-            case 0x303:
+            case (0x12):
             {
-                DM8009P_03_RIGHT_BEHIND.last_angle = DM8009P_03_RIGHT_BEHIND.return_angle ;
+                int p_int;
+                int v_int;
+                int t_int;
 
-                uint16_t position = ((uint16_t)can1_data[0] << 8) | can1_data[1] ;
-                DM8009P_03_RIGHT_BEHIND.return_angle = (float )(((float)position / DM8009P_1_4_FIRMWARE_MAX_RETURN_ANGLE) * M_PI) ;
-
-                int16_t raw_speed = (int16_t)(((int16_t)can1_data[2] << 8) | can1_data[3]);
-                DM8009P_03_RIGHT_BEHIND.return_speed_rpm = (float )raw_speed / 100.0f;
-
-                DM8009P_03_RIGHT_BEHIND.return_tor = (int16_t)(((int16_t)can1_data[4] << 8) | can1_data[5]);
-
-                DM8009P_03_RIGHT_BEHIND.Tcoil = can1_data[6] ;
-                DM8009P_03_RIGHT_BEHIND.state = can1_data[7] ;
-
+                DM8009P_02_RIGHT_FRONT.state = (can1_data[0])>>4;
+                p_int = (can1_data[1] << 8) | can1_data[2];
+                v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
+                t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
+                DM8009P_02_RIGHT_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_02_RIGHT_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_02_RIGHT_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_02_RIGHT_FRONT.Tmos = (float )(can1_data[6]);
+                DM8009P_02_RIGHT_FRONT.Tcoil = (float )(can1_data[7]);
                 break;
             }
-            case 0x304:
+            case (0x13):
             {
-                DM8009P_04_LEFT_BEHIND.last_angle = DM8009P_04_LEFT_BEHIND.return_angle ;
+                int p_int;
+                int v_int;
+                int t_int;
 
-                uint16_t position = ((uint16_t)can1_data[0] << 8) | can1_data[1] ;
-                DM8009P_04_LEFT_BEHIND.return_angle = (float )(((float)position / DM8009P_1_4_FIRMWARE_MAX_RETURN_ANGLE) * M_PI) ;
-
-                int16_t raw_speed = (int16_t)(((int16_t)can1_data[2] << 8) | can1_data[3]);
-                DM8009P_04_LEFT_BEHIND.return_speed_rpm = (float )raw_speed / 100.0f;
-
-                DM8009P_04_LEFT_BEHIND.return_tor = (int16_t)(((int16_t)can1_data[4] << 8) | can1_data[5]);
-
-                DM8009P_04_LEFT_BEHIND.Tcoil = can1_data[6] ;
-                DM8009P_04_LEFT_BEHIND.state = can1_data[7] ;
-
+                DM8009P_03_RIGHT_BEHIND.state = (can1_data[0])>>4;
+                p_int = (can1_data[1] << 8) | can1_data[2];
+                v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
+                t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
+                DM8009P_03_RIGHT_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_03_RIGHT_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_03_RIGHT_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_03_RIGHT_BEHIND.Tmos = (float )(can1_data[6]);
+                DM8009P_03_RIGHT_BEHIND.Tcoil = (float )(can1_data[7]);
                 break;
             }
+            case (0x14):
+            {
+                int p_int;
+                int v_int;
+                int t_int;
+
+                DM8009P_04_LEFT_BEHIND.state = (can1_data[0])>>4;
+                p_int = (can1_data[1] << 8) | can1_data[2];
+                v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
+                t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
+                DM8009P_04_LEFT_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_04_LEFT_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_04_LEFT_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_04_LEFT_BEHIND.Tmos = (float )(can1_data[6]);
+                DM8009P_04_LEFT_BEHIND.Tcoil = (float )(can1_data[7]);
+                break;
+            }
+//            case 0x301:
+//            {
+//                DM8009P_01_LEFT_FRONT.last_angle = DM8009P_01_LEFT_FRONT.return_angle ;
+//
+//                uint16_t position = ((uint16_t)can1_data[0] << 8) | can1_data[1] ;
+//                DM8009P_01_LEFT_FRONT.return_angle = (float )(((float)position / DM8009P_1_4_FIRMWARE_MAX_RETURN_ANGLE) * M_PI) ;
+//
+//                int16_t raw_speed = (int16_t)(((int16_t)can1_data[2] << 8) | can1_data[3]);
+//                DM8009P_01_LEFT_FRONT.return_speed_rpm = (float )raw_speed / 100.0f;
+//
+//                DM8009P_01_LEFT_FRONT.return_tor = (int16_t)(((int16_t)can1_data[4] << 8) | can1_data[5]);
+//
+//                DM8009P_01_LEFT_FRONT.Tcoil = can1_data[6] ;
+//                DM8009P_01_LEFT_FRONT.state = can1_data[7] ;
+//            }
+
 
 //MITÄ£Ê½·µ»ØÖ¡
 //            case (0x11):

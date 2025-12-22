@@ -53,7 +53,7 @@ osThreadId uart_sent_testHandle;
 osThreadId get_rc_taskHandle;
 osThreadId dm_sent_taskHandle;
 osThreadId chassisHandle;
-osThreadId dji_can_sentHandle;
+osThreadId errHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -65,7 +65,7 @@ void uart_sent_debug(void const * argument);
 void get_rc(void const * argument);
 void DM_CAN_SENT(void const * argument);
 void CHASSIS_TASK(void const * argument);
-void DJI_CAN_SENT(void const * argument);
+void error_detection(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -137,9 +137,9 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 128);
   chassisHandle = osThreadCreate(osThread(chassis), NULL);
 
-  /* definition and creation of dji_can_sent */
-  osThreadDef(dji_can_sent, DJI_CAN_SENT, osPriorityIdle, 0, 128);
-  dji_can_sentHandle = osThreadCreate(osThread(dji_can_sent), NULL);
+  /* definition and creation of err */
+  osThreadDef(err, error_detection, osPriorityIdle, 0, 128);
+  errHandle = osThreadCreate(osThread(err), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -255,22 +255,22 @@ __weak void CHASSIS_TASK(void const * argument)
   /* USER CODE END CHASSIS_TASK */
 }
 
-/* USER CODE BEGIN Header_DJI_CAN_SENT */
+/* USER CODE BEGIN Header_error_detection */
 /**
-* @brief Function implementing the dji_can_sent thread.
+* @brief Function implementing the err thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_DJI_CAN_SENT */
-__weak void DJI_CAN_SENT(void const * argument)
+/* USER CODE END Header_error_detection */
+__weak void error_detection(void const * argument)
 {
-  /* USER CODE BEGIN DJI_CAN_SENT */
+  /* USER CODE BEGIN error_detection */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END DJI_CAN_SENT */
+  /* USER CODE END error_detection */
 }
 
 /* Private application code --------------------------------------------------*/

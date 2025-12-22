@@ -31,6 +31,7 @@
 #include "bsp_can.h"
 #include "remote_control.h"
 #include "dm_motor.h"
+#include "CHASSIS_TASK.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +67,14 @@ int16_t mouse_vy ;
 int16_t mouse_press_l ;
 int16_t mouse_press_r ;
 
-uint32_t can_tx_count ;
+uint32_t rc_receive_time ;
+
+int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
+
+int16_t chassis_right_3508_id1_given_current ;
+int16_t chassis_left_3508_id2_given_current ;
+
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -141,6 +149,18 @@ int main(void)
 
     dm_motor_init();
     can_filter_init();
+
+    chassis_DM8009_01_speed_pid_init();
+    chassis_DM8009_02_speed_pid_init();
+    chassis_DM8009_03_speed_pid_init();
+    chassis_DM8009_04_speed_pid_init();
+
+    chassis_DM8009_01_angle_pid_init();
+    chassis_DM8009_02_angle_pid_init();
+    chassis_DM8009_03_angle_pid_init();
+    chassis_DM8009_04_angle_pid_init();
+
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

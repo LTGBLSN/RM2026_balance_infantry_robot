@@ -6,7 +6,6 @@
 #include "dma.h"
 #include "usart.h"
 #include "gpio.h"
-
 #include "board_LED.h"
 #include "uart_printf.h"
 #include "uart_sent.h"

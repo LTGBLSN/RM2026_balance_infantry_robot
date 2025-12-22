@@ -19,5 +19,6 @@
 #include "bsp_can.h"
 #include "CAN_receive.h"
 
+void DM_ALL_STOP();
 
 #endif //BUBING_RM2025_CAN_SENT_H

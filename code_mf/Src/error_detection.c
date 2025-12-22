@@ -1,0 +1,31 @@
+//
+// Created by 21481 on 2025/12/22.
+//
+
+#include "cmsis_os.h"
+#include "main.h"
+#include "error_detection.h"
+
+void error_detection()
+{
+    while (1)
+    {
+
+        rc_connection_status();//Ò£¿ØÆ÷ÀëÏßÅÐ¶Ï
+        osDelay(1);
+
+    }
+}
+
+
+void rc_connection_status()
+{
+    if(HAL_GetTick() - rc_receive_time > RC_NO_DATA_TIMEOUT)
+    {
+        rc_receive_state = RC_OFFLINE ;//Ò£¿ØÆ÷ÀëÏß
+    }
+    else
+    {
+        rc_receive_state = RC_ONLINE ;//Ò£¿ØÆ÷ÔÚÏß
+    }
+}
