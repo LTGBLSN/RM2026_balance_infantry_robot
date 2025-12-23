@@ -74,6 +74,33 @@ int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
 int16_t chassis_right_3508_id1_given_current ;
 int16_t chassis_left_3508_id2_given_current ;
 
+float gyro[3];
+float acce[3];
+float temp;
+float INS_quat[4] = {1.0f, 0.0f, 0.0f, 0.0f};
+float INS_angle[3] = {0.0f, 0.0f, 0.0f};
+float INS_degree[3] = {0.0f, 0.0f, 0.0f};
+
+
+float pitch_speed_from_bmi088 ;
+float yaw_speed_from_bmi088 ;
+float roll_speed_from_bmi088 ;
+
+
+float pitch_angle_from_bmi088 ;
+float yaw_angle_from_bmi088 ;
+float roll_angle_from_bmi088 ;
+
+float pitch_radian_from_bmi088 ;
+float yaw_radian_from_bmi088 ;
+float roll_radian_from_bmi088 ;
+
+uint32_t check_a ;
+
+float angular_speed ;//摆角速度
+float angular_angle ;//摆角目标位置
+float chassis_speed ;//整车目标速度
+
 
 /* USER CODE END PTD */
 
@@ -143,6 +170,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM8_Init();
   MX_SPI1_Init();
+  MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
     remote_control_init();
     local_rc_ctrl = get_remote_control_point();
@@ -159,6 +187,9 @@ int main(void)
     chassis_DM8009_02_angle_pid_init();
     chassis_DM8009_03_angle_pid_init();
     chassis_DM8009_04_angle_pid_init();
+
+    chassis_gyro_pitch_speed_pid_init();
+    chassis_gyro_pitch_angle_pid_init();
 
 
   /* USER CODE END 2 */

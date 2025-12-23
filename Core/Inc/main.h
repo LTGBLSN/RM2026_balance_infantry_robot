@@ -74,6 +74,31 @@ extern int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
 extern int16_t chassis_right_3508_id1_given_current ;
 extern int16_t chassis_left_3508_id2_given_current ;
 
+extern float gyro[3];
+extern float acce[3];
+extern float temp;
+extern float INS_quat[4] ;
+extern float INS_angle[3] ;
+extern float INS_degree[3] ;
+
+extern float pitch_speed_from_bmi088 ;
+extern float yaw_speed_from_bmi088 ;
+extern float roll_speed_from_bmi088 ;
+
+extern float pitch_angle_from_bmi088 ;
+extern float yaw_angle_from_bmi088 ;
+extern float roll_angle_from_bmi088 ;
+
+extern float pitch_radian_from_bmi088 ;
+extern float yaw_radian_from_bmi088 ;
+extern float roll_radian_from_bmi088 ;
+
+
+extern uint32_t check_a ;
+
+extern float angular_speed ;//摆角速度
+extern float angular_angle ;//摆角目标位置
+
 
 
 /* USER CODE END ET */

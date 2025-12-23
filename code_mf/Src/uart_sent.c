@@ -19,7 +19,11 @@ void uart_sent_debug()
 {
     while (1)
     {
-        usart6_printf("%d",chassis_left_3508_id2_given_current);
+        usart6_printf("%f,%f,%f \r\n",
+                      pitch_angle_from_bmi088,
+                      angular_angle,
+                      angular_speed);
+
 
 //        usart6_printf("%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f \r\n",
 //                      DM8009P_01_LEFT_FRONT.return_angle,

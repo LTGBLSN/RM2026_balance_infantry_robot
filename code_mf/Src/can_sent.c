@@ -42,6 +42,7 @@ void DM_CAN_SENT()
                 Dm_Can_Send(DM8009P_01_LEFT_FRONT);
                 Dm_Can_Send(DM8009P_02_RIGHT_FRONT);
 
+
                 osDelay(1);//必须间隔，否则发送失败，邮箱深度为3
                 CAN1_cmd_chassis_shoot(chassis_right_3508_id1_given_current,chassis_left_3508_id2_given_current,0,0);
                 Dm_Can_Send(DM8009P_03_RIGHT_BEHIND);

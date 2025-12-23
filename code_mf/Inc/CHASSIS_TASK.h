@@ -6,11 +6,23 @@
 #define BUBING_RM2025_CHASSIS_TASK_H
 
 
+#define CHASSIS_GYRO_ANGLE_PID_KP 0.05f
+#define CHASSIS_GYRO_ANGLE_PID_KI 0.0f
+#define CHASSIS_GYRO_ANGLE_PID_KD 0.0f
+#define CHASSIS_GYRO_ANGLE_PID_OUT_MAX 4.0f
+#define CHASSIS_GYRO_ANGLE_PID_KI_MAX 0.0f
 
-#define CHASSIS_DM8009_ANGLE_PID_OUT_MAX 10.0f
+#define CHASSIS_GYRO_SPEED_PID_KP 5000.0f
+#define CHASSIS_GYRO_SPEED_PID_KI 0.00f
+#define CHASSIS_GYRO_SPEED_PID_KD 0.00f
+#define CHASSIS_GYRO_SPEED_PID_OUT_MAX 16384.0f
+#define CHASSIS_GYRO_SPEED_PID_KI_MAX 0.0f
+
+
+#define CHASSIS_DM8009_ANGLE_PID_OUT_MAX 3.0f
 #define CHASSIS_DM8009_ANGLE_PID_KI_MAX 0.0f
 
-#define CHASSIS_DM8009_SPEED_PID_OUT_MAX   34.0f
+#define CHASSIS_DM8009_SPEED_PID_OUT_MAX   54.0f
 #define CHASSIS_DM8009_SPEED_PID_KI_MAX   20.0f
 
 
@@ -45,8 +57,20 @@
 #define CHASSIS_DM8009_04_ANGLE_PID_KD   0.0f
 
 
-
+void chassis_stand_loop();
 void chassis_DM_motor_pid_loop();
+
+
+
+
+void chassis_gyro_pitch_angle_pid_init(void);
+float chassis_gyro_pitch_angle_pid_loop(float chassis_gyro_angle_set_loop);
+void chassis_gyro_pitch_speed_pid_init(void);
+float chassis_gyro_pitch_speed_pid_loop(float chassis_gyro_speed_set_loop);
+
+
+
+
 
 void chassis_DM8009_01_speed_pid_init(void);
 float chassis_DM8009_01_speed_pid_loop(float chassis_DM8009_01_speed_set_loop);

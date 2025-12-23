@@ -54,6 +54,7 @@ osThreadId get_rc_taskHandle;
 osThreadId dm_sent_taskHandle;
 osThreadId chassisHandle;
 osThreadId errHandle;
+osThreadId imu_dataHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -66,6 +67,7 @@ void get_rc(void const * argument);
 void DM_CAN_SENT(void const * argument);
 void CHASSIS_TASK(void const * argument);
 void error_detection(void const * argument);
+void IMU_DATA_GET(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -134,12 +136,16 @@ void MX_FREERTOS_Init(void) {
   dm_sent_taskHandle = osThreadCreate(osThread(dm_sent_task), NULL);
 
   /* definition and creation of chassis */
-  osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 128);
+  osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 256);
   chassisHandle = osThreadCreate(osThread(chassis), NULL);
 
   /* definition and creation of err */
   osThreadDef(err, error_detection, osPriorityIdle, 0, 128);
   errHandle = osThreadCreate(osThread(err), NULL);
+
+  /* definition and creation of imu_data */
+  osThreadDef(imu_data, IMU_DATA_GET, osPriorityIdle, 0, 256);
+  imu_dataHandle = osThreadCreate(osThread(imu_data), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -271,6 +277,24 @@ __weak void error_detection(void const * argument)
     osDelay(1);
   }
   /* USER CODE END error_detection */
+}
+
+/* USER CODE BEGIN Header_IMU_DATA_GET */
+/**
+* @brief Function implementing the imu_data thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_IMU_DATA_GET */
+__weak void IMU_DATA_GET(void const * argument)
+{
+  /* USER CODE BEGIN IMU_DATA_GET */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END IMU_DATA_GET */
 }
 
 /* Private application code --------------------------------------------------*/
