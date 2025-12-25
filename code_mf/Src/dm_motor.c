@@ -248,3 +248,4 @@ HAL_StatusTypeDef dm_1_4_can1_cmd(int16_t motor1, int16_t motor2, int16_t motor3
     return HAL_CAN_AddTxMessage(&hcan1, &dm_tx_message, dm_can_send_data, &send_mail_box);
 }
 
+

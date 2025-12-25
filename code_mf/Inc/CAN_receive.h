@@ -39,6 +39,10 @@ typedef enum
     CAN_TRIGGER_MOTOR_ID = 0x207,
     CAN_GIMBAL_ALL_ID = 0x1FF,
 
+    CAN_DM_IMU = 0xBC,
+
+
+
 } can_msg_id_e;
 
 //rm motor data

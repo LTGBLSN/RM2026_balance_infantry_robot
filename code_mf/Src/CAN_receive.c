@@ -22,6 +22,7 @@
 #include "main.h"
 #include "dm_motor.h"
 #include "math.h"
+#include "DM_IMU.h"
 
 
 extern CAN_HandleTypeDef hcan1;
@@ -217,6 +218,12 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 //get motor id
                 i = can2_rx_header.StdId - CAN_3508_M1_ID;
                 get_motor_measure(&motor_can2_data[i], can2_rx_data); // 注意这里使用了 motor_can2_data 数组
+                break;
+            }
+            case CAN_DM_IMU:
+            {
+                IMU_UpdateData(can2_rx_data);
+
                 break;
             }
 

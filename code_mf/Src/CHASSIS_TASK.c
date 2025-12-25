@@ -33,10 +33,10 @@ void CHASSIS_TASK()
     osDelay(1);
     dm_motor_mode_set(CMD_MOTOR_MODE,DM8009P_04_LEFT_BEHIND);
     osDelay(1);
-    DM8009P_01_LEFT_FRONT.give_angle =   0.091825f ;
-    DM8009P_02_RIGHT_FRONT.give_angle = -0.034009f ;
-    DM8009P_03_RIGHT_BEHIND.give_angle = 0.210386f ;
-    DM8009P_04_LEFT_BEHIND.give_angle = -0.098420f ;
+    DM8009P_01_LEFT_FRONT.give_angle =   0.15f ;
+    DM8009P_02_RIGHT_FRONT.give_angle = -0.15f ;
+    DM8009P_03_RIGHT_BEHIND.give_angle = 0.15f ;
+    DM8009P_04_LEFT_BEHIND.give_angle = -0.15f ;
     while (1)
     {
 
@@ -52,7 +52,7 @@ void CHASSIS_TASK()
 //直立环pid计算
 void chassis_stand_loop()
 {
-    angular_angle = 0.0f ;
+    angular_angle = (float )rc_ch3*0.02f ;
     angular_speed = chassis_gyro_pitch_angle_pid_loop(angular_angle) ;
 
     chassis_left_3508_id2_given_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed);
