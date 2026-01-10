@@ -65,10 +65,10 @@
 #define DM3507_T_MIN -10.0f
 #define DM3507_T_MAX 10.0f
 
-extern struct dm_motor DM8009P_01_LEFT_FRONT ;
-extern struct dm_motor DM8009P_02_RIGHT_FRONT ;
-extern struct dm_motor DM8009P_03_RIGHT_BEHIND ;
-extern struct dm_motor DM8009P_04_LEFT_BEHIND ;
+extern struct dm_motor DM8009P_01_RIGHT_BIG_LEG_FRONT ;
+extern struct dm_motor DM8009P_02_LEFT_BIG_LEG_FRONT ;
+extern struct dm_motor DM8009P_03_LEFT_SMALL_LEG_BEHIND ;
+extern struct dm_motor DM8009P_04_RIGHT_SMALL_LEG_BEHIND ;
 
 
 struct dm_motor {

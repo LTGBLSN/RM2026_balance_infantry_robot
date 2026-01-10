@@ -55,6 +55,7 @@ osThreadId dm_sent_taskHandle;
 osThreadId chassisHandle;
 osThreadId errHandle;
 osThreadId imu_dataHandle;
+osThreadId chassis_vx_taskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -68,6 +69,7 @@ void DM_CAN_SENT(void const * argument);
 void CHASSIS_TASK(void const * argument);
 void error_detection(void const * argument);
 void IMU_DATA_GET(void const * argument);
+void CHASSIS_VX(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -146,6 +148,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of imu_data */
   osThreadDef(imu_data, IMU_DATA_GET, osPriorityIdle, 0, 256);
   imu_dataHandle = osThreadCreate(osThread(imu_data), NULL);
+
+  /* definition and creation of chassis_vx_task */
+  osThreadDef(chassis_vx_task, CHASSIS_VX, osPriorityIdle, 0, 128);
+  chassis_vx_taskHandle = osThreadCreate(osThread(chassis_vx_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -295,6 +301,24 @@ __weak void IMU_DATA_GET(void const * argument)
     osDelay(1);
   }
   /* USER CODE END IMU_DATA_GET */
+}
+
+/* USER CODE BEGIN Header_CHASSIS_VX */
+/**
+* @brief Function implementing the chassis_vx_task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CHASSIS_VX */
+__weak void CHASSIS_VX(void const * argument)
+{
+  /* USER CODE BEGIN CHASSIS_VX */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END CHASSIS_VX */
 }
 
 /* Private application code --------------------------------------------------*/

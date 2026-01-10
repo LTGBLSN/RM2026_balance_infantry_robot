@@ -92,15 +92,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 int v_int;
                 int t_int;
 
-                DM8009P_01_LEFT_FRONT.state = (can1_data[0])>>4;
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.state = (can1_data[0]) >> 4;
                 p_int = (can1_data[1] << 8) | can1_data[2];
                 v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
                 t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
-                DM8009P_01_LEFT_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
-                DM8009P_01_LEFT_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
-                DM8009P_01_LEFT_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
-                DM8009P_01_LEFT_FRONT.Tmos = (float )(can1_data[6]);
-                DM8009P_01_LEFT_FRONT.Tcoil = (float )(can1_data[7]);
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.Tmos = (float )(can1_data[6]);
+                DM8009P_01_RIGHT_BIG_LEG_FRONT.Tcoil = (float )(can1_data[7]);
                 break;
             }
             case (0x12):
@@ -109,15 +109,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 int v_int;
                 int t_int;
 
-                DM8009P_02_RIGHT_FRONT.state = (can1_data[0])>>4;
+                DM8009P_02_LEFT_BIG_LEG_FRONT.state = (can1_data[0]) >> 4;
                 p_int = (can1_data[1] << 8) | can1_data[2];
                 v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
                 t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
-                DM8009P_02_RIGHT_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
-                DM8009P_02_RIGHT_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
-                DM8009P_02_RIGHT_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
-                DM8009P_02_RIGHT_FRONT.Tmos = (float )(can1_data[6]);
-                DM8009P_02_RIGHT_FRONT.Tcoil = (float )(can1_data[7]);
+                DM8009P_02_LEFT_BIG_LEG_FRONT.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_02_LEFT_BIG_LEG_FRONT.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_02_LEFT_BIG_LEG_FRONT.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_02_LEFT_BIG_LEG_FRONT.Tmos = (float )(can1_data[6]);
+                DM8009P_02_LEFT_BIG_LEG_FRONT.Tcoil = (float )(can1_data[7]);
                 break;
             }
             case (0x13):
@@ -126,15 +126,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 int v_int;
                 int t_int;
 
-                DM8009P_03_RIGHT_BEHIND.state = (can1_data[0])>>4;
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.state = (can1_data[0]) >> 4;
                 p_int = (can1_data[1] << 8) | can1_data[2];
                 v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
                 t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
-                DM8009P_03_RIGHT_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
-                DM8009P_03_RIGHT_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
-                DM8009P_03_RIGHT_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
-                DM8009P_03_RIGHT_BEHIND.Tmos = (float )(can1_data[6]);
-                DM8009P_03_RIGHT_BEHIND.Tcoil = (float )(can1_data[7]);
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.Tmos = (float )(can1_data[6]);
+                DM8009P_03_LEFT_SMALL_LEG_BEHIND.Tcoil = (float )(can1_data[7]);
                 break;
             }
             case (0x14):
@@ -143,15 +143,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 int v_int;
                 int t_int;
 
-                DM8009P_04_LEFT_BEHIND.state = (can1_data[0])>>4;
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.state = (can1_data[0]) >> 4;
                 p_int = (can1_data[1] << 8) | can1_data[2];
                 v_int = (can1_data[3] << 4) | (can1_data[4] >> 4);
                 t_int = ((can1_data[4] & 0xF) << 8) | can1_data[5];
-                DM8009P_04_LEFT_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
-                DM8009P_04_LEFT_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
-                DM8009P_04_LEFT_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
-                DM8009P_04_LEFT_BEHIND.Tmos = (float )(can1_data[6]);
-                DM8009P_04_LEFT_BEHIND.Tcoil = (float )(can1_data[7]);
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_angle = uint_to_float(p_int, DM8009P_P_MIN, DM8009P_P_MAX, 16);
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_speed_rpm = uint_to_float(v_int, DM8009P_V_MIN, DM8009P_V_MAX, 12);
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_tor = uint_to_float(t_int, DM8009P_T_MIN, DM8009P_T_MAX, 12);
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.Tmos = (float )(can1_data[6]);
+                DM8009P_04_RIGHT_SMALL_LEG_BEHIND.Tcoil = (float )(can1_data[7]);
                 break;
             }
 //            case 0x301:

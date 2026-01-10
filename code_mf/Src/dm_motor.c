@@ -5,42 +5,42 @@
 #include "dm_motor.h"
 #include "can.h"
 
-struct dm_motor DM8009P_01_LEFT_FRONT ;
-struct dm_motor DM8009P_02_RIGHT_FRONT ;
-struct dm_motor DM8009P_03_RIGHT_BEHIND ;
-struct dm_motor DM8009P_04_LEFT_BEHIND ;
+struct dm_motor DM8009P_01_RIGHT_BIG_LEG_FRONT ;
+struct dm_motor DM8009P_02_LEFT_BIG_LEG_FRONT ;
+struct dm_motor DM8009P_03_LEFT_SMALL_LEG_BEHIND ;
+struct dm_motor DM8009P_04_RIGHT_SMALL_LEG_BEHIND ;
 
 void dm_motor_init()
 {
-    memset(&DM8009P_01_LEFT_FRONT, 0, sizeof(DM8009P_01_LEFT_FRONT));//清零
-    memset(&DM8009P_02_RIGHT_FRONT, 0, sizeof(DM8009P_02_RIGHT_FRONT));//清零
-    memset(&DM8009P_03_RIGHT_BEHIND, 0, sizeof(DM8009P_03_RIGHT_BEHIND));//清零
-    memset(&DM8009P_04_LEFT_BEHIND, 0, sizeof(DM8009P_04_LEFT_BEHIND));//清零
+    memset(&DM8009P_01_RIGHT_BIG_LEG_FRONT, 0, sizeof(DM8009P_01_RIGHT_BIG_LEG_FRONT));//清零
+    memset(&DM8009P_02_LEFT_BIG_LEG_FRONT, 0, sizeof(DM8009P_02_LEFT_BIG_LEG_FRONT));//清零
+    memset(&DM8009P_03_LEFT_SMALL_LEG_BEHIND, 0, sizeof(DM8009P_03_LEFT_SMALL_LEG_BEHIND));//清零
+    memset(&DM8009P_04_RIGHT_SMALL_LEG_BEHIND, 0, sizeof(DM8009P_04_RIGHT_SMALL_LEG_BEHIND));//清零
 
     //第一个电机
-    DM8009P_01_LEFT_FRONT.motor_type = DM8009P ;
-    DM8009P_01_LEFT_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
-    DM8009P_01_LEFT_FRONT.can_id = 0x01 ;
-    DM8009P_01_LEFT_FRONT.can_master_id = 0x11 ;
-    DM8009P_01_LEFT_FRONT.can_channel = can1 ;
+    DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type = DM8009P ;
+    DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
+    DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id = 0x01 ;
+    DM8009P_01_RIGHT_BIG_LEG_FRONT.can_master_id = 0x11 ;
+    DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel = can1 ;
     //第一个电机
-    DM8009P_02_RIGHT_FRONT.motor_type = DM8009P ;
-    DM8009P_02_RIGHT_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
-    DM8009P_02_RIGHT_FRONT.can_id = 0x02 ;
-    DM8009P_02_RIGHT_FRONT.can_master_id = 0x12 ;
-    DM8009P_02_RIGHT_FRONT.can_channel = can1 ;
+    DM8009P_02_LEFT_BIG_LEG_FRONT.motor_type = DM8009P ;
+    DM8009P_02_LEFT_BIG_LEG_FRONT.motor_firmware = DM8009P_MIT_FIRMWARE ;
+    DM8009P_02_LEFT_BIG_LEG_FRONT.can_id = 0x02 ;
+    DM8009P_02_LEFT_BIG_LEG_FRONT.can_master_id = 0x12 ;
+    DM8009P_02_LEFT_BIG_LEG_FRONT.can_channel = can1 ;
     //第一个电机
-    DM8009P_03_RIGHT_BEHIND.motor_type = DM8009P ;
-    DM8009P_03_RIGHT_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
-    DM8009P_03_RIGHT_BEHIND.can_id = 0x03 ;
-    DM8009P_03_RIGHT_BEHIND.can_master_id = 0x13 ;
-    DM8009P_03_RIGHT_BEHIND.can_channel = can1 ;
+    DM8009P_03_LEFT_SMALL_LEG_BEHIND.motor_type = DM8009P ;
+    DM8009P_03_LEFT_SMALL_LEG_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
+    DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_id = 0x03 ;
+    DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_master_id = 0x13 ;
+    DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_channel = can1 ;
     //第一个电机
-    DM8009P_04_LEFT_BEHIND.motor_type = DM8009P ;
-    DM8009P_04_LEFT_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
-    DM8009P_04_LEFT_BEHIND.can_id = 0x04 ;
-    DM8009P_04_LEFT_BEHIND.can_master_id = 0x14 ;
-    DM8009P_04_LEFT_BEHIND.can_channel = can1 ;
+    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.motor_type = DM8009P ;
+    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.motor_firmware = DM8009P_MIT_FIRMWARE ;
+    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_id = 0x04 ;
+    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_master_id = 0x14 ;
+    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_channel = can1 ;
 
 
 

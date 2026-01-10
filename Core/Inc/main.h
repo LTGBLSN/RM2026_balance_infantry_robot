@@ -71,8 +71,11 @@ extern uint32_t rc_receive_time  ;
 
 extern int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
 
-extern int16_t chassis_right_3508_id1_given_current ;
-extern int16_t chassis_left_3508_id2_given_current ;
+extern int16_t chassis_right_3508_id1_stand_given_current ;
+extern int16_t chassis_left_3508_id2_stand_given_current ;
+
+extern int16_t chassis_right_3508_id1_turn_given_current ;
+extern int16_t chassis_left_3508_id2_turn_given_current ;
 
 extern float gyro[3];
 extern float acce[3];
@@ -98,6 +101,9 @@ extern uint32_t check_a ;
 
 extern float angular_speed ;//摆角速度
 extern float angular_angle ;//摆角目标位置
+extern float chassis_vx_given_speed ;//整车目标速度
+
+extern float chassis_vx_real_speed ;//整车速度
 
 
 
