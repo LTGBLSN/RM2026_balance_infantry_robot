@@ -72,8 +72,11 @@ uint32_t rc_receive_time ;
 
 int16_t rc_receive_state ;//遥控器状态 0为离线，1为在线
 
-int16_t chassis_right_3508_id1_stand_given_current ;
-int16_t chassis_left_3508_id2_stand_given_current ;
+int16_t chassis_right_3508_id1_given_current ;
+int16_t chassis_left_3508_id2_given_current ;
+
+int16_t chassis_right_3508_id1_stand_current ;
+int16_t chassis_left_3508_id2_stand_current ;
 
 int16_t chassis_right_3508_id1_turn_given_current ;
 int16_t chassis_left_3508_id2_turn_given_current ;

@@ -21,11 +21,10 @@ void uart_sent_debug()
 {
     while (1)
     {
-        usart6_printf("%f,%f,%f,%f \r\n",
-                      angular_angle,
+        usart6_printf("%f,%f,%d \r\n",
                        angular_speed,
-                      pitch_angle_from_bmi088,
-                      (float )rc_ch3*0.02f);
+                      pitch_speed_from_bmi088,
+                      rc_s1);
 
 
 

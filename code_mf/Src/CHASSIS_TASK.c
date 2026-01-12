@@ -94,8 +94,39 @@ void chassis_stand_loop()
     }
 
 
-    chassis_left_3508_id2_stand_given_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed);
-    chassis_right_3508_id1_stand_given_current = (int16_t )-chassis_gyro_pitch_speed_pid_loop(angular_speed);
+    chassis_left_3508_id2_stand_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed) - (int16_t )(rc_ch2 * 5);
+    chassis_right_3508_id1_stand_current = (int16_t )-chassis_gyro_pitch_speed_pid_loop(angular_speed) - (int16_t )(rc_ch2 * 5);
+
+    if(chassis_right_3508_id1_stand_current > (int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX)
+    {
+        chassis_right_3508_id1_given_current = (int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX;
+
+    } else if(chassis_right_3508_id1_stand_current < -(int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX)
+    {
+        chassis_right_3508_id1_given_current = -(int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX;
+    } else
+    {
+        chassis_right_3508_id1_given_current = chassis_right_3508_id1_stand_current;
+
+    }
+
+
+    if(chassis_left_3508_id2_stand_current > (int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX)
+    {
+        chassis_left_3508_id2_given_current = (int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX;
+
+    } else if(chassis_left_3508_id2_stand_current < -(int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX)
+    {
+        chassis_left_3508_id2_given_current = -(int16_t)CHASSIS_GYRO_SPEED_PID_OUT_MAX;
+    } else
+    {
+        chassis_left_3508_id2_given_current = chassis_left_3508_id2_stand_current;
+
+    }
+
+
+
+
 
 
 }
