@@ -1,0 +1,346 @@
+//
+// Created by 21481 on 2025/3/19.
+//
+#include "main.h"
+#include "cmsis_os.h"
+
+#include "CAN_receive.h"
+#include "pid.h"
+#include "gimbal_motor_control.h"
+#include "shoot_control.h"
+
+pid_type_def yaw_6020_ID1_speed_pid;
+pid_type_def yaw_6020_ID1_angle_pid;
+
+pid_type_def pitch_6020_ID2_speed_pid;
+pid_type_def pitch_6020_ID2_angle_pid;
+
+
+pid_type_def friction_wheel_3510_ID1_speed_pid;
+pid_type_def friction_wheel_3510_ID2_speed_pid;
+
+
+
+pid_type_def shoot_2006_ID3_speed_pid;
+
+
+
+ void gimbal_motor_control()
+{
+    while (1)
+    {
+
+
+        friction_wheel_speed_control();//摩擦轮目标速度控制
+        friction_wheel_pid_control();//摩擦轮pid控制
+
+//        yaw_imu_getAbscissa() ;//陀螺仪数据处理   暂时没用
+
+
+        motor_gimbal_angle_compute();//目标角度控制
+        pid_preprocess();//pid预处理
+        motor_gimbal_pid_compute();//云台pid控制
+
+        shoot_pid_control();//拨弹盘pid控制
+
+
+
+
+
+
+        osDelay((1/GIMBAL_PID_COMPUTE_FREQUENCY)*1000);//控制频率
+
+#if GIMBAL_PID_COMPUTE_FREQUENCY == 0
+        osDelay(1);
+
+#endif
+
+
+    }
+}
+
+
+
+void motor_gimbal_angle_compute()
+{
+     if(mouse_vy == 0 & mouse_vx == 0)
+     {
+
+
+         if(rc_s1 == 1)
+         {
+             if(auto_aim_rx_packet.distance != (-1.0f))//自瞄开火建议为1的时候才建议进行闭环，否则目标角度是0
+             {
+                 YAW_6020_ID1_GIVEN_ANGLE = auto_aim_rx_packet.yaw ;
+                 PITCH_6020_ID2_GIVEN_ANGLE = -auto_aim_rx_packet.pitch ;
+
+                 auto_aim_los_yaw_angle = YAW_6020_ID1_GIVEN_ANGLE ;
+                 auto_aim_los_pitch_angle = PITCH_6020_ID2_GIVEN_ANGLE ;
+
+
+             }
+             else//这里写没识别到但是仍然开启自瞄的动作，如仍然遥控器等
+             {
+                 rc_yaw_input_normalization();
+//                 YAW_6020_ID1_GIVEN_ANGLE = auto_aim_los_yaw_angle ;
+//                 PITCH_6020_ID2_GIVEN_ANGLE = auto_aim_los_pitch_angle ;
+             }
+
+         } else
+         {
+             rc_yaw_input_normalization();
+         }
+
+
+
+         if((PITCH_RC_IN_KP * (float )rc_ch3) < 0 )
+         {
+             if(PITCH_6020_ID2_GIVEN_ANGLE < -23.0f )
+             {
+                 PITCH_6020_ID2_GIVEN_ANGLE = -23.0f ;
+             }
+             else
+             {
+                 PITCH_6020_ID2_GIVEN_ANGLE = PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rc_ch3  ;
+             }
+         }
+         else
+         {
+             if(PITCH_6020_ID2_GIVEN_ANGLE > 25.0f )
+             {
+                 PITCH_6020_ID2_GIVEN_ANGLE = 25.0f ;
+             }
+             else
+             {
+                 PITCH_6020_ID2_GIVEN_ANGLE = PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rc_ch3  ;
+             }
+         }
+
+
+
+
+     } else//鼠标还没写
+     {
+//         PITCH_6020_ID2_GIVEN_SPEED = MOUSE_VY_SPEED_SCALING_FACTOR * (float)-mouse_vy - PITCH_OFF_FRICTION_STOP_SPEED_COMPENSATE;
+//         YAW_6020_ID1_GIVEN_SPEED = MOUSE_VX_SPEED_SCALING_FACTOR * (float)-mouse_vx ;
+
+
+     }
+
+}
+
+
+void yaw_imu_getAbscissa()
+{
+
+    if((YAW_IMU_LAST_ECD - yaw_angle_from_bmi088) > 180.0f)
+    {
+
+        YAW_IMU_LAPS++ ;
+
+    }
+    if((yaw_angle_from_bmi088 - YAW_IMU_LAST_ECD) > 180.0f)
+    {
+
+        YAW_IMU_LAPS-- ;
+
+    }
+
+    YAW_IMU_LAST_ECD = yaw_angle_from_bmi088 ;
+
+
+    YAW_IMU_ABSCISSA = 360.0f * YAW_IMU_LAPS + yaw_angle_from_bmi088 ;
+
+
+}
+
+
+void rc_yaw_input_normalization()
+{
+    float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (YAW_RC_IN_KP * (float)rc_ch2) ;
+
+    if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE - 360.0f ;
+    }
+    else if(YAW_GIVEN_ANGLE_COMPUTE < -180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE + 360.0f ;
+    } else
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE ;
+    }
+}
+
+
+void pid_preprocess()
+{
+     if((YAW_6020_ID1_GIVEN_ANGLE - yaw_angle_from_bmi088) < -180.0f )
+     {
+         yaw_imu_preprocess = yaw_angle_from_bmi088 - 360.0f ;
+     }
+     else if((YAW_6020_ID1_GIVEN_ANGLE - yaw_angle_from_bmi088) > 180.0f )
+     {
+         yaw_imu_preprocess = yaw_angle_from_bmi088 + 360.0f ;
+     }
+     else
+     {
+         yaw_imu_preprocess = yaw_angle_from_bmi088 ;
+     }
+}
+
+
+void motor_gimbal_pid_compute()
+{
+    YAW_6020_ID1_GIVEN_SPEED = yaw_angle_pid_loop(YAW_6020_ID1_GIVEN_ANGLE) ;
+    YAW_6020_ID1_GIVEN_CURRENT = (int16_t)yaw_speed_pid_loop(YAW_6020_ID1_GIVEN_SPEED);//速度环
+
+
+    PITCH_6020_ID2_GIVEN_SPEED = pitch_angle_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_ANGLE);//角度环
+    PITCH_6020_ID2_GIVEN_CURRENT = (int16_t) (- pitch_speed_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_SPEED)); //速度环
+
+}
+
+
+
+void friction_wheel_speed_control()
+{
+    if( rc_s1 == 2 )
+    {
+        FRICTION_WHEEL_3510_ID1_GIVEN_SPEED = 0 ;
+        FRICTION_WHEEL_3510_ID2_GIVEN_SPEED = 0 ;
+    } else
+    {
+        FRICTION_WHEEL_3510_ID1_GIVEN_SPEED = FRICTION_WHEEL_SHOOT_SPEED ;
+        FRICTION_WHEEL_3510_ID2_GIVEN_SPEED = -FRICTION_WHEEL_SHOOT_SPEED ;
+
+    }
+
+}
+void friction_wheel_pid_control()
+{
+    FRICTION_WHEEL_3510_ID1_GIVEN_CURRENT = friction_wheel_3510_id1_speed_pid_loop(FRICTION_WHEEL_3510_ID1_GIVEN_SPEED);
+     FRICTION_WHEEL_3510_ID2_GIVEN_CURRENT = friction_wheel_3510_id2_speed_pid_loop(FRICTION_WHEEL_3510_ID2_GIVEN_SPEED);
+}
+
+
+
+
+void yaw_angle_pid_init(void)
+{
+    static fp32 yaw_6020_id1_angle_kpkikd[3] = {YAW_6020_ID2_ANGLE_PID_KP, YAW_6020_ID2_ANGLE_PID_KI, YAW_6020_ID2_ANGLE_PID_KD};
+    PID_init(&yaw_6020_ID1_angle_pid, PID_POSITION, yaw_6020_id1_angle_kpkikd, YAW_6020_ID2_ANGLE_PID_OUT_MAX, YAW_6020_ID2_ANGLE_PID_KI_MAX);
+
+}
+
+float yaw_angle_pid_loop(float YAW_6020_ID1_angle_set_loop)
+{
+    PID_calc(&yaw_6020_ID1_angle_pid, yaw_imu_preprocess , YAW_6020_ID1_angle_set_loop);
+    float yaw_6020_ID1_given_speed_loop = (float)(yaw_6020_ID1_angle_pid.out);
+
+    return yaw_6020_ID1_given_speed_loop ;
+
+}
+
+
+void yaw_speed_pid_init(void)
+{
+    static fp32 yaw_6020_id1_speed_kpkikd[3] = {YAW_6020_ID2_SPEED_PID_KP, YAW_6020_ID2_SPEED_PID_KI, YAW_6020_ID2_SPEED_PID_KD};
+    PID_init(&yaw_6020_ID1_speed_pid, PID_POSITION, yaw_6020_id1_speed_kpkikd, YAW_6020_ID2_SPEED_PID_OUT_MAX, YAW_6020_ID2_SPEED_PID_KI_MAX);
+
+}
+
+float yaw_speed_pid_loop(float YAW_6020_ID1_speed_set_loop)
+{
+    PID_calc(&yaw_6020_ID1_speed_pid, yaw_speed_from_bmi088 , YAW_6020_ID1_speed_set_loop);
+    int16_t yaw_6020_ID1_given_current_loop = (int16_t)(yaw_6020_ID1_speed_pid.out);
+
+    return yaw_6020_ID1_given_current_loop ;
+
+}
+
+
+
+
+
+void pitch_speed_from_bmi88_pid_init(void)
+{
+    static fp32 pitch_6020_id2_speed_kpkikd[3] = {PITCH_6020_ID2_SPEED_PID_KP,PITCH_6020_ID2_SPEED_PID_KI,PITCH_6020_ID2_SPEED_PID_KD};
+    PID_init(&pitch_6020_ID2_speed_pid,PID_POSITION,pitch_6020_id2_speed_kpkikd,PITCH_6020_ID2_SPEED_PID_OUT_MAX,PITCH_6020_ID2_SPEED_PID_KI_MAX);
+
+}
+
+float pitch_speed_from_bmi088_pid_loop(float PITCH_6020_ID2_speed_set_loop)
+{
+    PID_calc(&pitch_6020_ID2_speed_pid, pitch_speed_from_bmi088 , PITCH_6020_ID2_speed_set_loop);
+    int16_t pitch_6020_ID2_given_current_loop = (int16_t)(pitch_6020_ID2_speed_pid.out);
+
+    return pitch_6020_ID2_given_current_loop ;
+
+}
+
+
+void pitch_angle_pid_init(void)
+{
+    static fp32 pitch_6020_id2_angle_kpkikd[3] = {PITCH_6020_ID2_ANGLE_PID_KP,PITCH_6020_ID2_ANGLE_PID_KI,PITCH_6020_ID2_ANGLE_PID_KD};
+    PID_init(&pitch_6020_ID2_angle_pid,PID_POSITION,pitch_6020_id2_angle_kpkikd,PITCH_6020_ID2_ANGLE_PID_OUT_MAX,PITCH_6020_ID2_ANGLE_PID_KI_MAX);
+
+}
+
+float pitch_angle_from_bmi088_pid_loop(float PITCH_6020_ID2_angle_set_loop)
+{
+    PID_calc(&pitch_6020_ID2_angle_pid, pitch_angle_from_bmi088 , PITCH_6020_ID2_angle_set_loop);
+    float pitch_6020_ID2_given_speed_loop = (float)(pitch_6020_ID2_angle_pid.out);
+
+    return pitch_6020_ID2_given_speed_loop ;
+
+}
+
+
+
+
+
+//friction wheel
+void friction_wheel_3510_id1_speed_pid_init(void)
+{
+    static fp32 friction_wheel_3510_id1_speed_kpkikd[3] = {FRICTION_WHEEL_3510_ID1_SPEED_PID_KP,FRICTION_WHEEL_3510_ID1_SPEED_PID_KI,FRICTION_WHEEL_3510_ID1_SPEED_PID_KD};
+    PID_init(&friction_wheel_3510_ID1_speed_pid,PID_POSITION,friction_wheel_3510_id1_speed_kpkikd,FRICTION_WHEEL_3510_ID1_SPEED_PID_OUT_MAX,FRICTION_WHEEL_3510_ID1_SPEED_PID_KI_MAX);
+
+}
+
+int16_t friction_wheel_3510_id1_speed_pid_loop(int16_t friction_wheel_3510_id1_speed_set_loop)
+{
+    PID_calc(&friction_wheel_3510_ID1_speed_pid, motor_can2_data[0].speed_rpm , friction_wheel_3510_id1_speed_set_loop);
+    int16_t friction_wheel_3510_id1_given_current_loop = (int16_t)(friction_wheel_3510_ID1_speed_pid.out);
+
+    return friction_wheel_3510_id1_given_current_loop ;
+
+}
+
+
+
+void friction_wheel_3510_id2_speed_pid_init(void)
+{
+    static fp32 friction_wheel_3510_id2_speed_kpkikd[3] = {FRICTION_WHEEL_3510_ID2_SPEED_PID_KP,FRICTION_WHEEL_3510_ID2_SPEED_PID_KI,FRICTION_WHEEL_3510_ID2_SPEED_PID_KD};
+    PID_init(&friction_wheel_3510_ID2_speed_pid,PID_POSITION,friction_wheel_3510_id2_speed_kpkikd,FRICTION_WHEEL_3510_ID2_SPEED_PID_OUT_MAX,FRICTION_WHEEL_3510_ID2_SPEED_PID_KI_MAX);
+
+}
+
+int16_t friction_wheel_3510_id2_speed_pid_loop(int16_t friction_wheel_3510_id2_speed_set_loop)
+{
+    PID_calc(&friction_wheel_3510_ID2_speed_pid, motor_can2_data[1].speed_rpm , friction_wheel_3510_id2_speed_set_loop);
+    int16_t friction_wheel_3510_id2_given_current_loop = (int16_t)(friction_wheel_3510_ID2_speed_pid.out);
+
+    return friction_wheel_3510_id2_given_current_loop ;
+
+}
+
+
+
+
+
+
+
+
+
+
