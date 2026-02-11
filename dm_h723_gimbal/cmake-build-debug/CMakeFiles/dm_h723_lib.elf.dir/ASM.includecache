@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Startup/startup_stm32h723vgtx.s
+

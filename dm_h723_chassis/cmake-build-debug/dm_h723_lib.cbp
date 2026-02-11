@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="dm_h723_lib"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dm_h723_lib.elf">
+				<Option output="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/dm_h723_lib.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H723xx"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/arm-none-eabi"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/backward"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/include"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/include-fixed"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 dm_h723_lib.elf"/>
+					<CompileFile command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dm_h723_lib.elf/fast">
+				<Option output="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/dm_h723_lib.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H723xx"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc"/>
+					<Add directory="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/arm-none-eabi"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/backward"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/include"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/include-fixed"/>
+					<Add directory="C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 dm_h723_lib.elf/fast"/>
+					<CompileFile command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/CLionToolchains/mingw64/bin/mingw32-make.exe -f &quot;D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/FreeRTOSConfig.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/dma.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/fdcan.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/gpio.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/main.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/memorymap.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/spi.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/stm32h7xx_hal_conf.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/stm32h7xx_it.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Inc/usart.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/dma.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/fdcan.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/freertos.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/gpio.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/main.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/memorymap.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/spi.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/stm32h7xx_hal_msp.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/stm32h7xx_hal_timebase_tim.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/stm32h7xx_it.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/syscalls.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/sysmem.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/system_stm32h7xx.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Src/usart.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Core/Startup/startup_stm32h723vgtx.s">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Device/ST/STM32H7xx/LICENSE.txt">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_armclang_ltm.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_armv81mml.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm35p.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/CMSIS/LICENSE.txt">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_cortex.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crs.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_exti.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_hsem.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_lpuart.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_pwr.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_system.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/LICENSE.txt">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/croutine.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/StackMacros.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/atomic.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/list.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_prototypes.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/task.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/list.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/queue.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/tasks.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/Middlewares/Third_Party/FreeRTOS/Source/timers.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/STM32H723VGTX_FLASH.ld">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/BMI088Middleware.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/BMI088driver.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/BMI088reg.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/DJI_motors.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/GET_RC_TASK.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/IMU_DATA_GET.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/MahonyAHRS.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/SHOOT_TASK.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/bsp_can.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/can_receive.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/dm_motor.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/pid.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/remote_control.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/struct_typedef.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/uart_printf.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Inc/ws2812.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/BMI088Middleware.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/BMI088driver.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/CAN_SENT_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/DEBUG_UART_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/DJI_motors.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/GET_RC_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/IMU_DATA_GET.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/LED_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/MahonyAHRS.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/SHOOT_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/bsp_can.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/can_receive.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/dm_motor.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/pid.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/remote_control.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/uart_printf.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/code_mf/Src/ws2812.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
