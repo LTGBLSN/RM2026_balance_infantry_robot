@@ -40,6 +40,8 @@ typedef enum
     CAN_GIMBAL_ALL_ID = 0x1FF,
 
     CAN_DM_IMU = 0xBC,
+    CAN_GIMBAL2CHASSIS_A_ID = 0xAC,
+    CAN_GIMBAL2CHASSIS_B_ID = 0xAD,
 
 
 
@@ -58,9 +60,19 @@ extern motor_measure_t motor_can1_data[7];
 extern motor_measure_t motor_can2_data[7];
 
 
+typedef struct {
+    int16_t yaw;
+    int16_t vround;
+    int16_t vx;
+    int16_t state;
+    int16_t shoot_given_speed;
+} Gimbal_Info_t;
+extern Gimbal_Info_t gimbal_info;
+
+
 extern void CAN2_cmd_friction_wheels(int16_t friction_wheel0, int16_t friction_wheel1, int16_t none0, int16_t none1);
 
-extern HAL_StatusTypeDef CAN1_cmd_chassis_shoot(int16_t right_motor, int16_t left_motor, int16_t shoot_motor, int16_t motor4);
+extern HAL_StatusTypeDef CAN1_cmd_chassis(int16_t right_motor, int16_t left_motor, int16_t shoot_motor, int16_t motor4);
 
 extern void CAN1_cmd_yaw(int16_t yaw, int16_t motor2, int16_t motor3, int16_t motor4);
 

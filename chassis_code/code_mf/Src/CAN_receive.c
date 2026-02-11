@@ -43,6 +43,7 @@ motor data,  0:chassis motor1 3508;1:chassis motor3 3508;2:chassis motor3 3508;3
 4:yaw云台电机 6020电机; 5:pitch云台电机 6020电机; 6:拨弹电机 2006电机*/
 motor_measure_t motor_can1_data[7];
 motor_measure_t motor_can2_data[7];
+Gimbal_Info_t gimbal_info;
 
 static CAN_TxHeaderTypeDef  shoot_tx_message;
 static uint8_t              shoot_can_send_data[8];
@@ -226,6 +227,30 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
                 break;
             }
+                // 假设这是你的 CAN 接收回调函数中的一部分
+            case CAN_GIMBAL2CHASSIS_A_ID:
+            {
+                gimbal_info.yaw    = (int16_t)((can2_rx_data[0] << 8) | can2_rx_data[1]);
+                gimbal_info.vround = (int16_t)((can2_rx_data[2] << 8) | can2_rx_data[3]);
+                gimbal_info.vx     = (int16_t)((can2_rx_data[4] << 8) | can2_rx_data[5]);
+                gimbal_info.state  = (int16_t)((can2_rx_data[6] << 8) | can2_rx_data[7]);
+
+                // 更新时间戳（用于掉线检测）
+                // gimbal_info.last_update_time = HAL_GetTick();
+                break;
+            }
+
+
+            case CAN_GIMBAL2CHASSIS_B_ID:
+            {
+                gimbal_info.shoot_given_speed = (int16_t)((can2_rx_data[0] << 8) | can2_rx_data[1]);
+
+                // 更新时间戳（用于掉线检测）
+                // gimbal_info.last_update_time = HAL_GetTick();
+                break;
+            }
+
+
 
             default:
             {
@@ -277,7 +302,7 @@ void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan)
 //}
 
 
-HAL_StatusTypeDef CAN1_cmd_chassis_shoot(int16_t right_motor, int16_t left_motor, int16_t shoot_motor, int16_t motor4)
+HAL_StatusTypeDef CAN1_cmd_chassis(int16_t right_motor, int16_t left_motor, int16_t shoot_motor, int16_t motor4)
 {
     uint32_t send_mail_box;
     chassis_tx_message.StdId = CAN_CHASSIS_ALL_ID;

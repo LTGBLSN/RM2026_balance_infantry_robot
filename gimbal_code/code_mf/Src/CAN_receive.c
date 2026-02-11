@@ -49,6 +49,11 @@ static CAN_TxHeaderTypeDef  yaw_tx_message;
 static uint8_t              yaw_can_send_data[8];
 static CAN_TxHeaderTypeDef  pitch_tx_message;
 static uint8_t              pitch_can_send_data[8];
+static CAN_TxHeaderTypeDef  gimbal2chassis_A_tx_message;
+static uint8_t              gimbal2chassis_A_can_send_data[8];
+static CAN_TxHeaderTypeDef  gimbal2chassis_B_tx_message;
+static uint8_t              gimbal2chassis_B_can_send_data[8];
+
 
 /**
   * @brief          hal CAN fifo call back, receive motor data
@@ -204,5 +209,47 @@ void CAN1_cmd_yaw(int16_t yaw, int16_t motor2, int16_t motor3, int16_t motor4)
 }
 
 
+//vround速度，
+void CAN1_gimbal2chassis_A(int16_t yaw, int16_t vround, int16_t vx, int16_t state)
+{
+    uint32_t send_mail_box;
+    gimbal2chassis_A_tx_message.StdId = CAN_GIMBAL2CHASSIS_A_ID;
+    gimbal2chassis_A_tx_message.IDE = CAN_ID_STD;
+    gimbal2chassis_A_tx_message.RTR = CAN_RTR_DATA;
+    gimbal2chassis_A_tx_message.DLC = 0x08;
+    gimbal2chassis_A_can_send_data[0] = yaw >> 8;
+    gimbal2chassis_A_can_send_data[1] = yaw;
+    gimbal2chassis_A_can_send_data[2] = vround >> 8;
+    gimbal2chassis_A_can_send_data[3] = vround;
+    gimbal2chassis_A_can_send_data[4] = vx >> 8;
+    gimbal2chassis_A_can_send_data[5] = vx;
+    gimbal2chassis_A_can_send_data[6] = state >> 8;
+    gimbal2chassis_A_can_send_data[7] = state;
 
+    HAL_CAN_AddTxMessage(&hcan1, &gimbal2chassis_A_tx_message, gimbal2chassis_A_can_send_data, &send_mail_box);
+}
+
+
+
+//vround速度，
+void CAN1_gimbal2chassis_B(int16_t shoot_speed, int16_t data1, int16_t data2, int16_t data3)
+{
+    uint32_t send_mail_box;
+    gimbal2chassis_B_tx_message.StdId = CAN_GIMBAL2CHASSIS_B_ID;
+    gimbal2chassis_B_tx_message.IDE = CAN_ID_STD;
+    gimbal2chassis_B_tx_message.RTR = CAN_RTR_DATA;
+    gimbal2chassis_B_tx_message.DLC = 0x08;
+    gimbal2chassis_B_can_send_data[0] = shoot_speed >> 8;
+    gimbal2chassis_B_can_send_data[1] = shoot_speed;
+    gimbal2chassis_B_can_send_data[2] = data1 >> 8;
+    gimbal2chassis_B_can_send_data[3] = data1;
+    gimbal2chassis_B_can_send_data[4] = data2 >> 8;
+    gimbal2chassis_B_can_send_data[5] = data2;
+    gimbal2chassis_B_can_send_data[6] = data3 >> 8;
+    gimbal2chassis_B_can_send_data[7] = data3;
+
+
+
+    HAL_CAN_AddTxMessage(&hcan1, &gimbal2chassis_B_tx_message, gimbal2chassis_B_can_send_data, &send_mail_box);
+}
 

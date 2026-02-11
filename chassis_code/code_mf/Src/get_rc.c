@@ -17,6 +17,7 @@ void get_rc()
 {
     while(1)
     {
+
         rc_ch0 = local_rc_ctrl->rc.ch[0];
         rc_ch1 = local_rc_ctrl->rc.ch[1];
         rc_ch2 = local_rc_ctrl->rc.ch[2];

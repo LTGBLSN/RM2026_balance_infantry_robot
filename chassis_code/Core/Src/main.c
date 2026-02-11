@@ -33,6 +33,7 @@
 #include "dm_motor.h"
 #include "CHASSIS_TASK.h"
 #include "CHASSIS_VX.h"
+#include "shoot_control.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -109,6 +110,10 @@ float angular_angle ;//摆角目标位置
 float chassis_vx_given_speed ;//整车目标速度
 
 float chassis_vx_real_speed ;//整车速度
+
+//shoot
+int16_t SHOOT_2006_ID3_GIVEN_SPEED ;
+int16_t SHOOT_2006_ID3_GIVEN_CURRENT ;
 
 
 /* USER CODE END PTD */
@@ -201,6 +206,8 @@ int main(void)
     chassis_gyro_pitch_angle_pid_init();
 
     chassis_vx_pid_init();
+    shoot_2006_id3_speed_pid_init();
+
 
 
   /* USER CODE END 2 */

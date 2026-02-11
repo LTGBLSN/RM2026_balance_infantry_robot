@@ -22,13 +22,12 @@
 #include "bsp_can.h"
 #include "CAN_receive.h"
 
+
 void can_sent();
 
-void can_cmd_all(int16_t chassis_id1 ,       int16_t chassis_id2 ,
-                 int16_t chassis_id3 ,       int16_t chassis_id4 ,
-                 int16_t yaw_id1 ,           int16_t pitch_id2 ,
+void can_cmd_all(int16_t yaw_id1 ,           int16_t pitch_id2 ,
                  int16_t friction_wheel_id1, int16_t friction_wheel_id2 ,
-                 int16_t shoot_id3 );
+                 int16_t shoot_id3, int16_t state );
 
 
 #endif //BUBING_RM2025_CAN_SENT_H

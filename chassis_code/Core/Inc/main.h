@@ -108,6 +108,10 @@ extern float chassis_vx_given_speed ;//整车目标速度
 
 extern float chassis_vx_real_speed ;//整车速度
 
+//shoot
+extern int16_t SHOOT_2006_ID3_GIVEN_SPEED ;
+extern int16_t SHOOT_2006_ID3_GIVEN_CURRENT ;
+
 
 
 /* USER CODE END ET */

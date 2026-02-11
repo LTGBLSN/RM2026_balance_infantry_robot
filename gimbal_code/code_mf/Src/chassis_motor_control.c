@@ -147,7 +147,9 @@ void chassis_settlement()
             fabsf((float)CHASSIS_3508_ID3_VXY_COMPUTE_SPEED) +
             fabsf((float)CHASSIS_3508_ID4_VXY_COMPUTE_SPEED) ;
 
+
     beyond_power = ( CHASSIS_3508_ALL_COMPUTE_SPEED - (float)robot_max_power ) ;//计算超出总功率,大于0为超功率
+
 
     if(beyond_power < 0 )
     {

@@ -1,0 +1,100 @@
+//
+// Created by 21481 on 2026/1/27.
+//
+
+
+
+#include "cmsis_os.h"
+#include "main.h"
+#include "pid.h"
+#include "shoot_control.h"
+#include "CAN_receive.h"
+
+
+
+pid_type_def shoot_2006_ID3_speed_pid;
+
+
+void SHOOT_STOP_CHECK()
+{
+    while (1)
+    {
+
+
+        SHOOT_2006_ID3_GIVEN_SPEED = gimbal_info.shoot_given_speed;
+        shoot_stop_check();//拨弹盘堵转反转（阻塞） 云台无拨弹盘，卡弹反转写在下c板
+        //拨弹盘的速度闭环在不阻塞的shoot_motor_pid_control里面
+
+
+
+        osDelay(1);
+    }
+}
+
+
+
+
+void shoot_motor_pid_control()
+{
+    while (1)
+    {
+        //shoot
+
+        SHOOT_2006_ID3_GIVEN_CURRENT = shoot_2006_id3_speed_pid_loop(SHOOT_2006_ID3_GIVEN_SPEED);
+
+        osDelay(1);
+    }
+
+}
+
+
+
+
+
+void shoot_stop_check()
+{
+    if(SHOOT_2006_ID3_GIVEN_SPEED == SHOOT_TURN_ON_SPEED)
+    {
+
+        //如果卡住了//待更新，卡弹检测灵敏度不够，存才缓慢旋转
+        if(motor_can1_data[2].speed_rpm == 0)
+        {
+            osDelay(SHOOT_SPEED_CHECK_TIME);
+            if(motor_can1_data[2].speed_rpm == 0)
+            {
+                SHOOT_2006_ID3_GIVEN_SPEED = SHOOT_TURN_OFF_SPEED ;
+                osDelay(SHOOT_TURN_OFF_TIME);
+                SHOOT_2006_ID3_GIVEN_SPEED = SHOOT_TURN_ON_SPEED ;
+            }
+        }
+
+
+    }
+}
+
+
+
+
+//shoot
+void shoot_2006_id3_speed_pid_init(void)
+{
+    static fp32 shoot_2006_id3_speed_kpkikd[3] = {SHOOT_2006_ID3_SPEED_PID_KP,SHOOT_2006_ID3_SPEED_PID_KI,SHOOT_2006_ID3_SPEED_PID_KD};
+    PID_init(&shoot_2006_ID3_speed_pid,PID_POSITION,shoot_2006_id3_speed_kpkikd,SHOOT_2006_ID3_SPEED_PID_OUT_MAX,SHOOT_2006_ID3_SPEED_PID_KI_MAX);
+
+}
+
+int16_t shoot_2006_id3_speed_pid_loop(float shoot_2006_ID3_speed_set_loop)
+{
+    PID_calc(&shoot_2006_ID3_speed_pid, motor_can1_data[2].speed_rpm , shoot_2006_ID3_speed_set_loop);
+    int16_t shoot_2006_id3_given_current_loop = (int16_t)(shoot_2006_ID3_speed_pid.out);
+
+    return shoot_2006_id3_given_current_loop ;
+
+}
+
+
+
+
+
+
+

@@ -25,41 +25,29 @@ void can_sent()
     {
         if( rc_receive_state == RC_OFFLINE | yaw_6020_state == GM6020_DIE | pitch_6020_state == GM6020_DIE)//遥控器离线，全车断电
         {
-            can_cmd_all(0,0,0,0,0,0,0,0,0);
+                can_cmd_all(0,0,0,0,0,0);
         }
         else//遥控器在线，正常进行开关控制
         {
             if(rc_s0 == 2)
             {
-                can_cmd_all(0,0,0,0,0,0,0,0,0);
+                can_cmd_all(0,0,0,0,0,rc_s0);
             }
             else if(rc_s0 == 3 | rc_s0 == 1)//运动模式
             {
-//                can_cmd_all(CHASSIS_3508_ID1_GIVEN_CURRENT,
-//                            CHASSIS_3508_ID2_GIVEN_CURRENT,
-//                            CHASSIS_3508_ID3_GIVEN_CURRENT,
-//                            CHASSIS_3508_ID4_GIVEN_CURRENT,
-//                            YAW_6020_ID1_GIVEN_CURRENT,
-//                            PITCH_6020_ID2_GIVEN_CURRENT,
-//                            FRICTION_WHEEL_3510_ID1_GIVEN_CURRENT,
-//                            FRICTION_WHEEL_3510_ID2_GIVEN_CURRENT,
-//                            SHOOT_2006_ID3_GIVEN_CURRENT);
 
 
-                can_cmd_all(CHASSIS_3508_ID1_GIVEN_CURRENT,
-                            CHASSIS_3508_ID2_GIVEN_CURRENT,
-                            CHASSIS_3508_ID3_GIVEN_CURRENT,
-                            CHASSIS_3508_ID4_GIVEN_CURRENT,
-                            YAW_6020_ID1_GIVEN_CURRENT,
+                can_cmd_all(YAW_6020_ID1_GIVEN_CURRENT,
                             PITCH_6020_ID2_GIVEN_CURRENT,
                             FRICTION_WHEEL_3510_ID1_GIVEN_CURRENT,
                             FRICTION_WHEEL_3510_ID2_GIVEN_CURRENT,
-                            SHOOT_2006_ID3_GIVEN_CURRENT);
+                            SHOOT_2006_ID3_GIVEN_CURRENT,rc_s0);
+//                PITCH_6020_ID2_GIVEN_CURRENT
             }
 
             else//遥控器数据初始化中或错误，全车断电
             {
-                can_cmd_all(0,0,0,0,0,0,0,0,0);
+                can_cmd_all(0,0,0,0,0,rc_s0);
             }
 
         }
@@ -70,16 +58,16 @@ void can_sent()
 }
 
 
-void can_cmd_all(int16_t chassis_id1 ,       int16_t chassis_id2 ,
-                 int16_t chassis_id3 ,       int16_t chassis_id4 ,
-                 int16_t yaw_id1 ,           int16_t pitch_id2 ,
+void can_cmd_all(int16_t yaw_id1 ,           int16_t pitch_id2 ,
                  int16_t friction_wheel_id1, int16_t friction_wheel_id2 ,
-                 int16_t shoot_id3 )
+                 int16_t shoot_id3, int16_t state )
 {
     CAN2_cmd_pitch(pitch_id2,0,0,0);
-    CAN2_cmd_friction_wheels(friction_wheel_id1,friction_wheel_id2,shoot_id3,0);
-    CAN1_cmd_chassis(chassis_id1, chassis_id2, chassis_id3, chassis_id4);
-    CAN1_cmd_yaw(yaw_id1,0,0,0);
+    CAN2_cmd_friction_wheels(friction_wheel_id1,friction_wheel_id2,0,0);
+    CAN1_gimbal2chassis_A(yaw_id1,0,0,state);
+    CAN1_gimbal2chassis_B(SHOOT_2006_ID3_GIVEN_SPEED,0,0,0);
+
+
 
 }
 

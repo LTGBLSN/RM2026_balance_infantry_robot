@@ -11,7 +11,7 @@ void error_detection()
     while (1)
     {
 
-        rc_connection_status();//Ò£¿ØÆ÷ÀëÏßÅÐ¶Ï
+//        rc_connection_status();//Ò£¿ØÆ÷ÀëÏßÅÐ¶Ï
         osDelay(1);
 
     }

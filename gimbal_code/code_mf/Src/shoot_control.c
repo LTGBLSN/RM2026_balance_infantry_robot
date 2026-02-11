@@ -18,7 +18,7 @@ void shoot_control()
 
 
         shoot_speed_compute();//拨弹盘目标速度控制
-        shoot_stop_check();//拨弹盘堵转反转（阻塞）
+//        shoot_stop_check();//拨弹盘堵转反转（阻塞） 云台无拨弹盘，卡弹反转写在下c板
         //拨弹盘的速度闭环在不阻塞的gimbal_motor_control里面
 
 

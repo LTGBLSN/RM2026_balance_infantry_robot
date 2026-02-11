@@ -95,9 +95,9 @@ void motor_gimbal_angle_compute()
 
          if((PITCH_RC_IN_KP * (float )rc_ch3) < 0 )
          {
-             if(PITCH_6020_ID2_GIVEN_ANGLE < -23.0f )
+             if(PITCH_6020_ID2_GIVEN_ANGLE < PITCH_ANGLE_MAX )
              {
-                 PITCH_6020_ID2_GIVEN_ANGLE = -23.0f ;
+                 PITCH_6020_ID2_GIVEN_ANGLE = PITCH_ANGLE_MAX ;
              }
              else
              {
@@ -106,9 +106,9 @@ void motor_gimbal_angle_compute()
          }
          else
          {
-             if(PITCH_6020_ID2_GIVEN_ANGLE > 25.0f )
+             if(PITCH_6020_ID2_GIVEN_ANGLE > PITCH_ANGLE_MIN )
              {
-                 PITCH_6020_ID2_GIVEN_ANGLE = 25.0f ;
+                 PITCH_6020_ID2_GIVEN_ANGLE = PITCH_ANGLE_MIN ;
              }
              else
              {
@@ -197,7 +197,7 @@ void motor_gimbal_pid_compute()
 
 
     PITCH_6020_ID2_GIVEN_SPEED = pitch_angle_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_ANGLE);//角度环
-    PITCH_6020_ID2_GIVEN_CURRENT = (int16_t) (- pitch_speed_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_SPEED)); //速度环
+    PITCH_6020_ID2_GIVEN_CURRENT = (int16_t) (pitch_speed_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_SPEED)); //速度环
 
 }
 
@@ -211,8 +211,8 @@ void friction_wheel_speed_control()
         FRICTION_WHEEL_3510_ID2_GIVEN_SPEED = 0 ;
     } else
     {
-        FRICTION_WHEEL_3510_ID1_GIVEN_SPEED = FRICTION_WHEEL_SHOOT_SPEED ;
-        FRICTION_WHEEL_3510_ID2_GIVEN_SPEED = -FRICTION_WHEEL_SHOOT_SPEED ;
+        FRICTION_WHEEL_3510_ID1_GIVEN_SPEED = -FRICTION_WHEEL_SHOOT_SPEED ;
+        FRICTION_WHEEL_3510_ID2_GIVEN_SPEED = FRICTION_WHEEL_SHOOT_SPEED ;
 
     }
 
@@ -228,8 +228,8 @@ void friction_wheel_pid_control()
 
 void yaw_angle_pid_init(void)
 {
-    static fp32 yaw_6020_id1_angle_kpkikd[3] = {YAW_6020_ID2_ANGLE_PID_KP, YAW_6020_ID2_ANGLE_PID_KI, YAW_6020_ID2_ANGLE_PID_KD};
-    PID_init(&yaw_6020_ID1_angle_pid, PID_POSITION, yaw_6020_id1_angle_kpkikd, YAW_6020_ID2_ANGLE_PID_OUT_MAX, YAW_6020_ID2_ANGLE_PID_KI_MAX);
+    static fp32 yaw_6020_id1_angle_kpkikd[3] = {YAW_6020_ID1_ANGLE_PID_KP, YAW_6020_ID1_ANGLE_PID_KI, YAW_6020_ID1_ANGLE_PID_KD};
+    PID_init(&yaw_6020_ID1_angle_pid, PID_POSITION, yaw_6020_id1_angle_kpkikd, YAW_6020_ID1_ANGLE_PID_OUT_MAX, YAW_6020_ID1_ANGLE_PID_KI_MAX);
 
 }
 
@@ -245,8 +245,8 @@ float yaw_angle_pid_loop(float YAW_6020_ID1_angle_set_loop)
 
 void yaw_speed_pid_init(void)
 {
-    static fp32 yaw_6020_id1_speed_kpkikd[3] = {YAW_6020_ID2_SPEED_PID_KP, YAW_6020_ID2_SPEED_PID_KI, YAW_6020_ID2_SPEED_PID_KD};
-    PID_init(&yaw_6020_ID1_speed_pid, PID_POSITION, yaw_6020_id1_speed_kpkikd, YAW_6020_ID2_SPEED_PID_OUT_MAX, YAW_6020_ID2_SPEED_PID_KI_MAX);
+    static fp32 yaw_6020_id1_speed_kpkikd[3] = {YAW_6020_ID1_SPEED_PID_KP, YAW_6020_ID1_SPEED_PID_KI, YAW_6020_ID1_SPEED_PID_KD};
+    PID_init(&yaw_6020_ID1_speed_pid, PID_POSITION, yaw_6020_id1_speed_kpkikd, YAW_6020_ID1_SPEED_PID_OUT_MAX, YAW_6020_ID1_SPEED_PID_KI_MAX);
 
 }
 

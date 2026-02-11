@@ -23,49 +23,43 @@ void DM_CAN_SENT()
     while (1)
     {
         //底盘控制频率500hz
-        if(rc_receive_state == RC_ONLINE)
+        if(gimbal_info.state == 3 )
         {
-            if(rc_s0 == 3 )
-            {
-                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT);
-                Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT);
 
-                osDelay(1);//必须间隔，否则发送失败，邮箱深度为3
-                CAN1_cmd_chassis_shoot((int16_t)(rc_ch1*8),(int16_t)(-rc_ch3*8),0,0);
-                Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND);
-                Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND);
-                osDelay(1);
+            osDelay(1);//必须间隔，否则发送失败，邮箱深度为3
+            CAN1_cmd_chassis((int16_t) (rc_ch1 * 8), (int16_t) (-rc_ch3 * 8), SHOOT_2006_ID3_GIVEN_CURRENT, 0);
+            CAN1_cmd_yaw(gimbal_info.yaw,0,0,0);
+//            Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND);
 
-            }
-            else if(rc_s0 == 1 )
-            {
-                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT);
-                Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT);
+            osDelay(1);
+//            Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND);
+//            Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT);
+//            Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT);
 
-
-                osDelay(1);//必须间隔，否则发送失败，邮箱深度为3
-                CAN1_cmd_chassis_shoot(chassis_right_3508_id1_given_current, chassis_left_3508_id2_given_current, 0, 0);
-                Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND);
-                Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND);
-                osDelay(1);
-            }
-            else
-            {
-                DM_ALL_STOP();
-            }
         }
-         else
+        else if(gimbal_info.state == 1 )
         {
-            DM_ALL_STOP();
+
+            osDelay(1);//必须间隔，否则发送失败，邮箱深度为3
+            CAN1_cmd_chassis(chassis_right_3508_id1_given_current, chassis_left_3508_id2_given_current, SHOOT_2006_ID3_GIVEN_CURRENT, 0);
+            CAN1_cmd_yaw(gimbal_info.yaw,0,0,0);
+//            Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND);
+
+            osDelay(1);
+//            Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND);
+//            Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT);
+//            Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT);
         }
-
-
+        else
+        {
+            ALL_STOP();
+        }
     }
 
 }
 
 
-void DM_ALL_STOP()
+void ALL_STOP()
 {
     struct dm_motor DM_STOP ;
 
@@ -101,7 +95,8 @@ void DM_ALL_STOP()
     Dm_Can_Send(DM_STOP);
     osDelay(1);
 
-    CAN1_cmd_chassis_shoot(0,0,0,0);
+    CAN1_cmd_chassis(0, 0, 0, 0);
+    CAN1_cmd_yaw(0,0,0,0);
 }
 
 

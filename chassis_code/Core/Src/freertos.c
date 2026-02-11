@@ -56,6 +56,8 @@ osThreadId chassisHandle;
 osThreadId errHandle;
 osThreadId imu_dataHandle;
 osThreadId chassis_vx_taskHandle;
+osThreadId SHOOT_PIDHandle;
+osThreadId STOP_CHECKHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -70,6 +72,8 @@ void CHASSIS_TASK(void const * argument);
 void error_detection(void const * argument);
 void IMU_DATA_GET(void const * argument);
 void CHASSIS_VX(void const * argument);
+void shoot_motor_pid_control(void const * argument);
+void SHOOT_STOP_CHECK(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -152,6 +156,14 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of chassis_vx_task */
   osThreadDef(chassis_vx_task, CHASSIS_VX, osPriorityIdle, 0, 128);
   chassis_vx_taskHandle = osThreadCreate(osThread(chassis_vx_task), NULL);
+
+  /* definition and creation of SHOOT_PID */
+  osThreadDef(SHOOT_PID, shoot_motor_pid_control, osPriorityIdle, 0, 128);
+  SHOOT_PIDHandle = osThreadCreate(osThread(SHOOT_PID), NULL);
+
+  /* definition and creation of STOP_CHECK */
+  osThreadDef(STOP_CHECK, SHOOT_STOP_CHECK, osPriorityIdle, 0, 128);
+  STOP_CHECKHandle = osThreadCreate(osThread(STOP_CHECK), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -319,6 +331,42 @@ __weak void CHASSIS_VX(void const * argument)
     osDelay(1);
   }
   /* USER CODE END CHASSIS_VX */
+}
+
+/* USER CODE BEGIN Header_shoot_motor_pid_control */
+/**
+* @brief Function implementing the SHOOT_PID thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_shoot_motor_pid_control */
+__weak void shoot_motor_pid_control(void const * argument)
+{
+  /* USER CODE BEGIN shoot_motor_pid_control */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END shoot_motor_pid_control */
+}
+
+/* USER CODE BEGIN Header_SHOOT_STOP_CHECK */
+/**
+* @brief Function implementing the STOP_CHECK thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_SHOOT_STOP_CHECK */
+__weak void SHOOT_STOP_CHECK(void const * argument)
+{
+  /* USER CODE BEGIN SHOOT_STOP_CHECK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END SHOOT_STOP_CHECK */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -39,6 +39,9 @@ typedef enum
     CAN_TRIGGER_MOTOR_ID = 0x207,
     CAN_GIMBAL_ALL_ID = 0x1FF,
 
+     CAN_GIMBAL2CHASSIS_A_ID = 0xAC,
+     CAN_GIMBAL2CHASSIS_B_ID = 0xAD,
+
 } can_msg_id_e;
 
 //rm motor data
@@ -60,6 +63,10 @@ extern void CAN2_cmd_friction_wheels(int16_t friction_wheel0, int16_t friction_w
 extern void CAN1_cmd_chassis(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4);
 
 extern void CAN1_cmd_yaw(int16_t yaw, int16_t motor2, int16_t motor3, int16_t motor4);
+
+void CAN1_gimbal2chassis_A(int16_t yaw, int16_t vround, int16_t vx, int16_t state);
+
+extern void CAN1_gimbal2chassis_B(int16_t shoot_speed, int16_t data1, int16_t data2, int16_t data3);
 
 
 #endif

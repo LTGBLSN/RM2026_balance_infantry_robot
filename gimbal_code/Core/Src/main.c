@@ -161,7 +161,7 @@ int16_t FRICTION_WHEEL_3510_ID2_GIVEN_CURRENT ;
 
 
 //shoot
-float SHOOT_2006_ID3_GIVEN_SPEED ;
+int16_t SHOOT_2006_ID3_GIVEN_SPEED ;
 int16_t SHOOT_2006_ID3_GIVEN_CURRENT ;
 
 
@@ -303,7 +303,7 @@ int main(void)
     HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);
     HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);
 
-    HAL_UART_Receive_DMA(&huart1, &uart1_receive_data, 1);  //串口2接收数据中断
+    HAL_UART_Receive_DMA(&huart1, &uart1_receive_data, 1);  //串口1接收数据中断
 
     remote_control_init();//遥控器初始化
 

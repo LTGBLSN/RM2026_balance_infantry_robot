@@ -21,10 +21,11 @@ void uart_sent_debug()
 {
     while (1)
     {
-        usart6_printf("%f,%f,%d \r\n",
-                       angular_speed,
-                      pitch_speed_from_bmi088,
-                      rc_s1);
+        usart6_printf("%d,%d,%d,%d \r\n",
+                      gimbal_info.shoot_given_speed,
+                      SHOOT_2006_ID3_GIVEN_SPEED,
+                      motor_can1_data[2].speed_rpm,
+                      SHOOT_2006_ID3_GIVEN_CURRENT);
 
 
 
