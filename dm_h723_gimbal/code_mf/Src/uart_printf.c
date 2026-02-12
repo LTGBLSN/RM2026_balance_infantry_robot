@@ -20,3 +20,39 @@ void usart1_printf(const char *fmt, ...)
 
 }
 
+extern UART_HandleTypeDef huart10;
+void usart10_printf(const char *fmt, ...)
+{
+    static uint8_t tx_buf[256] = {0};
+    static va_list ap;
+    static uint16_t len;
+    va_start(ap, fmt);
+
+    //return length of string
+    //返回字符串长度
+    len = vsprintf((char *)tx_buf, fmt, ap);
+
+    va_end(ap);
+
+    HAL_UART_Transmit(&huart10,tx_buf, len,10);//在这修改发送的串口，包括上面的‘extern’后面的
+
+}
+
+
+extern UART_HandleTypeDef huart7;
+void usart7_printf(const char *fmt, ...)
+{
+    static uint8_t tx_buf[256] = {0};
+    static va_list ap;
+    static uint16_t len;
+    va_start(ap, fmt);
+
+    //return length of string
+    //返回字符串长度
+    len = vsprintf((char *)tx_buf, fmt, ap);
+
+    va_end(ap);
+
+    HAL_UART_Transmit(&huart7,tx_buf, len,10);//在这修改发送的串口，包括上面的‘extern’后面的
+
+}

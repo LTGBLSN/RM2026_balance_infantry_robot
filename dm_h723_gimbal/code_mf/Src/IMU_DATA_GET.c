@@ -24,17 +24,17 @@ void IMU_DATA_GET()
         INS_degree[2] = INS_angle[2] * (180.0f / 3.14159265358979323846f);
 
         //弧度制角速度
-        imu_data_from_board_BMI088_mahony.roll_radian_vel = -gyro[1];
+        imu_data_from_board_BMI088_mahony.roll_radian_vel = gyro[1];
         imu_data_from_board_BMI088_mahony.yaw_radian_vel = gyro[2];
-        imu_data_from_board_BMI088_mahony.pitch_radian_vel = gyro[0];
+        imu_data_from_board_BMI088_mahony.pitch_radian_vel = -gyro[0];
         //弧度制角度
-        imu_data_from_board_BMI088_mahony.roll_radian_angle = -INS_angle[1];
+        imu_data_from_board_BMI088_mahony.roll_radian_angle = INS_angle[1];
         imu_data_from_board_BMI088_mahony.yaw_radian_angle = INS_angle[0];
-        imu_data_from_board_BMI088_mahony.pitch_radian_angle = INS_angle[2];
+        imu_data_from_board_BMI088_mahony.pitch_radian_angle = -INS_angle[2];
         //角度制角度
-        imu_data_from_board_BMI088_mahony.roll_degree_angle = -INS_degree[1];
+        imu_data_from_board_BMI088_mahony.roll_degree_angle = INS_degree[1];
         imu_data_from_board_BMI088_mahony.yaw_degree_angle = INS_degree[0];
-        imu_data_from_board_BMI088_mahony.pitch_degree_angle = INS_degree[2];
+        imu_data_from_board_BMI088_mahony.pitch_degree_angle = -INS_degree[2];
 
 
 

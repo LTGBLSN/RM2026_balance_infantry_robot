@@ -495,8 +495,8 @@ Discarded input sections
                 0x00000000       0x38 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .debug_rnglists
                 0x00000000       0x26 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
- .debug_line    0x00000000      0xfa3 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
- .debug_str     0x00000000      0x5b8 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
+ .debug_line    0x00000000      0xfe5 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
+ .debug_str     0x00000000      0x5e4 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .debug_frame   0x00000000       0x74 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .ARM.attributes
@@ -530,8 +530,8 @@ Discarded input sections
                 0x00000000       0x60 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .debug_rnglists
                 0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
- .debug_line    0x00000000      0x6a6 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
- .debug_str     0x00000000      0x450 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
+ .debug_line    0x00000000      0x6e8 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
+ .debug_str     0x00000000      0x47c CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .debug_frame   0x00000000       0xe8 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .ARM.attributes
@@ -582,8 +582,8 @@ Discarded input sections
                 0x00000000       0xa0 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .debug_rnglists
                 0x00000000       0x75 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
- .debug_line    0x00000000      0x82d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
- .debug_str     0x00000000      0x5b9 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
+ .debug_line    0x00000000      0x885 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
+ .debug_str     0x00000000      0x5e5 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .debug_frame   0x00000000      0x164 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .ARM.attributes
@@ -631,8 +631,8 @@ Discarded input sections
                 0x00000000       0x98 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .debug_rnglists
                 0x00000000       0x6f CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
- .debug_line    0x00000000      0x73d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
- .debug_str     0x00000000      0x609 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
+ .debug_line    0x00000000      0x77f CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
+ .debug_str     0x00000000      0x635 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .debug_frame   0x00000000      0x164 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .ARM.attributes
@@ -644,8 +644,8 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x26 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
- .debug_line    0x00000000       0x9b CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
- .debug_str     0x00000000      0x229 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
+ .debug_line    0x00000000       0xb1 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
+ .debug_str     0x00000000      0x255 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
@@ -705,8 +705,8 @@ Discarded input sections
                 0x00000000       0xa0 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .debug_rnglists
                 0x00000000       0x74 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
- .debug_line    0x00000000      0x4f8 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
- .debug_str     0x00000000      0x5b0 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
+ .debug_line    0x00000000      0x550 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
+ .debug_str     0x00000000      0x5dc CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .debug_frame   0x00000000      0x138 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .ARM.attributes
@@ -734,8 +734,8 @@ Discarded input sections
                 0x00000000       0x48 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .debug_rnglists
                 0x00000000       0x31 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
- .debug_line    0x00000000      0x3ab CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
- .debug_str     0x00000000      0x461 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
+ .debug_line    0x00000000      0x3ed CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
+ .debug_str     0x00000000      0x48d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .debug_frame   0x00000000       0x90 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .ARM.attributes
@@ -780,8 +780,8 @@ Discarded input sections
                 0x00000000       0x48 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_rnglists
                 0x00000000       0x33 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_line    0x00000000      0x6fc CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_str     0x00000000      0x536 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_line    0x00000000      0x73e CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_str     0x00000000      0x562 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_frame   0x00000000       0xa4 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .ARM.attributes
@@ -1364,8 +1364,8 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x26 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
- .debug_line    0x00000000       0x8f CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
- .debug_str     0x00000000      0x222 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
+ .debug_line    0x00000000       0xa5 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
+ .debug_str     0x00000000      0x24e CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
@@ -1402,8 +1402,8 @@ Discarded input sections
                 0x00000000       0x70 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_rnglists
                 0x00000000       0x6d CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
- .debug_line    0x00000000      0xa41 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
- .debug_str     0x00000000      0x7cc CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
+ .debug_line    0x00000000      0xa83 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
+ .debug_str     0x00000000      0x7f8 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_frame   0x00000000      0x168 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .ARM.attributes
@@ -1502,8 +1502,8 @@ Discarded input sections
                 0x00000000      0x108 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .debug_rnglists
                 0x00000000      0x134 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_line    0x00000000     0x19f6 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_str     0x00000000      0xbda CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_line    0x00000000     0x1a38 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x00000000      0xc06 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .debug_frame   0x00000000      0x35c CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .ARM.attributes
@@ -1563,8 +1563,8 @@ Discarded input sections
                 0x00000000       0xc8 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_rnglists
                 0x00000000       0xb0 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
- .debug_line    0x00000000     0x13d3 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
- .debug_str     0x00000000      0x9c2 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
+ .debug_line    0x00000000     0x1415 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
+ .debug_str     0x00000000      0x9ee CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_frame   0x00000000      0x34c CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .ARM.attributes
@@ -1651,8 +1651,8 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x26 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
  .debug_aranges
                 0x00000000       0x18 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_line    0x00000000       0x8d CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_str     0x00000000      0x220 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_line    0x00000000       0xa3 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_str     0x00000000      0x24c CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
@@ -1708,8 +1708,6 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
  .data          0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
  .bss           0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .text.yaw_imu_getAbscissa
-                0x00000000       0x8c CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
  .text          0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .data          0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .bss           0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
@@ -1749,8 +1747,8 @@ Discarded input sections
                 0x00000000       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .debug_rnglists
                 0x00000000       0x1b CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
- .debug_line    0x00000000      0x3d9 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
- .debug_str     0x00000000      0x309 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
+ .debug_line    0x00000000      0x405 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
+ .debug_str     0x00000000      0x335 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .debug_frame   0x00000000       0x30 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/jy61p.c.obj
  .ARM.attributes
@@ -1759,7 +1757,7 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
  .bss           0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
  .debug_line    0x00000000        0x0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
- .debug_str     0x00000000      0x171 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
+ .debug_str     0x00000000      0x19d CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
  .comment       0x00000000       0x46 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/odometer.c.obj
@@ -4766,7 +4764,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
 LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x28b49
+.debug_info     0x00000000    0x28b12
  .debug_info    0x00000000      0xc9d CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
  .debug_info    0x00000c9d      0x5d4 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
  .debug_info    0x00001271     0x10f8 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
@@ -4810,17 +4808,17 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_info    0x00024654      0xabb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
  .debug_info    0x0002510f      0x2ea CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
  .debug_info    0x000253f9      0x3a1 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
- .debug_info    0x0002579a      0xb39 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .debug_info    0x000262d3      0x267 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
- .debug_info    0x0002653a      0x1e7 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
- .debug_info    0x00026721      0x838 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_info    0x00026f59      0x786 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
- .debug_info    0x000276df      0x4d4 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
- .debug_info    0x00027bb3      0x664 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_info    0x00028217      0x6df CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_info    0x000288f6      0x253 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+ .debug_info    0x0002579a      0xb02 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+ .debug_info    0x0002629c      0x267 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+ .debug_info    0x00026503      0x1e7 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+ .debug_info    0x000266ea      0x838 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_info    0x00026f22      0x786 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+ .debug_info    0x000276a8      0x4d4 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+ .debug_info    0x00027b7c      0x664 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_info    0x000281e0      0x6df CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_info    0x000288bf      0x253 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
-.debug_abbrev   0x00000000     0x67b8
+.debug_abbrev   0x00000000     0x67b6
  .debug_abbrev  0x00000000      0x241 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
  .debug_abbrev  0x00000241      0x12d CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
  .debug_abbrev  0x0000036e      0x273 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
@@ -4864,15 +4862,15 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_abbrev  0x00005310      0x2bc CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
  .debug_abbrev  0x000055cc      0x162 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
  .debug_abbrev  0x0000572e      0x10f CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
- .debug_abbrev  0x0000583d      0x2cb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .debug_abbrev  0x00005b08      0x136 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
- .debug_abbrev  0x00005c3e       0xf0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
- .debug_abbrev  0x00005d2e      0x253 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_abbrev  0x00005f81      0x199 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
- .debug_abbrev  0x0000611a      0x205 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
- .debug_abbrev  0x0000631f      0x19e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_abbrev  0x000064bd      0x1e0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_abbrev  0x0000669d      0x11b CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+ .debug_abbrev  0x0000583d      0x2c9 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+ .debug_abbrev  0x00005b06      0x136 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+ .debug_abbrev  0x00005c3c       0xf0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+ .debug_abbrev  0x00005d2c      0x253 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_abbrev  0x00005f7f      0x199 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+ .debug_abbrev  0x00006118      0x205 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+ .debug_abbrev  0x0000631d      0x19e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_abbrev  0x000064bb      0x1e0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_abbrev  0x0000669b      0x11b CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
 .debug_loclists
                 0x00000000     0xed95
@@ -4953,7 +4951,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_loclists
                 0x0000ed6c       0x29 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
 
-.debug_aranges  0x00000000     0x1b50
+.debug_aranges  0x00000000     0x1b48
  .debug_aranges
                 0x00000000       0x38 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
  .debug_aranges
@@ -5041,26 +5039,26 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_aranges
                 0x00001918       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
  .debug_aranges
-                0x00001938       0xb8 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+                0x00001938       0xb0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
  .debug_aranges
-                0x000019f0       0x30 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+                0x000019e8       0x30 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
  .debug_aranges
-                0x00001a20       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+                0x00001a18       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
  .debug_aranges
-                0x00001a48       0x38 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+                0x00001a40       0x38 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
  .debug_aranges
-                0x00001a80       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+                0x00001a78       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
  .debug_aranges
-                0x00001aa0       0x48 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+                0x00001a98       0x48 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
  .debug_aranges
-                0x00001ae8       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+                0x00001ae0       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
  .debug_aranges
-                0x00001b08       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+                0x00001b00       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
  .debug_aranges
-                0x00001b28       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+                0x00001b20       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
 .debug_rnglists
-                0x00000000     0x14cd
+                0x00000000     0x14c6
  .debug_rnglists
                 0x00000000       0x27 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
  .debug_rnglists
@@ -5148,132 +5146,132 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_rnglists
                 0x0000134d       0x14 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
  .debug_rnglists
-                0x00001361       0x87 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+                0x00001361       0x80 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
  .debug_rnglists
-                0x000013e8       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+                0x000013e1       0x20 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
  .debug_rnglists
-                0x00001408       0x1a CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+                0x00001401       0x1a CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
  .debug_rnglists
-                0x00001422       0x27 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+                0x0000141b       0x27 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
  .debug_rnglists
-                0x00001449       0x14 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+                0x00001442       0x14 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
  .debug_rnglists
-                0x0000145d       0x31 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+                0x00001456       0x31 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
  .debug_rnglists
-                0x0000148e       0x13 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+                0x00001487       0x13 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
  .debug_rnglists
-                0x000014a1       0x13 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+                0x0000149a       0x13 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
  .debug_rnglists
-                0x000014b4       0x19 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+                0x000014ad       0x19 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
-.debug_line     0x00000000    0x1e649
- .debug_line    0x00000000      0x525 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
- .debug_line    0x00000525      0x243 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
- .debug_line    0x00000768      0x607 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
- .debug_line    0x00000d6f      0x2e3 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/gpio.c.obj
- .debug_line    0x00001052      0x640 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/main.c.obj
- .debug_line    0x00001692      0x406 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/spi.c.obj
- .debug_line    0x00001a98      0x249 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x00001ce1      0x3a6 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_line    0x00002087      0x414 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x0000249b      0x416 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/syscalls.c.obj
- .debug_line    0x000028b1      0x1ff CMakeFiles/bubing_RM2025.elf.dir/Core/Src/sysmem.c.obj
- .debug_line    0x00002ab0      0x304 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_line    0x00002db4      0x725 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/tim.c.obj
- .debug_line    0x000034d9      0x79b CMakeFiles/bubing_RM2025.elf.dir/Core/Src/usart.c.obj
- .debug_line    0x00003c74       0x7a CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
- .debug_line    0x00003cee      0x659 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x00004347     0x123d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_line    0x00005584      0x91c CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_line    0x00005ea0      0xee9 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_line    0x00006d89      0x7ab CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_line    0x00007534      0xc73 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_line    0x000081a7     0x251d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_line    0x0000a6c4     0x4824 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_line    0x0000eee8     0x1b6d CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_line    0x00010a55     0x35af CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_line    0x00014004     0x13fc CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_line    0x00015400      0x40b CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x0001580b      0x6d9 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_line    0x00015ee4      0x7ba CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x0001669e     0x2246 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x000188e4      0x3f4 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088Middleware.c.obj
- .debug_line    0x00018cd8      0x520 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088driver.c.obj
- .debug_line    0x000191f8      0x67d CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/CAN_receive.c.obj
- .debug_line    0x00019875      0x32e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
- .debug_line    0x00019ba3      0x77f CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/MahonyAHRS.c.obj
- .debug_line    0x0001a322      0x3db CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/auto_aim.c.obj
- .debug_line    0x0001a6fd      0x2be CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/board_LED.c.obj
- .debug_line    0x0001a9bb      0x2b6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_can.c.obj
- .debug_line    0x0001ac71      0x2fd CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_rc.c.obj
- .debug_line    0x0001af6e      0x2c6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/can_sent.c.obj
- .debug_line    0x0001b234      0x82e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
- .debug_line    0x0001ba62      0x3d0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
- .debug_line    0x0001be32      0x473 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
- .debug_line    0x0001c2a5      0x6f3 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .debug_line    0x0001c998      0x328 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
- .debug_line    0x0001ccc0      0x36d CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
- .debug_line    0x0001d02d      0x55e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_line    0x0001d58b      0x3e0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
- .debug_line    0x0001d96b      0x3b0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
- .debug_line    0x0001dd1b      0x348 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_line    0x0001e063      0x33e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_line    0x0001e3a1      0x2a8 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+.debug_line     0x00000000    0x1f5c9
+ .debug_line    0x00000000      0x57d CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
+ .debug_line    0x0000057d      0x285 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
+ .debug_line    0x00000802      0x65f CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
+ .debug_line    0x00000e61      0x325 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00001186      0x6da CMakeFiles/bubing_RM2025.elf.dir/Core/Src/main.c.obj
+ .debug_line    0x00001860      0x45e CMakeFiles/bubing_RM2025.elf.dir/Core/Src/spi.c.obj
+ .debug_line    0x00001cbe      0x28b CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x00001f49      0x3e8 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_line    0x00002331      0x456 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x00002787      0x42c CMakeFiles/bubing_RM2025.elf.dir/Core/Src/syscalls.c.obj
+ .debug_line    0x00002bb3      0x215 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00002dc8      0x346 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_line    0x0000310e      0x77d CMakeFiles/bubing_RM2025.elf.dir/Core/Src/tim.c.obj
+ .debug_line    0x0000388b      0x7f3 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/usart.c.obj
+ .debug_line    0x0000407e       0x7a CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
+ .debug_line    0x000040f8      0x6b1 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_line    0x000047a9     0x1295 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_line    0x00005a3e      0x974 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_line    0x000063b2      0xf2b CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_line    0x000072dd      0x7ed CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_line    0x00007aca      0xcb5 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_line    0x0000877f     0x255f CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_line    0x0000acde     0x4866 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_line    0x0000f544     0x1baf CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_line    0x000110f3     0x3607 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_line    0x000146fa     0x1454 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_line    0x00015b4e      0x44d CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x00015f9b      0x71b CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_line    0x000166b6      0x7fc CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x00016eb2     0x2288 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x0001913a      0x44c CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088Middleware.c.obj
+ .debug_line    0x00019586      0x54c CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088driver.c.obj
+ .debug_line    0x00019ad2      0x6eb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/CAN_receive.c.obj
+ .debug_line    0x0001a1bd      0x386 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+ .debug_line    0x0001a543      0x7ab CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+ .debug_line    0x0001acee      0x449 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/auto_aim.c.obj
+ .debug_line    0x0001b137      0x316 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/board_LED.c.obj
+ .debug_line    0x0001b44d      0x2f8 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_can.c.obj
+ .debug_line    0x0001b745      0x355 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_rc.c.obj
+ .debug_line    0x0001ba9a      0x31e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/can_sent.c.obj
+ .debug_line    0x0001bdb8      0x89c CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
+ .debug_line    0x0001c654      0x43e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
+ .debug_line    0x0001ca92      0x4cb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
+ .debug_line    0x0001cf5d      0x6fb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+ .debug_line    0x0001d658      0x354 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+ .debug_line    0x0001d9ac      0x3c5 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+ .debug_line    0x0001dd71      0x5cc CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_line    0x0001e33d      0x44e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+ .debug_line    0x0001e78b      0x408 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+ .debug_line    0x0001eb93      0x3b6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_line    0x0001ef49      0x380 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_line    0x0001f2c9      0x300 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
-.debug_str      0x00000000     0x9c93
- .debug_str     0x00000000     0x9c93 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
-                                0xc0a (size before relaxing)
- .debug_str     0x00009c93      0x84e CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
- .debug_str     0x00009c93      0xbfe CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
- .debug_str     0x00009c93      0x3fb CMakeFiles/bubing_RM2025.elf.dir/Core/Src/gpio.c.obj
- .debug_str     0x00009c93     0x175c CMakeFiles/bubing_RM2025.elf.dir/Core/Src/main.c.obj
- .debug_str     0x00009c93      0x888 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/spi.c.obj
- .debug_str     0x00009c93      0x849 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_str     0x00009c93      0xedb CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_str     0x00009c93      0xdb6 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_str     0x00009c93      0x468 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/syscalls.c.obj
- .debug_str     0x00009c93      0x294 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/sysmem.c.obj
- .debug_str     0x00009c93      0x3e4 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_str     0x00009c93      0xc02 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/tim.c.obj
- .debug_str     0x00009c93      0xe88 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/usart.c.obj
- .debug_str     0x00009c93       0xcb CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
- .debug_str     0x00009c93      0xbd3 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_str     0x00009c93      0xaa4 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_str     0x00009c93      0xce4 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_str     0x00009c93      0x7e5 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_str     0x00009c93      0x54f CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_str     0x00009c93      0x775 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_str     0x00009c93      0xc63 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_str     0x00009c93     0x176e CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_str     0x00009c93      0xf7a CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_str     0x00009c93      0xe0a CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_str     0x00009c93     0x1418 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_str     0x00009c93      0x371 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_str     0x00009c93      0x4ed CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_str     0x00009c93      0x58a CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_str     0x00009c93     0x13f4 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_str     0x00009c93      0x7ef CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088Middleware.c.obj
- .debug_str     0x00009c93      0x5ba CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088driver.c.obj
- .debug_str     0x00009c93      0x943 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/CAN_receive.c.obj
- .debug_str     0x00009c93      0x452 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
- .debug_str     0x00009c93      0x337 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/MahonyAHRS.c.obj
- .debug_str     0x00009c93      0x82c CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/auto_aim.c.obj
- .debug_str     0x00009c93      0x37a CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/board_LED.c.obj
- .debug_str     0x00009c93      0x5f7 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_can.c.obj
- .debug_str     0x00009c93      0x6b9 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_rc.c.obj
- .debug_str     0x00009c93      0x4cc CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/can_sent.c.obj
- .debug_str     0x00009c93      0xb34 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
- .debug_str     0x00009c93      0x484 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
- .debug_str     0x00009c93      0x445 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
- .debug_str     0x00009c93      0xbe6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .debug_str     0x00009c93      0x294 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
- .debug_str     0x00009c93      0x38e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
- .debug_str     0x00009c93      0x76e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_str     0x00009c93      0x8a6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
- .debug_str     0x00009c93      0x553 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
- .debug_str     0x00009c93      0x767 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_str     0x00009c93      0x72e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_str     0x00009c93      0x3eb CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+.debug_str      0x00000000     0xa10d
+ .debug_str     0x00000000     0xa10d CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
+                                0xc36 (size before relaxing)
+ .debug_str     0x0000a10d      0x87a CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
+ .debug_str     0x0000a10d      0xc2a CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
+ .debug_str     0x0000a10d      0x427 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/gpio.c.obj
+ .debug_str     0x0000a10d     0x1788 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/main.c.obj
+ .debug_str     0x0000a10d      0x8b4 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/spi.c.obj
+ .debug_str     0x0000a10d      0x875 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x0000a10d      0xf07 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_str     0x0000a10d      0xde2 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x0000a10d      0x494 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x0000a10d      0x2c0 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x0000a10d      0x410 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_str     0x0000a10d      0xc2e CMakeFiles/bubing_RM2025.elf.dir/Core/Src/tim.c.obj
+ .debug_str     0x0000a10d      0xeb4 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/usart.c.obj
+ .debug_str     0x0000a10d       0xf7 CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
+ .debug_str     0x0000a10d      0xbff CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x0000a10d      0xad0 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_str     0x0000a10d      0xd10 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x0000a10d      0x811 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_str     0x0000a10d      0x57b CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x0000a10d      0x7a1 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x0000a10d      0xc8f CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_str     0x0000a10d     0x179a CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x0000a10d      0xfa6 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_str     0x0000a10d      0xe36 CMakeFiles/bubing_RM2025.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_str     0x0000a10d     0x1444 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_str     0x0000a10d      0x39d CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x0000a10d      0x519 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x0000a10d      0x5b6 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x0000a10d     0x1420 CMakeFiles/bubing_RM2025.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x0000a10d      0x81b CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088Middleware.c.obj
+ .debug_str     0x0000a10d      0x5e6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/BMI088driver.c.obj
+ .debug_str     0x0000a10d      0x96f CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/CAN_receive.c.obj
+ .debug_str     0x0000a10d      0x47e CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+ .debug_str     0x0000a10d      0x363 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+ .debug_str     0x0000a10d      0x858 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/auto_aim.c.obj
+ .debug_str     0x0000a10d      0x3a6 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/board_LED.c.obj
+ .debug_str     0x0000a10d      0x623 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_can.c.obj
+ .debug_str     0x0000a10d      0x6e5 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/bsp_rc.c.obj
+ .debug_str     0x0000a10d      0x4f8 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/can_sent.c.obj
+ .debug_str     0x0000a10d      0xb60 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
+ .debug_str     0x0000a10d      0x4b0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
+ .debug_str     0x0000a10d      0x471 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
+ .debug_str     0x0000a10d      0xbcf CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+ .debug_str     0x0000a10d      0x2c0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+ .debug_str     0x0000a10d      0x3ba CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+ .debug_str     0x0000a10d      0x79a CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_str     0x0000a10d      0x8d2 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+ .debug_str     0x0000a10d      0x57f CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+ .debug_str     0x0000a10d      0x793 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_str     0x0000a10d      0x75a CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_str     0x0000a10d      0x417 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
@@ -5329,7 +5327,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .comment       0x00000045       0x46 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
  .comment       0x00000045       0x46 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
 
-.debug_frame    0x00000000     0x5d58
+.debug_frame    0x00000000     0x5d48
  .debug_frame   0x00000000       0x78 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/can.c.obj
  .debug_frame   0x00000078       0x30 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/dma.c.obj
  .debug_frame   0x000000a8      0x178 CMakeFiles/bubing_RM2025.elf.dir/Core/Src/freertos.c.obj
@@ -5372,102 +5370,102 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_frame   0x00003ff4      0x1ac CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/chassis_motor_control.c.obj
  .debug_frame   0x000041a0       0x78 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/error_detection.c.obj
  .debug_frame   0x00004218       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/get_rc.c.obj
- .debug_frame   0x00004240      0x1d0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
- .debug_frame   0x00004410       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
- .debug_frame   0x00004450       0x38 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
- .debug_frame   0x00004488       0x78 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_frame   0x00004500       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
- .debug_frame   0x00004528       0x98 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
- .debug_frame   0x000045c0       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_frame   0x000045e8       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_frame   0x00004628       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
- .debug_frame   0x00004668       0xac C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00004714       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x00004738       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00004764       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00004798      0x13c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
- .debug_frame   0x000048d4       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fwalk.o)
- .debug_frame   0x00004908       0x8c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
- .debug_frame   0x00004994       0x54 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vsprintf.o)
- .debug_frame   0x000049e8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memset.o)
- .debug_frame   0x00004a14       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-closer.o)
- .debug_frame   0x00004a40       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
- .debug_frame   0x00004a7c       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lseekr.o)
- .debug_frame   0x00004aa8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-readr.o)
- .debug_frame   0x00004ad4       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-writer.o)
- .debug_frame   0x00004b00       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-errno.o)
- .debug_frame   0x00004b20       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-init.o)
- .debug_frame   0x00004b4c       0xb0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
- .debug_frame   0x00004bfc       0x5c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
- .debug_frame   0x00004c58       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-atexit.o)
- .debug_frame   0x00004c78       0x78 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
- .debug_frame   0x00004cf0       0x48 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
- .debug_frame   0x00004d38       0x30 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
- .debug_frame   0x00004d68       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
- .debug_frame   0x00004dac       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssprint_r.o)
- .debug_frame   0x00004de0       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fclose.o)
- .debug_frame   0x00004e1c       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
- .debug_frame   0x00004e8c       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strncpy.o)
- .debug_frame   0x00004eb4       0xe8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
- .debug_frame   0x00004f9c       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-localeconv.o)
- .debug_frame   0x00004fdc       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sbrkr.o)
- .debug_frame   0x00005008       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fini.o)
- .debug_frame   0x0000503c       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sysconf.o)
- .debug_frame   0x00005064       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libm_a-s_frexp.o)
- .debug_frame   0x00005090       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
- .debug_frame   0x000050c4       0x84 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
- .debug_frame   0x00005148      0x130 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mbtowc_r.o)
- .debug_frame   0x00005278      0x288 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
- .debug_frame   0x00005500       0x8c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wctomb_r.o)
- .debug_frame   0x0000558c       0x60 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcrtomb.o)
- .debug_frame   0x000055ec       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsrtombs.o)
- .debug_frame   0x0000563c       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ctype_.o)
- .debug_frame   0x0000565c       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssputs_r.o)
- .debug_frame   0x00005690       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memmove.o)
- .debug_frame   0x000056d0       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
- .debug_frame   0x00005710       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-callocr.o)
- .debug_frame   0x0000573c       0x48 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reallocr.o)
- .debug_frame   0x00005784       0x88 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
- .debug_frame   0x0000580c       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fiprintf.o)
- .debug_frame   0x0000587c       0x88 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
- .debug_frame   0x00005904       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sprint_r.o)
- .debug_frame   0x0000592c       0x64 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fvwrite.o)
- .debug_frame   0x00005990       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wsetup.o)
- .debug_frame   0x000059bc       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-abort.o)
- .debug_frame   0x000059e4       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-makebuf.o)
- .debug_frame   0x00005a54      0x118 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signal.o)
- .debug_frame   0x00005b6c       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fstatr.o)
- .debug_frame   0x00005b98       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-isattyr.o)
- .debug_frame   0x00005bc4       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
- .debug_frame   0x00005c00       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00005c50       0xc4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00005d14       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
- .debug_frame   0x00005d34       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixdfsi.o)
+ .debug_frame   0x00004240      0x1c0 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/gimbal_motor_control.c.obj
+ .debug_frame   0x00004400       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/pid.c.obj
+ .debug_frame   0x00004440       0x38 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/refree_task.c.obj
+ .debug_frame   0x00004478       0x78 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_frame   0x000044f0       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/servo_task.c.obj
+ .debug_frame   0x00004518       0x98 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/shoot_control.c.obj
+ .debug_frame   0x000045b0       0x28 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_frame   0x000045d8       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_frame   0x00004618       0x40 CMakeFiles/bubing_RM2025.elf.dir/code_mf/Src/uart_sent.c.obj
+ .debug_frame   0x00004658       0xac C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00004704       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00004728       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00004754       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00004788      0x13c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+ .debug_frame   0x000048c4       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fwalk.o)
+ .debug_frame   0x000048f8       0x8c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
+ .debug_frame   0x00004984       0x54 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vsprintf.o)
+ .debug_frame   0x000049d8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memset.o)
+ .debug_frame   0x00004a04       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-closer.o)
+ .debug_frame   0x00004a30       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
+ .debug_frame   0x00004a6c       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lseekr.o)
+ .debug_frame   0x00004a98       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-readr.o)
+ .debug_frame   0x00004ac4       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-writer.o)
+ .debug_frame   0x00004af0       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-errno.o)
+ .debug_frame   0x00004b10       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-init.o)
+ .debug_frame   0x00004b3c       0xb0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+ .debug_frame   0x00004bec       0x5c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
+ .debug_frame   0x00004c48       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-atexit.o)
+ .debug_frame   0x00004c68       0x78 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
+ .debug_frame   0x00004ce0       0x48 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+ .debug_frame   0x00004d28       0x30 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
+ .debug_frame   0x00004d58       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
+ .debug_frame   0x00004d9c       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssprint_r.o)
+ .debug_frame   0x00004dd0       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fclose.o)
+ .debug_frame   0x00004e0c       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
+ .debug_frame   0x00004e7c       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strncpy.o)
+ .debug_frame   0x00004ea4       0xe8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
+ .debug_frame   0x00004f8c       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-localeconv.o)
+ .debug_frame   0x00004fcc       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sbrkr.o)
+ .debug_frame   0x00004ff8       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fini.o)
+ .debug_frame   0x0000502c       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sysconf.o)
+ .debug_frame   0x00005054       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libm_a-s_frexp.o)
+ .debug_frame   0x00005080       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
+ .debug_frame   0x000050b4       0x84 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
+ .debug_frame   0x00005138      0x130 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mbtowc_r.o)
+ .debug_frame   0x00005268      0x288 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+ .debug_frame   0x000054f0       0x8c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wctomb_r.o)
+ .debug_frame   0x0000557c       0x60 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcrtomb.o)
+ .debug_frame   0x000055dc       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsrtombs.o)
+ .debug_frame   0x0000562c       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ctype_.o)
+ .debug_frame   0x0000564c       0x34 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssputs_r.o)
+ .debug_frame   0x00005680       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memmove.o)
+ .debug_frame   0x000056c0       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
+ .debug_frame   0x00005700       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-callocr.o)
+ .debug_frame   0x0000572c       0x48 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reallocr.o)
+ .debug_frame   0x00005774       0x88 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
+ .debug_frame   0x000057fc       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fiprintf.o)
+ .debug_frame   0x0000586c       0x88 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+ .debug_frame   0x000058f4       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sprint_r.o)
+ .debug_frame   0x0000591c       0x64 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fvwrite.o)
+ .debug_frame   0x00005980       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wsetup.o)
+ .debug_frame   0x000059ac       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-abort.o)
+ .debug_frame   0x000059d4       0x70 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-makebuf.o)
+ .debug_frame   0x00005a44      0x118 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signal.o)
+ .debug_frame   0x00005b5c       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fstatr.o)
+ .debug_frame   0x00005b88       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-isattyr.o)
+ .debug_frame   0x00005bb4       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
+ .debug_frame   0x00005bf0       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00005c40       0xc4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x00005d04       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+ .debug_frame   0x00005d24       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixdfsi.o)
 
 .debug_line_str
-                0x00000000      0x28c
+                0x00000000      0x2b8
  .debug_line_str
-                0x00000000      0x28c CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
-                                 0xaf (size before relaxing)
+                0x00000000      0x2b8 CMakeFiles/bubing_RM2025.elf.dir/Core/Startup/startup_stm32f407ighx.s.obj
+                                 0xdb (size before relaxing)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .debug_line_str
-                0x0000028c       0xc9 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+                0x000002b8       0xc9 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
  .debug_line_str
-                0x0000028c       0xcd C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
+                0x000002b8       0xcd C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
  .debug_line_str
-                0x0000028c       0xe3 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memcpy.o)
+                0x000002b8       0xe3 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memcpy.o)
  .debug_line_str
-                0x0000028c       0xdc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memchr.o)
+                0x000002b8       0xdc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memchr.o)
  .debug_line_str
-                0x0000028c       0xe2 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strlen.o)
+                0x000002b8       0xe2 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strlen.o)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
  .debug_line_str
-                0x0000028c       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixdfsi.o)
+                0x000002b8       0xce C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixdfsi.o)

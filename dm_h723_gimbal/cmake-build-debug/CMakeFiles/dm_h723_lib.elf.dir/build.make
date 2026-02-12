@@ -739,10 +739,24 @@ CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Middlewares\Third_Party\FreeRTOS\Source\timers.c -o CMakeFiles\dm_h723_lib.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\timers.c.s
 
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/AUTO_AIM_TASK.c
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\AUTO_AIM_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\AUTO_AIM_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\AUTO_AIM_TASK.c
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.i"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\AUTO_AIM_TASK.c > CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\AUTO_AIM_TASK.c.i
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.s"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\AUTO_AIM_TASK.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\AUTO_AIM_TASK.c.s
+
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/BMI088Middleware.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\BMI088Middleware.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\BMI088Middleware.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\BMI088Middleware.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.i: cmake_force
@@ -756,7 +770,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/BMI088driver.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\BMI088driver.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\BMI088driver.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\BMI088driver.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.i: cmake_force
@@ -770,7 +784,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/CAN_SENT_TASK.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\CAN_SENT_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\CAN_SENT_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\CAN_SENT_TASK.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.i: cmake_force
@@ -784,7 +798,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/DEBUG_UART_TASK.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\DEBUG_UART_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\DEBUG_UART_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\DEBUG_UART_TASK.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.i: cmake_force
@@ -798,7 +812,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/DJI_motors.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\DJI_motors.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\DJI_motors.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\DJI_motors.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.i: cmake_force
@@ -809,10 +823,24 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.s"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\DJI_motors.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\DJI_motors.c.s
 
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/ERROR_DETECTION.c
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ERROR_DETECTION.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ERROR_DETECTION.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\ERROR_DETECTION.c
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.i"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\ERROR_DETECTION.c > CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ERROR_DETECTION.c.i
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.s"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\ERROR_DETECTION.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ERROR_DETECTION.c.s
+
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/GET_RC_TASK.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GET_RC_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GET_RC_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\GET_RC_TASK.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.i: cmake_force
@@ -823,10 +851,24 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.s"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\GET_RC_TASK.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GET_RC_TASK.c.s
 
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/GIMBAL_MOTOR_CONTROL.c
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GIMBAL_MOTOR_CONTROL.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GIMBAL_MOTOR_CONTROL.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\GIMBAL_MOTOR_CONTROL.c
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\GIMBAL_MOTOR_CONTROL.c > CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GIMBAL_MOTOR_CONTROL.c.i
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\GIMBAL_MOTOR_CONTROL.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\GIMBAL_MOTOR_CONTROL.c.s
+
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/IMU_DATA_GET.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\IMU_DATA_GET.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\IMU_DATA_GET.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\IMU_DATA_GET.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.i: cmake_force
@@ -840,7 +882,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/LED_TASK.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\LED_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\LED_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\LED_TASK.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.i: cmake_force
@@ -854,7 +896,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/MahonyAHRS.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\MahonyAHRS.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\MahonyAHRS.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\MahonyAHRS.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.i: cmake_force
@@ -868,7 +910,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/SHOOT_TASK.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\SHOOT_TASK.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\SHOOT_TASK.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\SHOOT_TASK.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.i: cmake_force
@@ -882,7 +924,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/bsp_can.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\bsp_can.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\bsp_can.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\bsp_can.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.i: cmake_force
@@ -896,7 +938,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/can_receive.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\can_receive.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\can_receive.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\can_receive.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.i: cmake_force
@@ -910,7 +952,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/dm_motor.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\dm_motor.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\dm_motor.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\dm_motor.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.i: cmake_force
@@ -924,7 +966,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/pid.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\pid.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\pid.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\pid.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.i: cmake_force
@@ -938,7 +980,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/remote_control.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\remote_control.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\remote_control.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\remote_control.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.i: cmake_force
@@ -949,10 +991,24 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.s"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\remote_control.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\remote_control.c.s
 
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/uart_callback.c
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_callback.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_callback.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\uart_callback.c
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.i"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\uart_callback.c > CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_callback.c.i
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.s"
+	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\uart_callback.c -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_callback.c.s
+
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/uart_printf.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_printf.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\uart_printf.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\uart_printf.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.i: cmake_force
@@ -966,7 +1022,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.s: cmake_force
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj: CMakeFiles/dm_h723_lib.elf.dir/flags.make
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/ws2812.c
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj: CMakeFiles/dm_h723_lib.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj"
 	C:\CLionToolchains\gcc-arm-none-eabi-10.3-2021.10\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj -MF CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ws2812.c.obj.d -o CMakeFiles\dm_h723_lib.elf.dir\code_mf\Src\ws2812.c.obj -c D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Src\ws2812.c
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.i: cmake_force
@@ -1027,12 +1083,15 @@ dm_h723_lib_elf_OBJECTS = \
 "CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj" \
+"CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj" \
+"CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj" \
+"CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj" \
@@ -1042,6 +1101,7 @@ dm_h723_lib_elf_OBJECTS = \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj" \
+"CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj" \
 "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj"
 
@@ -1096,12 +1156,15 @@ dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
+dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj
+dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
@@ -1111,12 +1174,13 @@ dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/build.make
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/objects1.rsp
 dm_h723_lib.elf: CMakeFiles/dm_h723_lib.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Linking C executable dm_h723_lib.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Linking C executable dm_h723_lib.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\dm_h723_lib.elf.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/cmake-build-debug/dm_h723_lib.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/cmake-build-debug/dm_h723_lib.bin"

@@ -1,4 +1,4 @@
-# Install script for directory: D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code
+# Install script for directory: D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

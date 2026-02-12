@@ -10,12 +10,13 @@
 #include "DJI_motors.h"
 #include "dm_motor.h"
 #include "GET_RC_TASK.h"
+#include "AUTO_AIM_TASK.h"
 
 void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%x \r\n", motor_can1_data[0].temperate);
+        usart1_printf("%f \r\n",auto_aim_rx_packet.distance);
         osDelay(1);
     }
 }

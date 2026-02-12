@@ -35,6 +35,7 @@
 #include "bsp_can.h"
 #include "dm_motor.h"
 #include "SHOOT_TASK.h"
+#include "GIMBAL_MOTOR_CONTROL.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,9 +61,25 @@ float INS_quat[4] = {1.0f, 0.0f, 0.0f, 0.0f};
 float INS_angle[3] = {0.0f, 0.0f, 0.0f};
 float INS_degree[3] = {0.0f, 0.0f, 0.0f};
 
-//shoot
-float SHOOT_2006_ID1_GIVEN_SPEED ;
-int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
+float YAW_6020_ID1_GIVEN_SPEED ;
+int16_t YAW_6020_ID1_GIVEN_CURRENT ;
+float YAW_6020_ID1_GIVEN_ANGLE ;
+
+float PITCH_6020_ID2_GIVEN_ANGLE ;
+float PITCH_6020_ID2_GIVEN_SPEED ;
+int16_t PITCH_6020_ID2_GIVEN_CURRENT ;
+
+//friction wheel
+int16_t FRICTION_WHEEL_3508_ID1_GIVEN_SPEED ;
+int16_t FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT ;
+
+int16_t FRICTION_WHEEL_3508_ID2_GIVEN_SPEED ;
+int16_t FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT ;
+
+int16_t pitch_6020_state ;//6020电机状态 0为错误，1为正常
+
+uint8_t uart7_receive_data ;//串口当前接收字节
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -137,8 +154,14 @@ int main(void)
 
     BSP_FDCAN_Init();
 
-    //拨弹盘电机初始化
-    shoot_2006_id1_speed_pid_init();//拨弹盘id1速度环初始化
+    pitch_speed_from_bmi88_pid_init();
+    pitch_angle_pid_init();
+
+    friction_wheel_3510_id1_speed_pid_init();
+    friction_wheel_3510_id2_speed_pid_init();
+
+    HAL_UART_Receive_DMA(&huart7, &uart7_receive_data, 1);  //串口1接收数据中断
+
 
   /* USER CODE END 2 */
 

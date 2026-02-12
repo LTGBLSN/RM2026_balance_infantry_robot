@@ -46,9 +46,30 @@ extern float INS_quat[4] ;
 extern float INS_angle[3] ;
 extern float INS_degree[3] ;
 
-//shoot
-extern float SHOOT_2006_ID1_GIVEN_SPEED ;
-extern int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
+
+extern float YAW_6020_ID1_GIVEN_SPEED ;
+extern int16_t YAW_6020_ID1_GIVEN_CURRENT ;
+extern float YAW_6020_ID1_GIVEN_ANGLE ;
+
+extern float PITCH_6020_ID2_GIVEN_ANGLE ;
+extern float PITCH_6020_ID2_GIVEN_SPEED ;
+extern int16_t PITCH_6020_ID2_GIVEN_CURRENT ;
+
+//friction wheel
+extern int16_t FRICTION_WHEEL_3508_ID1_GIVEN_SPEED ;
+extern int16_t FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT ;
+
+extern int16_t FRICTION_WHEEL_3508_ID2_GIVEN_SPEED ;
+extern int16_t FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT ;
+
+
+
+extern int16_t pitch_6020_state ;//6020电机状态 0为错误，1为正常
+
+extern uint8_t uart7_receive_data ;//串口当前接收字节
+
+
+
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

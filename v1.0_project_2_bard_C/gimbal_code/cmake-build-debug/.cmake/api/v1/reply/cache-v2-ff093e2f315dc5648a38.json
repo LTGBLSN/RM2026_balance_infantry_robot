@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code/cmake-build-debug"
+			"value" : "d:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -651,7 +651,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -711,7 +711,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code"
+			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1203,7 +1203,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code/cmake-build-debug"
+			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code/cmake-build-debug"
 		},
 		{
 			"name" : "bubing_RM2025_IS_TOP_LEVEL",
@@ -1227,7 +1227,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/gimbal_code"
+			"value" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/v1.0_project_2_bard_C/gimbal_code"
 		}
 	],
 	"kind" : "cache",

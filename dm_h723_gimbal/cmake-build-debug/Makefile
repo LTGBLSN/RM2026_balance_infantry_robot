@@ -1264,6 +1264,30 @@ Middlewares/Third_Party/FreeRTOS/Source/timers.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s
 .PHONY : Middlewares/Third_Party/FreeRTOS/Source/timers.c.s
 
+code_mf/Src/AUTO_AIM_TASK.obj: code_mf/Src/AUTO_AIM_TASK.c.obj
+.PHONY : code_mf/Src/AUTO_AIM_TASK.obj
+
+# target to build an object file
+code_mf/Src/AUTO_AIM_TASK.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+.PHONY : code_mf/Src/AUTO_AIM_TASK.c.obj
+
+code_mf/Src/AUTO_AIM_TASK.i: code_mf/Src/AUTO_AIM_TASK.c.i
+.PHONY : code_mf/Src/AUTO_AIM_TASK.i
+
+# target to preprocess a source file
+code_mf/Src/AUTO_AIM_TASK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.i
+.PHONY : code_mf/Src/AUTO_AIM_TASK.c.i
+
+code_mf/Src/AUTO_AIM_TASK.s: code_mf/Src/AUTO_AIM_TASK.c.s
+.PHONY : code_mf/Src/AUTO_AIM_TASK.s
+
+# target to generate assembly for a file
+code_mf/Src/AUTO_AIM_TASK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.s
+.PHONY : code_mf/Src/AUTO_AIM_TASK.c.s
+
 code_mf/Src/BMI088Middleware.obj: code_mf/Src/BMI088Middleware.c.obj
 .PHONY : code_mf/Src/BMI088Middleware.obj
 
@@ -1384,6 +1408,30 @@ code_mf/Src/DJI_motors.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.s
 .PHONY : code_mf/Src/DJI_motors.c.s
 
+code_mf/Src/ERROR_DETECTION.obj: code_mf/Src/ERROR_DETECTION.c.obj
+.PHONY : code_mf/Src/ERROR_DETECTION.obj
+
+# target to build an object file
+code_mf/Src/ERROR_DETECTION.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj
+.PHONY : code_mf/Src/ERROR_DETECTION.c.obj
+
+code_mf/Src/ERROR_DETECTION.i: code_mf/Src/ERROR_DETECTION.c.i
+.PHONY : code_mf/Src/ERROR_DETECTION.i
+
+# target to preprocess a source file
+code_mf/Src/ERROR_DETECTION.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.i
+.PHONY : code_mf/Src/ERROR_DETECTION.c.i
+
+code_mf/Src/ERROR_DETECTION.s: code_mf/Src/ERROR_DETECTION.c.s
+.PHONY : code_mf/Src/ERROR_DETECTION.s
+
+# target to generate assembly for a file
+code_mf/Src/ERROR_DETECTION.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.s
+.PHONY : code_mf/Src/ERROR_DETECTION.c.s
+
 code_mf/Src/GET_RC_TASK.obj: code_mf/Src/GET_RC_TASK.c.obj
 .PHONY : code_mf/Src/GET_RC_TASK.obj
 
@@ -1407,6 +1455,30 @@ code_mf/Src/GET_RC_TASK.s: code_mf/Src/GET_RC_TASK.c.s
 code_mf/Src/GET_RC_TASK.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.s
 .PHONY : code_mf/Src/GET_RC_TASK.c.s
+
+code_mf/Src/GIMBAL_MOTOR_CONTROL.obj: code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.obj
+
+# target to build an object file
+code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+
+code_mf/Src/GIMBAL_MOTOR_CONTROL.i: code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.i
+
+# target to preprocess a source file
+code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.c.i
+
+code_mf/Src/GIMBAL_MOTOR_CONTROL.s: code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.s
+
+# target to generate assembly for a file
+code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s
+.PHONY : code_mf/Src/GIMBAL_MOTOR_CONTROL.c.s
 
 code_mf/Src/IMU_DATA_GET.obj: code_mf/Src/IMU_DATA_GET.c.obj
 .PHONY : code_mf/Src/IMU_DATA_GET.obj
@@ -1624,6 +1696,30 @@ code_mf/Src/remote_control.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.s
 .PHONY : code_mf/Src/remote_control.c.s
 
+code_mf/Src/uart_callback.obj: code_mf/Src/uart_callback.c.obj
+.PHONY : code_mf/Src/uart_callback.obj
+
+# target to build an object file
+code_mf/Src/uart_callback.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
+.PHONY : code_mf/Src/uart_callback.c.obj
+
+code_mf/Src/uart_callback.i: code_mf/Src/uart_callback.c.i
+.PHONY : code_mf/Src/uart_callback.i
+
+# target to preprocess a source file
+code_mf/Src/uart_callback.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.i
+.PHONY : code_mf/Src/uart_callback.c.i
+
+code_mf/Src/uart_callback.s: code_mf/Src/uart_callback.c.s
+.PHONY : code_mf/Src/uart_callback.s
+
+# target to generate assembly for a file
+code_mf/Src/uart_callback.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.s
+.PHONY : code_mf/Src/uart_callback.c.s
+
 code_mf/Src/uart_printf.obj: code_mf/Src/uart_printf.c.obj
 .PHONY : code_mf/Src/uart_printf.obj
 
@@ -1823,6 +1919,9 @@ help:
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/timers.obj
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/timers.i
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/timers.s
+	@echo ... code_mf/Src/AUTO_AIM_TASK.obj
+	@echo ... code_mf/Src/AUTO_AIM_TASK.i
+	@echo ... code_mf/Src/AUTO_AIM_TASK.s
 	@echo ... code_mf/Src/BMI088Middleware.obj
 	@echo ... code_mf/Src/BMI088Middleware.i
 	@echo ... code_mf/Src/BMI088Middleware.s
@@ -1838,9 +1937,15 @@ help:
 	@echo ... code_mf/Src/DJI_motors.obj
 	@echo ... code_mf/Src/DJI_motors.i
 	@echo ... code_mf/Src/DJI_motors.s
+	@echo ... code_mf/Src/ERROR_DETECTION.obj
+	@echo ... code_mf/Src/ERROR_DETECTION.i
+	@echo ... code_mf/Src/ERROR_DETECTION.s
 	@echo ... code_mf/Src/GET_RC_TASK.obj
 	@echo ... code_mf/Src/GET_RC_TASK.i
 	@echo ... code_mf/Src/GET_RC_TASK.s
+	@echo ... code_mf/Src/GIMBAL_MOTOR_CONTROL.obj
+	@echo ... code_mf/Src/GIMBAL_MOTOR_CONTROL.i
+	@echo ... code_mf/Src/GIMBAL_MOTOR_CONTROL.s
 	@echo ... code_mf/Src/IMU_DATA_GET.obj
 	@echo ... code_mf/Src/IMU_DATA_GET.i
 	@echo ... code_mf/Src/IMU_DATA_GET.s
@@ -1868,6 +1973,9 @@ help:
 	@echo ... code_mf/Src/remote_control.obj
 	@echo ... code_mf/Src/remote_control.i
 	@echo ... code_mf/Src/remote_control.s
+	@echo ... code_mf/Src/uart_callback.obj
+	@echo ... code_mf/Src/uart_callback.i
+	@echo ... code_mf/Src/uart_callback.s
 	@echo ... code_mf/Src/uart_printf.obj
 	@echo ... code_mf/Src/uart_printf.i
 	@echo ... code_mf/Src/uart_printf.s

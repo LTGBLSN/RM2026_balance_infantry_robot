@@ -79,4 +79,5 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/dm_motor.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/struct_typedef.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/dm_motor.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/GET_RC_TASK.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/GET_RC_TASK.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/ERROR_DETECTION.h

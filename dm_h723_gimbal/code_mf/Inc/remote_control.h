@@ -10,7 +10,7 @@
 #define DBUS 0
 #define SBUS 1
 
-#define REMOTE_TYPE SBUS//遥控器协议切换，DBUS或SBUS
+#define REMOTE_TYPE DBUS//遥控器协议切换，DBUS或SBUS
 
 #define SBUS_CHANNEL_MIN 174.0f
 #define SBUS_CHANNEL_MAX 1811.0f

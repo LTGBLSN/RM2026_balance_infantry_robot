@@ -130,30 +130,6 @@ void motor_gimbal_angle_compute()
 }
 
 
-void yaw_imu_getAbscissa()
-{
-
-    if((YAW_IMU_LAST_ECD - yaw_angle_from_bmi088) > 180.0f)
-    {
-
-        YAW_IMU_LAPS++ ;
-
-    }
-    if((yaw_angle_from_bmi088 - YAW_IMU_LAST_ECD) > 180.0f)
-    {
-
-        YAW_IMU_LAPS-- ;
-
-    }
-
-    YAW_IMU_LAST_ECD = yaw_angle_from_bmi088 ;
-
-
-    YAW_IMU_ABSCISSA = 360.0f * YAW_IMU_LAPS + yaw_angle_from_bmi088 ;
-
-
-}
-
 
 void rc_yaw_input_normalization()
 {
