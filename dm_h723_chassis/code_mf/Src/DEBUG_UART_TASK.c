@@ -10,12 +10,13 @@
 #include "DJI_motors.h"
 #include "dm_motor.h"
 #include "GET_RC_TASK.h"
+#include "DM_IMU.h"
 
 void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%x \r\n", motor_can1_data[0].temperate);
+        usart1_printf("%d,%d,%d \r\n",DM8009_01.online_state,DM8009_01.last_online_time,HAL_GetTick());
         osDelay(1);
     }
 }

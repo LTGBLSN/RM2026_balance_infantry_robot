@@ -1,5 +1,5 @@
 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/syscalls.c.obj: \
- D:\RoboMaster_git\DM_H7_lab\dm_h723_lib\Core\Src\syscalls.c \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Src\syscalls.c \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stat.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/newlib.h \

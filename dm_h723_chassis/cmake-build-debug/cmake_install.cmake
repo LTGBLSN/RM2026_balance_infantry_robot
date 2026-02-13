@@ -1,4 +1,4 @@
-# Install script for directory: D:/RoboMaster_git/DM_H7_lab/dm_h723_lib
+# Install script for directory: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/RoboMaster_git/DM_H7_lab/dm_h723_lib/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

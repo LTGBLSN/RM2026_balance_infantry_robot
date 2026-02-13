@@ -6,6 +6,7 @@
 #define DM_H723_LIB_DM_MOTOR_H
 
 #include "struct_typedef.h"
+#include "main.h"
 
 
 #define LIMIT_MIN_MAX(x,min,max) (x) = (((x)<=(min))?(min):(((x)>=(max))?(max):(x)))
@@ -84,7 +85,10 @@
 #define XIAOMI_T_MIN (-18.0f)
 #define XIAOMI_T_MAX 18.0f
 
-extern struct dm_motor DM4340_01 ;
+extern struct dm_motor DM8009_01 ;
+extern struct dm_motor DM8009_02 ;
+extern struct dm_motor DM8009_03 ;
+extern struct dm_motor DM8009_04 ;
 
 struct dm_motor{
 
@@ -95,12 +99,14 @@ struct dm_motor{
     uint8_t can_channel;//can1还是can2
 
     //回传部分
+    uint8_t online_state ;//在线状态
     uint8_t state;//状态
     float return_angle;//回传位置
     float return_speed;//回传速度
     float return_tor;//回传力矩
     float Tmos;//mos温度
     float Tcoil;//线圈温度
+    uint32_t last_online_time;//上一次返回数据的时间
 
     //控制部分
     float give_angle;//目标位置（非MIT！）

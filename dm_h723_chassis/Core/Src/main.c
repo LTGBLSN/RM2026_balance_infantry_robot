@@ -60,9 +60,12 @@ float INS_quat[4] = {1.0f, 0.0f, 0.0f, 0.0f};
 float INS_angle[3] = {0.0f, 0.0f, 0.0f};
 float INS_degree[3] = {0.0f, 0.0f, 0.0f};
 
+int16_t yaw_6020_state ;
+
 //shoot
 float SHOOT_2006_ID1_GIVEN_SPEED ;
 int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

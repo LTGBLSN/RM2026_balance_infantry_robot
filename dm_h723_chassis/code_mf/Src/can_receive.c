@@ -7,6 +7,7 @@
 #include "DJI_motors.h"
 #include "dm_motor.h"
 #include "can_receive.h"
+#include "DM_IMU.h"
 
 //motor data read
 #define get_motor_measure(ptr, data)                                    \
@@ -58,7 +59,27 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
                 case 0x11:
                 {
-                    DM_motors_parse(&DM4340_01, rx_data);
+                    DM_motors_parse(&DM8009_01, rx_data);
+                    DM8009_01.last_online_time = HAL_GetTick() ;
+                    break;
+                }
+                case 0x12:
+                {
+                    DM_motors_parse(&DM8009_02, rx_data);
+                    DM8009_02.last_online_time = HAL_GetTick() ;
+                    break;
+                }
+                case 0x13:
+                {
+                    DM_motors_parse(&DM8009_03, rx_data);
+                    DM8009_03.last_online_time = HAL_GetTick() ;
+                    break;
+                }
+                case 0x14:
+                {
+                    DM_motors_parse(&DM8009_04, rx_data);
+                    DM8009_04.last_online_time = HAL_GetTick() ;
+                    break;
                 }
                 default:
                     break;
@@ -102,6 +123,15 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
                     get_motor_measure(&motor_can2_data[i], rx_data);
                     break;
                 }
+                case 0xBC:
+                {
+                    IMU_UpdateData(rx_data);
+                    break;
+                }
+
+
+
+
                 default:
                     break;
             }

@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.1\bin\cmake\win\x64\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\RoboMaster_git\DM_H7_lab\dm_h723_lib
+CMAKE_SOURCE_DIR = D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\RoboMaster_git\DM_H7_lab\dm_h723_lib\cmake-build-debug
+CMAKE_BINARY_DIR = D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\RoboMaster_git\DM_H7_lab\dm_h723_lib\cmake-build-debug\CMakeFiles D:\RoboMaster_git\DM_H7_lab\dm_h723_lib\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\cmake-build-debug\CMakeFiles D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\RoboMaster_git\DM_H7_lab\dm_h723_lib\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1384,6 +1384,54 @@ code_mf/Src/DJI_motors.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.s
 .PHONY : code_mf/Src/DJI_motors.c.s
 
+code_mf/Src/DM_IMU.obj: code_mf/Src/DM_IMU.c.obj
+.PHONY : code_mf/Src/DM_IMU.obj
+
+# target to build an object file
+code_mf/Src/DM_IMU.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DM_IMU.c.obj
+.PHONY : code_mf/Src/DM_IMU.c.obj
+
+code_mf/Src/DM_IMU.i: code_mf/Src/DM_IMU.c.i
+.PHONY : code_mf/Src/DM_IMU.i
+
+# target to preprocess a source file
+code_mf/Src/DM_IMU.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DM_IMU.c.i
+.PHONY : code_mf/Src/DM_IMU.c.i
+
+code_mf/Src/DM_IMU.s: code_mf/Src/DM_IMU.c.s
+.PHONY : code_mf/Src/DM_IMU.s
+
+# target to generate assembly for a file
+code_mf/Src/DM_IMU.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DM_IMU.c.s
+.PHONY : code_mf/Src/DM_IMU.c.s
+
+code_mf/Src/ERROR_DETECTION.obj: code_mf/Src/ERROR_DETECTION.c.obj
+.PHONY : code_mf/Src/ERROR_DETECTION.obj
+
+# target to build an object file
+code_mf/Src/ERROR_DETECTION.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj
+.PHONY : code_mf/Src/ERROR_DETECTION.c.obj
+
+code_mf/Src/ERROR_DETECTION.i: code_mf/Src/ERROR_DETECTION.c.i
+.PHONY : code_mf/Src/ERROR_DETECTION.i
+
+# target to preprocess a source file
+code_mf/Src/ERROR_DETECTION.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.i
+.PHONY : code_mf/Src/ERROR_DETECTION.c.i
+
+code_mf/Src/ERROR_DETECTION.s: code_mf/Src/ERROR_DETECTION.c.s
+.PHONY : code_mf/Src/ERROR_DETECTION.s
+
+# target to generate assembly for a file
+code_mf/Src/ERROR_DETECTION.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.s
+.PHONY : code_mf/Src/ERROR_DETECTION.c.s
+
 code_mf/Src/GET_RC_TASK.obj: code_mf/Src/GET_RC_TASK.c.obj
 .PHONY : code_mf/Src/GET_RC_TASK.obj
 
@@ -1838,6 +1886,12 @@ help:
 	@echo ... code_mf/Src/DJI_motors.obj
 	@echo ... code_mf/Src/DJI_motors.i
 	@echo ... code_mf/Src/DJI_motors.s
+	@echo ... code_mf/Src/DM_IMU.obj
+	@echo ... code_mf/Src/DM_IMU.i
+	@echo ... code_mf/Src/DM_IMU.s
+	@echo ... code_mf/Src/ERROR_DETECTION.obj
+	@echo ... code_mf/Src/ERROR_DETECTION.i
+	@echo ... code_mf/Src/ERROR_DETECTION.s
 	@echo ... code_mf/Src/GET_RC_TASK.obj
 	@echo ... code_mf/Src/GET_RC_TASK.i
 	@echo ... code_mf/Src/GET_RC_TASK.s
