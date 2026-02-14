@@ -59,26 +59,26 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 
                 case 0x11:
                 {
-                    DM_motors_parse(&DM8009_01, rx_data);
-                    DM8009_01.last_online_time = HAL_GetTick() ;
+                    DM_motors_parse(&DM8009P_01_RIGHT_BIG_LEG_FRONT, rx_data);
+                    DM8009P_01_RIGHT_BIG_LEG_FRONT.last_online_time = HAL_GetTick() ;
                     break;
                 }
                 case 0x12:
                 {
-                    DM_motors_parse(&DM8009_02, rx_data);
-                    DM8009_02.last_online_time = HAL_GetTick() ;
+                    DM_motors_parse(&DM8009P_02_LEFT_BIG_LEG_FRONT, rx_data);
+                    DM8009P_02_LEFT_BIG_LEG_FRONT.last_online_time = HAL_GetTick() ;
                     break;
                 }
                 case 0x13:
                 {
-                    DM_motors_parse(&DM8009_03, rx_data);
-                    DM8009_03.last_online_time = HAL_GetTick() ;
+                    DM_motors_parse(&DM8009P_03_LEFT_SMALL_LEG_BEHIND, rx_data);
+                    DM8009P_03_LEFT_SMALL_LEG_BEHIND.last_online_time = HAL_GetTick() ;
                     break;
                 }
                 case 0x14:
                 {
-                    DM_motors_parse(&DM8009_04, rx_data);
-                    DM8009_04.last_online_time = HAL_GetTick() ;
+                    DM_motors_parse(&DM8009P_04_RIGHT_SMALL_LEG_BEHIND, rx_data);
+                    DM8009P_04_RIGHT_SMALL_LEG_BEHIND.last_online_time = HAL_GetTick() ;
                     break;
                 }
                 default:

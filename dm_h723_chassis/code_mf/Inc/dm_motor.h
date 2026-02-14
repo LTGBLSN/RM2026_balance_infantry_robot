@@ -85,10 +85,10 @@
 #define XIAOMI_T_MIN (-18.0f)
 #define XIAOMI_T_MAX 18.0f
 
-extern struct dm_motor DM8009_01 ;
-extern struct dm_motor DM8009_02 ;
-extern struct dm_motor DM8009_03 ;
-extern struct dm_motor DM8009_04 ;
+extern struct dm_motor DM8009P_01_RIGHT_BIG_LEG_FRONT ;
+extern struct dm_motor DM8009P_02_LEFT_BIG_LEG_FRONT ;
+extern struct dm_motor DM8009P_03_LEFT_SMALL_LEG_BEHIND ;
+extern struct dm_motor DM8009P_04_RIGHT_SMALL_LEG_BEHIND ;
 
 struct dm_motor{
 

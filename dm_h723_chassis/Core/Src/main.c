@@ -35,6 +35,7 @@
 #include "bsp_can.h"
 #include "dm_motor.h"
 #include "SHOOT_TASK.h"
+#include "CHASSIS_TASK.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -139,6 +140,19 @@ int main(void)
     dm_motor_init();
 
     BSP_FDCAN_Init();
+
+    chassis_DM8009_01_speed_pid_init();
+    chassis_DM8009_02_speed_pid_init();
+    chassis_DM8009_03_speed_pid_init();
+    chassis_DM8009_04_speed_pid_init();
+
+    chassis_DM8009_01_angle_pid_init();
+    chassis_DM8009_02_angle_pid_init();
+    chassis_DM8009_03_angle_pid_init();
+    chassis_DM8009_04_angle_pid_init();
+
+//    chassis_gyro_pitch_speed_pid_init();
+//    chassis_gyro_pitch_angle_pid_init();
 
     //拨弹盘电机初始化
     shoot_2006_id1_speed_pid_init();//拨弹盘id1速度环初始化

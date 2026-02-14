@@ -60,49 +60,49 @@ void yaw_6020_status()
 void DM_motor_status()
 {
     //第一个电机
-    if((HAL_GetTick() - DM8009_01.last_online_time) > DM_MOTOR_CHECK_TIME )
+    if((HAL_GetTick() - DM8009P_01_RIGHT_BIG_LEG_FRONT.last_online_time) > DM_MOTOR_CHECK_TIME )
     {
-        DM8009_01.online_state = DM_MOTOR_DIE ;//离线
+        DM8009P_01_RIGHT_BIG_LEG_FRONT.online_state = DM_MOTOR_DIE ;//离线
     }
     else
     {
-        DM8009_01.online_state = DM_MOTOR_SAFE;//在线
+        DM8009P_01_RIGHT_BIG_LEG_FRONT.online_state = DM_MOTOR_SAFE;//在线
 
     }
 
 
     //第二个电机
-    if((HAL_GetTick() - DM8009_02.last_online_time) > DM_MOTOR_CHECK_TIME )
+    if((HAL_GetTick() - DM8009P_02_LEFT_BIG_LEG_FRONT.last_online_time) > DM_MOTOR_CHECK_TIME )
     {
-        DM8009_02.online_state = DM_MOTOR_DIE ;//离线
+        DM8009P_02_LEFT_BIG_LEG_FRONT.online_state = DM_MOTOR_DIE ;//离线
     }
     else
     {
-        DM8009_02.online_state = DM_MOTOR_SAFE;//在线
+        DM8009P_02_LEFT_BIG_LEG_FRONT.online_state = DM_MOTOR_SAFE;//在线
 
     }
 
     //第三个电机
-    if((HAL_GetTick() - DM8009_03.last_online_time) > DM_MOTOR_CHECK_TIME )
+    if((HAL_GetTick() - DM8009P_03_LEFT_SMALL_LEG_BEHIND.last_online_time) > DM_MOTOR_CHECK_TIME )
     {
-        DM8009_03.online_state = DM_MOTOR_DIE ;//离线
+        DM8009P_03_LEFT_SMALL_LEG_BEHIND.online_state = DM_MOTOR_DIE ;//离线
     }
     else
     {
-        DM8009_03.online_state = DM_MOTOR_SAFE;//在线
+        DM8009P_03_LEFT_SMALL_LEG_BEHIND.online_state = DM_MOTOR_SAFE;//在线
 
     }
 
 
 
     //第四个电机
-    if((HAL_GetTick() - DM8009_04.last_online_time) > DM_MOTOR_CHECK_TIME )
+    if((HAL_GetTick() - DM8009P_04_RIGHT_SMALL_LEG_BEHIND.last_online_time) > DM_MOTOR_CHECK_TIME )
     {
-        DM8009_04.online_state = DM_MOTOR_DIE ;//离线
+        DM8009P_04_RIGHT_SMALL_LEG_BEHIND.online_state = DM_MOTOR_DIE ;//离线
     }
     else
     {
-        DM8009_04.online_state = DM_MOTOR_SAFE;//在线
+        DM8009P_04_RIGHT_SMALL_LEG_BEHIND.online_state = DM_MOTOR_SAFE;//在线
 
     }
 

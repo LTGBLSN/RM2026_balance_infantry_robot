@@ -3,6 +3,11 @@
 
 #include "main.h"
 
+
+#define ROLL 0
+#define PITCH 1
+#define YAW 2
+
 #define ACCEL_CAN_MAX (235.2f)
 #define ACCEL_CAN_MIN	(-235.2f)
 #define GYRO_CAN_MAX	(34.88f)
@@ -17,6 +22,8 @@
 #define TEMP_MAX			(60.0f)
 #define Quaternion_MIN	(-1.0f)
 #define Quaternion_MAX	(1.0f)
+
+
 
 typedef struct
 {

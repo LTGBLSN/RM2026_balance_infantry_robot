@@ -56,6 +56,7 @@ osThreadId can_sentHandle;
 osThreadId shoot_taskHandle;
 osThreadId stop_checkHandle;
 osThreadId err_dec_taskHandle;
+osThreadId chassisHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -71,6 +72,7 @@ void CAN_SENT_TASK(void const * argument);
 void SHOOT_TASK(void const * argument);
 void SHOOOT_STOP_CHECK(void const * argument);
 void ERROR_DETECTION(void const * argument);
+void CHASSIS_TASK(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -152,6 +154,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of err_dec_task */
   osThreadDef(err_dec_task, ERROR_DETECTION, osPriorityIdle, 0, 256);
   err_dec_taskHandle = osThreadCreate(osThread(err_dec_task), NULL);
+
+  /* definition and creation of chassis */
+  osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 512);
+  chassisHandle = osThreadCreate(osThread(chassis), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -319,6 +325,24 @@ __weak void ERROR_DETECTION(void const * argument)
     osDelay(1);
   }
   /* USER CODE END ERROR_DETECTION */
+}
+
+/* USER CODE BEGIN Header_CHASSIS_TASK */
+/**
+* @brief Function implementing the chassis thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CHASSIS_TASK */
+__weak void CHASSIS_TASK(void const * argument)
+{
+  /* USER CODE BEGIN CHASSIS_TASK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END CHASSIS_TASK */
 }
 
 /* Private application code --------------------------------------------------*/

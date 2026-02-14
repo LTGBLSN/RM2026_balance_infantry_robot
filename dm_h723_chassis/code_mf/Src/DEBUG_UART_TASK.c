@@ -16,7 +16,7 @@ void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%d,%d,%d \r\n",DM8009_01.online_state,DM8009_01.last_online_time,HAL_GetTick());
+        usart1_printf("%d,%d,%d \r\n", DM8009P_01_RIGHT_BIG_LEG_FRONT.online_state, DM8009P_01_RIGHT_BIG_LEG_FRONT.last_online_time, HAL_GetTick());
         osDelay(1);
     }
 }

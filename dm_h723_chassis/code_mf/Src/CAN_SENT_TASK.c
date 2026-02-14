@@ -25,7 +25,9 @@ void CAN_SENT_TASK()
             case 1:
             {
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);//底盘12拨弹3
-                FDCAN_DJI_motors(8000, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw轴1
+                FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw轴1
+
+//                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor);
                 DM_CAN_SENT(DM_GIVE_CURRENT);
                 break;
             }
@@ -33,6 +35,8 @@ void CAN_SENT_TASK()
             {
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);
+
+//                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, 0.0f);
                 DM_CAN_SENT(DM_NO_CURRENT);
 
 
@@ -43,6 +47,10 @@ void CAN_SENT_TASK()
 
         }
 
+
+
+
+
         osDelay(1);
     }
 }
@@ -51,82 +59,112 @@ void CAN_SENT_TASK()
 void DM_CAN_SENT(uint8_t DM_can_sent_state)
 {
     //第一个电机
-    if(DM8009_01.online_state == DM_MOTOR_SAFE)
+    if(DM8009P_01_RIGHT_BIG_LEG_FRONT.online_state == DM_MOTOR_SAFE)
     {
         switch (DM_can_sent_state)
         {
             case DM_GIVE_CURRENT:
             {
-                Dm_Can_Send(DM8009_01.can_channel,DM8009_01.can_id,DM8009_01.motor_type,DM8009_01.give_tor);
+                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor);
+                break;
             }
             case DM_NO_CURRENT:
             {
-                Dm_Can_Send(DM8009_01.can_channel,DM8009_01.can_id,DM8009_01.motor_type,0.0f);
+                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, 0.0f);
+                break;
+            }
+            default:
+            {
+                break;
             }
         }
     }
+    else//电机保活
+    {
+        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id);
+    }
+
 
     //第二个电机
-    if(DM8009_02.online_state == DM_MOTOR_SAFE)
+    if(DM8009P_02_LEFT_BIG_LEG_FRONT.online_state == DM_MOTOR_SAFE)
     {
         switch (DM_can_sent_state)
         {
             case DM_GIVE_CURRENT:
             {
-                Dm_Can_Send(DM8009_02.can_channel,DM8009_02.can_id,DM8009_02.motor_type,DM8009_02.give_tor);
+                Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT.can_channel, DM8009P_02_LEFT_BIG_LEG_FRONT.can_id, DM8009P_02_LEFT_BIG_LEG_FRONT.motor_type, DM8009P_02_LEFT_BIG_LEG_FRONT.give_tor);
+                break;
             }
             case DM_NO_CURRENT:
             {
-                Dm_Can_Send(DM8009_02.can_channel,DM8009_02.can_id,DM8009_02.motor_type,0.0f);
+                Dm_Can_Send(DM8009P_02_LEFT_BIG_LEG_FRONT.can_channel, DM8009P_02_LEFT_BIG_LEG_FRONT.can_id, DM8009P_02_LEFT_BIG_LEG_FRONT.motor_type, 0.0f);
+                break;
+            }
+            default:
+            {
+                break;
             }
         }
     }
-
+    else//电机保活
+    {
+        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,DM8009P_02_LEFT_BIG_LEG_FRONT.can_id);
+    }
 
     //第三个电机
-    if(DM8009_03.online_state == DM_MOTOR_SAFE)
+    if(DM8009P_03_LEFT_SMALL_LEG_BEHIND.online_state == DM_MOTOR_SAFE)
     {
         switch (DM_can_sent_state)
         {
             case DM_GIVE_CURRENT:
             {
-                Dm_Can_Send(DM8009_03.can_channel,DM8009_03.can_id,DM8009_03.motor_type,DM8009_03.give_tor);
+                Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_channel, DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_id, DM8009P_03_LEFT_SMALL_LEG_BEHIND.motor_type, DM8009P_03_LEFT_SMALL_LEG_BEHIND.give_tor);
+                break;
             }
             case DM_NO_CURRENT:
             {
-                Dm_Can_Send(DM8009_03.can_channel,DM8009_03.can_id,DM8009_03.motor_type,0.0f);
+                Dm_Can_Send(DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_channel, DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_id, DM8009P_03_LEFT_SMALL_LEG_BEHIND.motor_type, 0.0f);
+                break;
+            }
+            default:
+            {
+                break;
             }
         }
+    }
+    else//电机保活
+    {
+        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,DM8009P_03_LEFT_SMALL_LEG_BEHIND.can_id);
     }
 
 
     //第四个电机
-    if(DM8009_04.online_state == DM_MOTOR_SAFE)
+    if(DM8009P_04_RIGHT_SMALL_LEG_BEHIND.online_state == DM_MOTOR_SAFE)
     {
         switch (DM_can_sent_state)
         {
             case DM_GIVE_CURRENT:
             {
-                Dm_Can_Send(DM8009_04.can_channel,DM8009_04.can_id,DM8009_04.motor_type,DM8009_04.give_tor);
+                Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_channel, DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_id, DM8009P_04_RIGHT_SMALL_LEG_BEHIND.motor_type, DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_tor);
+                break;
             }
             case DM_NO_CURRENT:
             {
-                Dm_Can_Send(DM8009_04.can_channel,DM8009_04.can_id,DM8009_04.motor_type,0.0f);
+                Dm_Can_Send(DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_channel, DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_id, DM8009P_04_RIGHT_SMALL_LEG_BEHIND.motor_type, 0.0f);
+                break;
+            }
+            default:
+            {
+                break;
             }
         }
     }
-
-
-
     else//电机保活
     {
-        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,0x01);
-        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,0x02);
-        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,0x03);
-        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,0x04);
-        //行不行啊我靠不知道这h7一块发会不会一块睡觉
-        //牛逼啊可以一块发
+        dm_motor_mode_set(CMD_ENABLE_MODE, CAN_CHANNEL_1,DM8009P_04_RIGHT_SMALL_LEG_BEHIND.can_id);
     }
+
+
 }
 
 
