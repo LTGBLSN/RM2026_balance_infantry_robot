@@ -36,6 +36,7 @@
 #include "dm_motor.h"
 #include "SHOOT_TASK.h"
 #include "CHASSIS_TASK.h"
+#include "referee.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -137,6 +138,9 @@ int main(void)
 #if REMOTE_TYPE == DBUS
     HAL_UARTEx_ReceiveToIdle_DMA(&huart5, rx_dbus_buff, DBUS_BUFF_SIZE);
 #endif
+
+    Referee_Init(&huart7,0xA5);
+
     dm_motor_init();
 
     BSP_FDCAN_Init();

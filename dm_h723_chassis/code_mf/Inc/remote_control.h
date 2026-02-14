@@ -72,6 +72,8 @@ typedef struct
 } subs_remoter_t;
 extern subs_remoter_t sbus_remoter;
 
+void sbus_frame_parse(subs_remoter_t *remoter, uint8_t *buf);
+
 
 
 

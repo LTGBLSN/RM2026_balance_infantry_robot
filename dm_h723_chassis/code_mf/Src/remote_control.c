@@ -39,34 +39,6 @@ void sbus_frame_parse(subs_remoter_t *remoter, uint8_t *buf)
     remoter->rc.ch[9] = ((buf[13] >> 3 | buf[14] << 5) & 0x07FF);
 }
 
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef * huart, uint16_t Size)
-{
-
-    if(huart->Instance == UART5)
-    {
-        if (Size <= SBUS_BUFF_SIZE)
-        {
-            HAL_UARTEx_ReceiveToIdle_DMA(&huart5, rx_subs_buff, SBUS_BUFF_SIZE * 2); // 接收完毕后重启
-            sbus_frame_parse(&sbus_remoter, rx_subs_buff);
-//			memset(rx_buff, 0, BUFF_SIZE);
-        }
-        else  // 接收数据长度大于BUFF_SIZE，错误处理
-        {
-            HAL_UARTEx_ReceiveToIdle_DMA(&huart5, rx_subs_buff, SBUS_BUFF_SIZE * 2); // 接收完毕后重启
-            memset(rx_subs_buff, 0, SBUS_BUFF_SIZE);
-        }
-    }
-}
-
-void HAL_UART_ErrorCallback(UART_HandleTypeDef * huart)
-{
-    if(huart->Instance == UART5)
-    {
-        HAL_UARTEx_ReceiveToIdle_DMA(&huart5, rx_subs_buff, SBUS_BUFF_SIZE * 2); // 接收发生错误后重启
-        memset(rx_subs_buff, 0, SBUS_BUFF_SIZE);							   // 清除接收缓存
-    }
-}
-
 #endif
 
 #if REMOTE_TYPE == DBUS
@@ -113,40 +85,11 @@ void dbus_frame_parse(dbus_ctrl_t *remoter, uint8_t *buf)
     remoter->online = 1;
 }
 
-/**
-  * @brief HAL库串口接收完成回调（由空闲中断触发）
-  */
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-    // 假设你使用的是 UART3，请根据实际连接修改 Instance
-    if (huart->Instance == UART5)
-    {
-        // DBUS一帧固定18字节
-        if (Size == DBUS_FRAME_SIZE)
-        {
-            dbus_frame_parse(&dbus_remoter, rx_dbus_buff);
-        }
-
-        // 重新开启DMA接收
-        HAL_UARTEx_ReceiveToIdle_DMA(huart, rx_dbus_buff, DBUS_BUFF_SIZE);
-        // 注意：H7开启了Cache时，可能需要在这里处理DCache的一致性 (SCB_InvalidateDCache_by_Addr)
-    }
-}
-
-/**
-  * @brief 串口错误回调
-  */
-void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
-{
-    if (huart->Instance == UART5)
-    {
-        HAL_UARTEx_ReceiveToIdle_DMA(huart, rx_dbus_buff, DBUS_BUFF_SIZE);
-    }
-}
-
-
 
 #endif
+
+
+
 
 
 

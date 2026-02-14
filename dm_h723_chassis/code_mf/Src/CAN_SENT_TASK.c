@@ -26,17 +26,14 @@ void CAN_SENT_TASK()
             {
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw÷·1
-
-//                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor);
-                DM_CAN_SENT(DM_GIVE_CURRENT);
+//                DM_CAN_SENT(DM_GIVE_CURRENT);
+                DM_CAN_SENT(DM_NO_CURRENT);
                 break;
             }
             default:
             {
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);
-
-//                Dm_Can_Send(DM8009P_01_RIGHT_BIG_LEG_FRONT.can_channel, DM8009P_01_RIGHT_BIG_LEG_FRONT.can_id, DM8009P_01_RIGHT_BIG_LEG_FRONT.motor_type, 0.0f);
                 DM_CAN_SENT(DM_NO_CURRENT);
 
 

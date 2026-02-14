@@ -11,12 +11,13 @@
 #include "dm_motor.h"
 #include "GET_RC_TASK.h"
 #include "DM_IMU.h"
+#include "referee.h"
 
 void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%d,%d,%d \r\n", DM8009P_01_RIGHT_BIG_LEG_FRONT.online_state, DM8009P_01_RIGHT_BIG_LEG_FRONT.last_online_time, HAL_GetTick());
+        usart1_printf("%d \r\n",Referee.Robot_Status.Robot_ID);
         osDelay(1);
     }
 }
