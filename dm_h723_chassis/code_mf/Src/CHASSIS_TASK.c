@@ -10,6 +10,8 @@
 #include "CHASSIS_TASK.h"
 #include "CAN_receive.h"
 #include "DM_IMU.h"
+#include "GET_RC_TASK.h"
+#include "DJI_motors.h"
 
 struct leg_parameter left_leg;
 struct leg_parameter right_leg;
@@ -61,7 +63,8 @@ void CHASSIS_TASK()
 //整车速度估计
 void chassis_vx_compute_loop()
 {
-//    chassis_vx_real_speed = ( ( (float )motor_can1_data[0].speed_rpm - (float )motor_can1_data[1].speed_rpm ) / 2.0f ) ;
+    //取两个轮子平均速度除减速比得到轮毂转速单位RPM，再通过轮子直径算出速度，单位m/s
+    chassis_vx_real_speed = ( ( (float)motor_can2_data[0].speed_rpm - (float)motor_can2_data[1].speed_rpm ) / 2.0f ) / (float )REDUCTION_RATIO * (float )RPM_TO_MPS;
 
 
 }
@@ -72,18 +75,10 @@ void chassis_vx_compute_loop()
 void chassis_stand_loop()
 {
 
-//    if(rc_s1 == 3)
-//    {
-//        angular_speed = chassis_gyro_pitch_angle_pid_loop((float )rc_ch3*0.02f) ;
-//    } else
-//    {
-//        angular_speed = chassis_gyro_pitch_angle_pid_loop(angular_angle) ;
-//
-//    }
-//
-//
-//    chassis_left_3508_id2_stand_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed);
-//    chassis_right_3508_id1_stand_current = (int16_t )-chassis_gyro_pitch_speed_pid_loop(angular_speed);
+
+    angular_speed = chassis_gyro_pitch_angle_pid_loop(angular_angle) ;
+    chassis_left_3508_id2_stand_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed);
+    chassis_right_3508_id1_stand_current = (int16_t )-chassis_gyro_pitch_speed_pid_loop(angular_speed);
 
 
 

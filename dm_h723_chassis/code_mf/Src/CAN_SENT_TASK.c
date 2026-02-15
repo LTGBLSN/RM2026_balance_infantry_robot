@@ -22,12 +22,19 @@ void CAN_SENT_TASK()
         switch (rcData.rc.s[0])
         {
             case 3:
+            {//ÆðÁ¢µ«ÂÖì±²»¶¯
+                {
+                    FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);//µ×ÅÌ12²¦µ¯3
+                    FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yawÖá1
+                    DM_CAN_SENT(DM_GIVE_CURRENT);
+                    break;
+                }
+            }
             case 1:
-            {
-                FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);//µ×ÅÌ12²¦µ¯3
+            {//Ö±Á¢
+                FDCAN_DJI_motors(chassis_right_3508_id1_stand_current, chassis_left_3508_id2_stand_current, 0, 0, 0x200, CAN_CHANNEL_2);//µ×ÅÌ12²¦µ¯3
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yawÖá1
-//                DM_CAN_SENT(DM_GIVE_CURRENT);
-                DM_CAN_SENT(DM_NO_CURRENT);
+                DM_CAN_SENT(DM_GIVE_CURRENT);
                 break;
             }
             default:

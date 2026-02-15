@@ -102,6 +102,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj.d"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VX.c.obj"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VX.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj"

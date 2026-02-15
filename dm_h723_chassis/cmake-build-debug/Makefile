@@ -1360,6 +1360,30 @@ code_mf/Src/CHASSIS_TASK.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.s
 .PHONY : code_mf/Src/CHASSIS_TASK.c.s
 
+code_mf/Src/CHASSIS_VX.obj: code_mf/Src/CHASSIS_VX.c.obj
+.PHONY : code_mf/Src/CHASSIS_VX.obj
+
+# target to build an object file
+code_mf/Src/CHASSIS_VX.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VX.c.obj
+.PHONY : code_mf/Src/CHASSIS_VX.c.obj
+
+code_mf/Src/CHASSIS_VX.i: code_mf/Src/CHASSIS_VX.c.i
+.PHONY : code_mf/Src/CHASSIS_VX.i
+
+# target to preprocess a source file
+code_mf/Src/CHASSIS_VX.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VX.c.i
+.PHONY : code_mf/Src/CHASSIS_VX.c.i
+
+code_mf/Src/CHASSIS_VX.s: code_mf/Src/CHASSIS_VX.c.s
+.PHONY : code_mf/Src/CHASSIS_VX.s
+
+# target to generate assembly for a file
+code_mf/Src/CHASSIS_VX.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VX.c.s
+.PHONY : code_mf/Src/CHASSIS_VX.c.s
+
 code_mf/Src/DEBUG_UART_TASK.obj: code_mf/Src/DEBUG_UART_TASK.c.obj
 .PHONY : code_mf/Src/DEBUG_UART_TASK.obj
 
@@ -1955,6 +1979,9 @@ help:
 	@echo ... code_mf/Src/CHASSIS_TASK.obj
 	@echo ... code_mf/Src/CHASSIS_TASK.i
 	@echo ... code_mf/Src/CHASSIS_TASK.s
+	@echo ... code_mf/Src/CHASSIS_VX.obj
+	@echo ... code_mf/Src/CHASSIS_VX.i
+	@echo ... code_mf/Src/CHASSIS_VX.s
 	@echo ... code_mf/Src/DEBUG_UART_TASK.obj
 	@echo ... code_mf/Src/DEBUG_UART_TASK.i
 	@echo ... code_mf/Src/DEBUG_UART_TASK.s

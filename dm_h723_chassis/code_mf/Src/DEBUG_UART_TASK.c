@@ -17,7 +17,12 @@ void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%d \r\n",Referee.Robot_Status.Robot_ID);
+        usart1_printf("%f,%f \r\n",
+                      DM_imu.pitch,
+                      angular_angle);
+//        usart1_printf("%f,%f \r\n",
+//                      DM8009P_01_RIGHT_BIG_LEG_FRONT.return_speed,
+//                      DM8009P_01_RIGHT_BIG_LEG_FRONT.give_speed);
         osDelay(1);
     }
 }
