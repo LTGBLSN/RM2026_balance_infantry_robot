@@ -12,17 +12,29 @@
 #include "GET_RC_TASK.h"
 #include "DM_IMU.h"
 #include "referee.h"
+#include "CHASSIS_TASK.h"
 
 void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%f,%f \r\n",
-                      DM_imu.pitch,
-                      angular_angle);
-//        usart1_printf("%f,%f \r\n",
-//                      DM8009P_01_RIGHT_BIG_LEG_FRONT.return_speed,
-//                      DM8009P_01_RIGHT_BIG_LEG_FRONT.give_speed);
+        //π€≤‚÷µ
+//        usart1_printf("%f,%f,%f,%f,%f,%f,%f \r\n",
+//                      chassis_all_finial_state.chassis_pitch_speed_rad_s,
+//                      chassis_all_finial_state.pitch_angle_rad,
+//                      chassis_all_finial_state.leg_length,
+//                      chassis_all_finial_state.virtual_leg_angle_rad,
+//                      chassis_all_finial_state.virtual_leg_speed_rad_s,
+//                      chassis_all_finial_state.chassis_speed_m_s,
+//                      chassis_all_finial_state.chassis_move_x_m
+//                      );
+
+        usart1_printf("%d,%f,%f \r\n",
+                      chassis_right_3508_id1_stand_current,
+                      compute_current,
+                      chassis_all_finial_state.pitch_angle_rad);
+
+
         osDelay(1);
     }
 }

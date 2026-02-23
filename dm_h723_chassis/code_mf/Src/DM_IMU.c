@@ -29,9 +29,9 @@ void IMU_UpdateGyro(uint8_t* pData)
 	gyro[1]=pData[5]<<8|pData[4];
 	gyro[2]=pData[7]<<8|pData[6];
 
-    DM_imu.gyro[0]=uint_to_float(gyro[0], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
-    DM_imu.gyro[1]=uint_to_float(gyro[1], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
-    DM_imu.gyro[2]=uint_to_float(gyro[2], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
+    DM_imu.speed_gyro[0]=uint_to_float(gyro[0], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
+    DM_imu.speed_gyro[1]=uint_to_float(gyro[1], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
+    DM_imu.speed_gyro[2]=uint_to_float(gyro[2], GYRO_CAN_MIN, GYRO_CAN_MAX, 16);
 }
 
 
@@ -43,9 +43,9 @@ void IMU_UpdateEuler(uint8_t* pData)
 	euler[1]=pData[5]<<8|pData[4];
 	euler[2]=pData[7]<<8|pData[6];
 
-    DM_imu.pitch=uint_to_float(euler[0], PITCH_CAN_MIN, PITCH_CAN_MAX, 16);
-    DM_imu.yaw=uint_to_float(euler[1], YAW_CAN_MIN, YAW_CAN_MAX, 16);
-    DM_imu.roll=uint_to_float(euler[2], ROLL_CAN_MIN, ROLL_CAN_MAX, 16);
+    DM_imu.pitch_angle=uint_to_float(euler[0], PITCH_CAN_MIN, PITCH_CAN_MAX, 16);
+    DM_imu.yaw_angle=uint_to_float(euler[1], YAW_CAN_MIN, YAW_CAN_MAX, 16);
+    DM_imu.roll_angle=uint_to_float(euler[2], ROLL_CAN_MIN, ROLL_CAN_MAX, 16);
 }
 
 

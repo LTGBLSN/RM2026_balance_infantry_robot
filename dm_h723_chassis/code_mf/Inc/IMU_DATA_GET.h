@@ -24,6 +24,7 @@ typedef struct
     float pitch_degree_angle;
 } INS_t;
 extern INS_t imu_data_from_board_BMI088_mahony;
+extern INS_t imu_data_from_external_BMI088_mahony;
 
 
 

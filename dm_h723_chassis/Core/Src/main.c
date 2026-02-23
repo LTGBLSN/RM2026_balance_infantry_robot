@@ -75,8 +75,10 @@ int16_t chassis_right_3508_id1_stand_current;
 float angular_speed ;
 float angular_angle ;
 
+float compute_current;
 
-float chassis_vx_real_speed;
+
+
 
 /* USER CODE END PV */
 

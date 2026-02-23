@@ -58,7 +58,10 @@ extern int16_t chassis_right_3508_id1_stand_current;
 extern float angular_speed ;
 extern float angular_angle ;
 
-extern float chassis_vx_real_speed;
+extern float compute_current;
+
+
+
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

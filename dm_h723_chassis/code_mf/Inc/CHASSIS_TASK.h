@@ -6,6 +6,10 @@
 #define BUBING_RM2025_CHASSIS_TASK_H
 
 
+#define CONTROL_LOOP_PERIOD_MS 1
+#define CONTROL_LOOP_DT (CONTROL_LOOP_PERIOD_MS/1000.0f)
+
+
 
 
 
@@ -22,11 +26,11 @@
 #define CHASSIS_GYRO_SPEED_PID_KI_MAX 0.0f//不能给
 
 
-#define CHASSIS_DM8009_ANGLE_PID_OUT_MAX 3.0f
+#define CHASSIS_DM8009_ANGLE_PID_OUT_MAX 2.0f//3.0f
 #define CHASSIS_DM8009_ANGLE_PID_KI_MAX 0.0f
 
-#define CHASSIS_DM8009_SPEED_PID_OUT_MAX   54.0f
-#define CHASSIS_DM8009_SPEED_PID_KI_MAX   20.0f
+#define CHASSIS_DM8009_SPEED_PID_OUT_MAX   34.0f//54.0f
+#define CHASSIS_DM8009_SPEED_PID_KI_MAX   10.0f
 
 
 #define CHASSIS_DM8009_01_SPEED_PID_KP   10.0f
@@ -63,13 +67,32 @@
 //长度单位mm
 //角度单位rad
 
-#define LEG_SMALL_LENGTH 250.0f         //小腿长
-#define LEG_BIG_LENGTH   210.0f         //大腿长
-#define WHEEL_RADIUS     54.0f          //轮毂半径,单位mm
-#define MAX_VIRTUAL_LEG_LENGTH 386.55f     //虚拟腿最大长度
-#define MIN_VIRTUAL_LEG_LENGTH 159.69f     //虚拟腿最小长度
-#define REDUCTION_RATIO (268.0f/17.0f)  //轮毂电机减速比
-#define RPM_TO_MPS ( (2.0f * M_PI * WHEEL_RADIUS) / (60.0f * 1000.0f) )
+#define LEG_SMALL_LENGTH 0.2500f            //小腿长单位（m）
+#define LEG_BIG_LENGTH   0.2100f            //大腿长单位（m）
+#define WHEEL_RADIUS     0.054f             //轮毂半径,单位(m)
+#define MAX_VIRTUAL_LEG_LENGTH 0.38655f     //虚拟腿最大长度单位（m）
+#define MIN_VIRTUAL_LEG_LENGTH 0.15969f     //虚拟腿最小长度单位（m）
+#define REDUCTION_RATIO (268.0f/17.0f)      //轮毂电机减速比
+#define motor_max_torque (3.0f/19.0f)       //裸电机最大扭矩单位（N·m）
+#define MOTOR_MAX_TORQUE (motor_max_torque * REDUCTION_RATIO) // 最大扭矩
+#define MAX_CMD 16384.0f                    // 控制器满量程
+#define MOTOR_GIVE_TORQUE_KP (MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
+
+
+
+struct chassis_lqr_state_input {
+    float leg_length;                   //腿长 单位m
+
+    float chassis_pitch_speed_rad_s ;   //机体俯仰角速度（由 IMU 获取）单位rad/s      方向：后仰为正！
+    float pitch_angle_rad ;             //机体与水平面夹角（机体俯仰角，由 IMU 获取）单位rad     方向：后仰为正！
+
+    float virtual_leg_speed_rad_s ;     //腿部角速度(imu+正解的角速度，同摆杆角) 单位rad/s      方向：同摆杆角
+    float virtual_leg_angle_rad ;       //摆杆与竖直方向夹角（腿部角度，imu+编码器得到的相对竖直向上的摆角，原点为轮子，查哈工程建模那张图）单位rad 零点：竖直向上   方向：从竖直向上->轮子和车身转轴连线
+
+    float chassis_speed_m_s ;           //整车速度 单位m/s      方向：前进为正！
+    float chassis_move_x_m ;            //驱动轮位移     方向：前进为正！
+
+};
 
 
 
@@ -80,19 +103,23 @@ struct leg_parameter {
     float angle_0474 ;   //后大腿角度(x轴正方向->后大腿)
 
     float virtual_leg_length;//虚拟腿长度
-
-
-    float leg_x;//腿距离正中心y轴距离
-    float leg_z;//腿距离正中心z轴距离
 };
 
-extern struct leg_parameter left_leg;
-extern struct leg_parameter right_leg;
+extern struct  chassis_lqr_state_input chassis_all_finial_state;
+
+extern struct leg_parameter left_leg_goal_2_joint;
+extern struct leg_parameter right_leg_goal_2_joint;
+
+extern struct leg_parameter left_leg_joint_2_leg_parameters;
+extern struct leg_parameter right_leg_joint_2_leg_parameters;
 
 
-void chassis_vx_compute_loop();
+void chassis_all_state_update_loop();
+float chassis_vx_compute_loop();
 
-void chassis_stand_loop();
+void chassis_pid_stand_loop();
+float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state);
+void chassis_joint_angle_compute_loop();
 void chassis_leg_angle_compute_loop();
 void chassis_leg_target_position_compute();
 void chassis_DM_motor_pid_loop();
@@ -129,5 +156,6 @@ void chassis_DM8009_04_angle_pid_init(void);
 float chassis_DM8009_04_angle_pid_loop(float chassis_DM8009_04_angle_set_loop);
 
 float calculate_opposite_angle(float a, float b, float c);
+float calculate_side_c(float a, float b, float angleB_rad);
 
 #endif //BUBING_RM2025_CHASSIS_TASK_H

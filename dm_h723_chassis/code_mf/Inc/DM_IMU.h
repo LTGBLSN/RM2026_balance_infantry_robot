@@ -27,11 +27,11 @@
 
 typedef struct
 {
-    float pitch;
-    float roll;
-    float yaw;
+    float pitch_angle;
+    float roll_angle;
+    float yaw_angle;
 
-    float gyro[3];
+    float speed_gyro[3];
     float accel[3];
 
     float q[4];
