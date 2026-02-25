@@ -72,10 +72,24 @@ int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
 int16_t chassis_left_3508_id2_stand_current;
 int16_t chassis_right_3508_id1_stand_current;
 
+float k[2][6];
+
 float angular_speed ;
 float angular_angle ;
 
-float compute_current;
+float left_compute_current;
+float right_compute_current;
+
+float speed_expectation ;
+
+
+float e0 ;
+float e1 ;
+float e2 ;
+float e3 ;
+float e4 ;
+float e5 ;
+
 
 
 
@@ -157,18 +171,7 @@ int main(void)
 
     BSP_FDCAN_Init();
 
-    chassis_DM8009_01_speed_pid_init();
-    chassis_DM8009_02_speed_pid_init();
-    chassis_DM8009_03_speed_pid_init();
-    chassis_DM8009_04_speed_pid_init();
 
-    chassis_DM8009_01_angle_pid_init();
-    chassis_DM8009_02_angle_pid_init();
-    chassis_DM8009_03_angle_pid_init();
-    chassis_DM8009_04_angle_pid_init();
-
-    chassis_gyro_pitch_speed_pid_init();
-    chassis_gyro_pitch_angle_pid_init();
     chassis_vx_pid_init();
 
     //拨弹盘电机初始化

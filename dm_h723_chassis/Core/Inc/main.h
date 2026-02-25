@@ -55,11 +55,24 @@ extern int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
 extern int16_t chassis_left_3508_id2_stand_current;
 extern int16_t chassis_right_3508_id1_stand_current;
 
+
+extern float k[2][6];
+
 extern float angular_speed ;
 extern float angular_angle ;
 
-extern float compute_current;
+extern float left_compute_current;
+extern float right_compute_current;
 
+
+extern float speed_expectation ;
+
+extern float e1 ;
+extern float e2 ;
+extern float e3 ;
+extern float e4 ;
+extern float e5 ;
+extern float e0 ;
 
 
 /* USER CODE END EC */

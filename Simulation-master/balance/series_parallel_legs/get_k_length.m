@@ -47,13 +47,9 @@ function K = get_k_length(leg_length)
     B=subs(jacobian([d_theta,f1,d_x,f2,d_phi,f3],[T,Tp]),[theta0,d_theta,d_x,phi0,d_phi,T,Tp],[0,0,0,0,0,0,0]);
     B=subs(B,[R,L,LM,l,mw,mp,M,Iw,Ip,IM,g],[R1,L1,LM1,l1,mw1,mp1,M1,Iw1,Ip1,IM1,9.8]);
     B=double(B);
-
     
-    
-    %Q=diag([100 1 500 100 1000 1]);%theta d_theta x d_x phi d_phi%700 1 600 200 1000 1
-    Q = diag([200, 20, 200, 350, 1200, 30]);
-    %R=[240 0;0 25];                %T Tp
-    R = [450 0; 0 180]; 
+    Q=diag([100 1 500 100 5000 1]);%theta d_theta x d_x phi d_phi%700 1 600 200 1000 1
+    R=[240 0;0 25];                %T Tp
     
     K=lqr(A,B,Q,R);
   

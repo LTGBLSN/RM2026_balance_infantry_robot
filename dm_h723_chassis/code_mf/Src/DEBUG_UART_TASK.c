@@ -20,7 +20,7 @@ void DEBUG_UART_TASK()
     {
         //π€≤‚÷µ
 //        usart1_printf("%f,%f,%f,%f,%f,%f,%f \r\n",
-//                      chassis_all_finial_state.chassis_pitch_speed_rad_s,
+//                       chassis_all_finial_state.chassis_pitch_speed_rad_s,
 //                      chassis_all_finial_state.pitch_angle_rad,
 //                      chassis_all_finial_state.leg_length,
 //                      chassis_all_finial_state.virtual_leg_angle_rad,
@@ -29,10 +29,11 @@ void DEBUG_UART_TASK()
 //                      chassis_all_finial_state.chassis_move_x_m
 //                      );
 
-        usart1_printf("%d,%f,%f \r\n",
-                      chassis_right_3508_id1_stand_current,
-                      compute_current,
-                      chassis_all_finial_state.pitch_angle_rad);
+        usart1_printf("%f,%f,%f \r\n",
+                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length,
+                      right_leg_joint_2_leg_parameters.return_virtual_leg_length,
+                      right_leg_joint_2_leg_parameters.virtual_leg_give_tor
+                      );
 
 
         osDelay(1);

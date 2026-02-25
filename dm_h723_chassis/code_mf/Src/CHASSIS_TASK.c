@@ -14,7 +14,8 @@
 #include "DJI_motors.h"
 #include "IMU_DATA_GET.h"
 
-struct  chassis_lqr_state_input chassis_all_finial_state;
+struct  chassis_lqr_state_input chassis_LQR_compute_left_finial_state;
+struct  chassis_lqr_state_input chassis_LQR_compute_right_finial_state;
 
 struct leg_parameter left_leg_goal_2_joint;
 struct leg_parameter right_leg_goal_2_joint;
@@ -36,11 +37,27 @@ pid_type_def chassis_DM8009_04_angle_pid;
 pid_type_def chassis_gyro_speed_pid;
 pid_type_def chassis_gyro_angle_pid;
 
-
+pid_type_def left_leg_compute ;
+pid_type_def right_leg_compute ;
 
 
 void CHASSIS_TASK()
 {
+//    chassis_DM8009_01_speed_pid_init();
+//    chassis_DM8009_02_speed_pid_init();
+//    chassis_DM8009_03_speed_pid_init();
+//    chassis_DM8009_04_speed_pid_init();
+//
+//    chassis_DM8009_01_angle_pid_init();
+//    chassis_DM8009_02_angle_pid_init();
+//    chassis_DM8009_03_angle_pid_init();
+//    chassis_DM8009_04_angle_pid_init();
+//
+//    chassis_gyro_pitch_speed_pid_init();
+//    chassis_gyro_pitch_angle_pid_init();
+
+    left_leg_pid_init();
+    right_leg_pid_init();
     while (1)
     {
         //整车状态变量更新
@@ -49,52 +66,63 @@ void CHASSIS_TASK()
         //lqr计算
         if((rcData.rc.s[0]) == 1)
         {
-            compute_current = (0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_all_finial_state.leg_length, chassis_all_finial_state));
+            left_compute_current = (0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state.finial_lqr_compute_leg_length, chassis_LQR_compute_left_finial_state));
 
-//            if(compute_current < -MAX_CMD)
-//            {
-//                compute_current = -MAX_CMD ;
-//            }
-//            else if(compute_current > MAX_CMD)
-//            {
-//                compute_current = MAX_CMD ;
-//            } else
-//            {
-//                compute_current = compute_current ;
-//            }
+            if(left_compute_current < -MAX_CMD)
+            {
+                left_compute_current = -MAX_CMD ;
+            }
+            else if(left_compute_current > MAX_CMD)
+            {
+                left_compute_current = MAX_CMD ;
+            } else
+            {
+                left_compute_current = left_compute_current ;
+            }
 
-            chassis_right_3508_id1_stand_current = (int16_t) compute_current ;
-            chassis_left_3508_id2_stand_current = (int16_t) -compute_current ;
+            chassis_left_3508_id2_stand_current = (int16_t) -left_compute_current ;
+
+            right_compute_current = (0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state.finial_lqr_compute_leg_length, chassis_LQR_compute_right_finial_state));
+
+            if(right_compute_current < -MAX_CMD)
+            {
+                right_compute_current = -MAX_CMD ;
+            }
+            else if(right_compute_current > MAX_CMD)
+            {
+                right_compute_current = MAX_CMD ;
+            } else
+            {
+                right_compute_current = right_compute_current ;
+            }
+            chassis_right_3508_id1_stand_current = (int16_t) right_compute_current ;
 
 
-
-//            chassis_left_3508_id2_stand_current = (int16_t)(-0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_all_finial_state.leg_length, chassis_all_finial_state));
-//            chassis_right_3508_id1_stand_current = (int16_t)(0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_all_finial_state.leg_length, chassis_all_finial_state));
         }
 
+        //腿部分控制
 
+        //目标腿长设定
+        // 2026.2.25目前均设为0.15，后续要进行roll轴控制在此处控制
+        virtual_leg_goal_compute();
 
+        //计算出腿长控制目标虚拟腿推力扭矩
+        //2026.2.25此处应该由腿长pid进行输出，此处测试暂时直接赋值
+        virtual_leg_give_tor_compute();
 
+        //传入虚拟关节目标扭矩和出腿长控制目标虚拟腿推力扭矩，通过雅可比矩阵转换为两个关节扭矩
+        joint_vmc_compute(0.0f,
+                          left_leg_joint_2_leg_parameters.virtual_leg_give_tor,
+                          0.0f,
+                          right_leg_joint_2_leg_parameters.virtual_leg_give_tor);
 
-        //执行控制
+        //转换为达妙控制区间
+        joint_tor_Limit(
+                right_leg_joint_2_leg_parameters.tor2,
+                left_leg_joint_2_leg_parameters.tor2,
+                left_leg_joint_2_leg_parameters.tor7,
+                right_leg_joint_2_leg_parameters.tor7);
 
-
-//        chassis_pid_stand_loop();//轮毂直立
-
-
-        //腿部目标位置计算//2025.12.29直接给的值
-        chassis_leg_target_position_compute();
-        //关节电机角度逆解//2025.12.29主要工作部分
-        chassis_joint_angle_compute_loop();
-
-        if((rcData.rc.s[0]) == 1)
-        {
-            chassis_DM_motor_pid_loop();//腿部关节闭环
-        }
-        if((rcData.rc.s[0]) == 3)
-        {
-            chassis_DM_motor_pid_loop();//腿部关节闭环
-        }
 
 
 
@@ -106,9 +134,7 @@ void CHASSIS_TASK()
 
 void chassis_all_state_update_loop()
 {
-    //车身倾角计算，注意正方向！
-    chassis_all_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
-    chassis_all_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
+
 
 
     //关节电机正解，得到相对车身的角度和摆杆长度
@@ -118,34 +144,83 @@ void chassis_all_state_update_loop()
     //left_leg_joint_2_leg_parameters.virtual_leg_angle_047
     //right_leg_joint_2_leg_parameters.virtual_leg_length
     //right_leg_joint_2_leg_parameters.virtual_leg_angle_047
+    //left_leg_joint_2_leg_parameters.angle_04
+    //right_leg_joint_2_leg_parameters.angle_04
+
+
+    //计算雅可比矩阵
+    get_jacobian();
+    //计算结果更新在如下变量里面
+//    left_leg_joint_2_leg_parameters.jacobian[2][2]
+//    right_leg_joint_2_leg_parameters.jacobian[2][2]
+//    left_leg_joint_2_leg_parameters.jacobian_T[2][2]
+//    right_leg_joint_2_leg_parameters.jacobian_T[2][2]
+
+    // 计算腿部运动速度 (正向速度运动学)
+    get_leg_velocity() ;
+    //计算结果更新在如下变量里面
+//    left_leg_joint_2_leg_parameters.L_dt
+//    left_leg_joint_2_leg_parameters.theta47_dt
+//    right_leg_joint_2_leg_parameters.L_dt
+//    right_leg_joint_2_leg_parameters.theta47_dt
+
+    //摆杆角速度赋值
+    chassis_LQR_compute_left_finial_state.virtual_leg_speed_rad_s =
+            - left_leg_joint_2_leg_parameters.theta47_dt
+            - chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s;
+
+    chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s =
+            - right_leg_joint_2_leg_parameters.theta47_dt
+            - chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s;
+
+
+
 
     //计算摆杆长度（作为整车的k矩阵选取因素）
     // 2026.2.21：不确定直接取两个腿的平均长度是否可以，板凳及平地没有问题，单边桥可能要在这地方做些文章
-    chassis_all_finial_state.leg_length =
-            (left_leg_joint_2_leg_parameters.virtual_leg_length + right_leg_joint_2_leg_parameters.virtual_leg_length) / 2.0f;
+    chassis_LQR_compute_left_finial_state.finial_lqr_compute_leg_length = left_leg_joint_2_leg_parameters.return_virtual_leg_length ;
+    chassis_LQR_compute_right_finial_state.finial_lqr_compute_leg_length = right_leg_joint_2_leg_parameters.return_virtual_leg_length ;
 
-    //摆杆角度 = 车身角度+虚拟腿相对车身角度-90度（因为virtual_leg_angle_047是从水平向下向后旋转到虚拟腿）
+
+
+    //摆杆角度 = 90度-车身角度-虚拟腿相对车身角度（因为virtual_leg_angle_047是从水平向下向后旋转到虚拟腿）
     // 2026.2.21：不确定直接取两个腿的平均摆角是否可以，板凳及平地没有问题，单边桥可能要在这地方做些文章
-    chassis_all_finial_state.virtual_leg_angle_rad =
-            - chassis_all_finial_state.pitch_angle_rad
-            + (left_leg_joint_2_leg_parameters.virtual_leg_angle_047 + right_leg_joint_2_leg_parameters.virtual_leg_angle_047) / 2.0f
-            - (float )M_PI_2;
+    //2026.2.25我靠原来极性在这错的
+    chassis_LQR_compute_left_finial_state.virtual_leg_angle_rad =
+            - chassis_LQR_compute_left_finial_state.pitch_angle_rad
+            - left_leg_joint_2_leg_parameters.virtual_leg_angle_047
+            + (float )M_PI_2;
+
+    chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad =
+            - chassis_LQR_compute_right_finial_state.pitch_angle_rad
+            - right_leg_joint_2_leg_parameters.virtual_leg_angle_047
+            + (float )M_PI_2;
 
 
-    //摆杆角速度先不管了，那车身角速度先用，反正lqr小板凳
-    chassis_all_finial_state.virtual_leg_speed_rad_s = - chassis_all_finial_state.chassis_pitch_speed_rad_s;
 
+
+    //车身倾角计算，注意正方向！
+    chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
+    chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
+
+    chassis_LQR_compute_left_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
+    chassis_LQR_compute_right_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
 
 
 
 
     //整车速度计算2026.2.21:暂时仅使用轮毂速度，可能需要做滤波
-    chassis_all_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
+    chassis_LQR_compute_left_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
+    chassis_LQR_compute_right_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
 
     //整车位移计算2026.2.21:使用速度积分得到位置，不保证100%可用，待确认
-    chassis_all_finial_state.chassis_move_x_m =
-            chassis_all_finial_state.chassis_move_x_m
-            + chassis_all_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+    chassis_LQR_compute_left_finial_state.chassis_move_x_m =
+            chassis_LQR_compute_left_finial_state.chassis_move_x_m
+            + chassis_LQR_compute_left_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+
+    chassis_LQR_compute_right_finial_state.chassis_move_x_m =
+            chassis_LQR_compute_right_finial_state.chassis_move_x_m
+            + chassis_LQR_compute_right_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
 
 
 
@@ -173,57 +248,250 @@ float chassis_vx_compute_loop()
 
 
 
-//轮毂直立
-void chassis_pid_stand_loop()
+/*
+ * 计算雅可比矩阵
+ * 公式：
+ * J =  [-1/2K  1/2K]
+ *      [ 1/2   1/2 ]
+ *
+ *
+ * 先由compute_jacobian_K()函数求出雅可比矩阵第一行所需的K
+ * 再由get_jacobian()计算最终雅可比矩阵
+ * */
+void get_jacobian()
 {
+    // 计算最终雅可比矩阵
 
+    // 1. 首先计算中间变量 K
+    left_leg_joint_2_leg_parameters.K = compute_jacobian_K(left_leg_joint_2_leg_parameters.angle_04, LEG_BIG_LENGTH, LEG_SMALL_LENGTH);
+    right_leg_joint_2_leg_parameters.K = compute_jacobian_K(right_leg_joint_2_leg_parameters.angle_04, LEG_BIG_LENGTH, LEG_SMALL_LENGTH);
 
-    angular_speed = chassis_gyro_pitch_angle_pid_loop(angular_angle) ;
-    chassis_left_3508_id2_stand_current = (int16_t )chassis_gyro_pitch_speed_pid_loop(angular_speed);
-    chassis_right_3508_id1_stand_current = (int16_t )-chassis_gyro_pitch_speed_pid_loop(angular_speed);
+    // 2. 计算左腿雅可比矩阵 jacobian [行][列]
+    left_leg_joint_2_leg_parameters.jacobian[0][0] = -0.5f * left_leg_joint_2_leg_parameters.K;
+    left_leg_joint_2_leg_parameters.jacobian[0][1] =  0.5f * left_leg_joint_2_leg_parameters.K;
+    left_leg_joint_2_leg_parameters.jacobian[1][0] =  0.5f;
+    left_leg_joint_2_leg_parameters.jacobian[1][1] =  0.5f;
+
+    // 3. 计算右腿雅可比矩阵 jacobian [行][列]
+    right_leg_joint_2_leg_parameters.jacobian[0][0] = -0.5f * right_leg_joint_2_leg_parameters.K;
+    right_leg_joint_2_leg_parameters.jacobian[0][1] =  0.5f * right_leg_joint_2_leg_parameters.K;
+    right_leg_joint_2_leg_parameters.jacobian[1][0] =  0.5f;
+    right_leg_joint_2_leg_parameters.jacobian[1][1] =  0.5f;
+
+    // 4. 计算左腿雅可比矩阵的转置 jacobian_T
+    left_leg_joint_2_leg_parameters.jacobian_T[0][0] = left_leg_joint_2_leg_parameters.jacobian[0][0]; // -0.5K
+    left_leg_joint_2_leg_parameters.jacobian_T[0][1] = left_leg_joint_2_leg_parameters.jacobian[1][0]; //  0.5
+    left_leg_joint_2_leg_parameters.jacobian_T[1][0] = left_leg_joint_2_leg_parameters.jacobian[0][1]; //  0.5K
+    left_leg_joint_2_leg_parameters.jacobian_T[1][1] = left_leg_joint_2_leg_parameters.jacobian[1][1]; //  0.5
+
+    // 5. 计算右腿雅可比矩阵的转置 jacobian_T
+    right_leg_joint_2_leg_parameters.jacobian_T[0][0] = right_leg_joint_2_leg_parameters.jacobian[0][0];
+    right_leg_joint_2_leg_parameters.jacobian_T[0][1] = right_leg_joint_2_leg_parameters.jacobian[1][0];
+    right_leg_joint_2_leg_parameters.jacobian_T[1][0] = right_leg_joint_2_leg_parameters.jacobian[0][1];
+    right_leg_joint_2_leg_parameters.jacobian_T[1][1] = right_leg_joint_2_leg_parameters.jacobian[1][1];
 
 }
 
 
+/*
+ * 计算中间变量K
+ * */
+float compute_jacobian_K(float theta4, float L1, float L2)
+{
+    //计算雅可比矩阵里面的K,参考jacobian_readme
+
+    // 预计算三角函数，减少重复调用
+    float s4 = sinf(theta4);
+    float c4 = cosf(theta4);
+
+    // 平方直接相乘，比 powf 快
+    float L1_sq = L1 * L1;
+    float s4_sq = s4 * s4;
+
+    // 计算分母根号部分
+    float sqrt_part = sqrtf(L2 * L2 - L1_sq * s4_sq);
+
+    // 检查分母是否过小（防止除零错误，在奇异位形附近很危险）
+    if (sqrt_part < 1e-6f) {
+        return 0.0f; // 或者根据逻辑处理奇异点
+    }
+
+    // 最终计算 K
+    float K = -L1 * s4 - (L1_sq * s4 * c4) / sqrt_part;
+
+    return K;
+}
+
+
+// 计算腿部运动速度 (正向速度运动学)
+// 传入参数：w7 和 w2 分别为两个电机的当前实时角速度 (rad/s)
+
+void get_leg_velocity()
+{
+    // 1. 计算左腿末端速度
+    // L_dt = J[0][0]*∠7速度 + J[0][1]*∠2速度
+    left_leg_joint_2_leg_parameters.L_dt = left_leg_joint_2_leg_parameters.jacobian[0][0] * (1.0f) * DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_speed +
+                                           left_leg_joint_2_leg_parameters.jacobian[0][1] * (1.0f) * DM8009P_02_LEFT_BIG_LEG_FRONT.return_speed;
+
+    // theta47_dt = J[1][0]*w7 + J[1][1]*w2
+    left_leg_joint_2_leg_parameters.theta47_dt = left_leg_joint_2_leg_parameters.jacobian[1][0] * (1.0f) * DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_speed +
+                                                 left_leg_joint_2_leg_parameters.jacobian[1][1] * (1.0f) * DM8009P_02_LEFT_BIG_LEG_FRONT.return_speed;
+
+    // 2. 计算右腿末端速度
+    // L_dt = J[0][0]*∠7速度 + J[0][1]*∠2速度
+    right_leg_joint_2_leg_parameters.L_dt = right_leg_joint_2_leg_parameters.jacobian[0][0] * (-1.0f) * DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_speed +
+                                            right_leg_joint_2_leg_parameters.jacobian[0][1] * (-1.0f) * DM8009P_01_RIGHT_BIG_LEG_FRONT.return_speed;
+
+    right_leg_joint_2_leg_parameters.theta47_dt = right_leg_joint_2_leg_parameters.jacobian[1][0] * (-1.0f) * DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_speed +
+                                                  right_leg_joint_2_leg_parameters.jacobian[1][1] * (-1.0f) * DM8009P_01_RIGHT_BIG_LEG_FRONT.return_speed;
+}
+
+void virtual_leg_goal_compute()
+{
+    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.05f ;
+    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.05f ;
+
+}
+
+void virtual_leg_give_tor_compute()
+{
+    //此处应该由腿长pid进行输出，此处测试暂时直接赋值
+    left_leg_joint_2_leg_parameters.virtual_leg_give_tor = left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) ;
+    right_leg_joint_2_leg_parameters.virtual_leg_give_tor = right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) ;
+}
+
+
+void joint_vmc_compute(float left_tor_47, float left_virtual_leg_tor , float right_tor_47, float right_virtual_leg_tor)
+{
+    // 利用雅可比矩阵的转置 J_T 进行力矩分配
+    // 公式  [tau7] = J_T * [F_L ]
+    //      [tau2]         [Tp47]
+    //两行1列矩阵
+
+    // 1. 计算左腿电机目标力矩
+    // tau7 = J_T[0][0] * F_L + J_T[0][1] * Tp47
+    left_leg_joint_2_leg_parameters.tor7 = left_leg_joint_2_leg_parameters.jacobian_T[0][0] * left_virtual_leg_tor +
+                                           left_leg_joint_2_leg_parameters.jacobian_T[0][1] * left_tor_47;
+
+    // tau2 = J_T[1][0] * F_L + J_T[1][1] * Tp47
+    left_leg_joint_2_leg_parameters.tor2 = left_leg_joint_2_leg_parameters.jacobian_T[1][0] * left_virtual_leg_tor +
+                                           left_leg_joint_2_leg_parameters.jacobian_T[1][1] * left_tor_47;
+
+
+    // 2. 计算右腿电机目标力矩 (假设左右腿使用相同的 VMC 目标输入)
+    right_leg_joint_2_leg_parameters.tor7 = -(right_leg_joint_2_leg_parameters.jacobian_T[0][0] * right_virtual_leg_tor +
+                                            right_leg_joint_2_leg_parameters.jacobian_T[0][1] * right_tor_47);
+
+    right_leg_joint_2_leg_parameters.tor2 = -(right_leg_joint_2_leg_parameters.jacobian_T[1][0] * right_virtual_leg_tor +
+                                            right_leg_joint_2_leg_parameters.jacobian_T[1][1] * right_tor_47);
+}
+
+
+//限幅
+void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4)
+{
+    //没有对起跳的时候超额定部分进行处理，目前只能在额定20nm内，加个起跳标志位切换一下
+    if( motor1 > DM8009_MAX_TOR)
+    {
+        DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor = DM8009_MAX_TOR ;
+    }
+    else if(motor1 < -DM8009_MAX_TOR)
+    {
+        DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor = -DM8009_MAX_TOR ;
+    }
+    else
+    {
+        DM8009P_01_RIGHT_BIG_LEG_FRONT.give_tor = motor1 ;
+    }
+
+
+    if( motor2 > DM8009_MAX_TOR)
+    {
+        DM8009P_02_LEFT_BIG_LEG_FRONT.give_tor = DM8009_MAX_TOR ;
+    }
+    else if(motor2 < -DM8009_MAX_TOR)
+    {
+        DM8009P_02_LEFT_BIG_LEG_FRONT.give_tor = -DM8009_MAX_TOR ;
+    }
+    else
+    {
+        DM8009P_02_LEFT_BIG_LEG_FRONT.give_tor = motor2 ;
+    }
+
+    if( motor3 > DM8009_MAX_TOR)
+    {
+        DM8009P_03_LEFT_SMALL_LEG_BEHIND.give_tor = DM8009_MAX_TOR ;
+    }
+    else if(motor3 < -DM8009_MAX_TOR)
+    {
+        DM8009P_03_LEFT_SMALL_LEG_BEHIND.give_tor = -DM8009_MAX_TOR ;
+    }
+    else
+    {
+        DM8009P_03_LEFT_SMALL_LEG_BEHIND.give_tor = motor3 ;
+    }
+
+    if( motor4 > DM8009_MAX_TOR)
+    {
+        DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_tor = DM8009_MAX_TOR ;
+    }
+    else if(motor4 < -DM8009_MAX_TOR)
+    {
+        DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_tor = -DM8009_MAX_TOR ;
+    }
+    else
+    {
+        DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_tor = motor4 ;
+    }
+
+
+}
+
+
+
+
+
+
 float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state)
 {
-    // 1. 根据当前腿长 L 计算 K 矩阵的 12 个动态系数
-    // 下面的系数直接从你 MATLAB 截图的输出里复制粘贴
-    float k[2][6];
-
-//    k[0][0] = -247.7816f*powf(L,3) + 267.9377f*powf(L,2)-112.8998f*L-1.4886f;
-//    k[0][1] = -3.4904f*powf(L,3) + 4.4966f*powf(L,2)-5.5442f*L + 0.1037f;
-//    k[0][2] = -20.0942f*powf(L,3) + 18.7760f*powf(L,2)-5.7409f*L-0.9319f;
-//    k[0][3] = -24.9415f*powf(L,3) + 23.0400f*powf(L,2)-7.1109f*L-1.4258f;
-//    k[0][4] = -136.1708f*powf(L,3) + 160.5996f*powf(L,2)-73.1661f*L + 14.1498f;
-//    k[0][5] = -28.3437f*powf(L,3) + 33.9547f*powf(L,2)-15.7881f*L + 3.2395f;
-//    k[1][0] = 152.0441f*powf(L,3)-119.0059f*powf(L,2) + 19.5002f*L + 10.2128f;
-//    k[1][1] = 11.7341f*powf(L,3)-11.1762f*powf(L,2) + 2.0932f*L + 0.2489f;
-//    k[1][2] = -41.9119f*powf(L,3) + 46.5706f*powf(L,2)-19.3386f*L + 2.7677f;
-//    k[1][3] = -59.2179f*powf(L,3) + 65.3132f*powf(L,2)-26.9231f*L + 3.6180f;
-//    k[1][4] = 368.7994f*powf(L,3)-361.2896f*powf(L,2) + 122.1209f*L + 5.8361f;
-//    k[1][5] = 85.7342f*powf(L,3)-84.5140f*powf(L,2) + 28.9233f*L + 1.0225f;
-
-    k[0][0] = -219.3718f*powf(L,3) + 243.0449f*powf(L,2)-132.0522f*L-6.9257f;
-    k[0][1] = 1.4498f*powf(L,3)-3.7768f*powf(L,2)-10.7115f*L-0.1304f;
-    k[0][2] = 14.2642f*powf(L,3)-13.7595f*powf(L,2) + 4.0356f*L-4.9344f;
-    k[0][3] = 26.2735f*powf(L,3)-24.7413f*powf(L,2) + 5.2853f*L-6.7745f;
-    k[0][4] = -295.7442f*powf(L,3) + 297.4953f*powf(L,2)-103.0525f*L + 7.7601f;
-    k[0][5] = -67.0782f*powf(L,3) + 67.9627f*powf(L,2)-23.8217f*L + 2.2809f;
-    k[1][0] = 13.1504f*powf(L,3)-13.1199f*powf(L,2) + 6.8429f*L + 2.3043f;
-    k[1][1] = 0.2630f*powf(L,3) + 0.5939f*powf(L,2)-2.1725f*L + 0.0945f;
-    k[1][2] = -18.2084f*powf(L,3) + 17.4918f*powf(L,2)-5.1184f*L-0.6229f;
-    k[1][3] = -23.7653f*powf(L,3) + 22.9963f*powf(L,2)-6.8760f*L-1.2238f;
-    k[1][4] = 10.6520f*powf(L,3)-11.4815f*powf(L,2) + 6.1620f*L + 18.7338f;
-    k[1][5] = 4.9454f*powf(L,3)-5.1720f*powf(L,2) + 2.3292f*L + 4.0905f;
+//    L = 0.15f ;
+    float t3 = powf(L,3);
+    float t2 = powf(L,2);
+    float t1 = L;
 
 
 
 
+//    更换了准确的物理参数！但是单腿建模
+//    Q=diag([100 1 500 100 5000 10])
+//    R=[100 0;0 25]
+    k[0][0] = -108.4403f*t3 + 138.9505f*t2-79.4072f*t1 + 1.1922f;
+    k[0][1] = 5.0497f*t3-3.7181f*t2-5.0277f*t1 + 0.2012f;
+    k[0][2] = -33.0382f*t3 + 34.9481f*t2-13.2067f*t1 + 0.3412f;
+    k[0][3] = -53.2044f*t3 + 56.6983f*t2-22.1894f*t1 + 0.5045f;
+    k[0][4] = 22.3809f*t3-0.2540f*t2-16.2783f*t1 + 8.8942f;
+    k[0][5] = 6.9707f*t3-3.7565f*t2-1.1218f*t1 + 1.3830f;
+    k[1][0] = 389.6867f*t3-361.6112f*t2 + 100.7387f*t1 + 7.3004f;
+    k[1][1] = 34.0131f*t3-36.6041f*t2 + 13.8073f*t1 + 0.1100f;
+    k[1][2] = 0.1122f*t3 + 14.0611f*t2-14.8767f*t1 + 5.4369f;
+    k[1][3] = 2.2658f*t3 + 20.6149f*t2-23.4790f*t1 + 9.0126f;
+    k[1][4] = 439.9925f*t3-473.8813f*t2 + 185.1026f*t1-9.7106f;
+    k[1][5] = 67.2226f*t3-74.0366f*t2 + 30.0177f*t1-2.2623f;
 
 
 
-
+//    k[0][0] = -219.3718f*powf(L,3) + 243.0449f*powf(L,2)-132.0522f*L-6.9257f;
+//    k[0][1] = 1.4498f*powf(L,3)-3.7768f*powf(L,2)-10.7115f*L-0.1304f;
+//    k[0][2] = 14.2642f*powf(L,3)-13.7595f*powf(L,2) + 4.0356f*L-4.9344f;
+//    k[0][3] = 26.2735f*powf(L,3)-24.7413f*powf(L,2) + 5.2853f*L-6.7745f;
+//    k[0][4] = -295.7442f*powf(L,3) + 297.4953f*powf(L,2)-103.0525f*L + 7.7601f;
+//    k[0][5] = -67.0782f*powf(L,3) + 67.9627f*powf(L,2)-23.8217f*L + 2.2809f;
+//    k[1][0] = 13.1504f*powf(L,3)-13.1199f*powf(L,2) + 6.8429f*L + 2.3043f;
+//    k[1][1] = 0.2630f*powf(L,3) + 0.5939f*powf(L,2)-2.1725f*L + 0.0945f;
+//    k[1][2] = -18.2084f*powf(L,3) + 17.4918f*powf(L,2)-5.1184f*L-0.6229f;
+//    k[1][3] = -23.7653f*powf(L,3) + 22.9963f*powf(L,2)-6.8760f*L-1.2238f;
+//    k[1][4] = 10.6520f*powf(L,3)-11.4815f*powf(L,2) + 6.1620f*L + 18.7338f;
+//    k[1][5] = 4.9454f*powf(L,3)-5.1720f*powf(L,2) + 2.3292f*L + 4.0905f;
 
 
 
@@ -231,12 +499,12 @@ float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state)
 
     // 2. 计算误差项 (x - x_target)
     // 假设目标：theta=0, d_theta=0, x=target_x, d_x=0, phi=0, d_phi=0
-    float e0 = state.virtual_leg_angle_rad - 0.0f;
-    float e1 = state.virtual_leg_speed_rad_s - 0.0f;
-    float e2 = state.chassis_move_x_m - 0.0f;
-    float e3 = state.chassis_speed_m_s - 0.0f;
-    float e4 = state.pitch_angle_rad - 0.0f;
-    float e5 = state.chassis_pitch_speed_rad_s - 0.0f;
+    e0 = state.virtual_leg_angle_rad - 0.0f;
+    e1 = state.virtual_leg_speed_rad_s - 0.0f;
+    e2 = state.chassis_move_x_m - 0.0f;
+    e3 = state.chassis_speed_m_s - 0.0f;
+    e4 = state.pitch_angle_rad - 0.0f;
+    e5 = state.chassis_pitch_speed_rad_s - 0.0f;
 
     // 3. 计算输出 u = -K * e
     // 注意：这里是否加负号取决于你 MATLAB 中 K 的计算定义。
@@ -249,25 +517,69 @@ float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state)
 }
 
 
+void left_leg_pid_init(void)
+{
+    static fp32 left_leg_kpkikd[3] = {LEFT_LEG_PID_KP, LEFT_LEG_PID_KI, LEFT_LEG_PID_KD};
+    PID_init(&left_leg_compute, PID_POSITION, left_leg_kpkikd, LEG_PID_OUT_MAX, LEG_PID_KI_MAX);
+
+}
+
+float left_leg_pid_loop(float left_leg_set_loop)
+{
+    PID_calc(&left_leg_compute, left_leg_joint_2_leg_parameters.return_virtual_leg_length, left_leg_set_loop);
+    float left_leg_given_tor = (float )(left_leg_compute.out);
+    return left_leg_given_tor ;
+
+}
+
+
+void right_leg_pid_init(void)
+{
+    static fp32 right_leg_kpkikd[3] = {RIGHT_LEG_PID_KP, RIGHT_LEG_PID_KI, RIGHT_LEG_PID_KD};
+    PID_init(&right_leg_compute, PID_POSITION, right_leg_kpkikd, LEG_PID_OUT_MAX, LEG_PID_KI_MAX);
+
+}
+
+float right_leg_pid_loop(float right_leg_set_loop)
+{
+    PID_calc(&right_leg_compute, right_leg_joint_2_leg_parameters.return_virtual_leg_length, right_leg_set_loop);
+    float right_leg_given_tor = (float )(right_leg_compute.out);
+    return right_leg_given_tor ;
+
+}
 
 
 
 
+//腿部正解
+void chassis_leg_angle_compute_loop()
+{
+    left_leg_joint_2_leg_parameters.angle_07 = DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_angle ;
+    right_leg_joint_2_leg_parameters.angle_07 = -DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_angle ;
 
+    left_leg_joint_2_leg_parameters.angle_0474 = (float)M_PI + DM8009P_02_LEFT_BIG_LEG_FRONT.return_angle ;
+    right_leg_joint_2_leg_parameters.angle_0474 = ((float)M_PI - DM8009P_01_RIGHT_BIG_LEG_FRONT.return_angle) ;
 
+    left_leg_joint_2_leg_parameters.angle_04 = (left_leg_joint_2_leg_parameters.angle_0474 - left_leg_joint_2_leg_parameters.angle_07) / 2.0f ;
+    right_leg_joint_2_leg_parameters.angle_04 = (right_leg_joint_2_leg_parameters.angle_0474 - right_leg_joint_2_leg_parameters.angle_07) / 2.0f ;
 
+    left_leg_joint_2_leg_parameters.virtual_leg_angle_047 = left_leg_joint_2_leg_parameters.angle_07 + left_leg_joint_2_leg_parameters.angle_04 ;
+    right_leg_joint_2_leg_parameters.virtual_leg_angle_047 = right_leg_joint_2_leg_parameters.angle_07 + right_leg_joint_2_leg_parameters.angle_04 ;
 
+    left_leg_joint_2_leg_parameters.return_virtual_leg_length = calculate_side_c(LEG_BIG_LENGTH, LEG_SMALL_LENGTH, left_leg_joint_2_leg_parameters.angle_04) ;
+    right_leg_joint_2_leg_parameters.return_virtual_leg_length = calculate_side_c(LEG_BIG_LENGTH, LEG_SMALL_LENGTH, right_leg_joint_2_leg_parameters.angle_04) ;
 
+}
 
 //腿部目标位置计算
 //2025.12.29主要工作部分
 void chassis_leg_target_position_compute()
 {
     //给虚拟腿长和虚拟腿的目标摆角赋值(在区间范围内)
-    left_leg_goal_2_joint.virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+    left_leg_goal_2_joint.return_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
     left_leg_goal_2_joint.virtual_leg_angle_047 = M_PI_2 ;
 
-    right_leg_goal_2_joint.virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+    right_leg_goal_2_joint.return_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
     right_leg_goal_2_joint.virtual_leg_angle_047 = M_PI_2 ;
 
 
@@ -286,8 +598,8 @@ void chassis_joint_angle_compute_loop()
     //已经有了虚拟腿长和虚拟腿的目标摆角
 
     //利用余弦函数计算04角度
-    left_leg_goal_2_joint.angle_04 = calculate_opposite_angle(LEG_SMALL_LENGTH, LEG_BIG_LENGTH, left_leg_goal_2_joint.virtual_leg_length);
-    right_leg_goal_2_joint.angle_04 = calculate_opposite_angle(LEG_SMALL_LENGTH, LEG_BIG_LENGTH, right_leg_goal_2_joint.virtual_leg_length);
+    left_leg_goal_2_joint.angle_04 = calculate_opposite_angle(LEG_SMALL_LENGTH, LEG_BIG_LENGTH, left_leg_goal_2_joint.return_virtual_leg_length);
+    right_leg_goal_2_joint.angle_04 = calculate_opposite_angle(LEG_SMALL_LENGTH, LEG_BIG_LENGTH, right_leg_goal_2_joint.return_virtual_leg_length);
 
 
     if(left_leg_goal_2_joint.angle_04 < 0.0f | right_leg_goal_2_joint.angle_04 < 0.0f)
@@ -321,25 +633,6 @@ void chassis_joint_angle_compute_loop()
 
 }
 
-//腿部正解
-void chassis_leg_angle_compute_loop()
-{
-    left_leg_joint_2_leg_parameters.angle_07 = DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_angle ;
-    right_leg_joint_2_leg_parameters.angle_07 = -DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_angle ;
-
-    left_leg_joint_2_leg_parameters.angle_0474 = (float)M_PI + DM8009P_02_LEFT_BIG_LEG_FRONT.return_angle ;
-    right_leg_joint_2_leg_parameters.angle_0474 = ((float)M_PI - DM8009P_01_RIGHT_BIG_LEG_FRONT.return_angle) ;
-
-    left_leg_joint_2_leg_parameters.angle_04 = (left_leg_joint_2_leg_parameters.angle_0474 - left_leg_joint_2_leg_parameters.angle_07) / 2.0f ;
-    right_leg_joint_2_leg_parameters.angle_04 = (right_leg_joint_2_leg_parameters.angle_0474 - right_leg_joint_2_leg_parameters.angle_07) / 2.0f ;
-
-    left_leg_joint_2_leg_parameters.virtual_leg_angle_047 = left_leg_joint_2_leg_parameters.angle_07 + left_leg_joint_2_leg_parameters.angle_04 ;
-    right_leg_joint_2_leg_parameters.virtual_leg_angle_047 = right_leg_joint_2_leg_parameters.angle_07 + right_leg_joint_2_leg_parameters.angle_04 ;
-
-    left_leg_joint_2_leg_parameters.virtual_leg_length = calculate_side_c(LEG_BIG_LENGTH, LEG_SMALL_LENGTH, left_leg_joint_2_leg_parameters.angle_04) ;
-    right_leg_joint_2_leg_parameters.virtual_leg_length = calculate_side_c(LEG_BIG_LENGTH, LEG_SMALL_LENGTH, right_leg_joint_2_leg_parameters.angle_04) ;
-
-}
 
 
 
@@ -364,6 +657,82 @@ void chassis_DM_motor_pid_loop()
     DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_speed = chassis_DM8009_04_angle_pid_loop(DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_angle) ;
     DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_tor = chassis_DM8009_04_speed_pid_loop(DM8009P_04_RIGHT_SMALL_LEG_BEHIND.give_speed) ;
 }
+
+
+
+
+
+/**
+ * @brief 使用余弦定理计算三角形中指定边的对角
+ * @param a 第一条边的长度（对角将被计算）
+ * @param b 第二条边的长度
+ * @param c 第三条边的长度
+ * @return 返回边a的对角，单位为弧度；如果输入不构成有效三角形则返回-1
+ */
+float calculate_opposite_angle(float a, float b, float c)
+{
+    // 检查是否构成有效的三角形
+    if (a <= 0 || b <= 0 || c <= 0) {
+        return -1.0f; // 边长必须为正
+    }
+
+    // 三角形不等式检查
+    if ((a + b <= c) || (a + c <= b) || (b + c <= a)) {
+        return -1.0f; // 不满足三角形不等式
+    }
+
+    // 使用余弦定理: cos(A) = (b? + c? - a?) / (2bc)
+    float cos_angle = (b * b + c * c - a * a) / (2.0f * b * c);
+
+    // 确保cos值在有效范围内 [-1, 1]，防止浮点数精度问题
+    if (cos_angle > 1.0f) {
+        cos_angle = 1.0f;
+    } else if (cos_angle < -1.0f) {
+        cos_angle = -1.0f;
+    }
+
+    // 计算角度（弧度）
+    float angle_radians = acosf(cos_angle);
+
+    return angle_radians;
+}
+
+
+/**
+ * 根据已知边a, b和角B求边长c
+ * @param a 边长a (单位: m)
+ * @param b 边长b (单位: m)
+ * @param angleB_rad 角B (弧度制)
+ * @return 边长c (单位: m), 如果无法构成三角形则返回-1.0
+ */
+float calculate_side_c(float a, float b, float angleB_rad)
+{
+    // 根据余弦定理构造的关于c的一元二次方程判别式:
+    // c = a*cosB + sqrt(b^2 - (a*sinB)^2)
+
+    float sinB = sinf(angleB_rad);
+    float cosB = cosf(angleB_rad);
+
+    // 计算根号下的部分: b^2 - (a * sinB)^2
+    float delta = (b * b) - (a * sinB * a * sinB);
+
+    // 1. 检查是否有解（根号下不能为负）
+    if (delta < 0) {
+        return -1.0f; // 表示无法构成三角形
+    }
+
+    // 2. 计算 c
+    // 因为 b > a，所以 a*cosB - sqrt(delta) 必然是负数，直接取加号即可
+    float c = (a * cosB) + sqrtf(delta);
+
+    // 3. 检查结果是否合法（边长必须大于0）
+    if (c <= 0) {
+        return -1.0f;
+    }
+
+    return c;
+}
+
 
 
 
@@ -547,78 +916,4 @@ float chassis_DM8009_04_angle_pid_loop(float chassis_DM8009_04_angle_set_loop)
 
     return chassis_DM8009_04_given_speed_loop ;
 
-}
-
-
-
-
-/**
- * @brief 使用余弦定理计算三角形中指定边的对角
- * @param a 第一条边的长度（对角将被计算）
- * @param b 第二条边的长度
- * @param c 第三条边的长度
- * @return 返回边a的对角，单位为弧度；如果输入不构成有效三角形则返回-1
- */
-float calculate_opposite_angle(float a, float b, float c)
-{
-    // 检查是否构成有效的三角形
-    if (a <= 0 || b <= 0 || c <= 0) {
-        return -1.0f; // 边长必须为正
-    }
-
-    // 三角形不等式检查
-    if ((a + b <= c) || (a + c <= b) || (b + c <= a)) {
-        return -1.0f; // 不满足三角形不等式
-    }
-
-    // 使用余弦定理: cos(A) = (b? + c? - a?) / (2bc)
-    float cos_angle = (b * b + c * c - a * a) / (2.0f * b * c);
-
-    // 确保cos值在有效范围内 [-1, 1]，防止浮点数精度问题
-    if (cos_angle > 1.0f) {
-        cos_angle = 1.0f;
-    } else if (cos_angle < -1.0f) {
-        cos_angle = -1.0f;
-    }
-
-    // 计算角度（弧度）
-    float angle_radians = acosf(cos_angle);
-
-    return angle_radians;
-}
-
-
-/**
- * 根据已知边a, b和角B求边长c
- * @param a 边长a (单位: m)
- * @param b 边长b (单位: m)
- * @param angleB_rad 角B (弧度制)
- * @return 边长c (单位: m), 如果无法构成三角形则返回-1.0
- */
-float calculate_side_c(float a, float b, float angleB_rad)
-{
-    // 根据余弦定理构造的关于c的一元二次方程判别式:
-    // c = a*cosB + sqrt(b^2 - (a*sinB)^2)
-
-    float sinB = sinf(angleB_rad);
-    float cosB = cosf(angleB_rad);
-
-    // 计算根号下的部分: b^2 - (a * sinB)^2
-    float delta = (b * b) - (a * sinB * a * sinB);
-
-    // 1. 检查是否有解（根号下不能为负）
-    if (delta < 0) {
-        return -1.0f; // 表示无法构成三角形
-    }
-
-    // 2. 计算 c
-    // 因为 b > a，所以 a*cosB - sqrt(delta) 必然是负数，直接取加号即可
-    float c = (a * cosB) + sqrtf(delta);
-
-    // 3. 检查结果是否合法（边长必须大于0）
-    if (c <= 0) {
-        return -1.0f;
-    }
-
-    return c;
 }

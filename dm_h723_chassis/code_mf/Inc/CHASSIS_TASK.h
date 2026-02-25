@@ -63,6 +63,21 @@
 #define CHASSIS_DM8009_04_ANGLE_PID_KI   0.0f
 #define CHASSIS_DM8009_04_ANGLE_PID_KD   0.0f
 
+
+#define LEG_PID_OUT_MAX  150.0f//注意这里要跟前馈配合
+#define LEG_PID_KI_MAX   0.0f
+
+
+#define LEFT_LEG_PID_KP       3000.0f
+#define LEFT_LEG_PID_KI       0.0f
+#define LEFT_LEG_PID_KD       100000.0f
+
+#define RIGHT_LEG_PID_KP       3000.0f
+#define RIGHT_LEG_PID_KI       0.0f
+#define RIGHT_LEG_PID_KD       100000.0f
+
+
+
 //机械腿部参数
 //长度单位mm
 //角度单位rad
@@ -78,10 +93,12 @@
 #define MAX_CMD 16384.0f                    // 控制器满量程
 #define MOTOR_GIVE_TORQUE_KP (MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
 
+#define DM8009_MAX_TOR 20.0f
+
 
 
 struct chassis_lqr_state_input {
-    float leg_length;                   //腿长 单位m
+    float finial_lqr_compute_leg_length;                   //腿长 单位m
 
     float chassis_pitch_speed_rad_s ;   //机体俯仰角速度（由 IMU 获取）单位rad/s      方向：后仰为正！
     float pitch_angle_rad ;             //机体与水平面夹角（机体俯仰角，由 IMU 获取）单位rad     方向：后仰为正！
@@ -102,10 +119,26 @@ struct leg_parameter {
     float angle_04 ;    //中间角度04（前大腿->虚拟腿，虚拟腿->后大腿）
     float angle_0474 ;   //后大腿角度(x轴正方向->后大腿)
 
-    float virtual_leg_length;//虚拟腿长度
+    float return_virtual_leg_length;//当前用于计算lqr的虚拟腿长度
+    float goal_virtual_leg_length;//腿长控制的目标腿长
+
+    float K;            //计算中间变量
+    float jacobian[2][2];     //雅可比矩阵
+    float jacobian_T[2][2];   //雅可比矩阵的转置
+
+    float L_dt;        // 腿部伸缩速度
+    float theta47_dt;  // 虚线转动角速度
+
+    float virtual_leg_give_tor;//虚拟腿目标推力
+
+    float tor7;         // 电机7目标力矩
+    float tor2;         // 电机2目标力矩
 };
 
-extern struct  chassis_lqr_state_input chassis_all_finial_state;
+
+
+extern struct  chassis_lqr_state_input chassis_LQR_compute_left_finial_state;
+extern struct  chassis_lqr_state_input chassis_LQR_compute_right_finial_state;
 
 extern struct leg_parameter left_leg_goal_2_joint;
 extern struct leg_parameter right_leg_goal_2_joint;
@@ -123,6 +156,24 @@ void chassis_joint_angle_compute_loop();
 void chassis_leg_angle_compute_loop();
 void chassis_leg_target_position_compute();
 void chassis_DM_motor_pid_loop();
+
+
+void get_jacobian();
+float compute_jacobian_K(float theta4, float L1, float L2);
+void get_leg_velocity();
+void virtual_leg_goal_compute();
+void virtual_leg_give_tor_compute();
+void joint_vmc_compute(float left_tor_47, float left_virtual_leg_tor , float right_tor_47, float right_virtual_leg_tor);
+void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4);
+
+float calculate_opposite_angle(float a, float b, float c);
+float calculate_side_c(float a, float b, float angleB_rad);
+
+void left_leg_pid_init(void);
+float left_leg_pid_loop(float left_leg_set_loop);
+void right_leg_pid_init(void);
+float right_leg_pid_loop(float right_leg_set_loop);
+
 
 
 
@@ -155,7 +206,6 @@ float chassis_DM8009_04_speed_pid_loop(float chassis_DM8009_04_speed_set_loop);
 void chassis_DM8009_04_angle_pid_init(void);
 float chassis_DM8009_04_angle_pid_loop(float chassis_DM8009_04_angle_set_loop);
 
-float calculate_opposite_angle(float a, float b, float c);
-float calculate_side_c(float a, float b, float angleB_rad);
+
 
 #endif //BUBING_RM2025_CHASSIS_TASK_H

@@ -51,7 +51,7 @@ void chassis_vx_pid_init(void)
 
 float chassis_vx_pid_loop(float chassis_vx_set_loop)
 {
-    PID_calc(&chassis_vx_pid, chassis_all_finial_state.chassis_speed_m_s, chassis_vx_set_loop);
+    PID_calc(&chassis_vx_pid, chassis_LQR_compute_left_finial_state.chassis_speed_m_s, chassis_vx_set_loop);
     float chassis_vx_given_speed_loop = (float )(chassis_vx_pid.out);
 
     return chassis_vx_given_speed_loop ;

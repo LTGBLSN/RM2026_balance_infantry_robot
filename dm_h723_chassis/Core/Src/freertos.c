@@ -142,7 +142,7 @@ void MX_FREERTOS_Init(void) {
   imu_dataHandle = osThreadCreate(osThread(imu_data), NULL);
 
   /* definition and creation of can_sent */
-  osThreadDef(can_sent, CAN_SENT_TASK, osPriorityIdle, 0, 256);
+  osThreadDef(can_sent, CAN_SENT_TASK, osPriorityIdle, 0, 512);
   can_sentHandle = osThreadCreate(osThread(can_sent), NULL);
 
   /* definition and creation of shoot_task */
@@ -158,7 +158,7 @@ void MX_FREERTOS_Init(void) {
   err_dec_taskHandle = osThreadCreate(osThread(err_dec_task), NULL);
 
   /* definition and creation of chassis */
-  osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 512);
+  osThreadDef(chassis, CHASSIS_TASK, osPriorityIdle, 0, 1024);
   chassisHandle = osThreadCreate(osThread(chassis), NULL);
 
   /* definition and creation of chassis_vx */
