@@ -109,7 +109,7 @@
 
 #define MOTOR_GIVE_TORQUE_KP (DJI3508_MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
 
-#define MATLAB_CHASSIS 0.5f
+#define MATLAB_CHASSIS 1.0f
 
 struct chassis_lqr_state_input {
     float finial_lqr_compute_leg_length;                   //腿长 单位m

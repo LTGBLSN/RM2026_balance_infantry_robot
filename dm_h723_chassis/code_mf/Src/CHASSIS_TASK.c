@@ -123,6 +123,13 @@ void CHASSIS_TASK()
 
 void chassis_all_state_update_loop()
 {
+    //车身倾角计算，注意正方向！
+    //imu优先算好，后续要用
+    chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
+    chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
+
+    chassis_LQR_compute_left_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
+    chassis_LQR_compute_right_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
 
 
 
@@ -184,17 +191,6 @@ void chassis_all_state_update_loop()
             - chassis_LQR_compute_right_finial_state.pitch_angle_rad
             + right_leg_joint_2_leg_parameters.virtual_leg_angle_047
             - (float )M_PI_2;
-
-
-
-
-    //车身倾角计算，注意正方向！
-    chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
-    chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s = -imu_data_from_external_BMI088_mahony.pitch_radian_vel;
-
-    chassis_LQR_compute_left_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
-    chassis_LQR_compute_right_finial_state.pitch_angle_rad = -imu_data_from_external_BMI088_mahony.pitch_radian_angle;
-
 
 
 
@@ -463,20 +459,17 @@ float right_leg_target_angle47_pid_loop(float right_virtual_leg_target_angle47_s
 
 void leg_torque_LQR_compute_loop()
 {
-    if((rcData.rc.s[0]) == 1)
+    if((rcData.rc.s[1]) == 1)
     {
         left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
                 (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) ;
+//        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 5.0f ;
 
 
 
         right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
                 (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) ;
-    }
-    else
-    {
-        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 0.0f ;
-        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 0.0f ;
+//        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 5.0f ;
     }
 
 }
@@ -574,39 +567,39 @@ void update_LQR_K(float t3 ,float t2 ,float t1)
     //小板凳可直立的K(全车建模)
 //    Q=diag([100 1 500 500 5000 1])
 //    R=[20 0;0 70]
-//    k[0][0] = -219.3718f*t3 + 243.0449f*t2-132.0522f*t1-6.9257f;
-//    k[0][1] = 1.4498f*t3-3.7768f*t2-10.7115f*t1-0.1304f;
-//    k[0][2] = 14.2642f*t3-13.7595f*t2 + 4.0356f*t1-4.9344f;
-//    k[0][3] = 26.2735f*t3-24.7413f*t2 + 5.2853f*t1-6.7745f;
-//    k[0][4] = -295.7442f*t3 + 297.4953f*t2-103.0525f*t1 + 7.7601f;
-//    k[0][5] = -67.0782f*t3 + 67.9627f*t2-23.8217f*t1 + 2.2809f;
-//    k[1][0] = 13.1504f*t3-13.1199f*t2 + 6.8429f*t1 + 2.3043f;
-//    k[1][1] = 0.2630f*t3 + 0.5939f*t2-2.1725f*t1 + 0.0945f;
-//    k[1][2] = -18.2084f*t3 + 17.4918f*t2-5.1184f*t1-0.6229f;
-//    k[1][3] = -23.7653f*t3 + 22.9963f*t2-6.8760f*t1-1.2238f;
-//    k[1][4] = 10.6520f*t3-11.4815f*t2 + 6.1620f*t1 + 18.7338f;
-//    k[1][5] = 4.9454f*t3-5.1720f*t2 + 2.3292f*t1 + 4.0905f;
-//
+//    k[0][0] = -237.7194f*t3 + 267.6035f*t2-144.3016f*t1-2.6660f;
+//    k[0][1] = 0.5096f*t3-1.3932f*t2-12.6665f*t1 + 0.1300f;
+//    k[0][2] = -46.4253f*t3 + 44.5673f*t2-14.5488f*t1-3.3254f;
+//    k[0][3] = -54.8987f*t3 + 53.5435f*t2-19.7948f*t1-4.6519f;
+//    k[0][4] = -260.6030f*t3 + 289.6090f*t2-122.2900f*t1 + 25.0180f;
+//    k[0][5] = -43.0879f*t3 + 48.7635f*t2-21.0987f*t1 + 4.9296f;
+//    k[1][0] = 137.7834f*t3-121.0018f*t2 + 31.5876f*t1 + 9.5146f;
+//    k[1][1] = 15.6493f*t3-15.2462f*t2 + 4.4626f*t1 + 0.4865f;
+//    k[1][2] = -86.1271f*t3 + 93.6448f*t2-37.7573f*t1 + 6.3715f;
+//    k[1][3] = -111.6082f*t3 + 121.1113f*t2-48.8059f*t1 + 8.2035f;
+//    k[1][4] = 412.2799f*t3-406.1553f*t2 + 139.9677f*t1 + 14.3809f;
+//    k[1][5] = 85.0709f*t3-84.9286f*t2 + 30.0431f*t1 + 1.6672f;
+
 
 //    Q=diag([100 1 500 100 5000 1])
 //    R=[20 0;0 10]
 
 
 //    半车模型
-//    Q=diag([100 1 500 100 5000 1])
-//    R=[30 0;0 10]
-    k[0][0] = -152.7980f*t3 + 171.7596f*t2-88.4384f*t1-1.0067f;
-    k[0][1] = 0.8572f*t3-0.8835f*t2-6.9054f*t1 + 0.1267f;
-    k[0][2] = -53.8961f*t3 + 53.4767f*t2-18.4338f*t1-1.1872f;
-    k[0][3] = -49.4315f*t3 + 49.8834f*t2-18.9222f*t1-1.2635f;
-    k[0][4] = -163.7668f*t3 + 196.5256f*t2-91.3101f*t1 + 20.2649f;
-    k[0][5] = -22.4463f*t3 + 27.7692f*t2-13.4408f*t1 + 3.3247f;
-    k[1][0] = 126.2197f*t3-102.9497f*t2 + 18.7304f*t1 + 8.2870f;
-    k[1][1] = 16.0701f*t3-16.2183f*t2 + 5.5012f*t1 + 0.4007f;
-    k[1][2] = -69.1259f*t3 + 82.2179f*t2-37.6259f*t1 + 7.9496f;
-    k[1][3] = -66.6475f*t3 + 78.7365f*t2-35.9803f*t1 + 7.8454f;
-    k[1][4] = 559.8344f*t3-557.3523f*t2 + 193.5807f*t1 + 8.7593f;
-    k[1][5] = 91.7312f*t3-92.2137f*t2 + 32.6270f*t1 + 0.4420f;
+//    Q=diag([1 1 100 100 2000 1])
+//    R=[20 0;0 10]
+    k[0][0] = -148.6058f*t3 + 165.4884f*t2-82.3194f*t1-1.8114f;
+    k[0][1] = 1.3127f*t3-1.0971f*t2-6.0281f*t1 + 0.0290f;
+    k[0][2] = -28.5509f*t3 + 28.3803f*t2-9.8188f*t1-0.9747f;
+    k[0][3] = -36.6760f*t3 + 36.9850f*t2-13.8848f*t1-1.3780f;
+    k[0][4] = -105.3238f*t3 + 123.6221f*t2-56.0774f*t1 + 12.1928f;
+    k[0][5] = -17.6999f*t3 + 20.9967f*t2-9.7395f*t1 + 2.3106f;
+    k[1][0] = 75.5893f*t3-60.3810f*t2 + 10.0754f*t1 + 5.3314f;
+    k[1][1] = 8.0034f*t3-8.1419f*t2 + 2.8047f*t1 + 0.2950f;
+    k[1][2] = -30.1066f*t3 + 35.2709f*t2-15.8952f*t1 + 3.3350f;
+    k[1][3] = -39.3708f*t3 + 46.1150f*t2-20.8571f*t1 + 4.4966f;
+    k[1][4] = 211.1305f*t3-210.4496f*t2 + 73.2757f*t1 + 5.9706f;
+    k[1][5] = 40.1590f*t3-40.3581f*t2 + 14.2903f*t1 + 0.5892f;
 }
 
 
@@ -636,6 +629,7 @@ float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
     // 注意：这里是否加负号取决于你 MATLAB 中 K 的计算定义。
     // 如果 MATLAB 里的 K 是由 lqr(A,B,Q,R) 直接生成的，标准控制律是 u = -Kx。
     float wheel_torque = -(k[0][0]*e0 + k[0][1]*e1 + k[0][2]*e2 + k[0][3]*e3 + k[0][4]*e4 + k[0][5]*e5);
+//    wheel_torque = 0.0f ;
 //    *out_joint_torque = -(k[1][0]*e0 + k[1][1]*e1 + k[1][2]*e2 + k[1][3]*e3 + k[1][4]*e4 + k[1][5]*e5);
 
     return wheel_torque;
@@ -655,11 +649,17 @@ float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
     // 2. 计算误差项 (x - x_target)
     // 假设目标：theta=0, d_theta=0, x=target_x, d_x=0, phi=0, d_phi=0
     e0 = state.virtual_leg_angle_rad - 0.0f;
+//    e0 = 0.0f ;
     e1 = state.virtual_leg_speed_rad_s - 0.0f;
+//    e1 = 0.0f ;
     e2 = state.chassis_move_x_m - 0.0f;
+//    e2 = 0.0f ;
     e3 = state.chassis_speed_m_s - 0.0f;
-    e4 = state.pitch_angle_rad - 0.0f;
-    e5 = state.chassis_pitch_speed_rad_s - 0.0f;
+//    e3 = 0.0f ;
+    e4 = (state.pitch_angle_rad - 0.0f);
+//    e4 = 0.0f ;
+    e5 = (state.chassis_pitch_speed_rad_s - 0.0f);
+//    e5 = 0.0f;
 
     // 3. 计算输出 u = -K * e
     // 注意：这里是否加负号取决于你 MATLAB 中 K 的计算定义。
