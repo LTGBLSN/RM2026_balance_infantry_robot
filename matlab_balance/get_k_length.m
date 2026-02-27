@@ -78,9 +78,9 @@ function K = get_k_length(leg_length)
 
     % 显著增加速度项 (d_theta, d_x, d_phi) 的权重以增加阻尼
     % 状态顺序：[theta, d_theta, x, d_x, phi, d_phi]
-    Q=diag([1 1 100 100 2000 1])
+    Q=diag([1 50 300 550 2000 1])
     % 增大 R 矩阵（数值越大，控制越“软”，容忍误差能力越强）
-    R=[25 0;0 10]
+    R=[50 0;0 10]
 
 
     
