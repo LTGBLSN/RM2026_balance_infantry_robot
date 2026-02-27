@@ -69,16 +69,16 @@ int16_t yaw_6020_state ;
 float SHOOT_2006_ID1_GIVEN_SPEED ;
 int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
 
-int16_t chassis_left_3508_id2_stand_current;
-int16_t chassis_right_3508_id1_stand_current;
+int16_t chassis_left_3508_id2_given_current;
+int16_t chassis_right_3508_id1_given_current;
 
 float k[2][6];
 
 float angular_speed ;
 float angular_angle ;
 
-float left_compute_current;
-float right_compute_current;
+float left_wheel_tor_compute;
+float right_wheel_tor_compute;
 
 float speed_expectation ;
 

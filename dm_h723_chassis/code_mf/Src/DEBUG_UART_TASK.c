@@ -19,21 +19,20 @@ void DEBUG_UART_TASK()
     while (1)
     {
         //π€≤‚÷µ
-//        usart1_printf("%f,%f,%f,%f,%f,%f,%f \r\n",
-//                       chassis_all_finial_state.chassis_pitch_speed_rad_s,
-//                      chassis_all_finial_state.pitch_angle_rad,
-//                      chassis_all_finial_state.leg_length,
-//                      chassis_all_finial_state.virtual_leg_angle_rad,
-//                      chassis_all_finial_state.virtual_leg_speed_rad_s,
-//                      chassis_all_finial_state.chassis_speed_m_s,
-//                      chassis_all_finial_state.chassis_move_x_m
+        usart1_printf("%f,%f,%f,%f,%f,%f,%f \r\n",
+                      chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s,
+                      chassis_LQR_compute_right_finial_state.pitch_angle_rad,
+                      chassis_LQR_compute_right_finial_state.finial_lqr_compute_leg_length,
+                      chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad,
+                      chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s,
+                      chassis_LQR_compute_right_finial_state.chassis_speed_m_s,
+                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
+                      );
+
+//        usart1_printf("%f \r\n",
+//                      right_leg_joint_2_leg_parameters.virtual_leg_angle_047
 //                      );
 
-        usart1_printf("%f,%f,%f \r\n",
-                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length,
-                      right_leg_joint_2_leg_parameters.return_virtual_leg_length,
-                      right_leg_joint_2_leg_parameters.virtual_leg_give_tor
-                      );
 
 
         osDelay(1);

@@ -52,8 +52,8 @@ extern int16_t yaw_6020_state ;
 extern float SHOOT_2006_ID1_GIVEN_SPEED ;
 extern int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
 
-extern int16_t chassis_left_3508_id2_stand_current;
-extern int16_t chassis_right_3508_id1_stand_current;
+extern int16_t chassis_left_3508_id2_given_current;
+extern int16_t chassis_right_3508_id1_given_current;
 
 
 extern float k[2][6];
@@ -61,8 +61,8 @@ extern float k[2][6];
 extern float angular_speed ;
 extern float angular_angle ;
 
-extern float left_compute_current;
-extern float right_compute_current;
+extern float left_wheel_tor_compute;
+extern float right_wheel_tor_compute;
 
 
 extern float speed_expectation ;

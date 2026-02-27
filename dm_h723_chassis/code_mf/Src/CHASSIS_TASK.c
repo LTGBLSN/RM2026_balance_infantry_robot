@@ -40,6 +40,10 @@ pid_type_def chassis_gyro_angle_pid;
 pid_type_def left_leg_compute ;
 pid_type_def right_leg_compute ;
 
+pid_type_def left_virtual_leg_target_angle47_compute ;
+pid_type_def right_virtual_leg_target_angle47_compute ;
+
+
 
 void CHASSIS_TASK()
 {
@@ -58,62 +62,47 @@ void CHASSIS_TASK()
 
     left_leg_pid_init();
     right_leg_pid_init();
+    left_virtual_leg_target_angle47_pid_init();
+    right_virtual_leg_target_angle47_pid_init();
+
     while (1)
     {
         //整车状态变量更新
         chassis_all_state_update_loop();
 
+
+
+        ///////////////////////////////////////////////////////////////////////轮毂部分控制
+
         //lqr计算
-        if((rcData.rc.s[0]) == 1)
-        {
-            left_compute_current = (0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state.finial_lqr_compute_leg_length, chassis_LQR_compute_left_finial_state));
+        wheel_torque_LQR_compute_loop();
 
-            if(left_compute_current < -MAX_CMD)
-            {
-                left_compute_current = -MAX_CMD ;
-            }
-            else if(left_compute_current > MAX_CMD)
-            {
-                left_compute_current = MAX_CMD ;
-            } else
-            {
-                left_compute_current = left_compute_current ;
-            }
-
-            chassis_left_3508_id2_stand_current = (int16_t) -left_compute_current ;
-
-            right_compute_current = (0.5f * MOTOR_GIVE_TORQUE_KP * calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state.finial_lqr_compute_leg_length, chassis_LQR_compute_right_finial_state));
-
-            if(right_compute_current < -MAX_CMD)
-            {
-                right_compute_current = -MAX_CMD ;
-            }
-            else if(right_compute_current > MAX_CMD)
-            {
-                right_compute_current = MAX_CMD ;
-            } else
-            {
-                right_compute_current = right_compute_current ;
-            }
-            chassis_right_3508_id1_stand_current = (int16_t) right_compute_current ;
+        //轮毂限幅
+        wheel_tor_limit(left_wheel_tor_compute, right_wheel_tor_compute);
 
 
-        }
 
-        //腿部分控制
+        /////////////////////////////////////////////////////////////////////////腿部控制
 
         //目标腿长设定
         // 2026.2.25目前均设为0.15，后续要进行roll轴控制在此处控制
         virtual_leg_goal_compute();
 
         //计算出腿长控制目标虚拟腿推力扭矩
-        //2026.2.25此处应该由腿长pid进行输出，此处测试暂时直接赋值
+        //2026.2.25此该由腿长pid进行输出
+        //2026.2.26待添加前馈以补偿重力
         virtual_leg_give_tor_compute();
 
+
+        //计算关节47度力矩(此处设置小板凳还是轮腿)
+        leg_torque_47_compute();
+
+
+
         //传入虚拟关节目标扭矩和出腿长控制目标虚拟腿推力扭矩，通过雅可比矩阵转换为两个关节扭矩
-        joint_vmc_compute(0.0f,
+        joint_vmc_compute(left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor,
                           left_leg_joint_2_leg_parameters.virtual_leg_give_tor,
-                          0.0f,
+                          right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor,
                           right_leg_joint_2_leg_parameters.virtual_leg_give_tor);
 
         //转换为达妙控制区间
@@ -166,11 +155,11 @@ void chassis_all_state_update_loop()
 
     //摆杆角速度赋值
     chassis_LQR_compute_left_finial_state.virtual_leg_speed_rad_s =
-            - left_leg_joint_2_leg_parameters.theta47_dt
+            + left_leg_joint_2_leg_parameters.theta47_dt
             - chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s;
 
     chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s =
-            - right_leg_joint_2_leg_parameters.theta47_dt
+            + right_leg_joint_2_leg_parameters.theta47_dt
             - chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s;
 
 
@@ -188,13 +177,13 @@ void chassis_all_state_update_loop()
     //2026.2.25我靠原来极性在这错的
     chassis_LQR_compute_left_finial_state.virtual_leg_angle_rad =
             - chassis_LQR_compute_left_finial_state.pitch_angle_rad
-            - left_leg_joint_2_leg_parameters.virtual_leg_angle_047
-            + (float )M_PI_2;
+            + left_leg_joint_2_leg_parameters.virtual_leg_angle_047
+            - (float )M_PI_2;
 
     chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad =
             - chassis_LQR_compute_right_finial_state.pitch_angle_rad
-            - right_leg_joint_2_leg_parameters.virtual_leg_angle_047
-            + (float )M_PI_2;
+            + right_leg_joint_2_leg_parameters.virtual_leg_angle_047
+            - (float )M_PI_2;
 
 
 
@@ -214,13 +203,22 @@ void chassis_all_state_update_loop()
     chassis_LQR_compute_right_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
 
     //整车位移计算2026.2.21:使用速度积分得到位置，不保证100%可用，待确认
-    chassis_LQR_compute_left_finial_state.chassis_move_x_m =
-            chassis_LQR_compute_left_finial_state.chassis_move_x_m
-            + chassis_LQR_compute_left_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+    if((rcData.rc.s[0]) == 1)
+    {
+        chassis_LQR_compute_left_finial_state.chassis_move_x_m =
+                chassis_LQR_compute_left_finial_state.chassis_move_x_m
+                + chassis_LQR_compute_left_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
 
-    chassis_LQR_compute_right_finial_state.chassis_move_x_m =
-            chassis_LQR_compute_right_finial_state.chassis_move_x_m
-            + chassis_LQR_compute_right_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+        chassis_LQR_compute_right_finial_state.chassis_move_x_m =
+                chassis_LQR_compute_right_finial_state.chassis_move_x_m
+                + chassis_LQR_compute_right_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+    }
+    else
+    {
+        chassis_LQR_compute_left_finial_state.chassis_move_x_m = 0.0f ;
+        chassis_LQR_compute_right_finial_state.chassis_move_x_m = 0.0f ;
+    }
+
 
 
 
@@ -244,6 +242,48 @@ float chassis_vx_compute_loop()
     return chassis_vx_real_speed;
 
 
+}
+
+void wheel_torque_LQR_compute_loop()
+{
+    if((rcData.rc.s[0]) == 1)
+    {
+        left_wheel_tor_compute =
+                -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state));
+
+        right_wheel_tor_compute =
+                (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state));
+    }
+
+}
+
+
+
+void wheel_tor_limit(float left_wheel_tor, float right_wheel_tor)
+{
+    if(left_wheel_tor < -DJI3508_MAX_CMD)
+    {
+        chassis_left_3508_id2_given_current = (int16_t)-DJI3508_MAX_CMD ;
+    }
+    else if(left_wheel_tor > DJI3508_MAX_CMD)
+    {
+        chassis_left_3508_id2_given_current = (int16_t)DJI3508_MAX_CMD ;
+    } else
+    {
+        chassis_left_3508_id2_given_current = (int16_t)left_wheel_tor ;
+    }
+
+    if(right_wheel_tor < -DJI3508_MAX_CMD)
+    {
+        chassis_right_3508_id1_given_current = (int16_t)-DJI3508_MAX_CMD ;
+    }
+    else if(right_wheel_tor > DJI3508_MAX_CMD)
+    {
+        chassis_right_3508_id1_given_current = (int16_t)DJI3508_MAX_CMD ;
+    } else
+    {
+        chassis_right_3508_id1_given_current = (int16_t)right_wheel_tor ;
+    }
 }
 
 
@@ -348,16 +388,97 @@ void get_leg_velocity()
 
 void virtual_leg_goal_compute()
 {
-    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.05f ;
-    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.05f ;
+    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.01f ;
+    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.01f ;
 
 }
 
+
+
 void virtual_leg_give_tor_compute()
 {
-    //此处应该由腿长pid进行输出，此处测试暂时直接赋值
-    left_leg_joint_2_leg_parameters.virtual_leg_give_tor = left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) ;
-    right_leg_joint_2_leg_parameters.virtual_leg_give_tor = right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) ;
+    //此处由腿长pid进行输出
+    left_leg_joint_2_leg_parameters.virtual_leg_give_tor =
+            left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 70.0f ;
+
+    right_leg_joint_2_leg_parameters.virtual_leg_give_tor =
+            right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 70.0f ;
+}
+
+
+void leg_torque_47_compute()
+{
+    if(rcData.rc.s[1] == 1)
+    {
+
+        leg_torque_LQR_compute_loop();
+
+    }
+    else
+    {
+
+        leg_torque_47_pid_loop();
+
+    }
+}
+
+void leg_torque_47_pid_loop()
+{
+    float virtual_leg_target_angle47 = M_PI_2 ;
+
+    left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = left_leg_target_angle47_pid_loop(virtual_leg_target_angle47) ;
+    right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = right_leg_target_angle47_pid_loop(virtual_leg_target_angle47) ;
+}
+
+void left_virtual_leg_target_angle47_pid_init(void)
+{
+    static fp32 left_virtual_leg_kpkikd[3] = {LEFT_LEG_TARGET_ANGLE47_PID_KP, LEFT_LEG_TARGET_ANGLE47_PID_KI, LEFT_LEG_TARGET_ANGLE47_PID_KD};
+    PID_init(&left_virtual_leg_target_angle47_compute, PID_POSITION, left_virtual_leg_kpkikd, LEG_TARGET_ANGLE47_PID_MAX, LEG_TARGET_ANGLE47_PID_KI_MAX);
+
+}
+
+float left_leg_target_angle47_pid_loop(float left_virtual_leg_target_angle47_set_loop)
+{
+    PID_calc(&left_virtual_leg_target_angle47_compute, left_leg_joint_2_leg_parameters.virtual_leg_angle_047, left_virtual_leg_target_angle47_set_loop);
+    float left_virtual_leg_target47_given_tor = (float )(left_virtual_leg_target_angle47_compute.out);
+    return left_virtual_leg_target47_given_tor ;
+
+}
+
+void right_virtual_leg_target_angle47_pid_init(void)
+{
+    static fp32 right_virtual_leg_kpkikd[3] = {RIGHT_LEG_TARGET_ANGLE47_PID_KP, RIGHT_LEG_TARGET_ANGLE47_PID_KI, RIGHT_LEG_TARGET_ANGLE47_PID_KD};
+    PID_init(&right_virtual_leg_target_angle47_compute, PID_POSITION, right_virtual_leg_kpkikd, LEG_TARGET_ANGLE47_PID_MAX, LEG_TARGET_ANGLE47_PID_KI_MAX);
+
+}
+
+float right_leg_target_angle47_pid_loop(float right_virtual_leg_target_angle47_set_loop)
+{
+    PID_calc(&right_virtual_leg_target_angle47_compute, right_leg_joint_2_leg_parameters.virtual_leg_angle_047, right_virtual_leg_target_angle47_set_loop);
+    float right_virtual_leg_target47_given_tor = (float )(right_virtual_leg_target_angle47_compute.out);
+    return right_virtual_leg_target47_given_tor ;
+
+}
+
+
+void leg_torque_LQR_compute_loop()
+{
+    if((rcData.rc.s[0]) == 1)
+    {
+        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
+                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) ;
+
+
+
+        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
+                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) ;
+    }
+    else
+    {
+        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 0.0f ;
+        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 0.0f ;
+    }
+
 }
 
 
@@ -447,54 +568,59 @@ void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4)
 
 }
 
-
-
-
-
-
-float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state)
+void update_LQR_K(float t3 ,float t2 ,float t1)
 {
-//    L = 0.15f ;
-    float t3 = powf(L,3);
-    float t2 = powf(L,2);
-    float t1 = L;
+
+    //小板凳可直立的K(全车建模)
+//    Q=diag([100 1 500 500 5000 1])
+//    R=[20 0;0 70]
+//    k[0][0] = -219.3718f*t3 + 243.0449f*t2-132.0522f*t1-6.9257f;
+//    k[0][1] = 1.4498f*t3-3.7768f*t2-10.7115f*t1-0.1304f;
+//    k[0][2] = 14.2642f*t3-13.7595f*t2 + 4.0356f*t1-4.9344f;
+//    k[0][3] = 26.2735f*t3-24.7413f*t2 + 5.2853f*t1-6.7745f;
+//    k[0][4] = -295.7442f*t3 + 297.4953f*t2-103.0525f*t1 + 7.7601f;
+//    k[0][5] = -67.0782f*t3 + 67.9627f*t2-23.8217f*t1 + 2.2809f;
+//    k[1][0] = 13.1504f*t3-13.1199f*t2 + 6.8429f*t1 + 2.3043f;
+//    k[1][1] = 0.2630f*t3 + 0.5939f*t2-2.1725f*t1 + 0.0945f;
+//    k[1][2] = -18.2084f*t3 + 17.4918f*t2-5.1184f*t1-0.6229f;
+//    k[1][3] = -23.7653f*t3 + 22.9963f*t2-6.8760f*t1-1.2238f;
+//    k[1][4] = 10.6520f*t3-11.4815f*t2 + 6.1620f*t1 + 18.7338f;
+//    k[1][5] = 4.9454f*t3-5.1720f*t2 + 2.3292f*t1 + 4.0905f;
+//
+
+//    Q=diag([100 1 500 100 5000 1])
+//    R=[20 0;0 10]
+
+
+//    半车模型
+//    Q=diag([100 1 500 100 5000 1])
+//    R=[30 0;0 10]
+    k[0][0] = -152.7980f*t3 + 171.7596f*t2-88.4384f*t1-1.0067f;
+    k[0][1] = 0.8572f*t3-0.8835f*t2-6.9054f*t1 + 0.1267f;
+    k[0][2] = -53.8961f*t3 + 53.4767f*t2-18.4338f*t1-1.1872f;
+    k[0][3] = -49.4315f*t3 + 49.8834f*t2-18.9222f*t1-1.2635f;
+    k[0][4] = -163.7668f*t3 + 196.5256f*t2-91.3101f*t1 + 20.2649f;
+    k[0][5] = -22.4463f*t3 + 27.7692f*t2-13.4408f*t1 + 3.3247f;
+    k[1][0] = 126.2197f*t3-102.9497f*t2 + 18.7304f*t1 + 8.2870f;
+    k[1][1] = 16.0701f*t3-16.2183f*t2 + 5.5012f*t1 + 0.4007f;
+    k[1][2] = -69.1259f*t3 + 82.2179f*t2-37.6259f*t1 + 7.9496f;
+    k[1][3] = -66.6475f*t3 + 78.7365f*t2-35.9803f*t1 + 7.8454f;
+    k[1][4] = 559.8344f*t3-557.3523f*t2 + 193.5807f*t1 + 8.7593f;
+    k[1][5] = 91.7312f*t3-92.2137f*t2 + 32.6270f*t1 + 0.4420f;
+}
 
 
 
 
-//    更换了准确的物理参数！但是单腿建模
-//    Q=diag([100 1 500 100 5000 10])
-//    R=[100 0;0 25]
-    k[0][0] = -108.4403f*t3 + 138.9505f*t2-79.4072f*t1 + 1.1922f;
-    k[0][1] = 5.0497f*t3-3.7181f*t2-5.0277f*t1 + 0.2012f;
-    k[0][2] = -33.0382f*t3 + 34.9481f*t2-13.2067f*t1 + 0.3412f;
-    k[0][3] = -53.2044f*t3 + 56.6983f*t2-22.1894f*t1 + 0.5045f;
-    k[0][4] = 22.3809f*t3-0.2540f*t2-16.2783f*t1 + 8.8942f;
-    k[0][5] = 6.9707f*t3-3.7565f*t2-1.1218f*t1 + 1.3830f;
-    k[1][0] = 389.6867f*t3-361.6112f*t2 + 100.7387f*t1 + 7.3004f;
-    k[1][1] = 34.0131f*t3-36.6041f*t2 + 13.8073f*t1 + 0.1100f;
-    k[1][2] = 0.1122f*t3 + 14.0611f*t2-14.8767f*t1 + 5.4369f;
-    k[1][3] = 2.2658f*t3 + 20.6149f*t2-23.4790f*t1 + 9.0126f;
-    k[1][4] = 439.9925f*t3-473.8813f*t2 + 185.1026f*t1-9.7106f;
-    k[1][5] = 67.2226f*t3-74.0366f*t2 + 30.0177f*t1-2.2623f;
 
 
+float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
+{
 
-//    k[0][0] = -219.3718f*powf(L,3) + 243.0449f*powf(L,2)-132.0522f*L-6.9257f;
-//    k[0][1] = 1.4498f*powf(L,3)-3.7768f*powf(L,2)-10.7115f*L-0.1304f;
-//    k[0][2] = 14.2642f*powf(L,3)-13.7595f*powf(L,2) + 4.0356f*L-4.9344f;
-//    k[0][3] = 26.2735f*powf(L,3)-24.7413f*powf(L,2) + 5.2853f*L-6.7745f;
-//    k[0][4] = -295.7442f*powf(L,3) + 297.4953f*powf(L,2)-103.0525f*L + 7.7601f;
-//    k[0][5] = -67.0782f*powf(L,3) + 67.9627f*powf(L,2)-23.8217f*L + 2.2809f;
-//    k[1][0] = 13.1504f*powf(L,3)-13.1199f*powf(L,2) + 6.8429f*L + 2.3043f;
-//    k[1][1] = 0.2630f*powf(L,3) + 0.5939f*powf(L,2)-2.1725f*L + 0.0945f;
-//    k[1][2] = -18.2084f*powf(L,3) + 17.4918f*powf(L,2)-5.1184f*L-0.6229f;
-//    k[1][3] = -23.7653f*powf(L,3) + 22.9963f*powf(L,2)-6.8760f*L-1.2238f;
-//    k[1][4] = 10.6520f*powf(L,3)-11.4815f*powf(L,2) + 6.1620f*L + 18.7338f;
-//    k[1][5] = 4.9454f*powf(L,3)-5.1720f*powf(L,2) + 2.3292f*L + 4.0905f;
-
-
-
+    float t3 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
+    float t2 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
+    float t1 = state.finial_lqr_compute_leg_length;
+    update_LQR_K(t3,t2,t1);
 
 
     // 2. 计算误差项 (x - x_target)
@@ -513,6 +639,35 @@ float calculate_lqr_control_loop(float L, struct chassis_lqr_state_input state)
 //    *out_joint_torque = -(k[1][0]*e0 + k[1][1]*e1 + k[1][2]*e2 + k[1][3]*e3 + k[1][4]*e4 + k[1][5]*e5);
 
     return wheel_torque;
+
+}
+
+
+
+float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
+{
+    float t3 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
+    float t2 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
+    float t1 = state.finial_lqr_compute_leg_length;
+    update_LQR_K(t3,t2,t1);
+
+
+    // 2. 计算误差项 (x - x_target)
+    // 假设目标：theta=0, d_theta=0, x=target_x, d_x=0, phi=0, d_phi=0
+    e0 = state.virtual_leg_angle_rad - 0.0f;
+    e1 = state.virtual_leg_speed_rad_s - 0.0f;
+    e2 = state.chassis_move_x_m - 0.0f;
+    e3 = state.chassis_speed_m_s - 0.0f;
+    e4 = state.pitch_angle_rad - 0.0f;
+    e5 = state.chassis_pitch_speed_rad_s - 0.0f;
+
+    // 3. 计算输出 u = -K * e
+    // 注意：这里是否加负号取决于你 MATLAB 中 K 的计算定义。
+    // 如果 MATLAB 里的 K 是由 lqr(A,B,Q,R) 直接生成的，标准控制律是 u = -Kx。
+
+    float joint_torque = -(k[1][0]*e0 + k[1][1]*e1 + k[1][2]*e2 + k[1][3]*e3 + k[1][4]*e4 + k[1][5]*e5);
+
+    return joint_torque;
 
 }
 
@@ -570,6 +725,10 @@ void chassis_leg_angle_compute_loop()
     right_leg_joint_2_leg_parameters.return_virtual_leg_length = calculate_side_c(LEG_BIG_LENGTH, LEG_SMALL_LENGTH, right_leg_joint_2_leg_parameters.angle_04) ;
 
 }
+
+
+
+
 
 //腿部目标位置计算
 //2025.12.29主要工作部分

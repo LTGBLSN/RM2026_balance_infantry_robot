@@ -32,7 +32,7 @@ void CAN_SENT_TASK()
             }
             case 1:
             {//Ö±Á¢
-//                FDCAN_DJI_motors(chassis_right_3508_id1_stand_current, chassis_left_3508_id2_stand_current, 0, 0, 0x200, CAN_CHANNEL_2);//µ×ÅÌ12²¦µ¯3
+                FDCAN_DJI_motors(chassis_right_3508_id1_given_current, chassis_left_3508_id2_given_current, 0, 0, 0x200, CAN_CHANNEL_2);//µ×ÅÌ12²¦µ¯3
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yawÖá1
                 DM_CAN_SENT(DM_GIVE_CURRENT);
                 break;
@@ -170,5 +170,3 @@ void DM_CAN_SENT(uint8_t DM_can_sent_state)
 
 
 }
-
-
