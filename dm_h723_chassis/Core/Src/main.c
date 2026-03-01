@@ -91,6 +91,9 @@ float e4 ;
 float e5 ;
 
 
+float chassis_yaw_turn_corrent ;
+float chassis_two_leg_turn_tor ;
+
 
 
 

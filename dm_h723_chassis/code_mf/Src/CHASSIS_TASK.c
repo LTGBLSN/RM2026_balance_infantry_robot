@@ -14,6 +14,8 @@
 #include "DJI_motors.h"
 #include "IMU_DATA_GET.h"
 
+uint32_t time_chassis = 0;
+
 struct  chassis_lqr_state_input chassis_LQR_compute_left_finial_state;
 struct  chassis_lqr_state_input chassis_LQR_compute_right_finial_state;
 
@@ -43,6 +45,9 @@ pid_type_def right_leg_compute ;
 pid_type_def left_virtual_leg_target_angle47_compute ;
 pid_type_def right_virtual_leg_target_angle47_compute ;
 
+pid_type_def chassis_yaw_compute;
+pid_type_def chassis_two_leg_compute;
+
 
 
 void CHASSIS_TASK()
@@ -64,18 +69,25 @@ void CHASSIS_TASK()
     right_leg_pid_init();
     left_virtual_leg_target_angle47_pid_init();
     right_virtual_leg_target_angle47_pid_init();
+    chassis_yaw_pid_init();
+    chassis_two_leg_pid_init();
 
     while (1)
     {
+
+
         //整车状态变量更新
         chassis_all_state_update_loop();
 
 
 
         ///////////////////////////////////////////////////////////////////////轮毂部分控制
+        //底盘yaw转向环
+        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f));
 
         //lqr计算
         wheel_torque_LQR_compute_loop();
+
 
         //轮毂限幅
         wheel_tor_limit(left_wheel_tor_compute, right_wheel_tor_compute);
@@ -245,11 +257,43 @@ void wheel_torque_LQR_compute_loop()
     if((rcData.rc.s[0]) == 1)
     {
         left_wheel_tor_compute =
-                -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state));
+                -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_yaw_turn_corrent;
 
         right_wheel_tor_compute =
-                (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state));
+                (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) + chassis_yaw_turn_corrent;
     }
+
+}
+
+
+void chassis_yaw_pid_init(void)
+{
+    static fp32 chassis_yaw_kpkikd[3] = {CHASSIS_YAW_PID_KP, CHASSIS_YAW_PID_KI, CHASSIS_YAW_PID_KD};
+    PID_init(&chassis_yaw_compute, PID_POSITION, chassis_yaw_kpkikd, CHASSIS_YAW_PID_MAX, CHASSIS_YAW_PID_KI_MAX);
+
+}
+
+float chassis_yaw_pid_loop(float chassis_yaw_set_loop)
+{
+    PID_calc(&chassis_yaw_compute, DM_imu.speed_gyro[YAW], chassis_yaw_set_loop);
+    float chassis_yaw_given_tor = (float )(chassis_yaw_compute.out);
+    return chassis_yaw_given_tor ;
+
+}
+
+
+void chassis_two_leg_pid_init(void)
+{
+    static fp32 chassis_two_leg_kpkikd[3] = {CHASSIS_TWO_LEG_PID_KP, CHASSIS_TWO_LEG_PID_KI, CHASSIS_TWO_LEG_PID_KD};
+    PID_init(&chassis_two_leg_compute, PID_POSITION, chassis_two_leg_kpkikd, CHASSIS_TWO_LEG_PID_MAX, CHASSIS_TWO_LEG_PID_KI_MAX);
+
+}
+
+float chassis_two_leg_pid_loop(float chassis_two_leg_set_loop)
+{
+    PID_calc(&chassis_two_leg_compute,(left_leg_joint_2_leg_parameters.virtual_leg_angle_047 - right_leg_joint_2_leg_parameters.virtual_leg_angle_047) , chassis_two_leg_set_loop);
+    float chassis_two_leg_given_tor = (float )(chassis_two_leg_compute.out);
+    return chassis_two_leg_given_tor ;
 
 }
 
@@ -384,8 +428,8 @@ void get_leg_velocity()
 
 void virtual_leg_goal_compute()
 {
-    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.01f ;
-    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.01f ;
+    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.00035f * (float )rcData.rc.ch[2] ;
+    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.00035f * (float )rcData.rc.ch[2] ;
 
 }
 
@@ -395,10 +439,10 @@ void virtual_leg_give_tor_compute()
 {
     //此处由腿长pid进行输出
     left_leg_joint_2_leg_parameters.virtual_leg_give_tor =
-            left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 70.0f ;
+            left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 60.0f ;
 
     right_leg_joint_2_leg_parameters.virtual_leg_give_tor =
-            right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 70.0f ;
+            right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 60.0f ;
 }
 
 
@@ -462,17 +506,19 @@ void leg_torque_LQR_compute_loop()
     if((rcData.rc.s[1]) == 1)
     {
         left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
-                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) ;
+                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_two_leg_pid_loop(0.0f);
 //        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 5.0f ;
 
 
 
         right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
-                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) ;
+                (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) - chassis_two_leg_pid_loop(0.0f) ;
 //        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 5.0f ;
     }
 
 }
+
+
 
 
 void joint_vmc_compute(float left_tor_47, float left_virtual_leg_tor , float right_tor_47, float right_virtual_leg_tor)
@@ -561,32 +607,25 @@ void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4)
 
 }
 
-void update_LQR_K(float t3 ,float t2 ,float t1)
-{
+void update_LQR_K(float t3 ,float t2 ,float t1) {
 
 //    半车模型
-//太nice了
-    k[0][0] = -104.1246f*t3 + 128.3478f*t2-79.1099f*t1-3.3535f;
-    k[0][1] = 3.5334f*t3-4.4181f*t2-6.2832f*t1-0.4137f;
-    k[0][2] = -20.1906f*t3 + 23.6349f*t2-10.2175f*t1-0.6673f;
-    k[0][3] = -27.2759f*t3 + 33.2421f*t2-15.9189f*t1-1.4500f;
-    k[0][4] = -19.6670f*t3 + 34.6452f*t2-24.1680f*t1 + 8.5327f;
-    k[0][5] = -10.4320f*t3 + 12.7868f*t2-6.5240f*t1 + 1.9706f;
-    k[1][0] = 220.4448f*t3-196.9138f*t2 + 46.1901f*t1 + 12.1032f;
-    k[1][1] = 5.2014f*t3-6.0596f*t2 + 2.6463f*t1 + 2.0677f;
-    k[1][2] = -0.6448f*t3 + 12.7211f*t2-13.8403f*t1 + 5.6472f;
-    k[1][3] = -11.5270f*t3 + 30.2843f*t2-25.5176f*t1 + 9.8587f;
-    k[1][4] = 184.8537f*t3-206.3478f*t2 + 84.8429f*t1 + 1.3191f;
-    k[1][5] = 43.6510f*t3-47.6796f*t2 + 19.2246f*t1-0.6986f;
+    k[0][0] = -294.1445f*t3 + 339.9266f*t2-177.6680f*t1-0.6494f;
+    k[0][1] = -52.6643f*t3 + 51.9309f*t2-31.3302f*t1 + 0.8804f;
+    k[0][2] = -32.4897f*t3 + 36.4306f*t2-14.9956f*t1-0.3693f;
+    k[0][3] = -83.1840f*t3 + 92.9064f*t2-39.0097f*t1-1.1960f;
+    k[0][4] = -58.1922f*t3 + 72.9847f*t2-38.4374f*t1 + 12.2843f;
+    k[0][5] = -7.9882f*t3 + 9.9378f*t2-5.2222f*t1 + 2.0347f;
 
-
-
+    k[1][0] = 797.1396f*t3-776.7112f*t2 + 253.6377f*t1-11.4325f;
+    k[1][1] = 115.4942f*t3-107.2748f*t2 + 33.1546f*t1-0.0865f;
+    k[1][2] = 133.5865f*t3-122.1404f*t2 + 34.8746f*t1-1.5828f;
+    k[1][3] = 353.5472f*t3-323.2224f*t2 + 92.5947f*t1-4.2759f;
+    k[1][4] = -16.6190f*t3-9.3036f*t2 + 18.8536f*t1 + 15.7189f;
+    k[1][5] = -31.0488f*t3 + 25.0087f*t2-5.1397f*t1 + 2.6827f;
 
 
 }
-
-
-
 
 
 
@@ -603,9 +642,9 @@ float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
     // 假设目标：theta=0, d_theta=0, x=target_x, d_x=0, phi=0, d_phi=0
     e0 = state.virtual_leg_angle_rad - 0.0f;
     e1 = state.virtual_leg_speed_rad_s - 0.0f;
-    e2 = state.chassis_move_x_m - 0.0f;
+    e2 = state.chassis_move_x_m - (1.0f);
     e3 = state.chassis_speed_m_s - 0.0f;
-    e4 = state.pitch_angle_rad - 0.0f;
+    e4 = state.pitch_angle_rad - (-0.0f);
     e5 = state.chassis_pitch_speed_rad_s - 0.0f;
 
     // 3. 计算输出 u = -K * e
@@ -635,11 +674,11 @@ float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
 //    e0 = 0.0f ;
     e1 = state.virtual_leg_speed_rad_s - 0.0f;
 //    e1 = 0.0f ;
-    e2 = state.chassis_move_x_m - 0.0f;
+    e2 = state.chassis_move_x_m - (1.0f);
 //    e2 = 0.0f ;
     e3 = state.chassis_speed_m_s - 0.0f;
 //    e3 = 0.0f ;
-    e4 = (state.pitch_angle_rad - 0.0f);
+    e4 = (state.pitch_angle_rad - (-0.0f));
 //    e4 = 0.0f ;
     e5 = (state.chassis_pitch_speed_rad_s - 0.0f);
 //    e5 = 0.0f;

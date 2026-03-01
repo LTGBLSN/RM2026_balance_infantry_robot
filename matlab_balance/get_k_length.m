@@ -76,15 +76,42 @@ function K = get_k_length(leg_length)
     %Q=diag([1 1 100 50 2000 1])
     %R=[20 0;0 10]
 
+
+    %连续求K
     % 显著增加速度项 (d_theta, d_x, d_phi) 的权重以增加阻尼
     % 状态顺序：[theta, d_theta, x, d_x, phi, d_phi]
-    Q=diag([1 50 300 550 2000 1])
+    %Q=diag([1 50 300 550 2000 1])
     % 增大 R 矩阵（数值越大，控制越“软”，容忍误差能力越强）
-    R=[50 0;0 10]
+    %R=[50 0;0 10]
+
+
+    %K=lqr(A,B,Q,R);
+
+
+
+
+
+
+
+    %离散化求K
+    % 显著增加速度项 (d_theta, d_x, d_phi) 的权重以增加阻尼
+    % 状态顺序：[theta, d_theta, x, d_x, phi, d_phi]
+    Q=diag([2000 500 2000 1000 50000 1]);
+
+    % 增大 R 矩阵（数值越大，控制越“软”，容忍误差能力越强）
+    R=[100 0;0 50];
+
+    Ts = 0.001; % 控制周期 1ms
+    sys_c = ss(A, B, eye(6), 0);
+    sys_d = c2d(sys_c, Ts, 'zoh'); % 离散化
+    Ad = sys_d.A;
+    Bd = sys_d.B;
+
+    [K, S, P] = dlqr(Ad, Bd, Q, R);
 
 
     
-    K=lqr(A,B,Q,R);
+
   
 end
 

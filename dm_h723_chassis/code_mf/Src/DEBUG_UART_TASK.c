@@ -29,14 +29,30 @@ void DEBUG_UART_TASK()
 //                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
 //                      );
 
-        usart1_printf("%f,%f,%f \r\n",
-                      chassis_LQR_compute_right_finial_state.pitch_angle_rad,
-                      chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad,
-                      chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s
-        );
+//        usart1_printf("%f,%f,%f,%f \r\n",
+//                      left_leg_joint_2_leg_parameters.tor2,
+//                      left_leg_joint_2_leg_parameters.tor7,
+//                      right_leg_joint_2_leg_parameters.tor2,
+//                      right_leg_joint_2_leg_parameters.tor7
+//                      );
 
-//        usart1_printf("%f \r\n",
-//                      right_leg_joint_2_leg_parameters.virtual_leg_angle_047
+//        usart1_printf("%f,%f,%f \r\n",
+//                      YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f),
+//                      DM_imu.speed_gyro[YAW],
+//                      chassis_yaw_turn_corrent
+//                      );
+        usart1_printf("%f,%f \r\n",
+                      (left_leg_joint_2_leg_parameters.virtual_leg_angle_047 - right_leg_joint_2_leg_parameters.virtual_leg_angle_047),
+                      chassis_two_leg_pid_loop(0.0f)
+                      );
+
+//        usart1_printf("%f,%f,%f,%f,%f,%f \r\n",
+//                      e0,
+//                      e1,
+//                      e2,
+//                      e3,
+//                      e4,
+//                      e5
 //                      );
 
 

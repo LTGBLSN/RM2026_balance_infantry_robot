@@ -1,5 +1,6 @@
 #include "dm_imu.h"
 #include "dm_motor.h"
+#include "CHASSIS_TASK.h"
 #include <string.h>
 
 imu_t DM_imu;

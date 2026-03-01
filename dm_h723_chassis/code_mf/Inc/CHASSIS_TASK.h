@@ -5,6 +5,8 @@
 #ifndef BUBING_RM2025_CHASSIS_TASK_H
 #define BUBING_RM2025_CHASSIS_TASK_H
 
+extern uint32_t time_chassis ;
+
 
 #define CONTROL_LOOP_PERIOD_MS 1
 #define CONTROL_LOOP_DT (CONTROL_LOOP_PERIOD_MS/1000.0f)
@@ -81,13 +83,30 @@
 #define LEG_TARGET_ANGLE47_PID_MAX       40.0f
 #define LEG_TARGET_ANGLE47_PID_KI_MAX    0.0f
 
-#define LEFT_LEG_TARGET_ANGLE47_PID_KP        1500.0f
+#define LEFT_LEG_TARGET_ANGLE47_PID_KP        2000.0f
 #define LEFT_LEG_TARGET_ANGLE47_PID_KI        0.0f
 #define LEFT_LEG_TARGET_ANGLE47_PID_KD        8000.0f//10000
 
-#define RIGHT_LEG_TARGET_ANGLE47_PID_KP       1500.0f
+#define RIGHT_LEG_TARGET_ANGLE47_PID_KP       2000.0f
 #define RIGHT_LEG_TARGET_ANGLE47_PID_KI       0.0f
 #define RIGHT_LEG_TARGET_ANGLE47_PID_KD       8000.0f//10000
+
+
+#define CHASSIS_YAW_PID_KP 100000.0f
+#define CHASSIS_YAW_PID_KI 0.0f
+#define CHASSIS_YAW_PID_KD 0.0f
+#define CHASSIS_YAW_PID_MAX 5000.0f //转向环最大输出扭矩
+#define CHASSIS_YAW_PID_KI_MAX 0.0f
+
+
+#define CHASSIS_TWO_LEG_PID_KP 70.0f
+#define CHASSIS_TWO_LEG_PID_KI 0.0f
+#define CHASSIS_TWO_LEG_PID_KD 500.0f
+#define CHASSIS_TWO_LEG_PID_MAX 10.0f //转向环最大输出扭矩
+#define CHASSIS_TWO_LEG_PID_KI_MAX 0.0f
+
+
+#define YAW_RC_KP (-4.0f)
 
 
 //机械腿部参数
@@ -107,9 +126,10 @@
 #define DJI3508_MAX_CMD 16384.0f                    // 控制器满量程16384
 #define DM8009_MAX_TOR 20.0f                        // 54.0f
 
-#define MOTOR_GIVE_TORQUE_KP (DJI3508_MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
+//#define MOTOR_GIVE_TORQUE_KP (DJI3508_MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
+#define MOTOR_GIVE_TORQUE_KP (1.0f/0.00042063763f) // 扭矩系数转换
 
-#define MATLAB_CHASSIS 1.0f
+#define MATLAB_CHASSIS 1.00f
 
 struct chassis_lqr_state_input {
     float finial_lqr_compute_leg_length;                   //腿长 单位m
@@ -166,8 +186,15 @@ void chassis_all_state_update_loop();
 float chassis_vx_compute_loop();
 
 void wheel_torque_LQR_compute_loop();
-void wheel_tor_limit(float left_wheel_tor, float right_wheel_tor);
 
+
+void chassis_yaw_pid_init(void);
+float chassis_yaw_pid_loop(float chassis_yaw_set_loop);
+
+void chassis_two_leg_pid_init(void);
+float chassis_two_leg_pid_loop(float chassis_two_leg_set_loop);
+
+void wheel_tor_limit(float left_wheel_tor, float right_wheel_tor);
 
 void update_LQR_K(float t3 ,float t2 ,float t1);
 float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state);
@@ -193,6 +220,8 @@ float right_leg_target_angle47_pid_loop(float right_virtual_leg_target_angle47_s
 
 
 void leg_torque_LQR_compute_loop();
+
+
 void joint_vmc_compute(float left_tor_47, float left_virtual_leg_tor , float right_tor_47, float right_virtual_leg_tor);
 void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4);
 

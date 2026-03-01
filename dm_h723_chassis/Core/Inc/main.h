@@ -75,6 +75,11 @@ extern float e5 ;
 extern float e0 ;
 
 
+extern float chassis_yaw_turn_corrent ;
+extern float chassis_two_leg_turn_tor ;
+
+
+
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

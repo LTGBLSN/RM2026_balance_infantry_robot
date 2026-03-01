@@ -2945,6 +2945,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DM_IMU.c.obj: D:/RoboMaster_git/RM202
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DM_IMU.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/dm_motor.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h

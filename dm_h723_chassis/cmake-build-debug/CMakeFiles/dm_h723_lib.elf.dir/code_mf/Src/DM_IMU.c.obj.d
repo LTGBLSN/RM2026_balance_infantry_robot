@@ -58,6 +58,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DM_IMU.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart_ex.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/dm_motor.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/struct_typedef.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/CHASSIS_TASK.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h \
