@@ -41,10 +41,11 @@ void DEBUG_UART_TASK()
 //                      DM_imu.speed_gyro[YAW],
 //                      chassis_yaw_turn_corrent
 //                      );
-        usart1_printf("%f,%f \r\n",
-                      (left_leg_joint_2_leg_parameters.virtual_leg_angle_047 - right_leg_joint_2_leg_parameters.virtual_leg_angle_047),
-                      chassis_two_leg_pid_loop(0.0f)
-                      );
+
+//        usart1_printf("%f,%f \r\n",
+//                      (left_leg_joint_2_leg_parameters.virtual_leg_angle_047 - right_leg_joint_2_leg_parameters.virtual_leg_angle_047),
+//                      chassis_two_leg_pid_loop(0.0f)
+//                      );
 
 //        usart1_printf("%f,%f,%f,%f,%f,%f \r\n",
 //                      e0,
@@ -54,6 +55,9 @@ void DEBUG_UART_TASK()
 //                      e4,
 //                      e5
 //                      );
+        usart1_printf("%f,%f \r\n",
+                      left_leg_joint_2_leg_parameters.goal_virtual_leg_length,
+                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length);
 
 
 

@@ -68,6 +68,10 @@ extern int16_t pitch_6020_state ;//6020电机状态 0为错误，1为正常
 
 extern uint8_t uart7_receive_data ;//串口当前接收字节
 
+extern float yaw_imu_preprocess ;//yaw轴imu预处理
+
+extern int16_t SHOOT_2006_GIVEN_SPEED ;
+
 
 
 /* USER CODE END EC */

@@ -22,14 +22,20 @@ pid_type_def friction_wheel_3510_ID2_speed_pid;
 
 void GIMBAL_MOTOR_CONTROL()
 {
+    pitch_speed_from_bmi88_pid_init();
+    pitch_angle_pid_init();
+    yaw_speed_pid_init();
+    yaw_angle_pid_init();
     while (1)
     {
 
         motor_gimbal_angle_compute();//云台目标角度计算
-        friction_wheel_speed_control();//摩擦轮速度计算
-
-        friction_wheel_pid_control();//摩擦轮pid计算
+        pid_preprocess();//yaw轴imu预处理
         motor_gimbal_pid_compute();//云台pid计算
+
+
+        friction_wheel_speed_control();//摩擦轮速度计算
+        friction_wheel_pid_control();//摩擦轮pid计算
 
         osDelay(1);
     }
@@ -41,8 +47,8 @@ void GIMBAL_MOTOR_CONTROL()
 void motor_gimbal_angle_compute()
 {
     //缺鼠标键盘部分
-//    rc_yaw_input_normalization();//归一化yaw输入
     rc_pitch_input_limiter();
+    rc_yaw_input_normalization();//归一化yaw输入
 
 
 
@@ -74,6 +80,40 @@ void rc_pitch_input_limiter()
     }
 }
 
+void rc_yaw_input_normalization()
+{
+    float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (YAW_RC_IN_KP * (float)rcData.rc.ch[2]) ;
+
+    if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE - 360.0f ;
+    }
+    else if(YAW_GIVEN_ANGLE_COMPUTE < -180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE + 360.0f ;
+    } else
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE ;
+    }
+}
+
+
+void pid_preprocess()
+{
+    if((YAW_6020_ID1_GIVEN_ANGLE - imu_data_from_board_BMI088_mahony.yaw_degree_angle) < -180.0f )
+    {
+        yaw_imu_preprocess = imu_data_from_board_BMI088_mahony.yaw_degree_angle - 360.0f ;
+    }
+    else if((YAW_6020_ID1_GIVEN_ANGLE - imu_data_from_board_BMI088_mahony.yaw_degree_angle) > 180.0f )
+    {
+        yaw_imu_preprocess = imu_data_from_board_BMI088_mahony.yaw_degree_angle + 360.0f ;
+    }
+    else
+    {
+        yaw_imu_preprocess = imu_data_from_board_BMI088_mahony.yaw_degree_angle ;
+    }
+}
+
 
 
 
@@ -81,13 +121,55 @@ void rc_pitch_input_limiter()
 
 void motor_gimbal_pid_compute()
 {
-//    YAW_6020_ID1_GIVEN_SPEED = yaw_angle_pid_loop(YAW_6020_ID1_GIVEN_ANGLE) ;
-//    YAW_6020_ID1_GIVEN_CURRENT = (int16_t)yaw_speed_pid_loop(YAW_6020_ID1_GIVEN_SPEED);//速度环
+    YAW_6020_ID1_GIVEN_SPEED = yaw_angle_pid_loop(YAW_6020_ID1_GIVEN_ANGLE) ;
+    YAW_6020_ID1_GIVEN_CURRENT = (int16_t)yaw_speed_pid_loop(YAW_6020_ID1_GIVEN_SPEED);//速度环
 
     PITCH_6020_ID2_GIVEN_SPEED = pitch_angle_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_ANGLE);//角度环
     PITCH_6020_ID2_GIVEN_CURRENT = (int16_t) (pitch_speed_from_bmi088_pid_loop(PITCH_6020_ID2_GIVEN_SPEED)); //速度环
 
 }
+
+
+
+
+void yaw_speed_pid_init(void)
+{
+    static fp32 yaw_6020_id1_speed_kpkikd[3] = {YAW_6020_ID1_SPEED_PID_KP, YAW_6020_ID1_SPEED_PID_KI, YAW_6020_ID1_SPEED_PID_KD};
+    PID_init(&yaw_6020_ID1_speed_pid, PID_POSITION, yaw_6020_id1_speed_kpkikd, YAW_6020_ID1_SPEED_PID_OUT_MAX, YAW_6020_ID1_SPEED_PID_KI_MAX);
+
+}
+
+float yaw_speed_pid_loop(float YAW_6020_ID1_speed_set_loop)
+{
+    PID_calc(&yaw_6020_ID1_speed_pid, imu_data_from_board_BMI088_mahony.yaw_radian_vel , YAW_6020_ID1_speed_set_loop);
+    int16_t yaw_6020_ID1_given_current_loop = (int16_t)(yaw_6020_ID1_speed_pid.out);
+
+    return yaw_6020_ID1_given_current_loop ;
+
+}
+
+
+void yaw_angle_pid_init(void)
+{
+    static fp32 yaw_6020_id1_angle_kpkikd[3] = {YAW_6020_ID1_ANGLE_PID_KP, YAW_6020_ID1_ANGLE_PID_KI, YAW_6020_ID1_ANGLE_PID_KD};
+    PID_init(&yaw_6020_ID1_angle_pid, PID_POSITION, yaw_6020_id1_angle_kpkikd, YAW_6020_ID1_ANGLE_PID_OUT_MAX, YAW_6020_ID1_ANGLE_PID_KI_MAX);
+
+}
+
+float yaw_angle_pid_loop(float YAW_6020_ID1_angle_set_loop)
+{
+    PID_calc(&yaw_6020_ID1_angle_pid, yaw_imu_preprocess , YAW_6020_ID1_angle_set_loop);
+    float yaw_6020_ID1_given_speed_loop = (float)(yaw_6020_ID1_angle_pid.out);
+
+    return yaw_6020_ID1_given_speed_loop ;
+
+}
+
+
+
+
+
+
 
 
 

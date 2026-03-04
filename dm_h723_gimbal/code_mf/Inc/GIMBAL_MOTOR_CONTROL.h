@@ -20,7 +20,7 @@
 #define YAW_6020_ID1_SPEED_PID_KI_MAX    20000.0f
 
 
-#define PITCH_6020_ID2_SPEED_PID_KP        15000.0f
+#define PITCH_6020_ID2_SPEED_PID_KP        10000.0f//15000.0f带上测速模块
 #define PITCH_6020_ID2_SPEED_PID_KI        80.0f
 #define PITCH_6020_ID2_SPEED_PID_KD        0.0f
 #define PITCH_6020_ID2_SPEED_PID_OUT_MAX   25000.0f
@@ -38,13 +38,13 @@
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_KI        0.1f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_KD        0.0f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_OUT_MAX   16000.0f
-#define FRICTION_WHEEL_3510_ID1_SPEED_PID_KI_MAX    5000.0f
+#define FRICTION_WHEEL_3510_ID1_SPEED_PID_KI_MAX    10000.0f
 
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KP        5.0f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KI        0.1f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KD        0.0f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_OUT_MAX   16000.0f
-#define FRICTION_WHEEL_3510_ID2_SPEED_PID_KI_MAX    5000.0f
+#define FRICTION_WHEEL_3510_ID2_SPEED_PID_KI_MAX    10000.0f
 
 
 #define FRICTION_WHEEL_SHOOT_SPEED 6500
@@ -58,6 +58,9 @@
 
 void motor_gimbal_angle_compute();//云台角度计算
 void rc_pitch_input_limiter();//云台pitch输入限幅
+void rc_yaw_input_normalization();//yaw轴归一化
+
+void pid_preprocess();//pid预处理
 
 void motor_gimbal_pid_compute();//云台pid计算
 
@@ -66,6 +69,14 @@ void pitch_speed_from_bmi88_pid_init(void);
 float pitch_speed_from_bmi088_pid_loop(float PITCH_6020_ID2_speed_set_loop);
 void pitch_angle_pid_init(void);
 float pitch_angle_from_bmi088_pid_loop(float PITCH_6020_ID2_angle_set_loop);
+
+void yaw_speed_pid_init(void);
+float yaw_speed_pid_loop(float YAW_6020_ID1_speed_set_loop);
+void yaw_angle_pid_init(void);
+float yaw_angle_pid_loop(float YAW_6020_ID1_angle_set_loop);
+
+
+
 
 
 void friction_wheel_speed_control();

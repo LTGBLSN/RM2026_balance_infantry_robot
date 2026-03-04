@@ -190,43 +190,43 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Device/ST/STM32H7xx/Include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Device/ST/STM32H7xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src"
 				}
 			],
 			"language" : "C",
@@ -287,8 +287,6 @@
 				146,
 				147,
 				148,
-				168,
-				169,
 				170,
 				171,
 				172,
@@ -307,7 +305,10 @@
 				185,
 				186,
 				187,
-				188
+				188,
+				189,
+				190,
+				191
 			]
 		},
 		{
@@ -400,43 +401,43 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Device/ST/STM32H7xx/Include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Device/ST/STM32H7xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src"
+					"path" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src"
 				}
 			],
 			"language" : "ASM",
@@ -471,7 +472,7 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/cmake-build-debug/dm_h723_lib.map",
+				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/cmake-build-debug/dm_h723_lib.map",
 				"role" : "flags"
 			},
 			{
@@ -496,7 +497,7 @@
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/STM32H723VGTX_FLASH.ld",
+				"fragment" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/STM32H723VGTX_FLASH.ld",
 				"role" : "flags"
 			}
 		],
@@ -631,7 +632,9 @@
 				164,
 				165,
 				166,
-				167
+				167,
+				168,
+				169
 			]
 		},
 		{
@@ -685,8 +688,6 @@
 				146,
 				147,
 				148,
-				168,
-				169,
 				170,
 				171,
 				172,
@@ -705,7 +706,10 @@
 				185,
 				186,
 				187,
-				188
+				188,
+				189,
+				190,
+				191
 			]
 		},
 		{
@@ -716,7 +720,7 @@
 				28,
 				53,
 				95,
-				189
+				192
 			]
 		}
 	],
@@ -1517,11 +1521,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "code_mf/Inc/AUTO_AIM_TASK.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "code_mf/Inc/BMI088Middleware.h",
 			"sourceGroupIndex" : 0
 		},
@@ -1537,7 +1536,22 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "code_mf/Inc/CAN_SENT_TASK.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "code_mf/Inc/CHASSIS_TASK.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "code_mf/Inc/DJI_motors.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "code_mf/Inc/DM_IMU.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1548,11 +1562,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "code_mf/Inc/GET_RC_TASK.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "code_mf/Inc/GIMBAL_MOTOR_CONTROL.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1592,6 +1601,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "code_mf/Inc/referee.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "code_mf/Inc/remote_control.h",
 			"sourceGroupIndex" : 0
 		},
@@ -1609,12 +1623,6 @@
 			"backtrace" : 1,
 			"path" : "code_mf/Inc/ws2812.h",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "code_mf/Src/AUTO_AIM_TASK.c",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -1637,6 +1645,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "code_mf/Src/CHASSIS_TASK.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "code_mf/Src/DEBUG_UART_TASK.c",
 			"sourceGroupIndex" : 1
 		},
@@ -1649,6 +1663,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "code_mf/Src/DM_IMU.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "code_mf/Src/ERROR_DETECTION.c",
 			"sourceGroupIndex" : 1
 		},
@@ -1656,12 +1676,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "code_mf/Src/GET_RC_TASK.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "code_mf/Src/GIMBAL_MOTOR_CONTROL.c",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1710,6 +1724,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "code_mf/Src/pid.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "code_mf/Src/referre.c",
 			"sourceGroupIndex" : 1
 		},
 		{

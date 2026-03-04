@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "dm_h723_lib.elf::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-dm_h723_lib.elf-Debug-5d06003a5c281ef9e885.json",
+					"jsonFile" : "target-dm_h723_lib.elf-Debug-8047b17b7bf9a078c3e9.json",
 					"name" : "dm_h723_lib.elf",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/cmake-build-debug",
-		"source" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis"
+		"build" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/cmake-build-debug",
+		"source" : "D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal"
 	},
 	"version" : 
 	{

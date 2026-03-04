@@ -89,5 +89,4 @@ CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/struct_typedef.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/SHOOT_TASK.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/CHASSIS_TASK.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/referee.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/CHASSIS_VX.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/referee.h

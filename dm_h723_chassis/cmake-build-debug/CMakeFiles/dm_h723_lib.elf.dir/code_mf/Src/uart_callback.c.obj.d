@@ -19,6 +19,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/remote_control.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/usart.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/main.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/stm32h7xx_hal_conf.h \
@@ -60,6 +61,5 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_tim_ex.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart_ex.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/usart.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/main.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/referee.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/referee.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/main.h

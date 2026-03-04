@@ -43,8 +43,8 @@ Ts = 0.001;
 %Q_phi_dot   = 10;
 %Q=diag([Q_theta Q_theta_dot Q_x Q_x_dot Q_phi Q_phi_dot]);
 %R=diag([300 8]); 
-Q = diag([40, 500, 400, 2000, 3000, 1])
-R = [40 0; 0 10]                         
+Q = diag([320, 2500, 1200, 500, 200000, 1])
+R = [40 0; 0 10]
 
 fprintf('开始数值循环计算 K 矩阵...\n');
 

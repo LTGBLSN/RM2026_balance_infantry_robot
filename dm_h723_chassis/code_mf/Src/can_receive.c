@@ -8,6 +8,8 @@
 #include "dm_motor.h"
 #include "can_receive.h"
 #include "DM_IMU.h"
+#include "GET_RC_TASK.h"
+#include "SHOOT_TASK.h"
 
 //motor data read
 #define get_motor_measure(ptr, data)                                    \
@@ -126,6 +128,29 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
                 case 0xBC:
                 {
                     IMU_UpdateData(rx_data);
+                    break;
+                }
+
+                case 0xA1:
+                {
+                    YAW_6020_ID1_GIVEN_CURRENT = (int16_t)((rx_data[0] << 8) | rx_data[1]);
+                    rcData.rc.s[0] = (int16_t)((rx_data[2] << 8) | rx_data[3]);
+                    rcData.rc.ch[0] = (int16_t)((rx_data[4] << 8) | rx_data[5]);
+                    rcData.rc.ch[1] = (int16_t)((rx_data[6] << 8) | rx_data[7]);
+
+                    break;
+                }
+
+                case 0xA2:
+                {
+
+                    if(SHOOT_2006_STATE == NORMAL_ON)
+                    {//·ÀÖ¹¸ú¿¨µ¯·´×ªÇÀ¶á¿ØÖÆÈ¨
+                        SHOOT_2006_ID3_GIVEN_SPEED = (int16_t)((rx_data[0] << 8) | rx_data[1]);
+                    }
+                    rcData.rc.s[1] = (int16_t)((rx_data[2] << 8) | rx_data[3]);
+                    rcData.rc.ch[2] = (int16_t)((rx_data[4] << 8) | rx_data[5]);
+                    rcData.rc.ch[3] = (int16_t)((rx_data[6] << 8) | rx_data[7]);
                     break;
                 }
 

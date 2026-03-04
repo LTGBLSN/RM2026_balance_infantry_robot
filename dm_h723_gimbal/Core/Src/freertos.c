@@ -57,6 +57,7 @@ osThreadId shoot_taskHandle;
 osThreadId gimbalTaskHandle;
 osThreadId err_dec_taskHandle;
 osThreadId auto_aimHandle;
+osThreadId BOARD_COMHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -73,6 +74,7 @@ void SHOOT_TASK(void const * argument);
 void GIMBAL_MOTOR_CONTROL(void const * argument);
 void ERROR_DETECTION(void const * argument);
 void AUTO_AIM_TASK(void const * argument);
+void BOARD_COMMUNICATION_TASK(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -158,6 +160,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of auto_aim */
   osThreadDef(auto_aim, AUTO_AIM_TASK, osPriorityIdle, 0, 256);
   auto_aimHandle = osThreadCreate(osThread(auto_aim), NULL);
+
+  /* definition and creation of BOARD_COM */
+  osThreadDef(BOARD_COM, BOARD_COMMUNICATION_TASK, osPriorityIdle, 0, 1024);
+  BOARD_COMHandle = osThreadCreate(osThread(BOARD_COM), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -343,6 +349,24 @@ __weak void AUTO_AIM_TASK(void const * argument)
     osDelay(1);
   }
   /* USER CODE END AUTO_AIM_TASK */
+}
+
+/* USER CODE BEGIN Header_BOARD_COMMUNICATION_TASK */
+/**
+* @brief Function implementing the BOARD_COM thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_BOARD_COMMUNICATION_TASK */
+__weak void BOARD_COMMUNICATION_TASK(void const * argument)
+{
+  /* USER CODE BEGIN BOARD_COMMUNICATION_TASK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END BOARD_COMMUNICATION_TASK */
 }
 
 /* Private application code --------------------------------------------------*/

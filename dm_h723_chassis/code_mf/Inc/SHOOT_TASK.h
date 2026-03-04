@@ -8,11 +8,12 @@
 
 #include "struct_typedef.h"
 
-#define SHOOT_2006_ID1_SPEED_PID_KP        8.0f
-#define SHOOT_2006_ID1_SPEED_PID_KI        0.5f
-#define SHOOT_2006_ID1_SPEED_PID_KD        0.0f
-#define SHOOT_2006_ID1_SPEED_PID_OUT_MAX   6000.0f
-#define SHOOT_2006_ID1_SPEED_PID_KI_MAX    5000.0f
+
+#define SHOOT_2006_ID3_SPEED_PID_KP        8.0f
+#define SHOOT_2006_ID3_SPEED_PID_KI        0.5f
+#define SHOOT_2006_ID3_SPEED_PID_KD        0.0f
+#define SHOOT_2006_ID3_SPEED_PID_OUT_MAX   6000.0f
+#define SHOOT_2006_ID3_SPEED_PID_KI_MAX    5000.0f
 
 
 #define SHOOT_TURN_ON_SPEED  2000
@@ -25,12 +26,14 @@
 
 #define SHOOT_MAX_STOP_TIME 500 //ms
 
-void shoot_speed_compute();
+#define ERR_STOP 0
+#define NORMAL_ON 1
+
 void shoot_stop_check();
 void shoot_pid_control();
 
-void shoot_2006_id1_speed_pid_init(void);
-int16_t shoot_2006_id1_speed_pid_loop(float shoot_2006_ID1_speed_set_loop);
+void shoot_2006_id3_speed_pid_init(void);
+int16_t shoot_2006_id3_speed_pid_loop(float shoot_2006_ID3_speed_set_loop);
 
 
 

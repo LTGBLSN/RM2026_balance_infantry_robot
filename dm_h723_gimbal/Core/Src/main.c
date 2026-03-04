@@ -80,6 +80,10 @@ int16_t pitch_6020_state ;//6020电机状态 0为错误，1为正常
 
 uint8_t uart7_receive_data ;//串口当前接收字节
 
+float yaw_imu_preprocess ;//yaw轴imu预处理
+
+int16_t SHOOT_2006_GIVEN_SPEED ;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -154,8 +158,7 @@ int main(void)
 
     BSP_FDCAN_Init();
 
-    pitch_speed_from_bmi88_pid_init();
-    pitch_angle_pid_init();
+
 
     friction_wheel_3510_id1_speed_pid_init();
     friction_wheel_3510_id2_speed_pid_init();

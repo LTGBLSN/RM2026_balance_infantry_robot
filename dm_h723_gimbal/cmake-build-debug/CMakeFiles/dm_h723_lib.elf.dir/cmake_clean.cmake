@@ -100,6 +100,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088Middleware.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj.d"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CAN_SENT_TASK.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj"

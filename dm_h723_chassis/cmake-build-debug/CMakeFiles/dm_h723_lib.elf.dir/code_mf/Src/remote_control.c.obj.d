@@ -1,6 +1,25 @@
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Src\remote_control.c \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/remote_control.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/newlib.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/config.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/ieeefp.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_types.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h \
+ C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/usart.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/main.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/stm32h7xx_hal_conf.h \
@@ -11,9 +30,6 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\CMSIS\Include/core_cm7.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_intsup.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\CMSIS\Include/cmsis_version.h \
@@ -22,18 +38,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\CMSIS\Include/mpu_armv7.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\CMSIS\Device\ST\STM32H7xx\Include/system_stm32h7xx.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/Legacy/stm32_hal_legacy.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/newlib.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/config.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/ieeefp.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_types.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_rcc_ex.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_gpio.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_gpio_ex.h \
@@ -55,10 +60,4 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_tim.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_tim_ex.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart_ex.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_locale.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h \
- C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/usart.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Core\Inc/main.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\Drivers\STM32H7xx_HAL_Driver\Inc/stm32h7xx_hal_uart_ex.h

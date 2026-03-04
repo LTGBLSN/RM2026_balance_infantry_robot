@@ -1336,6 +1336,30 @@ code_mf/Src/BMI088driver.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.s
 .PHONY : code_mf/Src/BMI088driver.c.s
 
+code_mf/Src/BOARD_COMMUNICATION_TASK.obj: code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.obj
+
+# target to build an object file
+code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.c.obj
+
+code_mf/Src/BOARD_COMMUNICATION_TASK.i: code_mf/Src/BOARD_COMMUNICATION_TASK.c.i
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.i
+
+# target to preprocess a source file
+code_mf/Src/BOARD_COMMUNICATION_TASK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BOARD_COMMUNICATION_TASK.c.i
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.c.i
+
+code_mf/Src/BOARD_COMMUNICATION_TASK.s: code_mf/Src/BOARD_COMMUNICATION_TASK.c.s
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.s
+
+# target to generate assembly for a file
+code_mf/Src/BOARD_COMMUNICATION_TASK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BOARD_COMMUNICATION_TASK.c.s
+.PHONY : code_mf/Src/BOARD_COMMUNICATION_TASK.c.s
+
 code_mf/Src/CAN_SENT_TASK.obj: code_mf/Src/CAN_SENT_TASK.c.obj
 .PHONY : code_mf/Src/CAN_SENT_TASK.obj
 
@@ -1928,6 +1952,9 @@ help:
 	@echo ... code_mf/Src/BMI088driver.obj
 	@echo ... code_mf/Src/BMI088driver.i
 	@echo ... code_mf/Src/BMI088driver.s
+	@echo ... code_mf/Src/BOARD_COMMUNICATION_TASK.obj
+	@echo ... code_mf/Src/BOARD_COMMUNICATION_TASK.i
+	@echo ... code_mf/Src/BOARD_COMMUNICATION_TASK.s
 	@echo ... code_mf/Src/CAN_SENT_TASK.obj
 	@echo ... code_mf/Src/CAN_SENT_TASK.i
 	@echo ... code_mf/Src/CAN_SENT_TASK.s

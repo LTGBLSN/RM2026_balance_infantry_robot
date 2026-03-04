@@ -574,6 +574,9 @@
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/BMI088reg.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/BOARD_COMMUNICATION_TASK.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/DJI_motors.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
@@ -626,6 +629,9 @@
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/BMI088driver.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/BOARD_COMMUNICATION_TASK.c">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/CAN_SENT_TASK.c">

@@ -49,8 +49,8 @@ extern float INS_degree[3] ;
 extern int16_t yaw_6020_state ;
 
 //shoot
-extern float SHOOT_2006_ID1_GIVEN_SPEED ;
-extern int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
+extern int16_t SHOOT_2006_ID3_GIVEN_SPEED ;
+extern int16_t SHOOT_2006_ID3_GIVEN_CURRENT ;
 
 extern int16_t chassis_left_3508_id2_given_current;
 extern int16_t chassis_right_3508_id1_given_current;
@@ -77,6 +77,14 @@ extern float e0 ;
 
 extern float chassis_yaw_turn_corrent ;
 extern float chassis_two_leg_turn_tor ;
+
+extern int16_t YAW_6020_ID1_GIVEN_CURRENT ;
+
+extern uint8_t SHOOT_2006_STATE ;
+
+extern float chassis_follow_gimbal_given_speed ;
+
+extern float chassis_vx_given_speed ;
 
 
 

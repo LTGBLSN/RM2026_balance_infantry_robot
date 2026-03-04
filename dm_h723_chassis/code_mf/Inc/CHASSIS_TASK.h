@@ -92,11 +92,17 @@ extern uint32_t time_chassis ;
 #define RIGHT_LEG_TARGET_ANGLE47_PID_KD       8000.0f//10000
 
 
-#define CHASSIS_YAW_PID_KP 100000.0f
+#define CHASSIS_YAW_PID_KP 5000.0f
 #define CHASSIS_YAW_PID_KI 0.0f
 #define CHASSIS_YAW_PID_KD 0.0f
 #define CHASSIS_YAW_PID_MAX 5000.0f //转向环最大输出扭矩
 #define CHASSIS_YAW_PID_KI_MAX 0.0f
+
+#define GIMBAL_FOLLOW_PID_KP 0.007f
+#define GIMBAL_FOLLOW_PID_KI 0.0f
+#define GIMBAL_FOLLOW_PID_KD 0.0f
+#define GIMBAL_FOLLOW_PID_MAX 2.0f
+#define GIMBAL_FOLLOW_PID_KI_MAX 0.0f
 
 
 #define CHASSIS_TWO_LEG_PID_KP 70.0f
@@ -115,7 +121,7 @@ extern uint32_t time_chassis ;
 
 #define LEG_SMALL_LENGTH 0.2500f            //小腿长单位（m）
 #define LEG_BIG_LENGTH   0.2100f            //大腿长单位（m）
-#define WHEEL_RADIUS     0.054f             //轮毂半径,单位(m)
+#define WHEEL_RADIUS     0.06f             //轮毂半径,单位(m)
 #define MAX_VIRTUAL_LEG_LENGTH 0.38655f     //虚拟腿最大长度单位（m）
 #define MIN_VIRTUAL_LEG_LENGTH 0.15969f     //虚拟腿最小长度单位（m）
 #define REDUCTION_RATIO (268.0f/17.0f)      //轮毂电机减速比
@@ -130,6 +136,14 @@ extern uint32_t time_chassis ;
 #define MOTOR_GIVE_TORQUE_KP (1.0f/0.00042063763f) // 扭矩系数转换
 
 #define MATLAB_CHASSIS 1.00f
+
+
+#define GIMBAL_MID_ANGLE 3806
+
+#define CHASSIS_VX_MAX_SPEED 1.0f //最大速度 单位m/s
+
+#define LEG_GOAL_CONTROL_KP 0.0000001f //遥控器控制腿长系数
+
 
 struct chassis_lqr_state_input {
     float finial_lqr_compute_leg_length;                   //腿长 单位m
@@ -181,6 +195,7 @@ extern struct leg_parameter right_leg_goal_2_joint;
 extern struct leg_parameter left_leg_joint_2_leg_parameters;
 extern struct leg_parameter right_leg_joint_2_leg_parameters;
 
+void chassis_goal_speed_compute();
 
 void chassis_all_state_update_loop();
 float chassis_vx_compute_loop();
@@ -190,6 +205,9 @@ void wheel_torque_LQR_compute_loop();
 
 void chassis_yaw_pid_init(void);
 float chassis_yaw_pid_loop(float chassis_yaw_set_loop);
+
+void gimbal_follow_pid_init(void);
+float gimbal_follow_pid_loop(float gimbal_follow_set_loop);
 
 void chassis_two_leg_pid_init(void);
 float chassis_two_leg_pid_loop(float chassis_two_leg_set_loop);

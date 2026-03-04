@@ -48,6 +48,8 @@ pid_type_def right_virtual_leg_target_angle47_compute ;
 pid_type_def chassis_yaw_compute;
 pid_type_def chassis_two_leg_compute;
 
+pid_type_def gimbal_follow ;
+
 
 
 void CHASSIS_TASK()
@@ -71,9 +73,13 @@ void CHASSIS_TASK()
     right_virtual_leg_target_angle47_pid_init();
     chassis_yaw_pid_init();
     chassis_two_leg_pid_init();
+    gimbal_follow_pid_init();
+    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
 
     while (1)
     {
+        chassis_goal_speed_compute();
 
 
         //整车状态变量更新
@@ -83,7 +89,9 @@ void CHASSIS_TASK()
 
         ///////////////////////////////////////////////////////////////////////轮毂部分控制
         //底盘yaw转向环
-        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f));
+        chassis_follow_gimbal_given_speed = -gimbal_follow_pid_loop(GIMBAL_MID_ANGLE);
+        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(chassis_follow_gimbal_given_speed);
+//        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f));
 
         //lqr计算
         wheel_torque_LQR_compute_loop();
@@ -131,6 +139,11 @@ void CHASSIS_TASK()
 
         osDelay(CONTROL_LOOP_PERIOD_MS);
     }
+}
+
+void chassis_goal_speed_compute()
+{
+    chassis_vx_given_speed = CHASSIS_VX_MAX_SPEED * ((float )rcData.rc.ch[1]/660.0f) ;
 }
 
 void chassis_all_state_update_loop()
@@ -213,13 +226,22 @@ void chassis_all_state_update_loop()
     //整车位移计算2026.2.21:使用速度积分得到位置，不保证100%可用，待确认
     if((rcData.rc.s[0]) == 1)
     {
-        chassis_LQR_compute_left_finial_state.chassis_move_x_m =
-                chassis_LQR_compute_left_finial_state.chassis_move_x_m
-                + chassis_LQR_compute_left_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+        if(chassis_vx_given_speed == 0.0f)
+        {
+            chassis_LQR_compute_left_finial_state.chassis_move_x_m =
+                    chassis_LQR_compute_left_finial_state.chassis_move_x_m
+                    + chassis_LQR_compute_left_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
 
-        chassis_LQR_compute_right_finial_state.chassis_move_x_m =
-                chassis_LQR_compute_right_finial_state.chassis_move_x_m
-                + chassis_LQR_compute_right_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+            chassis_LQR_compute_right_finial_state.chassis_move_x_m =
+                    chassis_LQR_compute_right_finial_state.chassis_move_x_m
+                    + chassis_LQR_compute_right_finial_state.chassis_speed_m_s * CONTROL_LOOP_DT;
+        }
+        else
+        {
+            chassis_LQR_compute_left_finial_state.chassis_move_x_m = 0.0f ;
+            chassis_LQR_compute_right_finial_state.chassis_move_x_m = 0.0f ;
+        }
+
     }
     else
     {
@@ -252,6 +274,7 @@ float chassis_vx_compute_loop()
 
 }
 
+
 void wheel_torque_LQR_compute_loop()
 {
     if((rcData.rc.s[0]) == 1)
@@ -261,6 +284,11 @@ void wheel_torque_LQR_compute_loop()
 
         right_wheel_tor_compute =
                 (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) + chassis_yaw_turn_corrent;
+    }
+    else
+    {
+        left_wheel_tor_compute = 0.0f ;
+        right_wheel_tor_compute = 0.0f ;
     }
 
 }
@@ -278,6 +306,22 @@ float chassis_yaw_pid_loop(float chassis_yaw_set_loop)
     PID_calc(&chassis_yaw_compute, DM_imu.speed_gyro[YAW], chassis_yaw_set_loop);
     float chassis_yaw_given_tor = (float )(chassis_yaw_compute.out);
     return chassis_yaw_given_tor ;
+
+}
+
+
+void gimbal_follow_pid_init(void)
+{
+    static fp32 gimbal_follow_kpkikd[3] = {GIMBAL_FOLLOW_PID_KP, GIMBAL_FOLLOW_PID_KI, GIMBAL_FOLLOW_PID_KD};
+    PID_init(&gimbal_follow, PID_POSITION, gimbal_follow_kpkikd, GIMBAL_FOLLOW_PID_MAX, GIMBAL_FOLLOW_PID_KI_MAX);
+
+}
+
+float gimbal_follow_pid_loop(float gimbal_follow_set_loop)
+{
+    PID_calc(&gimbal_follow, motor_can2_data[4].ecd, gimbal_follow_set_loop);
+    float gimbal_follow_given_speed = (float )(gimbal_follow.out);
+    return gimbal_follow_given_speed ;
 
 }
 
@@ -428,8 +472,28 @@ void get_leg_velocity()
 
 void virtual_leg_goal_compute()
 {
-    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.00035f * (float )rcData.rc.ch[2] ;
-    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH + 0.00035f * (float )rcData.rc.ch[2] ;
+    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = left_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_CONTROL_KP;
+    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = right_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_CONTROL_KP;
+
+    if(left_leg_joint_2_leg_parameters.goal_virtual_leg_length > MAX_VIRTUAL_LEG_LENGTH)
+    {
+        left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MAX_VIRTUAL_LEG_LENGTH;
+    }
+    else if(left_leg_joint_2_leg_parameters.goal_virtual_leg_length < MIN_VIRTUAL_LEG_LENGTH)
+    {
+        left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH;
+    }
+
+    if(right_leg_joint_2_leg_parameters.goal_virtual_leg_length > MAX_VIRTUAL_LEG_LENGTH)
+    {
+        right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MAX_VIRTUAL_LEG_LENGTH;
+    }
+    else if(right_leg_joint_2_leg_parameters.goal_virtual_leg_length < MIN_VIRTUAL_LEG_LENGTH)
+    {
+        right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH;
+    }
+
+
 
 }
 
@@ -448,7 +512,7 @@ void virtual_leg_give_tor_compute()
 
 void leg_torque_47_compute()
 {
-    if(rcData.rc.s[1] == 1)
+    if(rcData.rc.s[0] == 1)
     {
 
         leg_torque_LQR_compute_loop();
@@ -456,6 +520,7 @@ void leg_torque_47_compute()
     }
     else
     {
+//        leg_torque_LQR_compute_loop();
 
         leg_torque_47_pid_loop();
 
@@ -503,7 +568,7 @@ float right_leg_target_angle47_pid_loop(float right_virtual_leg_target_angle47_s
 
 void leg_torque_LQR_compute_loop()
 {
-    if((rcData.rc.s[1]) == 1)
+    if((rcData.rc.s[0]) == 1)
     {
         left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
                 (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_two_leg_pid_loop(0.0f);
@@ -514,6 +579,11 @@ void leg_torque_LQR_compute_loop()
         right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor =
                 (MATLAB_CHASSIS * leg_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) - chassis_two_leg_pid_loop(0.0f) ;
 //        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = 5.0f ;
+    }
+    else
+    {
+        left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = chassis_two_leg_pid_loop(0.0f) ;
+        right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = - chassis_two_leg_pid_loop(0.0f) ;
     }
 
 }
@@ -610,19 +680,22 @@ void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4)
 void update_LQR_K(float t3 ,float t2 ,float t1) {
 
 //    半车模型
-    k[0][0] = -294.1445f*t3 + 339.9266f*t2-177.6680f*t1-0.6494f;
-    k[0][1] = -52.6643f*t3 + 51.9309f*t2-31.3302f*t1 + 0.8804f;
-    k[0][2] = -32.4897f*t3 + 36.4306f*t2-14.9956f*t1-0.3693f;
-    k[0][3] = -83.1840f*t3 + 92.9064f*t2-39.0097f*t1-1.1960f;
-    k[0][4] = -58.1922f*t3 + 72.9847f*t2-38.4374f*t1 + 12.2843f;
-    k[0][5] = -7.9882f*t3 + 9.9378f*t2-5.2222f*t1 + 2.0347f;
+//    Q = diag([40, 500, 400, 2000, 3000, 1])
+//    R = [40 0; 0 10]
 
-    k[1][0] = 797.1396f*t3-776.7112f*t2 + 253.6377f*t1-11.4325f;
-    k[1][1] = 115.4942f*t3-107.2748f*t2 + 33.1546f*t1-0.0865f;
-    k[1][2] = 133.5865f*t3-122.1404f*t2 + 34.8746f*t1-1.5828f;
-    k[1][3] = 353.5472f*t3-323.2224f*t2 + 92.5947f*t1-4.2759f;
-    k[1][4] = -16.6190f*t3-9.3036f*t2 + 18.8536f*t1 + 15.7189f;
-    k[1][5] = -31.0488f*t3 + 25.0087f*t2-5.1397f*t1 + 2.6827f;
+    k[0][0] = -114.3507f*t3 + 221.1698f*t2-158.6078f*t1 + 4.8670f;
+    k[0][1] = -36.5954f*t3 + 59.8417f*t2-43.6452f*t1 + 2.0749f;
+    k[0][2] = -23.4917f*t3 + 40.3850f*t2-24.2268f*t1 + 0.7174f;
+    k[0][3] = -39.9992f*t3 + 61.3104f*t2-34.7395f*t1 + 0.8865f;
+    k[0][4] = -374.8987f*t3 + 470.8196f*t2-240.6303f*t1 + 64.4512f;
+    k[0][5] = -22.3653f*t3 + 26.1132f*t2-12.7559f*t1 + 3.8866f;
+
+    k[1][0] = 670.3357f*t3-685.6215f*t2 + 227.2770f*t1-9.5939f;
+    k[1][1] = 179.4677f*t3-179.8994f*t2 + 57.8661f*t1-1.6795f;
+    k[1][2] = 139.0973f*t3-135.9314f*t2 + 42.0028f*t1-2.0436f;
+    k[1][3] = 199.1672f*t3-191.9533f*t2 + 58.1590f*t1-2.5565f;
+    k[1][4] = 1000.3221f*t3-1053.8749f*t2 + 401.8419f*t1 + 79.7088f;
+    k[1][5] = 8.3618f*t3-13.7832f*t2 + 8.4947f*t1 + 5.3296f;
 
 
 }
@@ -642,9 +715,9 @@ float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
     // 假设目标：theta=0, d_theta=0, x=target_x, d_x=0, phi=0, d_phi=0
     e0 = state.virtual_leg_angle_rad - 0.0f;
     e1 = state.virtual_leg_speed_rad_s - 0.0f;
-    e2 = state.chassis_move_x_m - (1.0f);
-    e3 = state.chassis_speed_m_s - 0.0f;
-    e4 = state.pitch_angle_rad - (-0.0f);
+    e2 = state.chassis_move_x_m - (0.7f);
+    e3 = state.chassis_speed_m_s - chassis_vx_given_speed;
+    e4 = state.pitch_angle_rad - (0.0f);
     e5 = state.chassis_pitch_speed_rad_s - 0.0f;
 
     // 3. 计算输出 u = -K * e
@@ -674,9 +747,9 @@ float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
 //    e0 = 0.0f ;
     e1 = state.virtual_leg_speed_rad_s - 0.0f;
 //    e1 = 0.0f ;
-    e2 = state.chassis_move_x_m - (1.0f);
+    e2 = state.chassis_move_x_m - (0.7f);
 //    e2 = 0.0f ;
-    e3 = state.chassis_speed_m_s - 0.0f;
+    e3 = state.chassis_speed_m_s - chassis_vx_given_speed;
 //    e3 = 0.0f ;
     e4 = (state.pitch_angle_rad - (-0.0f));
 //    e4 = 0.0f ;

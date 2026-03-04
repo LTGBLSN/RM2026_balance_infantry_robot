@@ -37,7 +37,6 @@
 #include "SHOOT_TASK.h"
 #include "CHASSIS_TASK.h"
 #include "referee.h"
-#include "CHASSIS_VX.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,8 +65,8 @@ float INS_degree[3] = {0.0f, 0.0f, 0.0f};
 int16_t yaw_6020_state ;
 
 //shoot
-float SHOOT_2006_ID1_GIVEN_SPEED ;
-int16_t SHOOT_2006_ID1_GIVEN_CURRENT ;
+int16_t SHOOT_2006_ID3_GIVEN_SPEED ;
+int16_t SHOOT_2006_ID3_GIVEN_CURRENT ;
 
 int16_t chassis_left_3508_id2_given_current;
 int16_t chassis_right_3508_id1_given_current;
@@ -93,6 +92,14 @@ float e5 ;
 
 float chassis_yaw_turn_corrent ;
 float chassis_two_leg_turn_tor ;
+
+int16_t YAW_6020_ID1_GIVEN_CURRENT ;
+
+uint8_t SHOOT_2006_STATE = NORMAL_ON ;
+
+float chassis_follow_gimbal_given_speed ;
+
+float chassis_vx_given_speed ;
 
 
 
@@ -175,10 +182,8 @@ int main(void)
     BSP_FDCAN_Init();
 
 
-    chassis_vx_pid_init();
-
     //拨弹盘电机初始化
-    shoot_2006_id1_speed_pid_init();//拨弹盘id1速度环初始化
+
 
   /* USER CODE END 2 */
 
