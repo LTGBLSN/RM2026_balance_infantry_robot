@@ -13,6 +13,7 @@
 #include "GET_RC_TASK.h"
 #include "DJI_motors.h"
 #include "IMU_DATA_GET.h"
+#include "SHOOT_TASK.h"
 
 uint32_t time_chassis = 0;
 
@@ -93,7 +94,7 @@ void CHASSIS_TASK()
         chassis_yaw_turn_corrent = chassis_yaw_pid_loop(chassis_follow_gimbal_given_speed);
 //        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f));
 
-        //lqr计算
+        //轮子lqr计算
         wheel_torque_LQR_compute_loop();
 
 
@@ -105,7 +106,7 @@ void CHASSIS_TASK()
         /////////////////////////////////////////////////////////////////////////腿部控制
 
         //目标腿长设定
-        // 2026.2.25目前均设为0.15，后续要进行roll轴控制在此处控制
+        // 2026.3.8 roll轴控制在此处控制
         virtual_leg_goal_compute();
 
         //计算出腿长控制目标虚拟腿推力扭矩
@@ -131,6 +132,11 @@ void CHASSIS_TASK()
                 left_leg_joint_2_leg_parameters.tor2,
                 left_leg_joint_2_leg_parameters.tor7,
                 right_leg_joint_2_leg_parameters.tor7);
+
+        fly_state_compute();
+
+
+
 
 
 
@@ -279,12 +285,31 @@ void wheel_torque_LQR_compute_loop()
 {
     if((rcData.rc.s[0]) == 1)
     {
-        left_wheel_tor_compute =
-                -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_yaw_turn_corrent;
+        if(left_leg_joint_2_leg_parameters.fly_state == FLY_YES)
+        {
+            left_wheel_tor_compute = 0.0f ;
+            chassis_LQR_compute_left_finial_state.chassis_move_x_m = 0.0f ;
 
-        right_wheel_tor_compute =
-                (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) + chassis_yaw_turn_corrent;
+        }
+        else
+        {
+            left_wheel_tor_compute =
+                    -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_yaw_turn_corrent;
+        }
+
+        if(right_leg_joint_2_leg_parameters.fly_state == FLY_YES)
+        {
+            right_wheel_tor_compute = 0.0f ;
+            chassis_LQR_compute_right_finial_state.chassis_move_x_m = 0.0f ;
+
+        }
+        else
+        {
+            right_wheel_tor_compute =
+                    (MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_right_finial_state)) + chassis_yaw_turn_corrent;
+        }
     }
+
     else
     {
         left_wheel_tor_compute = 0.0f ;
@@ -501,12 +526,29 @@ void virtual_leg_goal_compute()
 
 void virtual_leg_give_tor_compute()
 {
-    //此处由腿长pid进行输出
-    left_leg_joint_2_leg_parameters.virtual_leg_give_tor =
-            left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 60.0f ;
+    if(rcData.rc.s[1] == 1)
+    {
+        left_leg_joint_2_leg_parameters.virtual_leg_give_tor = JUMP_TOR ;
 
-    right_leg_joint_2_leg_parameters.virtual_leg_give_tor =
-            right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 60.0f ;
+        right_leg_joint_2_leg_parameters.virtual_leg_give_tor = JUMP_TOR ;
+
+        JUMP_STATE = YES_JUMP ;
+    }
+    else
+    {
+        //此处由腿长pid进行输出
+        left_leg_joint_2_leg_parameters.virtual_leg_give_tor =
+                left_leg_pid_loop(left_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 0.0f ;
+
+        right_leg_joint_2_leg_parameters.virtual_leg_give_tor =
+                right_leg_pid_loop(right_leg_joint_2_leg_parameters.goal_virtual_leg_length) + 0.0f ;
+    }
+
+    if(rcData.rc.s[1] == 2)
+    {
+        JUMP_STATE = NO_JUMP ;
+    }
+
 }
 
 
@@ -677,28 +719,92 @@ void joint_tor_Limit(float motor1 , float motor2 , float motor3 , float motor4)
 
 }
 
-void update_LQR_K(float t3 ,float t2 ,float t1) {
+/*离地检测
+ * 计算当前腿支持力，如果小于一定值判断为离地*/
+void fly_state_compute()
+{
+    // --- 1. 左腿支撑力推算 ---
+    // 计算雅可比转置矩阵的行列式: det = J_T[0][0]*J_T[1][1] - J_T[0][1]*J_T[1][0]
+    float det_L = left_leg_joint_2_leg_parameters.jacobian_T[0][0] * left_leg_joint_2_leg_parameters.jacobian_T[1][1] -
+                  left_leg_joint_2_leg_parameters.jacobian_T[0][1] * left_leg_joint_2_leg_parameters.jacobian_T[1][0];
+
+    if (fabsf(det_L) > 1e-6f) // 防止除零
+    {
+        // 根据矩阵求逆公式，求出 F_L (沿腿长方向的力)
+        // F_L = (tau7 * J_T[1][1] - tau2 * J_T[0][1]) / det
+        left_leg_joint_2_leg_parameters.support_force = (DM8009P_03_LEFT_SMALL_LEG_BEHIND.return_tor * left_leg_joint_2_leg_parameters.jacobian_T[1][1] -
+                                  DM8009P_02_LEFT_BIG_LEG_FRONT.return_tor * left_leg_joint_2_leg_parameters.jacobian_T[0][1]) / det_L;
+    }
+
+    // --- 2. 右腿支撑力推算 ---
+    float det_R = right_leg_joint_2_leg_parameters.jacobian_T[0][0] * right_leg_joint_2_leg_parameters.jacobian_T[1][1] -
+                  right_leg_joint_2_leg_parameters.jacobian_T[0][1] * right_leg_joint_2_leg_parameters.jacobian_T[1][0];
+
+    if (fabsf(det_R) > 1e-6f)
+    {
+        // 注意：参考你的 joint_vmc_compute，右腿力矩方向是取反的
+        // 所以这里反馈值也要带负号参与计算，以保证计算出的支撑力为正
+        right_leg_joint_2_leg_parameters.support_force = ((-DM8009P_04_RIGHT_SMALL_LEG_BEHIND.return_tor) * right_leg_joint_2_leg_parameters.jacobian_T[1][1] -
+                                   (-DM8009P_01_RIGHT_BIG_LEG_FRONT.return_tor) * right_leg_joint_2_leg_parameters.jacobian_T[0][1]) / det_R;
+    }
+
+    // --- 3. 状态判定逻辑 ---
+    // 这里调用下一步的判定函数
+    if(rcData.rc.s[0] != 2)
+    {
+        fly_state_logic_judgment();
+    }
+
+}
+
+
+void fly_state_logic_judgment(void)
+{
+    // 如果支撑力小于阈值，认为离地
+    if (left_leg_joint_2_leg_parameters.support_force < GROUND_FORCE_THRESHOLD)
+    {
+        left_leg_joint_2_leg_parameters.fly_state = FLY_YES; // 离地
+    }
+    else
+    {
+        left_leg_joint_2_leg_parameters.fly_state = FLY_NO; // 着地
+    }
+
+    if (right_leg_joint_2_leg_parameters.support_force < GROUND_FORCE_THRESHOLD)
+    {
+        right_leg_joint_2_leg_parameters.fly_state = FLY_YES; // 离地
+    }
+    else
+    {
+        right_leg_joint_2_leg_parameters.fly_state = FLY_NO; // 着地
+    }
+}
+
+void update_LQR_K(float t3 ,float t2 ,float t1 )
+{
 
 //    半车模型
-//    Q = diag([40, 500, 400, 2000, 3000, 1])
+//    Q = diag([320, 2500, 1200, 500, 200000, 1])
 //    R = [40 0; 0 10]
 
-    k[0][0] = -114.3507f*t3 + 221.1698f*t2-158.6078f*t1 + 4.8670f;
-    k[0][1] = -36.5954f*t3 + 59.8417f*t2-43.6452f*t1 + 2.0749f;
-    k[0][2] = -23.4917f*t3 + 40.3850f*t2-24.2268f*t1 + 0.7174f;
-    k[0][3] = -39.9992f*t3 + 61.3104f*t2-34.7395f*t1 + 0.8865f;
-    k[0][4] = -374.8987f*t3 + 470.8196f*t2-240.6303f*t1 + 64.4512f;
-    k[0][5] = -22.3653f*t3 + 26.1132f*t2-12.7559f*t1 + 3.8866f;
+    k[0][0] = 53.3050f*t3 + 77.4558f*t2-127.7172f*t1 + 3.2080f;
+    k[0][1] = 4.9315f*t3 + 28.7556f*t2-40.7482f*t1 + 2.0472f;
+    k[0][2] = 9.6749f*t3 + 8.9068f*t2-14.9383f*t1 + 0.2604f;
+    k[0][3] = 6.8404f*t3 + 19.1435f*t2-23.5602f*t1 + 0.3346f;
+    k[0][4] = -383.3230f*t3 + 476.1177f*t2-240.5658f*t1 + 64.3867f;
+    k[0][5] = -28.6370f*t3 + 31.3752f*t2-14.0151f*t1 + 3.9334f;
 
-    k[1][0] = 670.3357f*t3-685.6215f*t2 + 227.2770f*t1-9.5939f;
-    k[1][1] = 179.4677f*t3-179.8994f*t2 + 57.8661f*t1-1.6795f;
-    k[1][2] = 139.0973f*t3-135.9314f*t2 + 42.0028f*t1-2.0436f;
-    k[1][3] = 199.1672f*t3-191.9533f*t2 + 58.1590f*t1-2.5565f;
-    k[1][4] = 1000.3221f*t3-1053.8749f*t2 + 401.8419f*t1 + 79.7088f;
-    k[1][5] = 8.3618f*t3-13.7832f*t2 + 8.4947f*t1 + 5.3296f;
+    k[1][0] = 554.0254f*t3-608.9887f*t2 + 221.2033f*t1-11.3337f;
+    k[1][1] = 162.0825f*t3-173.9428f*t2 + 60.9298f*t1-2.0591f;
+    k[1][2] = 106.3492f*t3-110.0545f*t2 + 37.0762f*t1-2.3413f;
+    k[1][3] = 167.0680f*t3-169.6172f*t2 + 55.7525f*t1-3.2592f;
+    k[1][4] = 994.3888f*t3-1045.6830f*t2 + 398.2053f*t1 + 80.0820f;
+    k[1][5] = 9.2901f*t3-13.4794f*t2 + 7.7959f*t1 + 5.5141f;
 
 
 }
+
+
 
 
 
@@ -738,6 +844,7 @@ float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
     float t3 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
     float t2 = state.finial_lqr_compute_leg_length * state.finial_lqr_compute_leg_length;
     float t1 = state.finial_lqr_compute_leg_length;
+
     update_LQR_K(t3,t2,t1);
 
 
@@ -755,12 +862,22 @@ float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state)
 //    e4 = 0.0f ;
     e5 = (state.chassis_pitch_speed_rad_s - 0.0f);
 //    e5 = 0.0f;
+    float joint_torque ;
 
     // 3. 计算输出 u = -K * e
     // 注意：这里是否加负号取决于你 MATLAB 中 K 的计算定义。
     // 如果 MATLAB 里的 K 是由 lqr(A,B,Q,R) 直接生成的，标准控制律是 u = -Kx。
+    if(left_leg_joint_2_leg_parameters.fly_state == FLY_YES || right_leg_joint_2_leg_parameters.fly_state == FLY_YES)
+    {
+        joint_torque = -(k[1][0]*e0 + k[1][1]*e1 );
 
-    float joint_torque = -(k[1][0]*e0 + k[1][1]*e1 + k[1][2]*e2 + k[1][3]*e3 + k[1][4]*e4 + k[1][5]*e5);
+    }
+    else
+    {
+        joint_torque = -(k[1][0]*e0 + k[1][1]*e1 + k[1][2]*e2 + k[1][3]*e3 + k[1][4]*e4 + k[1][5]*e5);
+    }
+
+
 
     return joint_torque;
 

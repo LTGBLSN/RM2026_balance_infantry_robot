@@ -239,6 +239,10 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+ .bss.FRICTION_WHEEL_3508_ID2_GIVEN_SPEED
+                0x00000000        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+ .bss.FRICTION_WHEEL_3508_ID1_GIVEN_SPEED
+                0x00000000        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
  .text          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/memorymap.c.obj
  .data          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/memorymap.c.obj
  .bss           0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/memorymap.c.obj
@@ -2308,6 +2312,14 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
  .data          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
  .bss           0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .text.friction_wheel_speed_control
+                0x00000000       0x34 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .text.friction_wheel_3510_id1_speed_pid_loop
+                0x00000000       0x38 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .text.friction_wheel_3510_id2_speed_pid_loop
+                0x00000000       0x38 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .text.friction_wheel_pid_control
+                0x00000000       0x30 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
  .text          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
  .data          0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
  .bss           0x00000000        0x0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
@@ -2986,7 +2998,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
                 0x08000000                g_pfnVectors
                 0x080002cc                        . = ALIGN (0x4)
 
-.text           0x08000300    0x11db0
+.text           0x08000300    0x11cd8
                 0x08000300                        . = ALIGN (0x4)
  *(.text)
  .text          0x08000300      0x378 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
@@ -3894,483 +3906,472 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .text.motor_gimbal_pid_compute
                 0x0800a428       0x5c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
                 0x0800a428                motor_gimbal_pid_compute
- .text.friction_wheel_speed_control
-                0x0800a484       0x34 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a484                friction_wheel_speed_control
- .text.friction_wheel_3510_id1_speed_pid_init
-                0x0800a4b8       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a4b8                friction_wheel_3510_id1_speed_pid_init
- .text.friction_wheel_3510_id1_speed_pid_loop
-                0x0800a4e0       0x38 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a4e0                friction_wheel_3510_id1_speed_pid_loop
- .text.friction_wheel_3510_id2_speed_pid_init
-                0x0800a518       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a518                friction_wheel_3510_id2_speed_pid_init
- .text.friction_wheel_3510_id2_speed_pid_loop
-                0x0800a540       0x38 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a540                friction_wheel_3510_id2_speed_pid_loop
- .text.friction_wheel_pid_control
-                0x0800a578       0x30 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a578                friction_wheel_pid_control
  .text.GIMBAL_MOTOR_CONTROL
-                0x0800a5a8       0x2e CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x0800a5a8                GIMBAL_MOTOR_CONTROL
- *fill*         0x0800a5d6        0x2 
+                0x0800a484       0x26 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x0800a484                GIMBAL_MOTOR_CONTROL
+ *fill*         0x0800a4aa        0x2 
+ .text.friction_wheel_3510_id1_speed_pid_init
+                0x0800a4ac       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x0800a4ac                friction_wheel_3510_id1_speed_pid_init
+ .text.friction_wheel_3510_id2_speed_pid_init
+                0x0800a4d4       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x0800a4d4                friction_wheel_3510_id2_speed_pid_init
  .text.IMU_DATA_GET
-                0x0800a5d8       0xdc CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
-                0x0800a5d8                IMU_DATA_GET
+                0x0800a4fc       0xdc CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+                0x0800a4fc                IMU_DATA_GET
  .text.LED_TASK
-                0x0800a6b4       0x3a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
-                0x0800a6b4                LED_TASK
- *fill*         0x0800a6ee        0x2 
- .text.invSqrt  0x0800a6f0       0x30 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x0800a6f0                invSqrt
+                0x0800a5d8       0x3a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
+                0x0800a5d8                LED_TASK
+ *fill*         0x0800a612        0x2 
+ .text.invSqrt  0x0800a614       0x30 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x0800a614                invSqrt
  .text.MahonyAHRSupdateIMU
-                0x0800a720      0x274 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x0800a720                MahonyAHRSupdateIMU
+                0x0800a644      0x274 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x0800a644                MahonyAHRSupdateIMU
  .text.MahonyAHRSupdate
-                0x0800a994      0x3f8 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x0800a994                MahonyAHRSupdate
+                0x0800a8b8      0x3f8 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x0800a8b8                MahonyAHRSupdate
  .text.get_angle
-                0x0800ad8c       0xbc CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x0800ad8c                get_angle
+                0x0800acb0       0xbc CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x0800acb0                get_angle
  .text.SHOOT_TASK
-                0x0800ae48       0x4c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
-                0x0800ae48                SHOOT_TASK
+                0x0800ad6c       0x4c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
+                0x0800ad6c                SHOOT_TASK
  .text.BSP_FDCAN_Init
-                0x0800ae94      0x130 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
-                0x0800ae94                BSP_FDCAN_Init
+                0x0800adb8      0x130 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
+                0x0800adb8                BSP_FDCAN_Init
  .text.DM_motors_parse
-                0x0800afc4       0x86 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
-                0x0800afc4                DM_motors_parse
- *fill*         0x0800b04a        0x2 
+                0x0800aee8       0x86 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
+                0x0800aee8                DM_motors_parse
+ *fill*         0x0800af6e        0x2 
  .text.HAL_FDCAN_RxFifo0Callback
-                0x0800b04c      0x16c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
-                0x0800b04c                HAL_FDCAN_RxFifo0Callback
+                0x0800af70      0x16c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
+                0x0800af70                HAL_FDCAN_RxFifo0Callback
  .text.dm_motor_init
-                0x0800b1b8       0x2c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
-                0x0800b1b8                dm_motor_init
+                0x0800b0dc       0x2c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
+                0x0800b0dc                dm_motor_init
  .text.uint_to_float
-                0x0800b1e4       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
-                0x0800b1e4                uint_to_float
+                0x0800b108       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
+                0x0800b108                uint_to_float
  .text.PID_init
-                0x0800b20c       0x3c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
-                0x0800b20c                PID_init
+                0x0800b130       0x3c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
+                0x0800b130                PID_init
  .text.PID_calc
-                0x0800b248      0x158 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
-                0x0800b248                PID_calc
+                0x0800b16c      0x158 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
+                0x0800b16c                PID_calc
  .text.dbus_frame_parse
-                0x0800b3a0       0xc6 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
-                0x0800b3a0                dbus_frame_parse
- *fill*         0x0800b466        0x2 
+                0x0800b2c4       0xc6 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+                0x0800b2c4                dbus_frame_parse
+ *fill*         0x0800b38a        0x2 
  .text.HAL_UARTEx_RxEventCallback
-                0x0800b468       0x34 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
-                0x0800b468                HAL_UARTEx_RxEventCallback
+                0x0800b38c       0x34 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+                0x0800b38c                HAL_UARTEx_RxEventCallback
  .text.HAL_UART_ErrorCallback
-                0x0800b49c       0x20 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
-                0x0800b49c                HAL_UART_ErrorCallback
+                0x0800b3c0       0x20 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+                0x0800b3c0                HAL_UART_ErrorCallback
  .text.HAL_UART_RxCpltCallback
-                0x0800b4bc       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
-                0x0800b4bc                HAL_UART_RxCpltCallback
+                0x0800b3e0       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
+                0x0800b3e0                HAL_UART_RxCpltCallback
  .text.usart1_printf
-                0x0800b4e4       0x40 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
-                0x0800b4e4                usart1_printf
+                0x0800b408       0x40 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+                0x0800b408                usart1_printf
  .text.WS2812_Ctrl
-                0x0800b524       0xc0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
-                0x0800b524                WS2812_Ctrl
+                0x0800b448       0xc0 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
+                0x0800b448                WS2812_Ctrl
  .text.__udivmoddi4
-                0x0800b5e4      0x2bc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x0800b5e4                __udivmoddi4
+                0x0800b508      0x2bc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x0800b508                __udivmoddi4
  .text.stdio_exit_handler
-                0x0800b8a0       0x18 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x0800b7c4       0x18 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
  .text.cleanup_stdio
-                0x0800b8b8       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x0800b7dc       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
  .text.global_stdio_init.part.0
-                0x0800b8f8       0xf0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
- .text.__sinit  0x0800b9e8       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
-                0x0800b9e8                __sinit
+                0x0800b81c       0xf0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+ .text.__sinit  0x0800b90c       0x3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x0800b90c                __sinit
  .text.__sfp_lock_acquire
-                0x0800ba24        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
-                0x0800ba24                __sfp_lock_acquire
+                0x0800b948        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x0800b948                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x0800ba30        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
-                0x0800ba30                __sfp_lock_release
+                0x0800b954        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x0800b954                __sfp_lock_release
  .text._fwalk_sglue
-                0x0800ba3c       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fwalk.o)
-                0x0800ba3c                _fwalk_sglue
- .text.__sread  0x0800ba80       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
-                0x0800ba80                __sread
+                0x0800b960       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fwalk.o)
+                0x0800b960                _fwalk_sglue
+ .text.__sread  0x0800b9a4       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
+                0x0800b9a4                __sread
  .text.__swrite
-                0x0800baa4       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
-                0x0800baa4                __swrite
- .text.__sseek  0x0800bae4       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
-                0x0800bae4                __sseek
+                0x0800b9c8       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
+                0x0800b9c8                __swrite
+ .text.__sseek  0x0800ba08       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
+                0x0800ba08                __sseek
  .text.__sclose
-                0x0800bb08        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
-                0x0800bb08                __sclose
+                0x0800ba2c        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-stdio.o)
+                0x0800ba2c                __sclose
  .text.vsprintf
-                0x0800bb10       0x38 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vsprintf.o)
-                0x0800bb10                vsprintf
- .text.memset   0x0800bb48       0xa4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memset.o)
-                0x0800bb48                memset
+                0x0800ba34       0x38 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vsprintf.o)
+                0x0800ba34                vsprintf
+ .text.memset   0x0800ba6c       0xa4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memset.o)
+                0x0800ba6c                memset
  .text._close_r
-                0x0800bbec       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-closer.o)
-                0x0800bbec                _close_r
+                0x0800bb10       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-closer.o)
+                0x0800bb10                _close_r
  .text._reclaim_reent
-                0x0800bc10       0x6c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
-                0x0800bc10                _reclaim_reent
+                0x0800bb34       0x6c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
+                0x0800bb34                _reclaim_reent
  .text._lseek_r
-                0x0800bc7c       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lseekr.o)
-                0x0800bc7c                _lseek_r
- .text._read_r  0x0800bca8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-readr.o)
-                0x0800bca8                _read_r
+                0x0800bba0       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lseekr.o)
+                0x0800bba0                _lseek_r
+ .text._read_r  0x0800bbcc       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-readr.o)
+                0x0800bbcc                _read_r
  .text._write_r
-                0x0800bcd4       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-writer.o)
-                0x0800bcd4                _write_r
- .text.__errno  0x0800bd00        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-errno.o)
-                0x0800bd00                __errno
+                0x0800bbf8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-writer.o)
+                0x0800bbf8                _write_r
+ .text.__errno  0x0800bc24        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-errno.o)
+                0x0800bc24                __errno
  .text.__libc_init_array
-                0x0800bd0c       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-init.o)
-                0x0800bd0c                __libc_init_array
+                0x0800bc30       0x50 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-init.o)
+                0x0800bc30                __libc_init_array
  .text.__retarget_lock_init_recursive
-                0x0800bd5c        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x0800bd5c                __retarget_lock_init_recursive
+                0x0800bc80        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x0800bc80                __retarget_lock_init_recursive
  .text.__retarget_lock_close_recursive
-                0x0800bd60        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x0800bd60                __retarget_lock_close_recursive
+                0x0800bc84        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x0800bc84                __retarget_lock_close_recursive
  .text.__retarget_lock_acquire_recursive
-                0x0800bd64        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x0800bd64                __retarget_lock_acquire_recursive
+                0x0800bc88        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x0800bc88                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0800bd68        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x0800bd68                __retarget_lock_release_recursive
+                0x0800bc8c        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x0800bc8c                __retarget_lock_release_recursive
  .text.startup.register_fini
-                0x0800bd6c       0x14 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
- .text.atexit   0x0800bd80        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-atexit.o)
-                0x0800bd80                atexit
+                0x0800bc90       0x14 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
+ .text.atexit   0x0800bca4        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-atexit.o)
+                0x0800bca4                atexit
  .text._malloc_trim_r
-                0x0800bd8c       0xb8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
-                0x0800bd8c                _malloc_trim_r
- .text._free_r  0x0800be44      0x1f8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
-                0x0800be44                _free_r
+                0x0800bcb0       0xb8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
+                0x0800bcb0                _malloc_trim_r
+ .text._free_r  0x0800bd68      0x1f8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-freer.o)
+                0x0800bd68                _free_r
  .text._malloc_r
-                0x0800c03c      0x564 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
-                0x0800c03c                _malloc_r
+                0x0800bf60      0x564 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+                0x0800bf60                _malloc_r
  .text.__malloc_lock
-                0x0800c5a0        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
-                0x0800c5a0                __malloc_lock
+                0x0800c4c4        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
+                0x0800c4c4                __malloc_lock
  .text.__malloc_unlock
-                0x0800c5ac        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
-                0x0800c5ac                __malloc_unlock
+                0x0800c4d0        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mlock.o)
+                0x0800c4d0                __malloc_unlock
+ *fill*         0x0800c4dc        0x4 
  .text._svfprintf_r
-                0x0800c5b8     0x1b3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
-                0x0800c5b8                _svfprintf_r
+                0x0800c4e0     0x1b3c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
+                0x0800c4e0                _svfprintf_r
  .text.__ssprint_r
-                0x0800e0f4       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssprint_r.o)
-                0x0800e0f4                __ssprint_r
+                0x0800e01c       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssprint_r.o)
+                0x0800e01c                __ssprint_r
  .text._fclose_r
-                0x0800e14c       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fclose.o)
-                0x0800e14c                _fclose_r
+                0x0800e074       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fclose.o)
+                0x0800e074                _fclose_r
  .text.__sflush_r
-                0x0800e20c      0x138 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
-                0x0800e20c                __sflush_r
+                0x0800e134      0x138 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
+                0x0800e134                __sflush_r
  .text._fflush_r
-                0x0800e344       0x54 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
-                0x0800e344                _fflush_r
- .text.strncpy  0x0800e398       0x68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strncpy.o)
-                0x0800e398                strncpy
+                0x0800e26c       0x54 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fflush.o)
+                0x0800e26c                _fflush_r
+ .text.strncpy  0x0800e2c0       0x68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strncpy.o)
+                0x0800e2c0                strncpy
  .text.__locale_mb_cur_max
-                0x0800e400        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
-                0x0800e400                __locale_mb_cur_max
+                0x0800e328        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
+                0x0800e328                __locale_mb_cur_max
  .text._localeconv_r
-                0x0800e40c        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-localeconv.o)
-                0x0800e40c                _localeconv_r
- .text._sbrk_r  0x0800e414       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sbrkr.o)
-                0x0800e414                _sbrk_r
+                0x0800e334        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-localeconv.o)
+                0x0800e334                _localeconv_r
+ .text._sbrk_r  0x0800e33c       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sbrkr.o)
+                0x0800e33c                _sbrk_r
  .text.__libc_fini_array
-                0x0800e438       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fini.o)
-                0x0800e438                __libc_fini_array
- .text.sysconf  0x0800e460       0x1c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sysconf.o)
-                0x0800e460                sysconf
- .text.frexp    0x0800e47c       0x64 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libm_a-s_frexp.o)
-                0x0800e47c                frexp
+                0x0800e360       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fini.o)
+                0x0800e360                __libc_fini_array
+ .text.sysconf  0x0800e388       0x1c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sysconf.o)
+                0x0800e388                sysconf
+ .text.frexp    0x0800e3a4       0x64 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libm_a-s_frexp.o)
+                0x0800e3a4                frexp
  .text.__register_exitproc
-                0x0800e4e0       0x80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
-                0x0800e4e0                __register_exitproc
- .text.quorem   0x0800e560      0x12c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
- *fill*         0x0800e68c        0x4 
- .text._dtoa_r  0x0800e690      0xe80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
-                0x0800e690                _dtoa_r
+                0x0800e408       0x80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
+                0x0800e408                __register_exitproc
+ .text.quorem   0x0800e488      0x12c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
+ *fill*         0x0800e5b4        0x4 
+ .text._dtoa_r  0x0800e5b8      0xe80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
+                0x0800e5b8                _dtoa_r
  .text.__ascii_mbtowc
-                0x0800f510       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mbtowc_r.o)
-                0x0800f510                __ascii_mbtowc
- .text._Balloc  0x0800f53c       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f53c                _Balloc
- .text._Bfree   0x0800f588       0x14 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f588                _Bfree
+                0x0800f438       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mbtowc_r.o)
+                0x0800f438                __ascii_mbtowc
+ .text._Balloc  0x0800f464       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f464                _Balloc
+ .text._Bfree   0x0800f4b0       0x14 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f4b0                _Bfree
  .text.__multadd
-                0x0800f59c       0xa0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f59c                __multadd
+                0x0800f4c4       0xa0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f4c4                __multadd
  .text.__hi0bits
-                0x0800f63c       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f63c                __hi0bits
+                0x0800f564       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f564                __hi0bits
  .text.__lo0bits
-                0x0800f680       0x60 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f680                __lo0bits
- .text.__i2b    0x0800f6e0       0x5c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f6e0                __i2b
+                0x0800f5a8       0x60 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f5a8                __lo0bits
+ .text.__i2b    0x0800f608       0x5c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f608                __i2b
  .text.__multiply
-                0x0800f73c      0x16c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f73c                __multiply
+                0x0800f664      0x16c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f664                __multiply
  .text.__pow5mult
-                0x0800f8a8       0xb4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f8a8                __pow5mult
+                0x0800f7d0       0xb4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f7d0                __pow5mult
  .text.__lshift
-                0x0800f95c       0xf0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800f95c                __lshift
- .text.__mcmp   0x0800fa4c       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800fa4c                __mcmp
- .text.__mdiff  0x0800fa90      0x178 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800fa90                __mdiff
- .text.__d2b    0x0800fc08       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x0800fc08                __d2b
+                0x0800f884       0xf0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f884                __lshift
+ .text.__mcmp   0x0800f974       0x44 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f974                __mcmp
+ .text.__mdiff  0x0800f9b8      0x178 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800f9b8                __mdiff
+ .text.__d2b    0x0800fb30       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x0800fb30                __d2b
  .text.__ascii_wctomb
-                0x0800fcc8       0x1c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wctomb_r.o)
-                0x0800fcc8                __ascii_wctomb
+                0x0800fbf0       0x1c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wctomb_r.o)
+                0x0800fbf0                __ascii_wctomb
  .text._wcrtomb_r
-                0x0800fce4       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcrtomb.o)
-                0x0800fce4                _wcrtomb_r
+                0x0800fc0c       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcrtomb.o)
+                0x0800fc0c                _wcrtomb_r
  .text._wcsrtombs_r
-                0x0800fd30       0x18 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsrtombs.o)
-                0x0800fd30                _wcsrtombs_r
+                0x0800fc58       0x18 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsrtombs.o)
+                0x0800fc58                _wcsrtombs_r
  .text.__ssputs_r
-                0x0800fd48       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssputs_r.o)
-                0x0800fd48                __ssputs_r
- .text.memmove  0x0800fe08      0x100 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memmove.o)
-                0x0800fe08                memmove
+                0x0800fc70       0xc0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ssputs_r.o)
+                0x0800fc70                __ssputs_r
+ .text.memmove  0x0800fd30      0x100 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memmove.o)
+                0x0800fd30                memmove
  .text.__assert_func
-                0x0800ff08       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
-                0x0800ff08                __assert_func
+                0x0800fe30       0x40 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
+                0x0800fe30                __assert_func
  .text._calloc_r
-                0x0800ff48       0x6c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-callocr.o)
-                0x0800ff48                _calloc_r
+                0x0800fe70       0x6c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-callocr.o)
+                0x0800fe70                _calloc_r
  .text._realloc_r
-                0x0800ffb4      0x344 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reallocr.o)
-                0x0800ffb4                _realloc_r
+                0x0800fedc      0x344 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reallocr.o)
+                0x0800fedc                _realloc_r
  .text._wcsnrtombs_l
-                0x080102f8       0xfc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
-                0x080102f8                _wcsnrtombs_l
+                0x08010220       0xfc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
+                0x08010220                _wcsnrtombs_l
  .text._wcsnrtombs_r
-                0x080103f4       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
-                0x080103f4                _wcsnrtombs_r
+                0x0801031c       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wcsnrtombs.o)
+                0x0801031c                _wcsnrtombs_r
  .text.fiprintf
-                0x08010418       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fiprintf.o)
-                0x08010418                fiprintf
+                0x08010340       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fiprintf.o)
+                0x08010340                fiprintf
  .text._vfiprintf_r
-                0x08010440      0xe68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
-                0x08010440                _vfiprintf_r
+                0x08010368      0xe68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+                0x08010368                _vfiprintf_r
  .text.__sbprintf
-                0x080112a8       0x80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+                0x080111d0       0x80 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
  .text.__sprint_r
-                0x08011328       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sprint_r.o)
-                0x08011328                __sprint_r
+                0x08011250       0x20 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-sprint_r.o)
+                0x08011250                __sprint_r
  .text.__sfvwrite_r
-                0x08011348      0x300 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fvwrite.o)
-                0x08011348                __sfvwrite_r
+                0x08011270      0x300 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fvwrite.o)
+                0x08011270                __sfvwrite_r
  .text.__swsetup_r
-                0x08011648       0xc4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wsetup.o)
-                0x08011648                __swsetup_r
- .text.abort    0x0801170c       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-abort.o)
-                0x0801170c                abort
+                0x08011570       0xc4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-wsetup.o)
+                0x08011570                __swsetup_r
+ .text.abort    0x08011634       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-abort.o)
+                0x08011634                abort
  .text.__smakebuf_r
-                0x0801171c       0xdc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-makebuf.o)
-                0x0801171c                __smakebuf_r
- .text.raise    0x080117f8       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signal.o)
-                0x080117f8                raise
+                0x08011644       0xdc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-makebuf.o)
+                0x08011644                __smakebuf_r
+ .text.raise    0x08011720       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signal.o)
+                0x08011720                raise
  .text._fstat_r
-                0x08011850       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fstatr.o)
-                0x08011850                _fstat_r
+                0x08011778       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-fstatr.o)
+                0x08011778                _fstat_r
  .text._isatty_r
-                0x0801187c       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-isattyr.o)
-                0x0801187c                _isatty_r
- .text._kill_r  0x080118a0       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
-                0x080118a0                _kill_r
+                0x080117a4       0x24 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-isattyr.o)
+                0x080117a4                _isatty_r
+ .text._kill_r  0x080117c8       0x2c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
+                0x080117c8                _kill_r
  .text._getpid_r
-                0x080118cc        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
-                0x080118cc                _getpid_r
- .text.sqrt     0x080118d0       0x68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
-                0x080118d0                sqrt
- .text.asinf    0x08011938       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_asin.o)
-                0x08011938                asinf
- .text.atan2f   0x08011990        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_atan2.o)
-                0x08011990                atan2f
- .text.fabsf    0x08011994       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_fabs.o)
-                0x08011994                fabsf
- .text.nanf     0x080119a4        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_nan.o)
-                0x080119a4                nanf
+                0x080117f4        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-signalr.o)
+                0x080117f4                _getpid_r
+ .text.sqrt     0x080117f8       0x68 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
+                0x080117f8                sqrt
+ .text.asinf    0x08011860       0x58 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_asin.o)
+                0x08011860                asinf
+ .text.atan2f   0x080118b8        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_atan2.o)
+                0x080118b8                atan2f
+ .text.fabsf    0x080118bc       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_fabs.o)
+                0x080118bc                fabsf
+ .text.nanf     0x080118cc        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_nan.o)
+                0x080118cc                nanf
  .text.__ieee754_sqrt
-                0x080119b0      0x1ec C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
-                0x080119b0                __ieee754_sqrt
+                0x080118d8      0x1ec C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
+                0x080118d8                __ieee754_sqrt
  .text.__ieee754_asinf
-                0x08011b9c      0x1f8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_asin.o)
-                0x08011b9c                __ieee754_asinf
+                0x08011ac4      0x1f8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_asin.o)
+                0x08011ac4                __ieee754_asinf
  .text.__ieee754_atan2f
-                0x08011d94      0x150 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
-                0x08011d94                __ieee754_atan2f
- .text.atanf    0x08011ee4      0x1ac C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
-                0x08011ee4                atanf
+                0x08011cbc      0x150 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
+                0x08011cbc                __ieee754_atan2f
+ .text.atanf    0x08011e0c      0x1ac C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
+                0x08011e0c                atanf
  .text.__ieee754_sqrtf
-                0x08012090        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
-                0x08012090                __ieee754_sqrtf
+                0x08011fb8        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
+                0x08011fb8                __ieee754_sqrtf
  *(.glue_7)
- .glue_7        0x08012098        0x0 linker stubs
+ .glue_7        0x08011fc0        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08012098        0x0 linker stubs
+ .glue_7t       0x08011fc0        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08012098        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08011fc0        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x08012098        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x08012098                _init
- .init          0x0801209c        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08011fc0        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08011fc0                _init
+ .init          0x08011fc4        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x080120a4        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x080120a4                _fini
- .fini          0x080120a8        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x080120b0                        . = ALIGN (0x4)
-                0x080120b0                        _etext = .
+ .fini          0x08011fcc        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08011fcc                _fini
+ .fini          0x08011fd0        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x08011fd8                        . = ALIGN (0x4)
+                0x08011fd8                        _etext = .
 
-.vfp11_veneer   0x080120b0        0x0
- .vfp11_veneer  0x080120b0        0x0 linker stubs
+.vfp11_veneer   0x08011fd8        0x0
+ .vfp11_veneer  0x08011fd8        0x0 linker stubs
 
-.v4_bx          0x080120b0        0x0
- .v4_bx         0x080120b0        0x0 linker stubs
+.v4_bx          0x08011fd8        0x0
+ .v4_bx         0x08011fd8        0x0 linker stubs
 
-.iplt           0x080120b0        0x0
- .iplt          0x080120b0        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x08011fd8        0x0
+ .iplt          0x08011fd8        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x080120b0      0x6c0
-                0x080120b0                        . = ALIGN (0x4)
+.rodata         0x08011fd8      0x6c0
+                0x08011fd8                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x080120b0      0x134 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
- .rodata        0x080121e4       0x4c CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+ .rodata        0x08011fd8      0x134 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
+ .rodata        0x0801210c       0x4c CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  *(.rodata*)
  .rodata.str1.4
-                0x08012230      0x237 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
+                0x08012158      0x237 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
                                  0x7c (size before relaxing)
- *fill*         0x08012467        0x1 
+ *fill*         0x0801238f        0x1 
  .rodata.D1CorePrescTable
-                0x08012468       0x10 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/system_stm32h7xx.c.obj
-                0x08012468                D1CorePrescTable
+                0x08012390       0x10 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/system_stm32h7xx.c.obj
+                0x08012390                D1CorePrescTable
  .rodata.flagBitshiftOffset.0
-                0x08012478        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
+                0x080123a0        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj
  .rodata.DLCtoBytes
-                0x08012480       0x10 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080123a8       0x10 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  .rodata.UARTPrescTable
-                0x08012490       0x18 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
-                0x08012490                UARTPrescTable
+                0x080123b8       0x18 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj
+                0x080123b8                UARTPrescTable
  .rodata.denominator.0
-                0x080124a8        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+                0x080123d0        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
  .rodata.numerator.1
-                0x080124b0        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
+                0x080123d8        0x8 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj
  .rodata.vTaskStartScheduler.str1.4
-                0x080124b8        0x5 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x080123e0        0x5 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .rodata.write_BMI088_gyro_reg_data_error
-                0x080124b8       0x12 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj
- *fill*         0x080124ca        0x2 
+                0x080123e0       0x12 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj
+ *fill*         0x080123f2        0x2 
  .rodata.write_BMI088_accel_reg_data_error
-                0x080124cc       0x12 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj
+                0x080123f4       0x12 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/BMI088driver.c.obj
  .rodata.DEBUG_UART_TASK.str1.4
-                0x080124de        0x9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj
+                0x08012406        0x9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj
  .rodata._svfprintf_r.str1.4
-                0x080124de       0x42 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
- *fill*         0x080124de        0x2 
+                0x08012406       0x42 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
+ *fill*         0x08012406        0x2 
  .rodata.zeroes.0
-                0x080124e0       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
+                0x08012408       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
  .rodata.blanks.1
-                0x080124f0       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
+                0x08012418       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-svfprintf.o)
  .rodata.str1.4
-                0x08012500       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
+                0x08012428       0x4c C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-locale.o)
  .rodata._dtoa_r.str1.4
-                0x08012500       0x81 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
+                0x08012428       0x81 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-dtoa.o)
  .rodata.__multadd.str1.4
-                0x08012500       0x6e C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
- .rodata.p05.0  0x08012500        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
- *fill*         0x0801250c        0x4 
+                0x08012428       0x6e C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+ .rodata.p05.0  0x08012428        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+ *fill*         0x08012434        0x4 
  .rodata.__mprec_bigtens
-                0x08012510       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x08012510                __mprec_bigtens
+                0x08012438       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x08012438                __mprec_bigtens
  .rodata.__mprec_tens
-                0x08012538       0xc8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
-                0x08012538                __mprec_tens
+                0x08012460       0xc8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mprec.o)
+                0x08012460                __mprec_tens
  .rodata._ctype_
-                0x08012600      0x101 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ctype_.o)
-                0x08012600                _ctype_
+                0x08012528      0x101 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-ctype_.o)
+                0x08012528                _ctype_
  .rodata.__assert_func.str1.4
-                0x08012701       0x43 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
+                0x08012629       0x43 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-assert.o)
  .rodata._vfiprintf_r.str1.4
-                0x08012701       0x2f C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
- *fill*         0x08012701        0x3 
+                0x08012629       0x2f C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+ *fill*         0x08012629        0x3 
  .rodata.zeroes.0
-                0x08012704       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+                0x0801262c       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
  .rodata.blanks.1
-                0x08012714       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
+                0x0801263c       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-vfiprintf.o)
  .rodata.asinf.str1.4
-                0x08012724        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_asin.o)
- *fill*         0x08012724        0x4 
- .rodata.tiny   0x08012728        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
- .rodata.one    0x08012730        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
+                0x0801264c        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_asin.o)
+ *fill*         0x0801264c        0x4 
+ .rodata.tiny   0x08012650        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
+ .rodata.one    0x08012658        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  .rodata.CSWTCH.9
-                0x08012738        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
+                0x08012660        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
  .rodata.CSWTCH.8
-                0x08012744        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
+                0x0801266c        0xc C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_atan2.o)
  .rodata.atanlo
-                0x08012750       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
+                0x08012678       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
  .rodata.atanhi
-                0x08012760       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
-                0x08012770                        . = ALIGN (0x4)
+                0x08012688       0x10 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a(libm_a-sf_atan.o)
+                0x08012698                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08012770        0x8
-                0x08012770                        __exidx_start = .
+.ARM            0x08012698        0x8
+                0x08012698                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08012770        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memcpy.o)
- .ARM.exidx     0x08012778        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memchr.o)
+ .ARM.exidx     0x08012698        0x8 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memcpy.o)
+ .ARM.exidx     0x080126a0        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-memchr.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x08012778        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strlen.o)
+ .ARM.exidx     0x080126a0        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-strlen.o)
                                   0x8 (size before relaxing)
  .ARM.exidx.text.__udivmoddi4
-                0x08012778        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x080126a0        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x08012778                        __exidx_end = .
+                0x080126a0                        __exidx_end = .
 
-.preinit_array  0x08012778        0x0
-                0x08012778                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080126a0        0x0
+                0x080126a0                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08012778                        PROVIDE (__preinit_array_end = .)
+                0x080126a0                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08012778        0x8
-                0x08012778                        PROVIDE (__init_array_start = .)
+.init_array     0x080126a0        0x8
+                0x080126a0                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x08012778        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
+                0x080126a0        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0801277c        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08012780                        PROVIDE (__init_array_end = .)
+ .init_array    0x080126a4        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080126a8                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x08012780        0x4
-                0x08012780                        PROVIDE (__fini_array_start = .)
+.fini_array     0x080126a8        0x4
+                0x080126a8                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08012780        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08012784                        PROVIDE (__fini_array_end = .)
-                0x08012784                        _sidata = LOADADDR (.data)
+ .fini_array    0x080126a8        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080126ac                        PROVIDE (__fini_array_end = .)
+                0x080126ac                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x08012784        0x0
- .rel.iplt      0x08012784        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080126ac        0x0
+ .rel.iplt      0x080126ac        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x24000000      0x74c load address 0x08012784
+.data           0x24000000      0x74c load address 0x080126ac
                 0x24000000                        . = ALIGN (0x4)
                 0x24000000                        _sdata = .
  *(.data)
@@ -4443,17 +4444,17 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
                 0x2400074c                        _edata = .
 
 .tm_clone_table
-                0x2400074c        0x0 load address 0x08012ed0
+                0x2400074c        0x0 load address 0x08012df8
  .tm_clone_table
                 0x2400074c        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x2400074c        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x2400074c        0x0 load address 0x08012ed0
+.igot.plt       0x2400074c        0x0 load address 0x08012df8
  .igot.plt      0x2400074c        0x0 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x2400074c                        . = ALIGN (0x4)
 
-.bss            0x24000750     0x8990 load address 0x08012ed0
+.bss            0x24000750     0x898c load address 0x08012df8
                 0x24000750                        _sbss = .
                 0x24000750                        __bss_start__ = _sbss
  *(.bss)
@@ -4524,252 +4525,247 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .bss.FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT
                 0x24000d20        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
                 0x24000d20                FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT
- .bss.FRICTION_WHEEL_3508_ID2_GIVEN_SPEED
-                0x24000d22        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d22                FRICTION_WHEEL_3508_ID2_GIVEN_SPEED
  .bss.FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT
-                0x24000d24        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d24                FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT
- .bss.FRICTION_WHEEL_3508_ID1_GIVEN_SPEED
-                0x24000d26        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d26                FRICTION_WHEEL_3508_ID1_GIVEN_SPEED
+                0x24000d22        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d22                FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT
  .bss.PITCH_6020_ID2_GIVEN_CURRENT
-                0x24000d28        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d28                PITCH_6020_ID2_GIVEN_CURRENT
- *fill*         0x24000d2a        0x2 
+                0x24000d24        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d24                PITCH_6020_ID2_GIVEN_CURRENT
+ *fill*         0x24000d26        0x2 
  .bss.PITCH_6020_ID2_GIVEN_SPEED
-                0x24000d2c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d2c                PITCH_6020_ID2_GIVEN_SPEED
+                0x24000d28        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d28                PITCH_6020_ID2_GIVEN_SPEED
  .bss.PITCH_6020_ID2_GIVEN_ANGLE
-                0x24000d30        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d30                PITCH_6020_ID2_GIVEN_ANGLE
+                0x24000d2c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d2c                PITCH_6020_ID2_GIVEN_ANGLE
  .bss.YAW_6020_ID1_GIVEN_ANGLE
-                0x24000d34        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d34                YAW_6020_ID1_GIVEN_ANGLE
+                0x24000d30        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d30                YAW_6020_ID1_GIVEN_ANGLE
  .bss.YAW_6020_ID1_GIVEN_CURRENT
-                0x24000d38        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d38                YAW_6020_ID1_GIVEN_CURRENT
- *fill*         0x24000d3a        0x2 
+                0x24000d34        0x2 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d34                YAW_6020_ID1_GIVEN_CURRENT
+ *fill*         0x24000d36        0x2 
  .bss.YAW_6020_ID1_GIVEN_SPEED
-                0x24000d3c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d3c                YAW_6020_ID1_GIVEN_SPEED
+                0x24000d38        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d38                YAW_6020_ID1_GIVEN_SPEED
  .bss.INS_degree
-                0x24000d40        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d40                INS_degree
+                0x24000d3c        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d3c                INS_degree
  .bss.INS_angle
-                0x24000d4c        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d4c                INS_angle
- .bss.temp      0x24000d58        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d58                temp
- .bss.accel     0x24000d5c        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d5c                accel
- .bss.gyro      0x24000d68        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
-                0x24000d68                gyro
+                0x24000d48        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d48                INS_angle
+ .bss.temp      0x24000d54        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d54                temp
+ .bss.accel     0x24000d58        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d58                accel
+ .bss.gyro      0x24000d64        0xc CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj
+                0x24000d64                gyro
  .bss.hdma_spi2_tx
-                0x24000d74       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
-                0x24000d74                hdma_spi2_tx
+                0x24000d70       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
+                0x24000d70                hdma_spi2_tx
  .bss.hdma_spi2_rx
-                0x24000dec       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
-                0x24000dec                hdma_spi2_rx
- .bss.hspi6     0x24000e64       0x88 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
-                0x24000e64                hspi6
- .bss.hspi2     0x24000eec       0x88 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
-                0x24000eec                hspi2
- .bss.htim7     0x24000f74       0x4c CMakeFiles/dm_h723_lib.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
-                0x24000f74                htim7
+                0x24000de8       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
+                0x24000de8                hdma_spi2_rx
+ .bss.hspi6     0x24000e60       0x88 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
+                0x24000e60                hspi6
+ .bss.hspi2     0x24000ee8       0x88 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/spi.c.obj
+                0x24000ee8                hspi2
+ .bss.htim7     0x24000f70       0x4c CMakeFiles/dm_h723_lib.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
+                0x24000f70                htim7
  .bss.__sbrk_heap_end
-                0x24000fc0        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/sysmem.c.obj
+                0x24000fbc        0x4 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/sysmem.c.obj
  .bss.hdma_uart7_rx
-                0x24000fc4       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x24000fc4                hdma_uart7_rx
+                0x24000fc0       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x24000fc0                hdma_uart7_rx
  .bss.hdma_uart5_rx
-                0x2400103c       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x2400103c                hdma_uart5_rx
- .bss.huart10   0x240010b4       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x240010b4                huart10
- .bss.huart1    0x24001148       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x24001148                huart1
- .bss.huart7    0x240011dc       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x240011dc                huart7
- .bss.huart5    0x24001270       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
-                0x24001270                huart5
- .bss.uwTick    0x24001304        0x4 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x24001304                uwTick
+                0x24001038       0x78 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x24001038                hdma_uart5_rx
+ .bss.huart10   0x240010b0       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x240010b0                huart10
+ .bss.huart1    0x24001144       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x24001144                huart1
+ .bss.huart7    0x240011d8       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x240011d8                huart7
+ .bss.huart5    0x2400126c       0x94 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/usart.c.obj
+                0x2400126c                huart5
+ .bss.uwTick    0x24001300        0x4 CMakeFiles/dm_h723_lib.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x24001300                uwTick
  .bss.ulMaxPRIGROUPValue
-                0x24001308        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x24001304        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
  .bss.ucMaxSysCallPriority
-                0x2400130c        0x1 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- *fill*         0x2400130d        0x3 
+                0x24001308        0x1 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ *fill*         0x24001309        0x3 
  .bss.xBlockAllocatedBit
-                0x24001310        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x2400130c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xNumberOfSuccessfulFrees
-                0x24001314        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x24001310        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xNumberOfSuccessfulAllocations
-                0x24001318        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x24001314        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xMinimumEverFreeBytesRemaining
-                0x2400131c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x24001318        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xFreeBytesRemaining
-                0x24001320        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .bss.pxEnd     0x24001324        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .bss.xStart    0x24001328        0x8 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .bss.ucHeap    0x24001330     0x7530 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x2400131c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .bss.pxEnd     0x24001320        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .bss.xStart    0x24001324        0x8 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .bss.ucHeap    0x2400132c     0x7530 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.uxSchedulerSuspended
-                0x24008860        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x2400885c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xIdleTaskHandle
-                0x24008864        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008860        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xNextTaskUnblockTime
-                0x24008868        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008864        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxTaskNumber
-                0x2400886c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008868        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xNumOfOverflows
-                0x24008870        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x2400886c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xYieldPending
-                0x24008874        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008870        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xPendedTicks
-                0x24008878        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008874        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xSchedulerRunning
-                0x2400887c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008878        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxTopReadyPriority
-                0x24008880        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x2400887c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xTickCount
-                0x24008884        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008880        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxCurrentNumberOfTasks
-                0x24008888        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008884        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xSuspendedTaskList
-                0x2400888c       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008888       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxDeletedTasksWaitingCleanUp
-                0x240088a0        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x2400889c        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xTasksWaitingTermination
-                0x240088a4       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088a0       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xPendingReadyList
-                0x240088b8       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088b4       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxOverflowDelayedTaskList
-                0x240088cc        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088c8        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxDelayedTaskList
-                0x240088d0        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088cc        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xDelayedTaskList2
-                0x240088d4       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088d0       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xDelayedTaskList1
-                0x240088e8       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088e4       0x14 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxReadyTasksLists
-                0x240088fc       0x8c CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x240088f8       0x8c CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxCurrentTCB
-                0x24008988        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x24008988                pxCurrentTCB
+                0x24008984        0x4 CMakeFiles/dm_h723_lib.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x24008984                pxCurrentTCB
  .bss.auto_aim_rx_index
-                0x2400898c        0x1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+                0x24008988        0x1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
  .bss.auto_aim_rx_state
-                0x2400898d        0x1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
- *fill*         0x2400898e        0x2 
+                0x24008989        0x1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+ *fill*         0x2400898a        0x2 
  .bss.tx_buffer
-                0x24008990       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+                0x2400898c       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
  .bss.auto_aim_rx_buffer
-                0x240089a0       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+                0x2400899c       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
  .bss.auto_aim_tx_packet
-                0x240089b0       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
-                0x240089b0                auto_aim_tx_packet
+                0x240089ac       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+                0x240089ac                auto_aim_tx_packet
  .bss.auto_aim_rx_packet
-                0x240089c0       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
-                0x240089c0                auto_aim_rx_packet
+                0x240089bc       0x10 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/AUTO_AIM_TASK.c.obj
+                0x240089bc                auto_aim_rx_packet
  .bss.motor_can2_data
-                0x240089d0       0x46 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
-                0x240089d0                motor_can2_data
- *fill*         0x24008a16        0x2 
+                0x240089cc       0x46 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
+                0x240089cc                motor_can2_data
+ *fill*         0x24008a12        0x2 
  .bss.motor_can1_data
-                0x24008a18       0x46 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
-                0x24008a18                motor_can1_data
- *fill*         0x24008a5e        0x2 
- .bss.rcData    0x24008a60       0x1c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj
-                0x24008a60                rcData
+                0x24008a14       0x46 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
+                0x24008a14                motor_can1_data
+ *fill*         0x24008a5a        0x2 
+ .bss.rcData    0x24008a5c       0x1c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj
+                0x24008a5c                rcData
  .bss.friction_wheel_3510_ID2_speed_pid
-                0x24008a7c       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008a7c                friction_wheel_3510_ID2_speed_pid
+                0x24008a78       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008a78                friction_wheel_3510_ID2_speed_pid
  .bss.friction_wheel_3510_ID1_speed_pid
-                0x24008ac4       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008ac4                friction_wheel_3510_ID1_speed_pid
+                0x24008ac0       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008ac0                friction_wheel_3510_ID1_speed_pid
  .bss.pitch_6020_ID2_angle_pid
-                0x24008b0c       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008b0c                pitch_6020_ID2_angle_pid
+                0x24008b08       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008b08                pitch_6020_ID2_angle_pid
  .bss.pitch_6020_ID2_speed_pid
-                0x24008b54       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008b54                pitch_6020_ID2_speed_pid
+                0x24008b50       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008b50                pitch_6020_ID2_speed_pid
  .bss.yaw_6020_ID1_angle_pid
-                0x24008b9c       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008b9c                yaw_6020_ID1_angle_pid
+                0x24008b98       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008b98                yaw_6020_ID1_angle_pid
  .bss.yaw_6020_ID1_speed_pid
-                0x24008be4       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
-                0x24008be4                yaw_6020_ID1_speed_pid
+                0x24008be0       0x48 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+                0x24008be0                yaw_6020_ID1_speed_pid
  .bss.imu_data_from_board_BMI088_mahony
-                0x24008c2c       0x24 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
-                0x24008c2c                imu_data_from_board_BMI088_mahony
+                0x24008c28       0x24 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+                0x24008c28                imu_data_from_board_BMI088_mahony
  .bss.integralFBz
-                0x24008c50        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x24008c50                integralFBz
+                0x24008c4c        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x24008c4c                integralFBz
  .bss.integralFBy
-                0x24008c54        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x24008c54                integralFBy
+                0x24008c50        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x24008c50                integralFBy
  .bss.integralFBx
-                0x24008c58        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x24008c58                integralFBx
- .bss.twoKi     0x24008c5c        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
-                0x24008c5c                twoKi
+                0x24008c54        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x24008c54                integralFBx
+ .bss.twoKi     0x24008c58        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+                0x24008c58                twoKi
  .bss.DM4340_01
-                0x24008c60       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
-                0x24008c60                DM4340_01
+                0x24008c5c       0x28 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
+                0x24008c5c                DM4340_01
  .bss.dbus_remoter
-                0x24008c88       0x18 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
-                0x24008c88                dbus_remoter
+                0x24008c84       0x18 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+                0x24008c84                dbus_remoter
  .bss.rx_dbus_buff
-                0x24008ca0       0x24 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
-                0x24008ca0                rx_dbus_buff
- .bss.len.6     0x24008cc4        0x2 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
- *fill*         0x24008cc6        0x2 
- .bss.tx_buf.7  0x24008cc8      0x100 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
- .bss.ap.8      0x24008dc8        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
- .bss.__sf      0x24008dcc      0x138 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
-                0x24008dcc                __sf
+                0x24008c9c       0x24 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+                0x24008c9c                rx_dbus_buff
+ .bss.len.6     0x24008cc0        0x2 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+ *fill*         0x24008cc2        0x2 
+ .bss.tx_buf.7  0x24008cc4      0x100 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+ .bss.ap.8      0x24008dc4        0x4 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+ .bss.__sf      0x24008dc8      0x138 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x24008dc8                __sf
  .bss.__stdio_exit_handler
-                0x24008f04        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
-                0x24008f04                __stdio_exit_handler
- .bss.errno     0x24008f08        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
-                0x24008f08                errno
+                0x24008f00        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-findfp.o)
+                0x24008f00                __stdio_exit_handler
+ .bss.errno     0x24008f04        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-reent.o)
+                0x24008f04                errno
  .bss.__lock___malloc_recursive_mutex
-                0x24008f0c        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x24008f0c                __lock___malloc_recursive_mutex
- *fill*         0x24008f0d        0x3 
+                0x24008f08        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x24008f08                __lock___malloc_recursive_mutex
+ *fill*         0x24008f09        0x3 
  .bss.__lock___atexit_recursive_mutex
-                0x24008f10        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x24008f10                __lock___atexit_recursive_mutex
- *fill*         0x24008f11        0x3 
+                0x24008f0c        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x24008f0c                __lock___atexit_recursive_mutex
+ *fill*         0x24008f0d        0x3 
  .bss.__lock___sfp_recursive_mutex
-                0x24008f14        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
-                0x24008f14                __lock___sfp_recursive_mutex
- *fill*         0x24008f15        0x3 
- .bss.__atexit  0x24008f18        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
-                0x24008f18                __atexit
+                0x24008f10        0x1 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-lock.o)
+                0x24008f10                __lock___sfp_recursive_mutex
+ *fill*         0x24008f11        0x3 
+ .bss.__atexit  0x24008f14        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__call_atexit.o)
+                0x24008f14                __atexit
  .bss.__malloc_current_mallinfo
-                0x24008f1c       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
-                0x24008f1c                __malloc_current_mallinfo
+                0x24008f18       0x28 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+                0x24008f18                __malloc_current_mallinfo
  .bss.__malloc_max_total_mem
-                0x24008f44        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
-                0x24008f44                __malloc_max_total_mem
+                0x24008f40        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+                0x24008f40                __malloc_max_total_mem
  .bss.__malloc_max_sbrked_mem
-                0x24008f48        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
-                0x24008f48                __malloc_max_sbrked_mem
+                0x24008f44        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+                0x24008f44                __malloc_max_sbrked_mem
  .bss.__malloc_top_pad
-                0x24008f4c        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
-                0x24008f4c                __malloc_top_pad
+                0x24008f48        0x4 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-mallocr.o)
+                0x24008f48                __malloc_top_pad
  .bss.__atexit0
-                0x24008f50      0x190 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
-                0x24008f50                __atexit0
+                0x24008f4c      0x190 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libg.a(libc_a-__atexit.o)
+                0x24008f4c                __atexit0
  *(COMMON)
-                0x240090e0                        . = ALIGN (0x4)
-                0x240090e0                        _ebss = .
-                0x240090e0                        __bss_end__ = _ebss
+                0x240090dc                        . = ALIGN (0x4)
+                0x240090dc                        _ebss = .
+                0x240090dc                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x240090e0      0x600 load address 0x08012ed0
+                0x240090dc      0x604 load address 0x08012df8
                 0x240090e0                        . = ALIGN (0x8)
+ *fill*         0x240090dc        0x4 
                 [!provide]                        PROVIDE (end = .)
                 0x240090e0                        PROVIDE (_end = .)
                 0x240092e0                        . = (. + _Min_Heap_Size)
@@ -5042,7 +5038,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
 LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x38657
+.debug_info     0x00000000    0x38645
  .debug_info    0x00000000      0x8d3 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/dma.c.obj
  .debug_info    0x000008d3     0x1851 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/fdcan.c.obj
  .debug_info    0x00002124     0x1013 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
@@ -5084,19 +5080,19 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_info    0x00030874      0xb15 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
  .debug_info    0x00031389      0x23a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj
  .debug_info    0x000315c3      0x36f CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj
- .debug_info    0x00031932      0xb72 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
- .debug_info    0x000324a4      0x357 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
- .debug_info    0x000327fb      0x20c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
- .debug_info    0x00032a07      0x721 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
- .debug_info    0x00033128      0x311 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
- .debug_info    0x00033439      0xb0c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
- .debug_info    0x00033f45      0xcd9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
- .debug_info    0x00034c1e     0x1316 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
- .debug_info    0x00035f34      0x25f CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
- .debug_info    0x00036193      0x9e2 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_info    0x00036b75      0x824 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_info    0x00037399      0x9e5 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_info    0x00037d7e      0x8d9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
+ .debug_info    0x00031932      0xb60 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .debug_info    0x00032492      0x357 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+ .debug_info    0x000327e9      0x20c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
+ .debug_info    0x000329f5      0x721 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+ .debug_info    0x00033116      0x311 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
+ .debug_info    0x00033427      0xb0c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
+ .debug_info    0x00033f33      0xcd9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
+ .debug_info    0x00034c0c     0x1316 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
+ .debug_info    0x00035f22      0x25f CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
+ .debug_info    0x00036181      0x9e2 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_info    0x00036b63      0x824 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_info    0x00037387      0x9e5 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_info    0x00037d6c      0x8d9 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
 
 .debug_abbrev   0x00000000     0x7134
  .debug_abbrev  0x00000000      0x13b CMakeFiles/dm_h723_lib.elf.dir/Core/Src/dma.c.obj
@@ -5375,7 +5371,7 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_rnglists
                 0x00001985       0x14 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
 
-.debug_line     0x00000000    0x28832
+.debug_line     0x00000000    0x28830
  .debug_line    0x00000000      0x244 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/dma.c.obj
  .debug_line    0x00000244      0x85b CMakeFiles/dm_h723_lib.elf.dir/Core/Src/fdcan.c.obj
  .debug_line    0x00000a9f      0x5af CMakeFiles/dm_h723_lib.elf.dir/Core/Src/freertos.c.obj
@@ -5417,19 +5413,19 @@ LOAD C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-e
  .debug_line    0x000246d4      0x3db CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DJI_motors.c.obj
  .debug_line    0x00024aaf      0x2cb CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj
  .debug_line    0x00024d7a      0x2d8 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GET_RC_TASK.c.obj
- .debug_line    0x00025052      0x658 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
- .debug_line    0x000256aa      0x344 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
- .debug_line    0x000259ee      0x22f CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
- .debug_line    0x00025c1d      0x78c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
- .debug_line    0x000263a9      0x2c1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
- .debug_line    0x0002666a      0x41c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
- .debug_line    0x00026a86      0x436 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
- .debug_line    0x00026ebc      0x783 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
- .debug_line    0x0002763f      0x32a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
- .debug_line    0x00027969      0x457 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
- .debug_line    0x00027dc0      0x33a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
- .debug_line    0x000280fa      0x3a5 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
- .debug_line    0x0002849f      0x393 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
+ .debug_line    0x00025052      0x656 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj
+ .debug_line    0x000256a8      0x344 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/IMU_DATA_GET.c.obj
+ .debug_line    0x000259ec      0x22f CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/LED_TASK.c.obj
+ .debug_line    0x00025c1b      0x78c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj
+ .debug_line    0x000263a7      0x2c1 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj
+ .debug_line    0x00026668      0x41c CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj
+ .debug_line    0x00026a84      0x436 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj
+ .debug_line    0x00026eba      0x783 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj
+ .debug_line    0x0002763d      0x32a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj
+ .debug_line    0x00027967      0x457 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj
+ .debug_line    0x00027dbe      0x33a CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj
+ .debug_line    0x000280f8      0x3a5 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_printf.c.obj
+ .debug_line    0x0002849d      0x393 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ws2812.c.obj
 
 .debug_str      0x00000000     0xc922
  .debug_str     0x00000000     0xc922 CMakeFiles/dm_h723_lib.elf.dir/Core/Src/dma.c.obj

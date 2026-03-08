@@ -122,7 +122,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
                 case 0x207:
                 {
                     uint8_t i = rx_header.Identifier - 0x201;
-                    get_motor_measure(&motor_can2_data[i], rx_data);
+                    get_motor_measure(&motor_can3_data[i], rx_data);
                     break;
                 }
                 case 0xBC:

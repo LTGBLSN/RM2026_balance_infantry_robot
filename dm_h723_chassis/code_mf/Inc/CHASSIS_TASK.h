@@ -66,7 +66,7 @@ extern uint32_t time_chassis ;
 #define CHASSIS_DM8009_04_ANGLE_PID_KD   0.0f
 
 
-#define LEG_PID_OUT_MAX  600.0f//注意这里要跟前馈配合
+#define LEG_PID_OUT_MAX  1000.0f//注意这里要跟前馈配合
 #define LEG_PID_KI_MAX   0.0f
 
 
@@ -123,14 +123,14 @@ extern uint32_t time_chassis ;
 #define LEG_BIG_LENGTH   0.2100f            //大腿长单位（m）
 #define WHEEL_RADIUS     0.06f             //轮毂半径,单位(m)
 #define MAX_VIRTUAL_LEG_LENGTH 0.38655f     //虚拟腿最大长度单位（m）
-#define MIN_VIRTUAL_LEG_LENGTH 0.15969f     //虚拟腿最小长度单位（m）
+#define MIN_VIRTUAL_LEG_LENGTH 0.17f     //虚拟腿最小长度单位（m）0.15969f为机械准确参数
 #define REDUCTION_RATIO (268.0f/17.0f)      //轮毂电机减速比
 #define motor_max_torque (3.0f/19.0f)       //裸电机最大扭矩单位（N·m）
 #define MOTOR_MAX_TORQUE (motor_max_torque * REDUCTION_RATIO) // 最大扭矩
 
 
 #define DJI3508_MAX_CMD 16384.0f                    // 控制器满量程16384
-#define DM8009_MAX_TOR 20.0f                        // 54.0f
+#define DM8009_MAX_TOR 40.0f                        // 54.0f
 
 //#define MOTOR_GIVE_TORQUE_KP (DJI3508_MAX_CMD / MOTOR_MAX_TORQUE) // 扭矩系数转换
 #define MOTOR_GIVE_TORQUE_KP (1.0f/0.00042063763f) // 扭矩系数转换
@@ -142,7 +142,18 @@ extern uint32_t time_chassis ;
 
 #define CHASSIS_VX_MAX_SPEED 1.0f //最大速度 单位m/s
 
-#define LEG_GOAL_CONTROL_KP 0.0000001f //遥控器控制腿长系数
+#define LEG_GOAL_CONTROL_KP 0.0000003f //遥控器控制腿长系数
+
+#define JUMP_TOR 200.0f //跳跃时的推力
+
+#define GROUND_FORCE_THRESHOLD 40.0f   // 离地阈值,离地力矩判定
+
+#define FLY_YES 1
+#define FLY_NO 0
+
+#define ONLY_THETA 0
+#define THETA_AND_WHEEL 1
+
 
 
 struct chassis_lqr_state_input {
@@ -182,6 +193,9 @@ struct leg_parameter {
 
     float tor7;         // 电机7目标力矩
     float tor2;         // 电机2目标力矩
+
+    float support_force; //支撑力
+    float fly_state ; // 0 着地 1 离地
 };
 
 
@@ -214,7 +228,10 @@ float chassis_two_leg_pid_loop(float chassis_two_leg_set_loop);
 
 void wheel_tor_limit(float left_wheel_tor, float right_wheel_tor);
 
-void update_LQR_K(float t3 ,float t2 ,float t1);
+void fly_state_compute();
+void fly_state_logic_judgment(void);
+
+void update_LQR_K(float t3 ,float t2 ,float t1 );
 float wheel_calculate_lqr_control_loop(struct chassis_lqr_state_input state);
 float leg_calculate_lqr_control_loop(struct chassis_lqr_state_input state);
 

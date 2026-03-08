@@ -29,6 +29,9 @@
 #define ERR_STOP 0
 #define NORMAL_ON 1
 
+#define NO_JUMP 0
+#define YES_JUMP 1
+
 void shoot_stop_check();
 void shoot_pid_control();
 

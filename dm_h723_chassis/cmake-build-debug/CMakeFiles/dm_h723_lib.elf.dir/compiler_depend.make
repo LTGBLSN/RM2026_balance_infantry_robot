@@ -2666,6 +2666,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj: D:/RoboMaster_git
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DM_IMU.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/GET_RC_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/IMU_DATA_GET.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/SHOOT_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/dm_motor.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/pid.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h

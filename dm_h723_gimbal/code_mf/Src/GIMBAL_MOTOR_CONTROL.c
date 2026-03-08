@@ -34,8 +34,8 @@ void GIMBAL_MOTOR_CONTROL()
         motor_gimbal_pid_compute();//云台pid计算
 
 
-        friction_wheel_speed_control();//摩擦轮速度计算
-        friction_wheel_pid_control();//摩擦轮pid计算
+//        friction_wheel_speed_control();//摩擦轮速度计算
+//        friction_wheel_pid_control();//摩擦轮pid计算
 
         osDelay(1);
     }

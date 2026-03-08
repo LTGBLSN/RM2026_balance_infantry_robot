@@ -12,7 +12,7 @@
 
 motor_measure_t motor_can1_data[7];
 motor_measure_t motor_can2_data[7];
-
+motor_measure_t motor_can3_data[7];
 
 
 void FDCAN_DJI_motors(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4, uint16_t id, uint8_t can_channel)

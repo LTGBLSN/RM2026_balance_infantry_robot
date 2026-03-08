@@ -29,12 +29,12 @@ void DEBUG_UART_TASK()
 //                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
 //                      );
 
-//        usart1_printf("%f,%f,%f,%f \r\n",
-//                      left_leg_joint_2_leg_parameters.tor2,
-//                      left_leg_joint_2_leg_parameters.tor7,
-//                      right_leg_joint_2_leg_parameters.tor2,
-//                      right_leg_joint_2_leg_parameters.tor7
-//                      );
+        usart1_printf("%f,%f,%f,%f \r\n",
+                      left_leg_joint_2_leg_parameters.support_force,
+                      left_leg_joint_2_leg_parameters.fly_state,
+                      right_leg_joint_2_leg_parameters.support_force,
+                      right_leg_joint_2_leg_parameters.fly_state
+                      );
 
 //        usart1_printf("%f,%f,%f \r\n",
 //                      YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f),
@@ -55,9 +55,9 @@ void DEBUG_UART_TASK()
 //                      e4,
 //                      e5
 //                      );
-        usart1_printf("%f,%f \r\n",
-                      left_leg_joint_2_leg_parameters.goal_virtual_leg_length,
-                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length);
+//        usart1_printf("%f,%f \r\n",
+//                      left_leg_joint_2_leg_parameters.goal_virtual_leg_length,
+//                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length);
 
 
 
