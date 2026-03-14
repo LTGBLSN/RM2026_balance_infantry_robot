@@ -92,7 +92,7 @@ void CHASSIS_TASK()
         //底盘yaw转向环
         chassis_follow_gimbal_given_speed = -gimbal_follow_pid_loop(GIMBAL_MID_ANGLE);
         chassis_yaw_turn_corrent = chassis_yaw_pid_loop(chassis_follow_gimbal_given_speed);
-//        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f));
+//        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[2]/660.0f));
 
         //轮子lqr计算
         wheel_torque_LQR_compute_loop();
@@ -285,7 +285,7 @@ void wheel_torque_LQR_compute_loop()
 {
     if((rcData.rc.s[0]) == 1)
     {
-        if(left_leg_joint_2_leg_parameters.fly_state == FLY_YES)
+        if(left_leg_joint_2_leg_parameters.fly_state == FLY_YES || rcData.rc.ch[4] > 200 || rcData.rc.ch[4] < -200)//这里写的上台阶
         {
             left_wheel_tor_compute = 0.0f ;
             chassis_LQR_compute_left_finial_state.chassis_move_x_m = 0.0f ;
@@ -297,7 +297,7 @@ void wheel_torque_LQR_compute_loop()
                     -(MATLAB_CHASSIS * MOTOR_GIVE_TORQUE_KP * wheel_calculate_lqr_control_loop(chassis_LQR_compute_left_finial_state)) + chassis_yaw_turn_corrent;
         }
 
-        if(right_leg_joint_2_leg_parameters.fly_state == FLY_YES)
+        if(right_leg_joint_2_leg_parameters.fly_state == FLY_YES || rcData.rc.ch[4] > 200 || rcData.rc.ch[4] < -200)//这里写的上台阶
         {
             right_wheel_tor_compute = 0.0f ;
             chassis_LQR_compute_right_finial_state.chassis_move_x_m = 0.0f ;
@@ -497,8 +497,46 @@ void get_leg_velocity()
 
 void virtual_leg_goal_compute()
 {
-    left_leg_joint_2_leg_parameters.goal_virtual_leg_length = left_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_CONTROL_KP;
-    right_leg_joint_2_leg_parameters.goal_virtual_leg_length = right_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_CONTROL_KP;
+    if(rcData.rc.ch[4] > 200)
+    {
+        if( left_leg_joint_2_leg_parameters.virtual_leg_angle_047  >  (M_PI - (M_PI_2/2.0f) ) )
+        {
+            left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+        }
+        else
+        {
+            left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MAX_VIRTUAL_LEG_LENGTH ;
+        }
+
+        if( right_leg_joint_2_leg_parameters.virtual_leg_angle_047  >  (M_PI - (M_PI_2/2.0f) ) )
+        {
+            right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH;
+        }
+        else
+        {
+            right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MAX_VIRTUAL_LEG_LENGTH ;
+        }
+
+
+    }
+    else if(rcData.rc.ch[4] < -200)
+    {
+//        left_leg_joint_2_leg_parameters.goal_virtual_leg_length = left_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_RC_CONTROL_KP;
+//        right_leg_joint_2_leg_parameters.goal_virtual_leg_length = right_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_RC_CONTROL_KP;
+        left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+        right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH;
+    }
+    else
+    {
+        if(rcData.rc.s[1] == 1)
+        {
+            left_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+            right_leg_joint_2_leg_parameters.goal_virtual_leg_length = MIN_VIRTUAL_LEG_LENGTH ;
+        }
+        left_leg_joint_2_leg_parameters.goal_virtual_leg_length = left_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_RC_CONTROL_KP;
+        right_leg_joint_2_leg_parameters.goal_virtual_leg_length = right_leg_joint_2_leg_parameters.goal_virtual_leg_length + (float )rcData.rc.ch[0] * LEG_GOAL_RC_CONTROL_KP;
+    }
+
 
     if(left_leg_joint_2_leg_parameters.goal_virtual_leg_length > MAX_VIRTUAL_LEG_LENGTH)
     {
@@ -532,7 +570,7 @@ void virtual_leg_give_tor_compute()
 
         right_leg_joint_2_leg_parameters.virtual_leg_give_tor = JUMP_TOR ;
 
-        JUMP_STATE = YES_JUMP ;
+
     }
     else
     {
@@ -546,7 +584,7 @@ void virtual_leg_give_tor_compute()
 
     if(rcData.rc.s[1] == 2)
     {
-        JUMP_STATE = NO_JUMP ;
+
     }
 
 }
@@ -556,9 +594,18 @@ void leg_torque_47_compute()
 {
     if(rcData.rc.s[0] == 1)
     {
-
-        leg_torque_LQR_compute_loop();
-
+        if(rcData.rc.ch[4] > 200)
+        {
+            leg_torque_47_pid_loop();
+        }
+        else if(rcData.rc.ch[4] < -200)
+        {
+            leg_torque_47_pid_loop();
+        }
+        else
+        {
+            leg_torque_LQR_compute_loop();
+        }
     }
     else
     {
@@ -571,7 +618,16 @@ void leg_torque_47_compute()
 
 void leg_torque_47_pid_loop()
 {
-    float virtual_leg_target_angle47 = M_PI_2 ;
+    float virtual_leg_target_angle47 ;
+
+    if(rcData.rc.ch[4] > 200)
+    {
+        virtual_leg_target_angle47 = M_PI ;
+    }
+    else
+    {
+        virtual_leg_target_angle47 = M_PI_2 ;
+    }
 
     left_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = left_leg_target_angle47_pid_loop(virtual_leg_target_angle47) ;
     right_leg_joint_2_leg_parameters.virtual_joint_theta47_tor = right_leg_target_angle47_pid_loop(virtual_leg_target_angle47) ;
@@ -752,7 +808,10 @@ void fly_state_compute()
     // 这里调用下一步的判定函数
     if(rcData.rc.s[0] != 2)
     {
+        //离地检测标志位改变
         fly_state_logic_judgment();
+//        left_leg_joint_2_leg_parameters.fly_state = FLY_NO; // 着地
+//        right_leg_joint_2_leg_parameters.fly_state = FLY_NO; // 着地
     }
 
 }

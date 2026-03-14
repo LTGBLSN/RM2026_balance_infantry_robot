@@ -29,11 +29,8 @@ void DEBUG_UART_TASK()
 //                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
 //                      );
 
-        usart1_printf("%f,%f,%f,%f \r\n",
-                      left_leg_joint_2_leg_parameters.support_force,
-                      left_leg_joint_2_leg_parameters.fly_state,
-                      right_leg_joint_2_leg_parameters.support_force,
-                      right_leg_joint_2_leg_parameters.fly_state
+        usart1_printf("%d \r\n",
+                      rcData.rc.ch[4]
                       );
 
 //        usart1_printf("%f,%f,%f \r\n",

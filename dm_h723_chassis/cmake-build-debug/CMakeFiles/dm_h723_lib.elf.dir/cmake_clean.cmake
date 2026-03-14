@@ -120,6 +120,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/MahonyAHRS.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.obj.d"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/UP_STAIRS_TASK.c.obj"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/UP_STAIRS_TASK.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/bsp_can.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj"

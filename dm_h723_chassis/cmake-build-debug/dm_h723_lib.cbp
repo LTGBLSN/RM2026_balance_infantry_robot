@@ -598,6 +598,9 @@
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/SHOOT_TASK.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/UP_STAIRS_TASK.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/bsp_can.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
@@ -662,6 +665,9 @@
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/SHOOT_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/UP_STAIRS_TASK.c">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/bsp_can.c">

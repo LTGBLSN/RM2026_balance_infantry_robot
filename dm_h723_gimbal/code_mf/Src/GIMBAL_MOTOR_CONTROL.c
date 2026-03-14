@@ -10,6 +10,7 @@
 #include "main.h"
 #include "DJI_motors.h"
 #include "GET_RC_TASK.h"
+#include "AUTO_AIM_TASK.h"
 
 pid_type_def yaw_6020_ID1_speed_pid;
 pid_type_def yaw_6020_ID1_angle_pid;
@@ -34,8 +35,8 @@ void GIMBAL_MOTOR_CONTROL()
         motor_gimbal_pid_compute();//云台pid计算
 
 
-//        friction_wheel_speed_control();//摩擦轮速度计算
-//        friction_wheel_pid_control();//摩擦轮pid计算
+        friction_wheel_speed_control();//摩擦轮速度计算
+        friction_wheel_pid_control();//摩擦轮pid计算
 
         osDelay(1);
     }
@@ -56,33 +57,40 @@ void motor_gimbal_angle_compute()
 
 void rc_pitch_input_limiter()
 {
-    if((PITCH_RC_IN_KP * (float )rcData.rc.ch[3]) < 0 )
+    // 计算遥控器给出的目标值
+    float PITCH_GIVEN_ANGLE_COMPUTE = PITCH_6020_ID2_GIVEN_ANGLE + (PITCH_RC_IN_KP * (float)rcData.rc.ch[3]);
+
+
+    // 如果开启自瞄且数据有效，覆盖目标值
+    if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
     {
-        if((PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rcData.rc.ch[3]) < PITCH_ANGLE_MAX )
-        {
-            PITCH_6020_ID2_GIVEN_ANGLE = PITCH_ANGLE_MAX ;
-        }
-        else
-        {
-            PITCH_6020_ID2_GIVEN_ANGLE = PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rcData.rc.ch[3]  ;
-        }
+        PITCH_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.pitch;
     }
-    else
+
+    // 统一限幅 (Clamp)
+    if (PITCH_GIVEN_ANGLE_COMPUTE > PITCH_ANGLE_MIN)
     {
-        if((PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rcData.rc.ch[3]) > PITCH_ANGLE_MIN )
-        {
-            PITCH_6020_ID2_GIVEN_ANGLE = PITCH_ANGLE_MIN ;
-        }
-        else
-        {
-            PITCH_6020_ID2_GIVEN_ANGLE = PITCH_6020_ID2_GIVEN_ANGLE + PITCH_RC_IN_KP * (float )rcData.rc.ch[3]  ;
-        }
+        PITCH_GIVEN_ANGLE_COMPUTE = PITCH_ANGLE_MIN;
     }
+    else if (PITCH_GIVEN_ANGLE_COMPUTE < PITCH_ANGLE_MAX)
+    {
+        PITCH_GIVEN_ANGLE_COMPUTE = PITCH_ANGLE_MAX;
+    }
+
+    PITCH_6020_ID2_GIVEN_ANGLE = PITCH_GIVEN_ANGLE_COMPUTE;
 }
+
+
 
 void rc_yaw_input_normalization()
 {
     float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (YAW_RC_IN_KP * (float)rcData.rc.ch[2]) ;
+
+    if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
+    {
+        YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
+    }
+
 
     if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)
     {

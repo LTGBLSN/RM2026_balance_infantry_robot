@@ -19,13 +19,19 @@ void BOARD_COMMUNICATION_TASK()
                             rcData.rc.ch[1],
                             0xA1,
                             CAN_CHANNEL_2);
-
         gimbal_rc_2_chassis(SHOOT_2006_GIVEN_SPEED,
                             rcData.rc.s[1],
                             rcData.rc.ch[2],
                             rcData.rc.ch[3],
                             0xA2,
                             CAN_CHANNEL_2);
+
+//        gimbal_rc_2_chassis(SHOOT_2006_GIVEN_SPEED,
+//                            rcData.rc.s[1],
+//                            rcData.rc.ch[2],
+//                            rcData.rc.ch[3],
+//                            0xA2,
+//                            CAN_CHANNEL_2);
 
 
 

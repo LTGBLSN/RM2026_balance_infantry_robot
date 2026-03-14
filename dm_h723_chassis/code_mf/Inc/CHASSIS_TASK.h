@@ -83,11 +83,11 @@ extern uint32_t time_chassis ;
 #define LEG_TARGET_ANGLE47_PID_MAX       40.0f
 #define LEG_TARGET_ANGLE47_PID_KI_MAX    0.0f
 
-#define LEFT_LEG_TARGET_ANGLE47_PID_KP        2000.0f
+#define LEFT_LEG_TARGET_ANGLE47_PID_KP        50.0f
 #define LEFT_LEG_TARGET_ANGLE47_PID_KI        0.0f
 #define LEFT_LEG_TARGET_ANGLE47_PID_KD        8000.0f//10000
 
-#define RIGHT_LEG_TARGET_ANGLE47_PID_KP       2000.0f
+#define RIGHT_LEG_TARGET_ANGLE47_PID_KP       50.0f
 #define RIGHT_LEG_TARGET_ANGLE47_PID_KI       0.0f
 #define RIGHT_LEG_TARGET_ANGLE47_PID_KD       8000.0f//10000
 
@@ -123,7 +123,7 @@ extern uint32_t time_chassis ;
 #define LEG_BIG_LENGTH   0.2100f            //大腿长单位（m）
 #define WHEEL_RADIUS     0.06f             //轮毂半径,单位(m)
 #define MAX_VIRTUAL_LEG_LENGTH 0.38655f     //虚拟腿最大长度单位（m）
-#define MIN_VIRTUAL_LEG_LENGTH 0.17f     //虚拟腿最小长度单位（m）0.15969f为机械准确参数
+#define MIN_VIRTUAL_LEG_LENGTH 0.16f     //虚拟腿最小长度单位（m）0.15969f为机械准确参数
 #define REDUCTION_RATIO (268.0f/17.0f)      //轮毂电机减速比
 #define motor_max_torque (3.0f/19.0f)       //裸电机最大扭矩单位（N·m）
 #define MOTOR_MAX_TORQUE (motor_max_torque * REDUCTION_RATIO) // 最大扭矩
@@ -140,13 +140,15 @@ extern uint32_t time_chassis ;
 
 #define GIMBAL_MID_ANGLE 3806
 
-#define CHASSIS_VX_MAX_SPEED 1.0f //最大速度 单位m/s
+#define CHASSIS_VX_MAX_SPEED 2.0f //最大速度 单位m/s
 
-#define LEG_GOAL_CONTROL_KP 0.0000003f //遥控器控制腿长系数
+#define LEG_GOAL_RC_CONTROL_KP 0.0000006f //遥控器控制腿长系数
 
-#define JUMP_TOR 200.0f //跳跃时的推力
+#define LEG_GOAL_BY_SELF_CONTROL_KP 0.0000006f //遥控器控制腿长系数
 
-#define GROUND_FORCE_THRESHOLD 40.0f   // 离地阈值,离地力矩判定
+#define JUMP_TOR 0.0f //跳跃时的推力
+
+#define GROUND_FORCE_THRESHOLD 30.0f   // 离地阈值,离地力矩判定
 
 #define FLY_YES 1
 #define FLY_NO 0

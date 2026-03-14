@@ -58,6 +58,7 @@ osThreadId stop_checkHandle;
 osThreadId err_dec_taskHandle;
 osThreadId chassisHandle;
 osThreadId chassis_vxHandle;
+osThreadId up_stairsHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -75,6 +76,7 @@ void SHOOOT_STOP_CHECK(void const * argument);
 void ERROR_DETECTION(void const * argument);
 void CHASSIS_TASK(void const * argument);
 void CHASSIS_VX_TASK(void const * argument);
+void UP_STAIRS_TASK(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -164,6 +166,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of chassis_vx */
   osThreadDef(chassis_vx, CHASSIS_VX_TASK, osPriorityIdle, 0, 512);
   chassis_vxHandle = osThreadCreate(osThread(chassis_vx), NULL);
+
+  /* definition and creation of up_stairs */
+  osThreadDef(up_stairs, UP_STAIRS_TASK, osPriorityIdle, 0, 256);
+  up_stairsHandle = osThreadCreate(osThread(up_stairs), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -367,6 +373,24 @@ __weak void CHASSIS_VX_TASK(void const * argument)
     osDelay(1);
   }
   /* USER CODE END CHASSIS_VX_TASK */
+}
+
+/* USER CODE BEGIN Header_UP_STAIRS_TASK */
+/**
+* @brief Function implementing the up_stairs thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_UP_STAIRS_TASK */
+__weak void UP_STAIRS_TASK(void const * argument)
+{
+  /* USER CODE BEGIN UP_STAIRS_TASK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END UP_STAIRS_TASK */
 }
 
 /* Private application code --------------------------------------------------*/

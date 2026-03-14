@@ -1576,6 +1576,30 @@ code_mf/Src/SHOOT_TASK.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/SHOOT_TASK.c.s
 .PHONY : code_mf/Src/SHOOT_TASK.c.s
 
+code_mf/Src/UP_STAIRS_TASK.obj: code_mf/Src/UP_STAIRS_TASK.c.obj
+.PHONY : code_mf/Src/UP_STAIRS_TASK.obj
+
+# target to build an object file
+code_mf/Src/UP_STAIRS_TASK.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/UP_STAIRS_TASK.c.obj
+.PHONY : code_mf/Src/UP_STAIRS_TASK.c.obj
+
+code_mf/Src/UP_STAIRS_TASK.i: code_mf/Src/UP_STAIRS_TASK.c.i
+.PHONY : code_mf/Src/UP_STAIRS_TASK.i
+
+# target to preprocess a source file
+code_mf/Src/UP_STAIRS_TASK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/UP_STAIRS_TASK.c.i
+.PHONY : code_mf/Src/UP_STAIRS_TASK.c.i
+
+code_mf/Src/UP_STAIRS_TASK.s: code_mf/Src/UP_STAIRS_TASK.c.s
+.PHONY : code_mf/Src/UP_STAIRS_TASK.s
+
+# target to generate assembly for a file
+code_mf/Src/UP_STAIRS_TASK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/UP_STAIRS_TASK.c.s
+.PHONY : code_mf/Src/UP_STAIRS_TASK.c.s
+
 code_mf/Src/bsp_can.obj: code_mf/Src/bsp_can.c.obj
 .PHONY : code_mf/Src/bsp_can.obj
 
@@ -1982,6 +2006,9 @@ help:
 	@echo ... code_mf/Src/SHOOT_TASK.obj
 	@echo ... code_mf/Src/SHOOT_TASK.i
 	@echo ... code_mf/Src/SHOOT_TASK.s
+	@echo ... code_mf/Src/UP_STAIRS_TASK.obj
+	@echo ... code_mf/Src/UP_STAIRS_TASK.i
+	@echo ... code_mf/Src/UP_STAIRS_TASK.s
 	@echo ... code_mf/Src/bsp_can.obj
 	@echo ... code_mf/Src/bsp_can.i
 	@echo ... code_mf/Src/bsp_can.s

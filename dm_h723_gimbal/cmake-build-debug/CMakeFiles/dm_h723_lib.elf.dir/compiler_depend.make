@@ -3097,6 +3097,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/GIMBAL_MOTOR_CONTROL.c.obj: D:/RoboMa
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/AUTO_AIM_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/DJI_motors.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/GET_RC_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/GIMBAL_MOTOR_CONTROL.h \

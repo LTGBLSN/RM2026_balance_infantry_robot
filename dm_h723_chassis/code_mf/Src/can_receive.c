@@ -148,6 +148,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
                     {//·ÀÖ¹¸ú¿¨µ¯·´×ªÇÀ¶á¿ØÖÆÈ¨
                         SHOOT_2006_ID3_GIVEN_SPEED = (int16_t)((rx_data[0] << 8) | rx_data[1]);
                     }
+//                    rcData.rc.ch[4] = (int16_t)((rx_data[0] << 8) | rx_data[1]);
                     rcData.rc.s[1] = (int16_t)((rx_data[2] << 8) | rx_data[3]);
                     rcData.rc.ch[2] = (int16_t)((rx_data[4] << 8) | rx_data[5]);
                     rcData.rc.ch[3] = (int16_t)((rx_data[6] << 8) | rx_data[7]);
