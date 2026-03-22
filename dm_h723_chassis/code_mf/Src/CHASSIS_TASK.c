@@ -90,9 +90,9 @@ void CHASSIS_TASK()
 
         ///////////////////////////////////////////////////////////////////////轮毂部分控制
         //底盘yaw转向环
-        chassis_follow_gimbal_given_speed = -gimbal_follow_pid_loop(GIMBAL_MID_ANGLE);
-        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(chassis_follow_gimbal_given_speed);
-//        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[2]/660.0f));
+//        chassis_follow_gimbal_given_speed = -gimbal_follow_pid_loop(GIMBAL_MID_ANGLE);
+//        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(chassis_follow_gimbal_given_speed);
+        chassis_yaw_turn_corrent = chassis_yaw_pid_loop(YAW_RC_KP * ((float )rcData.rc.ch[2]/660.0f));
 
         //轮子lqr计算
         wheel_torque_LQR_compute_loop();
@@ -167,6 +167,7 @@ void chassis_all_state_update_loop()
     //关节电机正解，得到相对车身的角度和摆杆长度
     chassis_leg_angle_compute_loop();
     //计算结果更新在如下变量里面
+
     //left_leg_joint_2_leg_parameters.virtual_leg_length
     //left_leg_joint_2_leg_parameters.virtual_leg_angle_047
     //right_leg_joint_2_leg_parameters.virtual_leg_length
@@ -198,7 +199,7 @@ void chassis_all_state_update_loop()
 
     chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s =
             + right_leg_joint_2_leg_parameters.theta47_dt
-            - chassis_LQR_compute_left_finial_state.chassis_pitch_speed_rad_s;
+            - chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s;
 
 
 
@@ -226,8 +227,8 @@ void chassis_all_state_update_loop()
 
 
     //整车速度计算2026.2.21:暂时仅使用轮毂速度，可能需要做滤波
-    chassis_LQR_compute_left_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
-    chassis_LQR_compute_right_finial_state.chassis_speed_m_s = chassis_vx_compute_loop();
+    chassis_LQR_compute_left_finial_state.chassis_speed_m_s = chassis_left_vx_compute_loop();
+    chassis_LQR_compute_right_finial_state.chassis_speed_m_s = chassis_right_vx_compute_loop();
 
     //整车位移计算2026.2.21:使用速度积分得到位置，不保证100%可用，待确认
     if((rcData.rc.s[0]) == 1)
@@ -279,6 +280,46 @@ float chassis_vx_compute_loop()
 
 
 }
+
+
+float chassis_left_vx_compute_loop()
+{
+    float angular_motor_speed_rad_s = ( ( -(float)motor_can2_data[1].speed_rpm) * 2.0f * (float )M_PI ) / 60.0f ;
+    float angular_wheel_speed_rad_s = angular_motor_speed_rad_s / REDUCTION_RATIO + chassis_LQR_compute_left_finial_state.virtual_leg_speed_rad_s;
+
+    float angular_wheel_linear_velocity = angular_wheel_speed_rad_s * WHEEL_RADIUS;
+
+
+
+    float left_finial_speed_m_s =
+            + angular_wheel_linear_velocity
+            + left_leg_joint_2_leg_parameters.return_virtual_leg_length * chassis_LQR_compute_left_finial_state.virtual_leg_speed_rad_s * cosf(chassis_LQR_compute_left_finial_state.virtual_leg_angle_rad)
+            + left_leg_joint_2_leg_parameters.L_dt * sinf(chassis_LQR_compute_left_finial_state.virtual_leg_angle_rad);
+
+    return left_finial_speed_m_s;
+}
+
+
+
+float chassis_right_vx_compute_loop()
+{
+    float angular_motor_speed_rad_s = ( ((float)motor_can2_data[0].speed_rpm) * 2.0f * (float )M_PI ) / 60.0f ;
+    float angular_wheel_speed_rad_s = angular_motor_speed_rad_s / REDUCTION_RATIO + chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s;
+
+    float angular_wheel_linear_velocity = angular_wheel_speed_rad_s * WHEEL_RADIUS;
+
+
+
+    float right_finial_speed_m_s =
+            + angular_wheel_linear_velocity
+            + right_leg_joint_2_leg_parameters.return_virtual_leg_length * chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s * cosf(chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad)
+            + right_leg_joint_2_leg_parameters.L_dt * sinf(chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad);
+
+    return right_finial_speed_m_s;
+}
+
+
+
 
 
 void wheel_torque_LQR_compute_loop()

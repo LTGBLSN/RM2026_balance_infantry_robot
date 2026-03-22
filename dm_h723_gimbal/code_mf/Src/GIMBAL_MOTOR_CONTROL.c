@@ -48,12 +48,73 @@ void GIMBAL_MOTOR_CONTROL()
 void motor_gimbal_angle_compute()
 {
     //缺鼠标键盘部分
-    rc_pitch_input_limiter();
-    rc_yaw_input_normalization();//归一化yaw输入
+    if(rcData.mouse.x != 0 || rcData.mouse.y != 0)
+    {
+        // 计算鼠标给出的目标值
+        mouse_pitch_input_limiter();
+        mouse_yaw_input_normalization();
+
+    }
+    else
+    {
+        rc_pitch_input_limiter();
+        rc_yaw_input_normalization();//归一化yaw输入
+    }
+
 
 
 
 }
+
+void mouse_pitch_input_limiter()
+{
+
+    // 计算遥控器给出的目标值
+    float PITCH_GIVEN_ANGLE_COMPUTE = PITCH_6020_ID2_GIVEN_ANGLE + (MOUSE_IN_PITCH_KP * (float)rcData.mouse.y);
+
+    // 如果开启自瞄且数据有效，覆盖目标值
+    if(rcData.mouse.press_r == 1 && auto_aim_rx_packet.distance != -1.0f)
+    {
+        PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
+    }
+
+    // 统一限幅 (Clamp)
+    if (PITCH_GIVEN_ANGLE_COMPUTE > PITCH_ANGLE_MIN)
+    {
+        PITCH_GIVEN_ANGLE_COMPUTE = PITCH_ANGLE_MIN;
+    }
+    else if (PITCH_GIVEN_ANGLE_COMPUTE < PITCH_ANGLE_MAX)
+    {
+        PITCH_GIVEN_ANGLE_COMPUTE = PITCH_ANGLE_MAX;
+    }
+
+    PITCH_6020_ID2_GIVEN_ANGLE = PITCH_GIVEN_ANGLE_COMPUTE;
+}
+
+void mouse_yaw_input_normalization()
+{
+    float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (MOUSE_IN_YAW_KP * (float)rcData.mouse.x) ;
+
+    if(rcData.mouse.press_r == 1 && auto_aim_rx_packet.distance != -1.0f)
+    {
+        YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
+    }
+
+
+    if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE - 360.0f ;
+    }
+    else if(YAW_GIVEN_ANGLE_COMPUTE < -180.0f)
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE + 360.0f ;
+    } else
+    {
+        YAW_6020_ID1_GIVEN_ANGLE =  YAW_GIVEN_ANGLE_COMPUTE ;
+    }
+}
+
+
 
 void rc_pitch_input_limiter()
 {
@@ -64,7 +125,7 @@ void rc_pitch_input_limiter()
     // 如果开启自瞄且数据有效，覆盖目标值
     if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
     {
-        PITCH_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.pitch;
+        PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
     }
 
     // 统一限幅 (Clamp)

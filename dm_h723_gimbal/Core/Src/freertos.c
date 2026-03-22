@@ -158,7 +158,7 @@ void MX_FREERTOS_Init(void) {
   err_dec_taskHandle = osThreadCreate(osThread(err_dec_task), NULL);
 
   /* definition and creation of auto_aim */
-  osThreadDef(auto_aim, AUTO_AIM_TASK, osPriorityIdle, 0, 256);
+  osThreadDef(auto_aim, AUTO_AIM_TASK, osPriorityIdle, 0, 512);
   auto_aimHandle = osThreadCreate(osThread(auto_aim), NULL);
 
   /* definition and creation of BOARD_COM */

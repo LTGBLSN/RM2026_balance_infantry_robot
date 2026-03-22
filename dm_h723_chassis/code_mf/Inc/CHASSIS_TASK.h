@@ -216,6 +216,9 @@ void chassis_goal_speed_compute();
 void chassis_all_state_update_loop();
 float chassis_vx_compute_loop();
 
+float chassis_left_vx_compute_loop();
+float chassis_right_vx_compute_loop();
+
 void wheel_torque_LQR_compute_loop();
 
 

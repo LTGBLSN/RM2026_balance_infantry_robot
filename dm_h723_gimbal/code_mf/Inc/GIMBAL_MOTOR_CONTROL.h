@@ -34,26 +34,35 @@
 
 
 
-#define FRICTION_WHEEL_3510_ID1_SPEED_PID_KP        10.0f
+#define FRICTION_WHEEL_3510_ID1_SPEED_PID_KP        8.0f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_KI        0.1f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_KD        0.0f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_OUT_MAX   16000.0f
 #define FRICTION_WHEEL_3510_ID1_SPEED_PID_KI_MAX    10000.0f
 
-#define FRICTION_WHEEL_3510_ID2_SPEED_PID_KP        10.0f
+#define FRICTION_WHEEL_3510_ID2_SPEED_PID_KP        8.0f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KI        0.1f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KD        0.0f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_OUT_MAX   16000.0f
 #define FRICTION_WHEEL_3510_ID2_SPEED_PID_KI_MAX    10000.0f
 
 
-#define FRICTION_WHEEL_SHOOT_SPEED 6400
+#define FRICTION_WHEEL_SHOOT_SPEED 7400
 
 #define PITCH_RC_IN_KP (-0.0005f)
 #define YAW_RC_IN_KP (-0.001f)
 
 #define PITCH_ANGLE_MAX (-20.0f)
 #define PITCH_ANGLE_MIN (25.0f)
+
+
+#define MOUSE_IN_PITCH_KP (-0.001f)
+#define MOUSE_IN_YAW_KP (-0.001f)
+
+
+void mouse_pitch_input_limiter();
+
+void mouse_yaw_input_normalization();
 
 
 void motor_gimbal_angle_compute();//‘∆Ã®Ω«∂»º∆À„

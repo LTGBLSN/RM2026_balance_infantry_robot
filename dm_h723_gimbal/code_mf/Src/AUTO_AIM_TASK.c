@@ -26,7 +26,7 @@ void AUTO_AIM_TASK()
 
 
 
-        osDelay(2);
+        osDelay(5);
     }
 }
 

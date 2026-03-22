@@ -29,8 +29,9 @@ void DEBUG_UART_TASK()
 //                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
 //                      );
 
-        usart1_printf("%d \r\n",
-                      rcData.rc.ch[4]
+        usart1_printf("%f,%f \r\n",
+                      chassis_LQR_compute_left_finial_state.chassis_speed_m_s,
+                      chassis_LQR_compute_right_finial_state.chassis_speed_m_s
                       );
 
 //        usart1_printf("%f,%f,%f \r\n",

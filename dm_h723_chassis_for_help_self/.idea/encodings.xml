@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/code_mf/Inc/referee.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code_mf/Src/CAN_SENT_TASK.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/code_mf/Src/DEBUG_UART_TASK.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/code_mf/Src/can_receive.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/code_mf/Src/referre.c" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

@@ -29,8 +29,8 @@ void CAN_SENT_TASK()
 //                    FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);
 
                     FDCAN_DJI_motors(0, 0, SHOOT_2006_ID3_GIVEN_CURRENT, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
-                    FDCAN_DJI_motors(YAW_6020_ID1_GIVEN_CURRENT, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw÷·1
-//                    DM_CAN_SENT(DM_GIVE_CURRENT);
+//                    FDCAN_DJI_motors(YAW_6020_ID1_GIVEN_CURRENT, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw÷·1
+                    DM_CAN_SENT(DM_GIVE_CURRENT);
                     break;
                 }
             }
@@ -40,10 +40,10 @@ void CAN_SENT_TASK()
 //                FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);
 //                FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);
 
-                FDCAN_DJI_motors(0, 0, SHOOT_2006_ID3_GIVEN_CURRENT, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
-//                FDCAN_DJI_motors(chassis_right_3508_id1_given_current, chassis_left_3508_id2_given_current, SHOOT_2006_ID3_GIVEN_CURRENT, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
-                FDCAN_DJI_motors(YAW_6020_ID1_GIVEN_CURRENT, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw÷·1
-//                DM_CAN_SENT(DM_GIVE_CURRENT);
+//                FDCAN_DJI_motors(0, 0, SHOOT_2006_ID3_GIVEN_CURRENT, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
+                FDCAN_DJI_motors(chassis_right_3508_id1_given_current, chassis_left_3508_id2_given_current, SHOOT_2006_ID3_GIVEN_CURRENT, 0, 0x200, CAN_CHANNEL_2);//µ◊≈Ã12≤¶µØ3
+//                FDCAN_DJI_motors(YAW_6020_ID1_GIVEN_CURRENT, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);//yaw÷·1
+                DM_CAN_SENT(DM_GIVE_CURRENT);
                 break;
             }
             default:
@@ -54,7 +54,7 @@ void CAN_SENT_TASK()
 
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_2);
                 FDCAN_DJI_motors(0, 0, 0, 0, 0x1FF, CAN_CHANNEL_2);
-//                DM_CAN_SENT(DM_NO_CURRENT);
+                DM_CAN_SENT(DM_NO_CURRENT);
 
 
 
