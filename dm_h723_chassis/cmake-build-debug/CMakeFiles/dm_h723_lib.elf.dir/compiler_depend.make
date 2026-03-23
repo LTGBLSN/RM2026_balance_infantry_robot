@@ -2668,8 +2668,10 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj: D:/RoboMaster_git
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/IMU_DATA_GET.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/SHOOT_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/dm_motor.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/kalman_filter.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/pid.h \
-  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/uart_printf.h
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/DEBUG_UART_TASK.c \
   C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
@@ -3562,6 +3564,9 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj: D:/RoboMaster_git/RM2
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/dm_motor.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h
 
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/kalman_filter.c \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/kalman_filter.h
+
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/pid.c \
   C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
   C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
@@ -4039,6 +4044,8 @@ D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7x
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/kalman_filter.h:
+
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/SHOOT_TASK.h:
@@ -4318,6 +4325,8 @@ D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/UP_S
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/bsp_can.c:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/can_receive.c:
+
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/kalman_filter.c:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/pid.c:
 

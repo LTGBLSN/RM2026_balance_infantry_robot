@@ -57,7 +57,10 @@ void IMU_DATA_GET()
         imu_data_from_external_BMI088_mahony.yaw_radian_angle = DM_imu.yaw_angle * (3.14159265358979323846f / 180.0f);
         imu_data_from_external_BMI088_mahony.pitch_radian_angle = DM_imu.pitch_angle * (3.14159265358979323846f / 180.0f);
 
-
+        //º”ÀŸ∂»
+        imu_data_from_external_BMI088_mahony.accel_x = DM_imu.accel[0];
+        imu_data_from_external_BMI088_mahony.accel_y = DM_imu.accel[1];
+        imu_data_from_external_BMI088_mahony.accel_z = DM_imu.accel[2];
 
 
 

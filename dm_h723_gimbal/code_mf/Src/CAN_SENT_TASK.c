@@ -27,9 +27,9 @@ void CAN_SENT_TASK()
         if(pitch_6020_state == GM6020_SAFE)
         {
             //Ä¦²ÁÂÖ
-//            FDCAN_DJI_motors(FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT, FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT, 0, 0, 0x200, CAN_CHANNEL_1);
+            FDCAN_DJI_motors(FRICTION_WHEEL_3508_ID1_GIVEN_CURRENT, FRICTION_WHEEL_3508_ID2_GIVEN_CURRENT, 0, 0, 0x200, CAN_CHANNEL_1);
 //            //pitchµç»ú
-//            FDCAN_DJI_motors(0, PITCH_6020_ID2_GIVEN_CURRENT, 0, 0, 0x1FF, CAN_CHANNEL_1);
+            FDCAN_DJI_motors(0, PITCH_6020_ID2_GIVEN_CURRENT, 0, 0, 0x1FF, CAN_CHANNEL_1);
         } else
         {
             FDCAN_DJI_motors(0, 0, 0, 0, 0x200, CAN_CHANNEL_1);

@@ -1672,6 +1672,30 @@ code_mf/Src/dm_motor.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.s
 .PHONY : code_mf/Src/dm_motor.c.s
 
+code_mf/Src/kalman_filter.obj: code_mf/Src/kalman_filter.c.obj
+.PHONY : code_mf/Src/kalman_filter.obj
+
+# target to build an object file
+code_mf/Src/kalman_filter.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.obj
+.PHONY : code_mf/Src/kalman_filter.c.obj
+
+code_mf/Src/kalman_filter.i: code_mf/Src/kalman_filter.c.i
+.PHONY : code_mf/Src/kalman_filter.i
+
+# target to preprocess a source file
+code_mf/Src/kalman_filter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.i
+.PHONY : code_mf/Src/kalman_filter.c.i
+
+code_mf/Src/kalman_filter.s: code_mf/Src/kalman_filter.c.s
+.PHONY : code_mf/Src/kalman_filter.s
+
+# target to generate assembly for a file
+code_mf/Src/kalman_filter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.s
+.PHONY : code_mf/Src/kalman_filter.c.s
+
 code_mf/Src/pid.obj: code_mf/Src/pid.c.obj
 .PHONY : code_mf/Src/pid.obj
 
@@ -2018,6 +2042,9 @@ help:
 	@echo ... code_mf/Src/dm_motor.obj
 	@echo ... code_mf/Src/dm_motor.i
 	@echo ... code_mf/Src/dm_motor.s
+	@echo ... code_mf/Src/kalman_filter.obj
+	@echo ... code_mf/Src/kalman_filter.i
+	@echo ... code_mf/Src/kalman_filter.s
 	@echo ... code_mf/Src/pid.obj
 	@echo ... code_mf/Src/pid.i
 	@echo ... code_mf/Src/pid.s

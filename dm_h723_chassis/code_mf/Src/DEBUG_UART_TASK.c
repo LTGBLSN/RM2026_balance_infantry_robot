@@ -29,21 +29,7 @@ void DEBUG_UART_TASK()
 //                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
 //                      );
 
-        usart1_printf("%f,%f \r\n",
-                      chassis_LQR_compute_left_finial_state.chassis_speed_m_s,
-                      chassis_LQR_compute_right_finial_state.chassis_speed_m_s
-                      );
 
-//        usart1_printf("%f,%f,%f \r\n",
-//                      YAW_RC_KP * ((float )rcData.rc.ch[0]/660.0f),
-//                      DM_imu.speed_gyro[YAW],
-//                      chassis_yaw_turn_corrent
-//                      );
-
-//        usart1_printf("%f,%f \r\n",
-//                      (left_leg_joint_2_leg_parameters.virtual_leg_angle_047 - right_leg_joint_2_leg_parameters.virtual_leg_angle_047),
-//                      chassis_two_leg_pid_loop(0.0f)
-//                      );
 
 //        usart1_printf("%f,%f,%f,%f,%f,%f \r\n",
 //                      e0,
@@ -53,9 +39,11 @@ void DEBUG_UART_TASK()
 //                      e4,
 //                      e5
 //                      );
-//        usart1_printf("%f,%f \r\n",
-//                      left_leg_joint_2_leg_parameters.goal_virtual_leg_length,
-//                      right_leg_joint_2_leg_parameters.goal_virtual_leg_length);
+
+//        usart1_printf("%d \r\n",
+//                      motor_can2_data[4].ecd
+//
+//                      );
 
 
 

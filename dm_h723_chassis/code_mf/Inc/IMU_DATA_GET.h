@@ -22,6 +22,12 @@ typedef struct
     float roll_degree_angle;
     float yaw_degree_angle;
     float pitch_degree_angle;
+
+    float accel_x;
+    float accel_y;
+    float accel_z;
+
+
 } INS_t;
 extern INS_t imu_data_from_board_BMI088_mahony;
 extern INS_t imu_data_from_external_BMI088_mahony;

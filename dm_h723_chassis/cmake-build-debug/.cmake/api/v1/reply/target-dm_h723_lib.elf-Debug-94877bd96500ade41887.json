@@ -287,7 +287,6 @@
 				146,
 				147,
 				148,
-				171,
 				172,
 				173,
 				174,
@@ -309,7 +308,9 @@
 				190,
 				191,
 				192,
-				193
+				193,
+				194,
+				195
 			]
 		},
 		{
@@ -636,7 +637,8 @@
 				167,
 				168,
 				169,
-				170
+				170,
+				171
 			]
 		},
 		{
@@ -690,7 +692,6 @@
 				146,
 				147,
 				148,
-				171,
 				172,
 				173,
 				174,
@@ -712,7 +713,9 @@
 				190,
 				191,
 				192,
-				193
+				193,
+				194,
+				195
 			]
 		},
 		{
@@ -723,7 +726,7 @@
 				28,
 				53,
 				95,
-				194
+				196
 			]
 		}
 	],
@@ -1604,6 +1607,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "code_mf/Inc/kalman_filter.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "code_mf/Inc/pid.h",
 			"sourceGroupIndex" : 0
 		},
@@ -1732,6 +1740,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "code_mf/Src/dm_motor.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "code_mf/Src/kalman_filter.c",
 			"sourceGroupIndex" : 1
 		},
 		{

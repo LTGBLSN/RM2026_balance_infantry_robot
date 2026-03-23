@@ -610,6 +610,9 @@
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/dm_motor.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/kalman_filter.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/pid.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
@@ -677,6 +680,9 @@
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/dm_motor.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/kalman_filter.c">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/pid.c">

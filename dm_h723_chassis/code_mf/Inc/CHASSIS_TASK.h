@@ -138,7 +138,7 @@ extern uint32_t time_chassis ;
 #define MATLAB_CHASSIS 1.00f
 
 
-#define GIMBAL_MID_ANGLE 3806
+#define GIMBAL_MID_ANGLE 4169
 
 #define CHASSIS_VX_MAX_SPEED 2.0f //最大速度 单位m/s
 

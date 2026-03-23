@@ -128,6 +128,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/can_receive.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/dm_motor.c.obj.d"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.obj"
+  "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/kalman_filter.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/pid.c.obj.d"
   "CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/referre.c.obj"
