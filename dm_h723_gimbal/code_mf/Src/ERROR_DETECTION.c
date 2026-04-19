@@ -5,15 +5,16 @@
 #include "DJI_motors.h"
 #include "cmsis_os.h"
 #include "ERROR_DETECTION.h"
+#include "usart.h"
 
 void ERROR_DETECTION()
 {
     while (1)
     {
 
+
         rc_connection_status();//遥控器离线判断
         pitch_6020_status();//pitch电机过温判断
-        //暂无自瞄通讯判断
 
 
 
@@ -54,7 +55,3 @@ void pitch_6020_status()
     }
 
 }
-
-
-
-

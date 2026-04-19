@@ -1360,6 +1360,30 @@ code_mf/Src/CHASSIS_TASK.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.s
 .PHONY : code_mf/Src/CHASSIS_TASK.c.s
 
+code_mf/Src/CHASSIS_VROUND_TASK.obj: code_mf/Src/CHASSIS_VROUND_TASK.c.obj
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.obj
+
+# target to build an object file
+code_mf/Src/CHASSIS_VROUND_TASK.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VROUND_TASK.c.obj
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.c.obj
+
+code_mf/Src/CHASSIS_VROUND_TASK.i: code_mf/Src/CHASSIS_VROUND_TASK.c.i
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.i
+
+# target to preprocess a source file
+code_mf/Src/CHASSIS_VROUND_TASK.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VROUND_TASK.c.i
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.c.i
+
+code_mf/Src/CHASSIS_VROUND_TASK.s: code_mf/Src/CHASSIS_VROUND_TASK.c.s
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.s
+
+# target to generate assembly for a file
+code_mf/Src/CHASSIS_VROUND_TASK.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\dm_h723_lib.elf.dir\build.make CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VROUND_TASK.c.s
+.PHONY : code_mf/Src/CHASSIS_VROUND_TASK.c.s
+
 code_mf/Src/DEBUG_UART_TASK.obj: code_mf/Src/DEBUG_UART_TASK.c.obj
 .PHONY : code_mf/Src/DEBUG_UART_TASK.obj
 
@@ -2003,6 +2027,9 @@ help:
 	@echo ... code_mf/Src/CHASSIS_TASK.obj
 	@echo ... code_mf/Src/CHASSIS_TASK.i
 	@echo ... code_mf/Src/CHASSIS_TASK.s
+	@echo ... code_mf/Src/CHASSIS_VROUND_TASK.obj
+	@echo ... code_mf/Src/CHASSIS_VROUND_TASK.i
+	@echo ... code_mf/Src/CHASSIS_VROUND_TASK.s
 	@echo ... code_mf/Src/DEBUG_UART_TASK.obj
 	@echo ... code_mf/Src/DEBUG_UART_TASK.i
 	@echo ... code_mf/Src/DEBUG_UART_TASK.s

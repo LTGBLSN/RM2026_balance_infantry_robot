@@ -577,6 +577,9 @@
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_TASK.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_VROUND_TASK.h">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DJI_motors.h">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
@@ -641,6 +644,9 @@
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/CHASSIS_TASK.c">
+			<Option target="dm_h723_lib.elf"/>
+		</Unit>
+		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/CHASSIS_VROUND_TASK.c">
 			<Option target="dm_h723_lib.elf"/>
 		</Unit>
 		<Unit filename="D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/DEBUG_UART_TASK.c">

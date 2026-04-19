@@ -153,6 +153,12 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
                     rcData.rc.ch[3] = (int16_t)((rx_data[6] << 8) | rx_data[7]);
                     break;
                 }
+                case 0xA3:
+                {
+                    rcData.key.v = (uint16_t)((rx_data[0] << 8) | rx_data[1]);
+                    rcData.rc.ch[4] = (int16_t)((rx_data[2] << 8) | rx_data[3]);
+                    break;
+                }
 
 
 

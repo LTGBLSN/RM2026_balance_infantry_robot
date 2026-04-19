@@ -85,4 +85,5 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/IMU_DATA_GET.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/SHOOT_TASK.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/kalman_filter.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/uart_printf.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/uart_printf.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_chassis\code_mf\Inc/CHASSIS_VROUND_TASK.h

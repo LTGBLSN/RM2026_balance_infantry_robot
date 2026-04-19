@@ -47,9 +47,9 @@ struct SentPacket
 extern struct ReceivePacket auto_aim_rx_packet;
 extern struct SentPacket auto_aim_tx_packet;
 
+#define RX_BUF_SIZE 32
+extern uint8_t auto_aim_rx_buffer[RX_BUF_SIZE];
 
-
-void auto_aim_communication_data_parse(uint8_t rx_data);
 
 void sent_data_update();
 

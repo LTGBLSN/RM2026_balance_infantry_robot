@@ -36,6 +36,7 @@
 #include "dm_motor.h"
 #include "SHOOT_TASK.h"
 #include "GIMBAL_MOTOR_CONTROL.h"
+#include "AUTO_AIM_TASK.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -83,6 +84,10 @@ uint8_t uart7_receive_data ;//串口当前接收字节
 float yaw_imu_preprocess ;//yaw轴imu预处理
 
 int16_t SHOOT_2006_GIVEN_SPEED ;
+
+uint32_t auto_aim_time ;//自瞄时间戳
+
+int16_t auto_aim_communication_state ;//自瞄通讯状态 0为离线，1为在线
 
 /* USER CODE END PV */
 
@@ -163,7 +168,7 @@ int main(void)
     friction_wheel_3510_id1_speed_pid_init();
     friction_wheel_3510_id2_speed_pid_init();
 
-    HAL_UART_Receive_DMA(&huart7, &uart7_receive_data, 1);  //串口1接收数据中断
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart7, auto_aim_rx_buffer, RX_BUF_SIZE);
 
 
   /* USER CODE END 2 */

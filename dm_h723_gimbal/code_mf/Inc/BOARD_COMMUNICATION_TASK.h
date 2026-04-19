@@ -13,4 +13,6 @@ void gimbal_2_chassis_A(int16_t yaw_6020,int16_t rc_01 ,int16_t rc_02 ,uint8_t s
 
 void gimbal_rc_2_chassis(int16_t data , int16_t rc_s , int16_t rc_ch_A , int16_t rc_ch_B , uint16_t id, uint8_t can_channel);
 
+void gimbal_rc_2_chassis_uint(uint16_t data , int16_t rc_s , uint16_t rc_ch_A , uint16_t rc_ch_B , uint16_t id, uint8_t can_channel);
+
 #endif //DM_H723_LIB_BOARD_COMMUNICATION_TASK_H

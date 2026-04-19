@@ -10,6 +10,8 @@
 #define GM6020_SAFE 1
 #define GM6020_DIE 0
 
+
+
 void rc_connection_status();
 void pitch_6020_status();
 

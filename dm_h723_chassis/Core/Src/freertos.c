@@ -59,6 +59,7 @@ osThreadId err_dec_taskHandle;
 osThreadId chassisHandle;
 osThreadId chassis_vxHandle;
 osThreadId up_stairsHandle;
+osThreadId chassis_vroundHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -77,6 +78,7 @@ void ERROR_DETECTION(void const * argument);
 void CHASSIS_TASK(void const * argument);
 void CHASSIS_VX_TASK(void const * argument);
 void UP_STAIRS_TASK(void const * argument);
+void CHASSIS_VROUND_TASK(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -170,6 +172,10 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of up_stairs */
   osThreadDef(up_stairs, UP_STAIRS_TASK, osPriorityIdle, 0, 256);
   up_stairsHandle = osThreadCreate(osThread(up_stairs), NULL);
+
+  /* definition and creation of chassis_vround */
+  osThreadDef(chassis_vround, CHASSIS_VROUND_TASK, osPriorityIdle, 0, 256);
+  chassis_vroundHandle = osThreadCreate(osThread(chassis_vround), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -391,6 +397,24 @@ __weak void UP_STAIRS_TASK(void const * argument)
     osDelay(1);
   }
   /* USER CODE END UP_STAIRS_TASK */
+}
+
+/* USER CODE BEGIN Header_CHASSIS_VROUND_TASK */
+/**
+* @brief Function implementing the chassis_vround thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CHASSIS_VROUND_TASK */
+__weak void CHASSIS_VROUND_TASK(void const * argument)
+{
+  /* USER CODE BEGIN CHASSIS_VROUND_TASK */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END CHASSIS_VROUND_TASK */
 }
 
 /* Private application code --------------------------------------------------*/

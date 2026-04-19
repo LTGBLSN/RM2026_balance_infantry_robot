@@ -74,4 +74,6 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj: \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Middlewares\Third_Party\FreeRTOS\Source\include/queue.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Middlewares\Third_Party\FreeRTOS\Source\include/event_groups.h \
  D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Middlewares\Third_Party\FreeRTOS\Source\include/timers.h \
- D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/ERROR_DETECTION.h
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\code_mf\Inc/ERROR_DETECTION.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Core\Inc/usart.h \
+ D:\RoboMaster_git\RM2026_balance_infantry_robot\dm_h723_gimbal\Core\Inc/main.h

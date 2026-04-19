@@ -16,9 +16,9 @@ void VelocityKF_Init(VelocityKF_t *kf, float dt)
     kf->P[0][0] = 1.0f; kf->P[0][1] = 0.0f;
     kf->P[1][0] = 0.0f; kf->P[1][1] = 1.0f;
 
-    kf->Q_sig = 0.1f;   // 调大则跟踪更灵敏，调小则更平滑
-    kf->R_v = 0.05f;     // 你之前的运动学解算挺准的，给个较小值
-    kf->R_a = 0.6f;      // IMU比较噪，给个较大值
+    kf->Q_sig = 600.0f;   // 调大则跟踪更灵敏，调小则更平滑
+    kf->R_v = 0.13f;     // 轮子
+    kf->R_a = 0.01f;      // IMU
 }
 
 

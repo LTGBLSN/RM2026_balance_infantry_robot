@@ -2662,6 +2662,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj: D:/RoboMaster_git
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/can_receive.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_TASK.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_VROUND_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DJI_motors.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DM_IMU.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/GET_RC_TASK.h \
@@ -2672,6 +2673,80 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_TASK.c.obj: D:/RoboMaster_git
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/pid.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/struct_typedef.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/uart_printf.h
+
+CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/CHASSIS_VROUND_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/CHASSIS_VROUND_TASK.c \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_newlib_version.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default_types.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_types.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/ieeefp.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/newlib.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/reent.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_intsup.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_types.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/cdefs.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/config.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/features.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/lock.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
+  C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Core/Inc/FreeRTOSConfig.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Core/Inc/main.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Core/Inc/stm32h7xx_hal_conf.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include/cmsis_compiler.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include/cmsis_gcc.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include/cmsis_version.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include/core_cm7.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/CMSIS/Include/mpu_armv7.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_VROUND_TASK.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/GET_RC_TASK.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/remote_control.h
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/DEBUG_UART_TASK.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/DEBUG_UART_TASK.c \
   C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/_ansi.h \
@@ -4308,9 +4383,13 @@ D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/GET_
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/can_receive.h:
 
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/CHASSIS_VROUND_TASK.h:
+
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/DM_IMU.h:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Inc/pid.h:
+
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/CHASSIS_VROUND_TASK.c:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_chassis/code_mf/Src/DM_IMU.c:
 

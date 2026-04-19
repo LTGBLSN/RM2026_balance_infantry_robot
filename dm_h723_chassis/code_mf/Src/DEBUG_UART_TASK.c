@@ -18,31 +18,21 @@ void DEBUG_UART_TASK()
 {
     while (1)
     {
-//        //π€≤‚÷µ
+        usart1_printf("%d \r\n",rcData.rc.ch[4]);
+
+//        usart1_printf("%f,%f \r\n",left_leg_joint_2_leg_parameters.fly_state,left_leg_joint_2_leg_parameters.support_force);
+
+
+
+
 //        usart1_printf("%f,%f,%f,%f,%f,%f,%f \r\n",
-//                      chassis_LQR_compute_right_finial_state.chassis_pitch_speed_rad_s,
-//                      chassis_LQR_compute_right_finial_state.pitch_angle_rad,
-//                      chassis_LQR_compute_right_finial_state.finial_lqr_compute_leg_length,
-//                      chassis_LQR_compute_right_finial_state.virtual_leg_angle_rad,
-//                      chassis_LQR_compute_right_finial_state.virtual_leg_speed_rad_s,
-//                      chassis_LQR_compute_right_finial_state.chassis_speed_m_s,
-//                      chassis_LQR_compute_right_finial_state.chassis_move_x_m
-//                      );
-
-
-
-//        usart1_printf("%f,%f,%f,%f,%f,%f \r\n",
 //                      e0,
 //                      e1,
 //                      e2,
 //                      e3,
 //                      e4,
-//                      e5
-//                      );
-
-//        usart1_printf("%d \r\n",
-//                      motor_can2_data[4].ecd
-//
+//                      e5,
+//                      chassis_vx_given_speed
 //                      );
 
 

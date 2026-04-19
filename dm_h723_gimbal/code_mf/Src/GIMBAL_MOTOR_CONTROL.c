@@ -73,10 +73,10 @@ void mouse_pitch_input_limiter()
     float PITCH_GIVEN_ANGLE_COMPUTE = PITCH_6020_ID2_GIVEN_ANGLE + (MOUSE_IN_PITCH_KP * (float)rcData.mouse.y);
 
     // 如果开启自瞄且数据有效，覆盖目标值
-    if(rcData.mouse.press_r == 1 && auto_aim_rx_packet.distance != -1.0f)
-    {
-        PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
-    }
+//    if(rcData.mouse.press_r == 1 && auto_aim_rx_packet.distance != -1.0f)
+//    {
+//        PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
+//    }
 
     // 统一限幅 (Clamp)
     if (PITCH_GIVEN_ANGLE_COMPUTE > PITCH_ANGLE_MIN)
@@ -95,10 +95,15 @@ void mouse_yaw_input_normalization()
 {
     float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (MOUSE_IN_YAW_KP * (float)rcData.mouse.x) ;
 
-    if(rcData.mouse.press_r == 1 && auto_aim_rx_packet.distance != -1.0f)
-    {
-        YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
-    }
+//    if(rcData.rc.s[1] == 1 || rcData.mouse.press_r == 1)
+//    {
+//        if(auto_aim_rx_packet.distance != -1.0f)
+//        {
+//            YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
+//        }
+//
+//
+//    }
 
 
     if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)
@@ -123,10 +128,14 @@ void rc_pitch_input_limiter()
 
 
     // 如果开启自瞄且数据有效，覆盖目标值
-    if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
-    {
-        PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
-    }
+//    if(rcData.rc.s[1] == 1 || rcData.mouse.press_r == 1)
+//    {
+//        if(auto_aim_rx_packet.distance != -1.0f)
+//        {
+//            PITCH_GIVEN_ANGLE_COMPUTE = -auto_aim_rx_packet.pitch;
+//        }
+//
+//    }
 
     // 统一限幅 (Clamp)
     if (PITCH_GIVEN_ANGLE_COMPUTE > PITCH_ANGLE_MIN)
@@ -147,10 +156,10 @@ void rc_yaw_input_normalization()
 {
     float YAW_GIVEN_ANGLE_COMPUTE = YAW_6020_ID1_GIVEN_ANGLE + (YAW_RC_IN_KP * (float)rcData.rc.ch[2]) ;
 
-    if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
-    {
-        YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
-    }
+//    if(rcData.rc.s[1] == 1 && auto_aim_rx_packet.distance != -1.0f)
+//    {
+//        YAW_GIVEN_ANGLE_COMPUTE = auto_aim_rx_packet.yaw ;
+//    }
 
 
     if(YAW_GIVEN_ANGLE_COMPUTE > 180.0f)

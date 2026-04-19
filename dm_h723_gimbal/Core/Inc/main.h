@@ -72,6 +72,9 @@ extern float yaw_imu_preprocess ;//yaw轴imu预处理
 
 extern int16_t SHOOT_2006_GIVEN_SPEED ;
 
+extern uint32_t auto_aim_time ;//自瞄时间戳
+
+extern int16_t auto_aim_communication_state ;//自瞄通讯状态 0为离线，1为在线
 
 
 /* USER CODE END EC */

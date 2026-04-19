@@ -6,7 +6,7 @@
 #include "string.h"
 #include "usart.h"
 #include "remote_control.h"
-
+#include "AUTO_AIM_TASK.h"
 
 
 #if REMOTE_TYPE == SBUS
@@ -131,6 +131,39 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
         HAL_UARTEx_ReceiveToIdle_DMA(huart, rx_dbus_buff, DBUS_BUFF_SIZE);
         // 注意：H7开启了Cache时，可能需要在这里处理DCache的一致性 (SCB_InvalidateDCache_by_Addr)
     }
+
+
+    if (huart->Instance == UART7) // 确认是自瞄对应的串口
+    {
+        // 1. 长度校验：必须等于结构体长度 16 字节
+        if (Size == sizeof(struct ReceivePacket))
+        {
+            // 2. 帧头帧尾基本校验
+            if (auto_aim_rx_buffer[0] == 0xFF &&
+                auto_aim_rx_buffer[Size - 1] == 0x0D)
+            {
+                // 3. 内存直接拷贝
+                // 因为用了 __attribute__((packed))，所以内存分布和缓冲区完全一致
+                memcpy(&auto_aim_rx_packet, auto_aim_rx_buffer, sizeof(struct ReceivePacket));
+
+                auto_aim_time = HAL_GetTick();//更新自瞄时间戳
+
+                // --- 这里可以写你的处理逻辑 ---
+                // if(auto_aim_rx_packet.fite_advance == 0x01) { ... }
+            }
+        }
+        else
+        {
+            // 如果长度不是 16，说明可能发生了断帧或干扰
+            // DMA 自动重启后会重新对齐
+        }
+
+        // 4. 重新开启接收（非常重要！）
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart7, auto_aim_rx_buffer, RX_BUF_SIZE);
+
+        // 5. 习惯性关闭 DMA 半满中断，防止在大包传输时产生干扰
+        __HAL_DMA_DISABLE_IT(huart->hdmarx, DMA_IT_HT);
+    }
 }
 
 /**
@@ -141,6 +174,10 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
     if (huart->Instance == UART5)
     {
         HAL_UARTEx_ReceiveToIdle_DMA(huart, rx_dbus_buff, DBUS_BUFF_SIZE);
+    }
+    if (huart->Instance == UART7)
+    {
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart7, auto_aim_rx_buffer, RX_BUF_SIZE);
     }
 }
 

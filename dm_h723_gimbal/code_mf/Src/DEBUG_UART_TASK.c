@@ -16,7 +16,7 @@ void DEBUG_UART_TASK()
 {
     while (1)
     {
-        usart1_printf("%d,%d \r\n",auto_aim_rx_packet.pitch);
+        usart1_printf("%f,%f \r\n",auto_aim_rx_packet.yaw,auto_aim_rx_packet.distance);
         osDelay(1);
     }
 }

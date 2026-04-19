@@ -319,6 +319,7 @@ CMakeFiles/dm_h723_lib.elf.dir/Core/Src/main.c.obj: D:/RoboMaster_git/RM2026_bal
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/AUTO_AIM_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/BMI088driver.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/GIMBAL_MOTOR_CONTROL.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/SHOOT_TASK.h \
@@ -2904,6 +2905,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/ERROR_DETECTION.c.obj: D:/RoboMaster_
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/FreeRTOSConfig.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/main.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/stm32h7xx_hal_conf.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/usart.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h \
@@ -3687,6 +3689,7 @@ CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/remote_control.c.obj: D:/RoboMaster_g
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+  D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/AUTO_AIM_TASK.h \
   D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/remote_control.h
 
 CMakeFiles/dm_h723_lib.elf.dir/code_mf/Src/uart_callback.c.obj: D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Src/uart_callback.c \
@@ -4056,6 +4059,10 @@ D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/spi.h:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Core/Inc/usart.h:
 
+C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h:
+
+D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/AUTO_AIM_TASK.h:
+
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/BMI088driver.h:
 
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/SHOOT_TASK.h:
@@ -4193,10 +4200,6 @@ D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Drivers/STM32H7xx
 D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:
 
 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h:
-
-D:/RoboMaster_git/RM2026_balance_infantry_robot/dm_h723_gimbal/code_mf/Inc/AUTO_AIM_TASK.h:
-
-C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/strings.h:
 
 C:/CLionToolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/string.h:
 

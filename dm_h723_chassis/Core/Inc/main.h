@@ -86,7 +86,11 @@ extern float chassis_follow_gimbal_given_speed ;
 
 extern float chassis_vx_given_speed ;
 
+extern float chassis_given_move_x_m ;
+
 extern uint8_t JUMP_STATE ;
+
+extern uint8_t CHASSIS_ROUND_STATE_COMPUTE ;
 
 
 /* USER CODE END EC */
